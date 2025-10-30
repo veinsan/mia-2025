@@ -13,8 +13,14 @@ export default function Hero() {
         </h1>
 
         <p className="text-[#FFF0E0] text-base md:text-lg mt-4 max-w-2xl mx-auto">
-          Wisata kuliner baru di Bandung, mulai dari jajanan sederhana sampai kafe ber-wifi!
+          Wisata kuliner baru di Bandung, mulai dari jajanan 
         </p>
+
+        <p className="text-[#FFF0E0] text-base md:text-lg mt-4 max-w-2xl mx-auto">
+          sederhana sampai kafe ber-wifi!
+        </p>
+
+
 
         <div className="mt-10 flex justify-center">
           <a
