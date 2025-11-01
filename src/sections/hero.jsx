@@ -214,7 +214,7 @@ export default function Hero() {
           </motion.span>
         </motion.p>
 
-        {/* Tombol CTA (Call To Action) */}
+        {/* Buttom */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}

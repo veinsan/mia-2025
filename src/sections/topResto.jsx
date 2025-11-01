@@ -1,127 +1,158 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 export default function TopResto() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const cardsRef = useRef([]);
-
-  const restoList = [
+  const restos = [
     {
       name: "Black Romantic",
-      desc: "Dyto Romantis",
-      img: "/assets/bg1.jpg",
-      tag: "ok zi",
+      desc: "Cafe hangat dengan lampu kuning redup, tempat paling pas buat ngobrol lama sambil nugas.",
+      img: "/assets/resto/resto1.jpg",
     },
     {
       name: "Kedai BWJ",
-      desc: "kata faizi enak",
-      img: "/assets/bg2.jpg",
-      tag: "mantap zi",
+      desc: "Favorit mahasiswa Bandung, nasi goreng kornet dan es tehnya udah jadi menu wajib.",
+      img: "/assets/resto/resto2.jpg",
     },
     {
       name: "Bebek Stallone",
-      desc: "kata faizi enak(2)",
-      img: "/assets/bg4.jpg",
-      tag: "atur atur zi",
+      desc: "Bumbu rempahnya kuat, sambelnya brutal, bebeknya lembut. The real comfort food.",
+      img: "/assets/resto/resto3.jpg",
     },
     {
-      name: "tes",
-      desc: "ya",
-      img: "/assets/bg3.jpg",
-      tag: "siap zi",
+      name: "Warung Nyemil",
+      desc: "Roti bakar lumer dan playlist galau, trio sempurna buat malam dingin.",
+      img: "/assets/resto/resto4.jpg",
+    },
+    {
+      name: "Kopi Kenang Diri",
+      desc: "Kopi strong, suasana tenang. Cocok buat refleksi hidup (dan nugas).",
+      img: "/assets/resto/resto5.jpg",
+    },
+    {
+      name: "Ayam Geprek Galaxy",
+      desc: "Cepat, murah, dan pedasnya bisa request. Favorit anak kos sebelum ujian.",
+      img: "/assets/resto/resto6.jpg",
     },
   ];
 
-  //button
-  const lefts = ["0px", "120px", "240px", "360px"];
-  const zIndexes = [30, 20, 10, 0];
-  const rotates = ["-2deg", "1deg", "-1deg", "2deg"];
-
-  useEffect(() => {
-    const total = restoList.length;
-    for (let i = 0; i < total; i++) {
-      const idx = (currentIndex + i) % total;
-      const card = cardsRef.current[idx];
-      if (card) {
-        card.style.zIndex = zIndexes[i];
-        card.style.left = lefts[i];
-        card.style.transform = `rotate(${rotates[i]})`;
-      }
-    }
-  }, [currentIndex]);
-
-  const next = () => setCurrentIndex((prev) => (prev + 1) % restoList.length);
-  const prev = () => setCurrentIndex((prev) => (prev - 1 + restoList.length) % restoList.length);
+  // Animation like AOS direction-based
+  const anim = (dir = "up", delay = 0) => ({
+    hidden: {
+      opacity: 0,
+      x: dir === "left" ? 100 : dir === "right" ? -100 : 0,
+      y: dir === "up" ? 100 : dir === "down" ? -100 : 0,
+      scale: 0.95,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      scale: 1,
+      transition: {
+        delay,
+        duration: 0.9,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+  });
 
   return (
     <section
       id="topResto"
-      className="relative py-24 bg-gradient-to-b from-[#F5A623] to-[#D35400] text-white px-4 overflow-hidden rounded-tl-[32px] rounded-tr-[32px] md:rounded-tl-[100px] md:rounded-tr-[100px]"
+      className="relative min-h-screen py-20 bg-gradient-to-b from-[#FFF3E0] via-[#FFD9A3] to-[#F9B04E]/40 text-dark overflow-hidden"
     >
-      <div className="absolute left-0 top-0 w-[40%] h-full z-0 overflow-hidden pointer-events-none opacity-15">
-        <img src="/assets/frame-pattern.svg" className="w-full h-full object-cover" alt="Background Pattern" />
-      </div>
+      <div className="max-w-[95rem] mx-auto px-6 md:px-12 grid grid-cols-4 grid-rows-6 gap-6 auto-rows-[minmax(150px,auto)]">
+        {/* TITLE */}
+        <motion.div
+          variants={anim("left", 0.1)}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="col-span-2 row-span-2 flex flex-col justify-center"
+        >
+          <h4 className="text-[#E86A1E] font-semibold mb-3 text-lg">
+            Tempat Andalan
+          </h4>
+          <h2 className="text-5xl md:text-6xl font-heading font-bold text-[#4A1E0E] mb-4 leading-tight">
+            Rekomendasi <span className="text-[#E86A1E]">Mahasiswa</span>
+          </h2>
+          <p className="text-lg text-[#4A1E0E]/70 font-light max-w-xl">
+            Kumpulan tempat makan legendaris sekitar kampus — dari yang murah
+            meriah sampai cozy parah.
+          </p>
+        </motion.div>
 
-      <div className="max-w-[90rem] mx-auto grid md:grid-cols-2 items-center gap-12 relative z-10">
-        {/* Left section */}
-        <div className="text-left flex flex-col items-start justify-center">
-          <img src="/assets/logo.png" alt="Gelap Nyawang Logo" className="w-32 mb-8" />
-          <h2 className="font-[Righteous] text-4xl md:text-6xl font-bold text-[#4A1E0E]">Rekomendasi Faizi</h2>
-          <p className="text-lg mt-4 text-[#FFF0E0] font-[Inter]">Kata Faizi suruh cobain</p>
-        </div>
+        {/* RESTO CARDS */}
+        {restos.map((r, i) => {
+          const dir =
+            i % 3 === 0 ? "left" : i % 3 === 1 ? "up" : "right"; // arah animasi per kolom
+          const delay = 0.15 + i * 0.1;
 
-        {/* Right section */}
-        <div className="relative flex flex-col items-center justify-center">
-          <div className="relative w-[270px] h-[340px] mx-auto md:w-[1200px] md:h-[520px] md:max-w-[1400px]">
-            {restoList.map((r, i) => (
+          return (
+            <motion.div
+              key={i}
+              variants={anim(dir, delay)}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.03 }}
+              className={`relative rounded-[28px] overflow-hidden shadow-xl group transition-all duration-700 bg-[#FFF9F3] ${
+                i === 0
+                  ? "col-span-2 row-span-2 col-start-3 row-start-1"
+                  : i === 1
+                  ? "col-span-2 row-span-2 col-start-1 row-start-3"
+                  : i === 2
+                  ? "col-span-2 row-span-2 col-start-3 row-start-3"
+                  : i === 3
+                  ? "col-span-2 row-span-2 col-start-1 row-start-5"
+                  : i === 4
+                  ? "col-span-2 row-span-2 col-start-3 row-start-5"
+                  : "col-span-4 row-span-1 row-start-7"
+              }`}
+            >
               <div
-                key={i}
-                ref={(el) => (cardsRef.current[i] = el)}
-                className="menu-card absolute top-0 bg-white rounded-2xl shadow-xl p-5 md:w-[600px] md:min-h-[480px] transition-all duration-300 ease-in-out"
-              >
-                <div className="flex justify-between items-start">
-                  <img
-                    src="/assets/wle.jpeg"
-                    alt="Icon"
-                    className="w-10 md:w-14 max-h-14 object-contain rounded-md"
-                  />
-                  <span className="bg-[#D35400] text-white px-3 py-1 rounded-full text-xs md:text-xl font-bold">
-                    {r.tag}
-                  </span>
-                </div>
-                <h3 className="font-[Righteous] text-base md:text-2xl font-bold mt-3 text-[#4A1E0E]">{r.name}</h3>
-                <p className="text-gray-700 mt-1 text-xs md:text-sm font-[Inter]">{r.desc}</p>
-                <img
-                  src={r.img}
-                  alt={r.name}
-                  className="absolute left-0 bottom-0 w-[100%] max-h-[260px] md:max-h-[320px] object-cover rounded-bl-2xl"
-                />
-              </div>
-            ))}
-          </div>
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
+                style={{ backgroundImage: `url(${r.img})` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#000000AA] via-[#00000050] to-transparent" />
 
-          {/* Buttons */}
-          <div className="flex justify-center mt-8 gap-4">
-            <button
-              id="menu-prev"
-              onClick={prev}
-              className="w-14 h-14 bg-white text-[#D35400] rounded-full flex items-center justify-center shadow hover:bg-orange-100 transition"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-                <path d="M22 27L13 18L22 9" stroke="#D35400" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-            <button
-              id="menu-next"
-              onClick={next}
-              className="w-14 h-14 bg-white text-[#D35400] rounded-full flex items-center justify-center shadow hover:bg-orange-100 transition"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-                <path d="M14 9L23 18L14 27" stroke="#D35400" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-          </div>
-        </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
+                <h3 className="text-xl md:text-2xl font-semibold mb-2 drop-shadow-md">
+                  {r.name}
+                </h3>
+                <p className="text-sm text-gray-200 leading-snug mb-3 max-w-sm">
+                  {r.desc}
+                </p>
+                <motion.a
+                  href="#"
+                  whileHover={{
+                    scale: 1.05,
+                    backgroundColor: "#E86A1E",
+                    color: "#FFF3E0",
+                  }}
+                  className="inline-flex items-center gap-2 border border-[#FFF3E0]/70 text-sm px-4 py-2 rounded-lg bg-white/10 backdrop-blur-md transition-all"
+                >
+                  Read More
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </motion.a>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );
