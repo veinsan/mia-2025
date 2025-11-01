@@ -8,29 +8,26 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#E87524", // oranye utama
-        secondary: "#B94519", // oranye tua untuk shadow/tekanan
-        accent: "#FFA94D", // oranye lembut untuk gradient/hover
-        dark: "#4A1E0E", // coklat tua untuk background dark mode
-        light: "#FFF0E0", // cream lembut untuk light mode
-        neutral: "#2C2C2C", // teks/ikon netral
+        primary: "#E87524",
+        secondary: "#B94519",
+        accent: "#FFA94D",
+        dark: "#4A1E0E",
+        light: "#FFF0E0",
+        neutral: "#2C2C2C",
       },
       fontFamily: {
         sans: ["Poppins", "sans-serif"],
         heading: ["Righteous", "sans-serif"],
-        delius: ["Delius", "cursive"], // buat subheading Testimoni
+        delius: ["Delius", "cursive"],
       },
       boxShadow: {
-        glow: "0 0 20px rgba(232, 117, 36, 0.5)", // efek glow oranye
-        soft: "0 10px 30px rgba(0,0,0,0.08)", // buat card ringan
+        glow: "0 0 20px rgba(232, 117, 36, 0.5)",
+        soft: "0 10px 30px rgba(0,0,0,0.08)",
       },
       backgroundImage: {
         "hero-gradient": "linear-gradient(to bottom, var(--tw-gradient-stops))",
       },
-
-      // 🔥 ANIMATIONS
       keyframes: {
-        // Hero parallax fade-in smooth
         fadeUp: {
           "0%": { opacity: "0", transform: "translateY(30px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
@@ -39,7 +36,6 @@ module.exports = {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
-        // Tentang animasi saat scroll masuk
         fadeLeft: {
           "0%": { opacity: "0", transform: "translateX(-30px)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
@@ -48,7 +44,6 @@ module.exports = {
           "0%": { opacity: "0", transform: "translateX(30px)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
-        // Testimoni marquee
         marqueeLeft: {
           "0%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-50%)" },
@@ -57,13 +52,11 @@ module.exports = {
           "0%": { transform: "translateX(-50%)" },
           "100%": { transform: "translateX(0%)" },
         },
-        // Sedikit efek zoom-in buat TopResto cards
         zoomIn: {
           "0%": { transform: "scale(0.95)", opacity: "0" },
           "100%": { transform: "scale(1)", opacity: "1" },
         },
       },
-
       animation: {
         "fade-up": "fadeUp 0.8s ease-out both",
         "fade-in": "fadeIn 1s ease-out both",
@@ -73,17 +66,17 @@ module.exports = {
         "scroll-right": "marqueeRight 40s linear infinite",
         "zoom-in": "zoomIn 0.6s ease-out both",
       },
-
-      // responsive spacing khusus Hero/Tentang
       spacing: {
         "128": "32rem",
         "144": "36rem",
       },
-
       borderRadius: {
         "2xl": "1.25rem",
         "3xl": "1.75rem",
         "4xl": "2.5rem",
+      },
+      willChange: {
+        transform: "transform",
       },
     },
   },

@@ -143,7 +143,7 @@ export default function Testimoni() {
 
       {/* credit kecil */}
       <div className="absolute bottom-4 right-4 opacity-0 hover:opacity-100 transition-all duration-500 text-sm text-[#4A1E0E]/80">
-        ❤️ Terima kasih sudah dukung UMKM lokal.
+        Liat apa hayo wkwk
       </div>
     </section>
   );
