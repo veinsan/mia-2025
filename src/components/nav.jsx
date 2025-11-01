@@ -155,7 +155,7 @@ export default function Nav({ dataUMKM = [] }) {
     { id: "tentang", label: "Tentang", href: "#tentang" },
     { id: "resto", label: "Rekomendasi", href: "#resto" },
     { id: "testimoni", label: "Testimoni", href: "#testimoni" },
-    { id: "suasana", label: "Suasana", href: "#suasana" },
+    { id: "galeri", label: "Galeri", href: "#galeri" },
     { id: "lokasi", label: "Lokasi", href: "#lokasi" },
   ];
 

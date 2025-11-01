@@ -6,38 +6,38 @@ export default function TopResto() {
     {
       slug: "black-romantic",
       name: "Black Romantic",
-      desc: "Cafe hangat dengan lampu kuning redup, tempat pas buat ngobrol lama sambil nugas.",
-      img: "/assets/resto/resto1.jpg",
+      desc: "ini kata faizi enak juga",
+      img: "/assets/resto/resto1.webp",
     },
     {
       slug: "kedai-bwj",
       name: "Kedai BWJ",
-      desc: "Favorit mahasiswa Bandung — nasi goreng kornet dan es teh wajib.",
-      img: "/assets/resto/resto2.jpg",
+      desc: "ini kata faizi enak",
+      img: "/assets/resto/resto2.webp",
     },
     {
       slug: "bebek-stallone",
       name: "Bebek Stallone",
-      desc: "Rempah kuat, sambal brutal, daging lembut — comfort food level tinggi.",
+      desc: "ini kata faizi enak juga kali",
       img: "/assets/resto/resto3.jpg",
     },
     {
-      slug: "warung-nyemil",
-      name: "Warung Nyemil",
-      desc: "Roti bakar lumer + playlist galau — sempurna buat malam dingin.",
-      img: "/assets/resto/resto4.jpg",
+      slug: "ayam-cola",
+      name: "Ayam Cola Kabita HC",
+      desc: "ini kata faizi enak juga kali mungkin",
+      img: "/assets/resto/resto4.webp",
     },
     {
-      slug: "kopi-kenang-diri",
-      name: "Kopi Kenang Diri",
-      desc: "Kopi strong, suasana tenang — cocok buat refleksi (dan nugas).",
-      img: "/assets/resto/resto5.jpg",
+      slug: "ayam-bebek-besthal",
+      name: "Ayam & Bebek Besthal",
+      desc: "ini kata faizi enak juga kali mungkin asumsi",
+      img: "/assets/resto/resto5.webp",
     },
     {
-      slug: "ayam-geprek-galaxy",
-      name: "Ayam Geprek Galaxy",
-      desc: "Cepat, murah, pedas bisa request — favorit anak kos sebelum ujian.",
-      img: "/assets/resto/resto6.jpg",
+      slug: "rumah-makan",
+      name: "Rumah Makan Pak Datuak",
+      desc: "ini kata faizi enak juga kali mungkin asumsi harusnya",
+      img: "/assets/resto/resto6.webp",
     },
   ];
 
@@ -74,11 +74,10 @@ export default function TopResto() {
           >
             <p className="text-[#E87524] font-semibold mb-2">Tempat Andalan</p>
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-[#4A1E0E] leading-tight mb-4">
-              Rekomendasi <span className="text-[#E87524]">Mahasiswa</span>
+              Rekomendasi <span className="text-[#E87524]">Paijo</span>
             </h2>
             <p className="text-[#4A1E0E]/80 text-base md:text-lg max-w-md">
-              Kumpulan tempat makan legendaris sekitar kampus — dari yang murah
-              meriah sampai cozy parah.
+              Kumpulan tempat makan yang sering paijo datengin di ganyang, intinya yang enak kita masukin ygy
             </p>
           </motion.div>
 

@@ -61,20 +61,20 @@ export default function Tentang() {
   const cards = [
     {
       id: "rumahan",
-      title: "Rasa Rumahan",
-      desc: "Masakan hangat dengan resep lokal — aroma & rasa yang mengingatkan rumah.",
+      title: "Lorem Ipsum",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, quas quisquam. Quod ab dolorum ducimus magni libero debitis culpa, porro consequatur amet magnam eveniet a nostrum quia fuga? Asperiores, laboriosam.",
       img: "/assets/about/t1.jpg",
     },
     {
       id: "lokal",
-      title: "Dukung UMKM Lokal",
-      desc: "Setiap pesanan membantu pelaku usaha kecil di sekitar Bandung berkembang.",
+      title: "Lorem Ipsum",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, quas quisquam. Quod ab dolorum ducimus magni libero debitis culpa, porro consequatur amet magnam eveniet a nostrum quia fuga? Asperiores, laboriosam.",
       img: "/assets/about/t2.jpg",
     },
     {
       id: "cepat",
-      title: "Cepat & Praktis",
-      desc: "Pesan dari mana saja, makanan datang hangat tanpa ribet.",
+      title: "Lorem Ipsum",
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, quas quisquam. Quod ab dolorum ducimus magni libero debitis culpa, porro consequatur amet magnam eveniet a nostrum quia fuga? Asperiores, laboriosam.",
       img: "/assets/about/t3.jpg",
     },
   ];
@@ -158,15 +158,14 @@ export default function Tentang() {
               id="tentang-title"
               className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#1B1B1B] dark:text-[#F7F3EE] leading-tight"
             >
-              Kenapa Pilih <span className="text-primary dark:text-[#F9B04E]">Ganyang Nyawang?</span>
+              Kenapa Makan <span className="text-primary dark:text-[#F9B04E]">Di Ganyang?</span>
             </motion.h2>
 
             <motion.p
               variants={item}
               className="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-300"
             >
-              Bukan sekadar warkop — kami meramu rasa lokal, memberdayakan UMKM, dan membuat
-              pengalaman makan jadi mudah serta bermakna.
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus quam commodi, exercitationem facilis nobis, corporis recusandae ipsa amet fugit necessitatibus, nihil iusto hic odio? Dignissimos tempore doloremque incidunt? Voluptate, harum.
             </motion.p>
           </motion.div>
 

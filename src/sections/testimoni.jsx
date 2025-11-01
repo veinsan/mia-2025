@@ -70,15 +70,15 @@ export default function Testimoni() {
   }, []);
 
   const reviewsTop = [
-    { text: "Tempat dengan makanan yang bervariasi", name: "Ibnas" },
-    { text: "Memorable banget, apalagi masa-masa tiap hari ke Tamgan, kalau diusir dari Tamgan geser ke Ganyang", name: "Awir" },
-    { text: "Variatif dan terjangkau", name: "Apay" },
+    { text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam tempora in corrupti expedita veniam natus libero. Dolore voluptatum adipisci ab, quam sapiente animi quis necessitatibus nemo aspernatur perspiciatis est laudantium?", name: "Ibnas" },
+    { text: "Memorable banget, apalagi masa-masa tiap hari ke Tamgan, kalau diusir dari Tamgan geser ke Ganyang", name: "Fira" },
+    { text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam tempora in corrupti expedita veniam natus libero. Dolore voluptatum adipisci ab, quam sapiente animi quis necessitatibus nemo aspernatur perspiciatis est laudantium?", name: "Apay" },
   ];
 
   const reviewsBottom = [
-    { text: "Tempatnya luas dan makanannya beragam", name: "Cepak Raharjo" },
-    { text: "nigger", name: "Paijo" },
-    { text: "negro", name: "Ah" },
+    { text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam tempora in corrupti expedita veniam natus libero. Dolore voluptatum adipisci ab, quam sapiente animi quis necessitatibus nemo aspernatur perspiciatis est laudantium?", name: "Raharjo" },
+    { text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam tempora in corrupti expedita veniam natus libero. Dolore voluptatum adipisci ab, quam sapiente animi quis necessitatibus nemo aspernatur perspiciatis est laudantium?", name: "Paijo" },
+    { text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam tempora in corrupti expedita veniam natus libero. Dolore voluptatum adipisci ab, quam sapiente animi quis necessitatibus nemo aspernatur perspiciatis est laudantium?", name: "Athan" },
   ];
 
   const Card = ({ text, name }) => (
