@@ -1,42 +1,42 @@
 "use client";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   useEffect(() => {
     const footer = document.querySelector("footer");
 
-    // Set initial state
+    // Set awal (fade-in satu kali)
     footer.classList.add("opacity-0", "translate-y-10");
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Muncul halus pas scroll down
           footer.classList.add(
             "opacity-100",
             "translate-y-0",
             "transition-all",
-            "duration-[1000ms]",
+            "duration-[1200ms]",
             "ease-out"
           );
           footer.classList.remove("opacity-0", "translate-y-10");
-        } else {
-          // Hilang halus pas scroll up
-          footer.classList.remove("opacity-100", "translate-y-0");
-          footer.classList.add("opacity-0", "translate-y-10");
+          observer.unobserve(footer); // animasi cuma sekali
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.25 }
     );
 
     observer.observe(footer);
     return () => observer.disconnect();
   }, []);
 
+  // Scroll to top smooth
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
   return (
-    <footer className="relative w-full bg-gradient-to-b from-[#E87524] to-[#B94519] text-[#FFF9F0] py-16 px-6 md:px-20 font-sans overflow-hidden">
-      {/* subtle texture biar gak flat */}
-      <div className="absolute inset-0 bg-[url('/grain-texture.png')] bg-repeat opacity-15 pointer-events-none"></div>
+    <footer className="relative w-full bg-gradient-to-b from-[#D17B39] via-[#C36D2F] to-[#B35924] text-[#FFF9F0] py-16 px-6 md:px-20 font-sans overflow-hidden">
+      {/* grain texture (lebih kelihatan tapi halus) */}
+      <div className="absolute inset-0 bg-[url('/grain-texture.png')] bg-repeat opacity-25 pointer-events-none"></div>
 
       {/* container utama */}
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-center justify-between mb-12 gap-10">
@@ -106,7 +106,7 @@ export default function Footer() {
               <li key={i}>
                 <a
                   href={item.link}
-                  className="relative group hover:text-[#FFD699] transition-colors duration-200"
+                  className="relative group hover:text-[#FFD699] transition-all duration-300 inline-block"
                 >
                   {item.name}
                   <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#FFD699] transition-all duration-300 group-hover:w-full"></span>
@@ -133,7 +133,7 @@ export default function Footer() {
                   href={sos.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative group hover:text-[#FFD699] transition-colors duration-200"
+                  className="relative group hover:text-[#FFD699] transition-all duration-300 inline-block"
                 >
                   {sos.name}
                   <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#FFD699] transition-all duration-300 group-hover:w-full"></span>
@@ -150,7 +150,7 @@ export default function Footer() {
             href="https://wa.me/6289656054453"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative group hover:text-[#FFD699] transition-colors duration-200"
+            className="relative group hover:text-[#FFD699] transition-all duration-300 inline-block"
           >
             Whatsapp
             <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#FFD699] transition-all duration-300 group-hover:w-full"></span>
@@ -163,18 +163,29 @@ export default function Footer() {
 
       {/* Copyright */}
       <div className="relative z-10 max-w-7xl mx-auto text-center text-sm md:text-base text-[#FFF9F0]/90 tracking-wide leading-relaxed">
-        &copy; 2025 Gelap Nyawang. Website ini dibuat khusus untuk Web Development
-        Competition dalam rangka Multimedia In Action (MIA) 2025.
+        &copy; 2025 Gelap Nyawang. Website ini dibuat untuk Web Development
+        Competition MIA 2025.
         <br />
-        Desain dan konten dikembangkan sepenuhnya oleh tim Gelap Nyawang
-        Creative.
+        Desain & konten dikembangkan oleh tim Gelap Nyawang Creative.
       </div>
 
-      {/* Overlay Gradient Soft */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#00000020] via-transparent to-transparent pointer-events-none"></div>
+      {/* Ambient Glow Line (bergerak pelan) */}
+      <motion.div
+        className="absolute bottom-0 left-0 w-full h-[6px] bg-gradient-to-r from-[#FFD699]/0 via-[#FFF3E0]/60 to-[#FFD699]/0 blur-sm opacity-80"
+        animate={{ x: ["0%", "20%", "0%"] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      />
 
-      {/* Ambient Glow Line */}
-      <div className="absolute bottom-0 left-0 w-full h-[6px] bg-gradient-to-r from-[#FFD699]/0 via-[#FFF3E0]/50 to-[#FFD699]/0 blur-sm opacity-70"></div>
+      {/* Tombol Scroll to Top */}
+      <motion.button
+        onClick={scrollToTop}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        className="fixed bottom-6 right-6 bg-[#FFD699]/30 backdrop-blur-md hover:bg-[#FFD699]/60 text-[#FFF] p-3 rounded-full shadow-lg transition-all duration-300"
+        title="Kembali ke atas"
+      >
+        ↑
+      </motion.button>
     </footer>
   );
 }

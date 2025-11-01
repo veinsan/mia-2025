@@ -7,25 +7,20 @@ export default function Hero() {
   // STATE & SETUP
   // ========================
 
-  // Teks lengkap yang bakal ditampilkan dengan efek ketikan
   const fullText =
     "Wisata kuliner baru di Bandung, mulai dari jajanan sederhana sampai kafe ber-wifi!";
 
-  // State buat menampilkan sebagian teks (efek ketikan)
   const [displayText, setDisplayText] = useState("");
-
-  // Penanda apakah efek ketikan sudah selesai
   const [typingDone, setTypingDone] = useState(false);
 
   // ========================
   // PARALLAX SETUP
   // ========================
-
-  // Menyimpan referensi ke setiap layer gambar background
   const layerRefs = useRef([]);
-  layerRefs.current = [];
-
-  // Fungsi untuk menambahkan ref unik ke setiap layer background
+  // pastikan gak reset setiap render
+  useEffect(() => {
+    layerRefs.current = [];
+  }, []);
   const addLayerRef = (el) => {
     if (el && !layerRefs.current.includes(el)) layerRefs.current.push(el);
   };
@@ -33,56 +28,58 @@ export default function Hero() {
   // ========================
   // EFEK KETIKAN TEKS
   // ========================
-
   useEffect(() => {
     let index = 0;
-    // Jalankan interval untuk menambahkan huruf satu per satu
     const interval = setInterval(() => {
       setDisplayText(fullText.slice(0, index));
       index++;
-      // Kalau sudah sampai akhir teks, hentikan interval
       if (index > fullText.length) {
         clearInterval(interval);
-        setTypingDone(true);
+        // kasih sedikit delay biar cursor gak langsung hilang
+        setTimeout(() => setTypingDone(true), 500);
       }
-    }, 36); // kecepatan ketikan (ms per huruf)
+    }, 52); // lebih natural, 50–55 ms per huruf
     return () => clearInterval(interval);
   }, []);
 
   // ========================
   // BACKGROUND IMAGES
   // ========================
-
-  // Daftar gambar background (posisi dan ukuran custom)
   const bgImages = [
-    { src: "/assets/hero/bg1.webp", style: "left-[4%] top-[6%] w-[520px] h-[360px]" },
-    { src: "/assets/hero/bg2.webp", style: "left-[30%] top-[12%] w-[520px] h-[360px]" },
-    { src: "/assets/hero/bg3.webp", style: "right-[8%] top-[8%] w-[520px] h-[360px]" },
-    { src: "/assets/hero/bg4.webp", style: "left-[10%] bottom-[8%] w-[520px] h-[360px]" },
-    { src: "/assets/hero/bg5.webp", style: "right-[20%] bottom-[10%] w-[520px] h-[360px]" },
-    { src: "/assets/hero/bg6.webp", style: "right-[4%] top-[44%] w-[420px] h-[300px]" },
+    { src: "/assets/hero/bg1.webp", style: "left-[4%] top-[6%] max-w-[520px] w-[70vw] h-auto" },
+    { src: "/assets/hero/bg2.webp", style: "left-[30%] top-[12%] max-w-[520px] w-[70vw] h-auto" },
+    { src: "/assets/hero/bg3.webp", style: "right-[8%] top-[8%] max-w-[520px] w-[70vw] h-auto" },
+    { src: "/assets/hero/bg4.webp", style: "left-[10%] bottom-[8%] max-w-[520px] w-[70vw] h-auto" },
+    { src: "/assets/hero/bg5.webp", style: "right-[20%] bottom-[10%] max-w-[520px] w-[70vw] h-auto" },
+    { src: "/assets/hero/bg6.webp", style: "right-[4%] top-[44%] max-w-[420px] w-[60vw] h-auto" },
   ];
-
-  // Durasi animasi setiap layer background (biar beda-beda)
   const durations = [16, 18, 20, 17, 19, 21];
 
   // ========================
   // PARALLAX SCROLL EFFECT
   // ========================
-
   useEffect(() => {
     let mounted = true;
     let rafId = null;
 
-    // Fungsi utama buat update posisi tiap layer saat scroll
     const handle = () => {
       if (!mounted) return;
 
-      const scrollY = window.scrollY || window.pageYOffset;
-      const base = Math.min(window.innerHeight, 1200); // batas scroll
-      const visibleRatio = Math.max(0, Math.min(1, scrollY / base)); // rasio posisi scroll (0–1)
+      // hemat performa: hentikan animasi kalau user idle/tab gak aktif
+      if (document.hidden) {
+        rafId = requestAnimationFrame(handle);
+        return;
+      }
 
-      // Update posisi tiap layer sesuai kecepatan (depth)
+      const scrollY = window.scrollY || window.pageYOffset;
+      if (scrollY < 10) {
+        rafId = requestAnimationFrame(handle);
+        return;
+      }
+
+      const base = Math.min(window.innerHeight, 1200);
+      const visibleRatio = Math.max(0, Math.min(1, scrollY / base));
+
       layerRefs.current.forEach((el, i) => {
         const speed = (i + 1) * 0.08;
         const translateY = -visibleRatio * 30 * speed;
@@ -90,10 +87,9 @@ export default function Hero() {
         el.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
       });
 
-      rafId = requestAnimationFrame(handle); // terus update tiap frame
+      rafId = requestAnimationFrame(handle);
     };
 
-    // Jalankan loop parallax
     rafId = requestAnimationFrame(handle);
     return () => {
       mounted = false;
@@ -104,7 +100,6 @@ export default function Hero() {
   // ========================
   // RENDER SECTION HERO
   // ========================
-
   return (
     <section
       id="hero"
@@ -114,7 +109,6 @@ export default function Hero() {
           BACKGROUND GRID LAYER
       ======================== */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        {/* Loop setiap gambar background */}
         {bgImages.map((img, i) => (
           <motion.div
             key={i}
@@ -122,10 +116,10 @@ export default function Hero() {
             className={`absolute rounded-2xl overflow-hidden shadow-2xl ${img.style}`}
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{
-              opacity: [0.9, 1, 0.9], // kedipan lembut
-              y: [0, i % 2 === 0 ? -18 : 18, 0], // gerak vertikal pelan
-              scale: [1, 1.06, 1], // zoom in-out subtle
-              rotate: [0, i % 2 === 0 ? 1.2 : -1.2, 0], // rotasi kecil bolak-balik
+              opacity: [0.9, 1, 0.9],
+              y: [0, i % 2 === 0 ? -18 : 18, 0],
+              scale: [1, 1.06, 1],
+              rotate: [0, i % 2 === 0 ? 1.2 : -1.2, 0],
             }}
             transition={{
               duration: durations[i],
@@ -135,18 +129,18 @@ export default function Hero() {
             }}
             style={{ willChange: "transform, opacity" }}
           >
-            {/* Isi gambar tiap layer */}
             <motion.img
               src={img.src}
-              alt={`Kuliner Bandung ${i + 1}`}
+              alt={`Suasana kuliner di Gelap Nyawang ${i + 1}`}
+              loading="lazy"
               className="w-full h-full object-cover"
               animate={{
-                scale: [1, 1.08, 1], // efek zoom subtle
+                scale: [1, 1.08, 1],
                 filter: [
-                  "brightness(0.78) blur(1px)",
+                  "brightness(0.65) blur(1px)",
                   "brightness(1) blur(0px)",
-                  "brightness(0.78) blur(1px)",
-                ], // efek kedipan brightness + blur lembut
+                  "brightness(0.65) blur(1px)",
+                ],
               }}
               transition={{
                 duration: durations[i] + 6,
@@ -157,15 +151,14 @@ export default function Hero() {
           </motion.div>
         ))}
 
-        {/* Overlay gradient gelap supaya teks tetap kebaca */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#000000DD] via-[#00000040] to-[#000000DD]" />
+        {/* Overlay gradient lebih kuat biar teks lebih kebaca */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#000000E6] via-[#00000055] to-[#000000E6]" />
       </div>
 
       {/* ========================
           TEKS & KONTEN HERO
       ======================== */}
       <div className="max-w-5xl mx-auto relative z-10 text-light px-4">
-        {/* Judul utama */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -180,7 +173,7 @@ export default function Hero() {
                 "0px 0px 0px #E87524",
                 "0px 0px 20px #E87524AA",
                 "0px 0px 0px #E87524",
-              ], // efek glow oranye
+              ],
             }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           >
@@ -188,7 +181,6 @@ export default function Hero() {
           </motion.span>
         </motion.h1>
 
-        {/* Paragraf dengan efek ketikan */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -196,12 +188,11 @@ export default function Hero() {
           className="text-light text-base md:text-lg mt-4 max-w-2xl mx-auto font-light tracking-wide leading-relaxed"
         >
           {displayText}
-          {/* Cursor "|" yang berkedip selama proses ketikan */}
           <motion.span
             animate={
               typingDone
-                ? { opacity: 0 } // hilang kalau ketikan selesai
-                : { opacity: [1, 0, 1] } // berkedip kalau masih ngetik
+                ? { opacity: 0 }
+                : { opacity: [1, 0, 1] }
             }
             transition={
               typingDone
@@ -214,7 +205,6 @@ export default function Hero() {
           </motion.span>
         </motion.p>
 
-        {/* Buttom */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
@@ -222,10 +212,10 @@ export default function Hero() {
           className="mt-10 flex justify-center"
         >
           <motion.a
-            href="#topResto"
+            href="#tentang"
             whileHover={{
-              scale: 1.06,
-              boxShadow: "0 8px 28px rgba(232,117,36,0.28)", // efek glow saat hover
+              scale: typeof window !== "undefined" && window.innerWidth > 640 ? 1.06 : 1,
+              boxShadow: "0 8px 28px rgba(232,117,36,0.28)",
             }}
             whileTap={{ scale: 0.97 }}
             className="bg-primary text-white font-semibold px-10 py-4 rounded-full text-base md:text-lg shadow-glow focus:ring-4 focus:ring-primary/30 transition-all"
@@ -235,9 +225,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* ========================
-          GRADIENT BAWAH (TRANSISI)
-      ======================== */}
       <div className="absolute bottom-0 left-0 w-full h-[220px] bg-gradient-to-t from-[#000000CC] to-transparent pointer-events-none" />
     </section>
   );

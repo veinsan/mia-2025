@@ -153,7 +153,7 @@ export default function Nav({ dataUMKM = [] }) {
   const navLinks = [
     { id: "home", label: "Beranda", href: "#hero" },
     { id: "tentang", label: "Tentang", href: "#tentang" },
-    { id: "resto", label: "Rekomendasi", href: "#resto" },
+    { id: "rekomendasi", label: "Rekomendasi", href: "#topResto" },
     { id: "testimoni", label: "Testimoni", href: "#testimoni" },
     { id: "galeri", label: "Galeri", href: "#galeri" },
     { id: "lokasi", label: "Lokasi", href: "#lokasi" },

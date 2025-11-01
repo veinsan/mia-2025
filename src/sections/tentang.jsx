@@ -2,58 +2,40 @@
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 
-/**
- * Tentang.jsx (final polished)
- * - Scroll-reactive: animasi muncul/hilang tiap masuk/keluar viewport
- * - Wave divider (top) untuk transisi halus dari hero
- * - Floating ambient particles (GPU-friendly) untuk depth
- * - Dark/light adaptive gradients & colors following palette:
- *   primary: #E86A1E, secondary: #B94519, accent: #F9B04E, dark: #3A1E04, light: #FFF3E0
- * - Respects prefers-reduced-motion
- *
- * Images expected in: /public/assets/about/t1.jpg, t2.jpg, t3.jpg
- */
-
 export default function Tentang() {
   const ref = useRef(null);
-  const inView = useInView(ref, { amount: 0.26 }); // trigger when ~26% visible
+  // Cegah animasi bolak-balik terus → jalan sekali aja pas pertama muncul
+  const inView = useInView(ref, { amount: 0.26, once: true });
   const controls = useAnimation();
 
   // Respect reduced motion
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mq.matches) {
-      controls.set("visible"); // show without animation
-    }
-    const handler = () => {
-      if (mq.matches) controls.set("visible");
-    };
-    mq.addEventListener?.("change", handler);
-    return () => mq.removeEventListener?.("change", handler);
+    if (mq.matches) controls.set("visible");
   }, [controls]);
 
-  // Start/stop animation on view change (re-triggerable)
+  // Trigger animasi saat section muncul pertama kali
   useEffect(() => {
     if (inView) controls.start("visible");
-    else controls.start("hidden");
   }, [inView, controls]);
 
+  // Motion Variants
   const container = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { staggerChildren: 0.12, when: "beforeChildren" },
+      transition: { staggerChildren: 0.15, when: "beforeChildren" },
     },
   };
 
+  // Hapus filter blur (berat di GPU), tetap kasih efek depth pakai opacity & y
   const item = {
-    hidden: { opacity: 0, y: 24, scale: 0.98, filter: "blur(6px)" },
+    hidden: { opacity: 0, y: 28, scale: 0.96 },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
-      filter: "blur(0px)",
       transition: { duration: 0.6, ease: [0.22, 0.8, 0.22, 1] },
     },
   };
@@ -86,8 +68,7 @@ export default function Tentang() {
       className="relative overflow-hidden"
       aria-labelledby="tentang-title"
     >
-      {/* TOP WAVE DIVIDER: smooth transition from hero.
-          Uses mix-blend and adaptive colors via dark: classes */}
+      {/* Wave Divider */}
       <div className="absolute inset-x-0 -top-[2px] pointer-events-none z-20">
         <svg
           viewBox="0 0 1440 80"
@@ -102,8 +83,6 @@ export default function Tentang() {
               <stop offset="100%" stopColor="#FFF3E0" stopOpacity="1" />
             </linearGradient>
           </defs>
-
-          {/* Light path: subtle warm fade */}
           <path
             d="M0,40 C200,80 400,0 720,40 C1040,80 1240,0 1440,40 L1440,0 L0,0 Z"
             className="fill-[url(#waveGrad)] dark:fill-black/70 transition-colors duration-500"
@@ -111,13 +90,12 @@ export default function Tentang() {
         </svg>
       </div>
 
-      {/* Ambient particles / subtle floating blobs (GPU-friendly via transform) */}
+      {/* Ambient floating blobs */}
       <div
         aria-hidden
         className="absolute inset-0 -z-10 pointer-events-none"
         style={{ willChange: "transform" }}
       >
-        {/* three subtle blobs */}
         <motion.div
           animate={{ y: [0, -18, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
@@ -135,10 +113,10 @@ export default function Tentang() {
         />
       </div>
 
-      {/* Main container: background adaptive and padding */}
-      <div className="relative z-10 bg-white dark:bg-[#0B0B0B] transition-colors duration-500">
+      {/* Main container */}
+      <div className="relative z-10 bg-gradient-to-b from-white to-[#FFF3E0]/60 dark:from-[#0B0B0B] dark:to-[#1A1A1A] transition-colors duration-500">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-20">
-          {/* Header / intro */}
+          {/* Header */}
           <motion.div
             variants={container}
             initial="hidden"
@@ -158,7 +136,8 @@ export default function Tentang() {
               id="tentang-title"
               className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#1B1B1B] dark:text-[#F7F3EE] leading-tight"
             >
-              Kenapa Makan <span className="text-primary dark:text-[#F9B04E]">Di Ganyang?</span>
+              Kenapa Makan{" "}
+              <span className="text-primary dark:text-[#F9B04E]">Di Ganyang?</span>
             </motion.h2>
 
             <motion.p
@@ -169,7 +148,7 @@ export default function Tentang() {
             </motion.p>
           </motion.div>
 
-          {/* Cards grid */}
+          {/* Cards */}
           <motion.div
             variants={container}
             initial="hidden"
@@ -184,29 +163,28 @@ export default function Tentang() {
                 transition={{ type: "spring", stiffness: 160, damping: 14 }}
                 className="relative rounded-3xl overflow-hidden shadow-xl focus-within:ring-4 focus-within:ring-primary/20"
                 role="article"
-                aria-labelledby={`card-${c.id}-title`}
+                aria-labelledby={`tentang-card-${c.id}-title`}
+                style={{ willChange: "transform, opacity" }}
               >
-                {/* Card image (bg cover) */}
                 <div
-                  className="w-full h-[420px] sm:h-[460px] md:h-[500px] bg-cover bg-center"
+                  className="w-full h-[420px] sm:h-[460px] md:h-[500px] bg-cover bg-center transition-all duration-500 hover:brightness-110"
                   style={{
                     backgroundImage: `url(${c.img})`,
-                    filter: "brightness(0.72) saturate(1.05)",
-                    transition: "filter 300ms ease",
+                    filter: "brightness(0.75)",
                   }}
                 />
 
-                {/* bottom overlay content */}
-                <div className="absolute left-6 right-6 bottom-6 p-4 rounded-xl bg-gradient-to-t from-black/70 to-transparent">
+                <div className="absolute left-6 right-6 bottom-6 p-4 rounded-xl bg-gradient-to-t from-black/80 to-transparent">
                   <h3
-                    id={`card-${c.id}-title`}
+                    id={`tentang-card-${c.id}-title`}
                     className="text-xl md:text-2xl font-semibold text-white mb-1"
                   >
                     {c.title}
                   </h3>
-                  <p className="text-sm md:text-base text-gray-200 mb-3">{c.desc}</p>
+                  <p className="text-sm md:text-base text-gray-200 mb-3 line-clamp-4">
+                    {c.desc}
+                  </p>
 
-                  {/* callout pill */}
                   <div
                     className={`inline-flex items-center gap-2 px-3 py-2 rounded-full text-sm ${
                       idx === 0
@@ -224,7 +202,6 @@ export default function Tentang() {
                           : "0 6px 20px rgba(185,69,25,0.14)",
                     }}
                   >
-                    {/* simple icon (circle) */}
                     <span
                       className="w-2.5 h-2.5 rounded-full"
                       style={{
@@ -233,19 +210,15 @@ export default function Tentang() {
                         opacity: 0.95,
                       }}
                     />
-                    <span className="font-medium">{idx === 0 ? "Rasa" : idx === 1 ? "Komunitas" : "Praktis"}</span>
+                    <span className="font-medium">
+                      {idx === 0
+                        ? "Rasa"
+                        : idx === 1
+                        ? "Komunitas"
+                        : "Praktis"}
+                    </span>
                   </div>
                 </div>
-
-                {/* subtle sweep line (hover) */}
-                <motion.div
-                  className="absolute -top-16 -left-40 w-[300%] h-3 rotate-[-28deg] opacity-0 group-hover:opacity-100 pointer-events-none"
-                  initial={{ x: "-120%" }}
-                  animate={{ x: "120%", opacity: 0 }}
-                  transition={{ duration: 1.2, ease: "linear", repeat: 0 }}
-                >
-                  {/* visual only; kept for progressive enhancement */}
-                </motion.div>
               </motion.article>
             ))}
           </motion.div>

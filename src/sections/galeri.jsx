@@ -1,32 +1,53 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { useState } from "react";
 
 export default function Galeri() {
   const photos = [
     { src: "/assets/galeri/1.jpeg", caption: "Jawa Tidur" },
-    { src: "/assets/galeri/2.jpeg", caption: "Orkay tidur" },
-    { src: "/assets/galeri/3.jpeg", caption: "Cepak tidur" },
-    { src: "/assets/galeri/4.jpeg", caption: "Galfish tidur" },
-    { src: "/assets/galeri/5.jpeg", caption: "Kadies tidur" },
-    { src: "/assets/galeri/6.jpeg", caption: "Irgay tidur" },
+    { src: "/assets/galeri/2.jpeg", caption: "Orkay Tidur" },
+    { src: "/assets/galeri/3.jpeg", caption: "Cepak Tidur" },
+    { src: "/assets/galeri/4.jpeg", caption: "Galfish Tidur" },
+    { src: "/assets/galeri/5.jpeg", caption: "Kadies Tidur" },
+    { src: "/assets/galeri/6.jpeg", caption: "Irgay Tidur" },
   ];
 
+  // Animasi muncul halus untuk tiap foto
   const fadeZoom = (delay = 0) => ({
-    hidden: { opacity: 0, scale: 0.95, y: 40 },
+    hidden: { opacity: 0, scale: 0.95, y: 30, filter: "blur(6px)" },
     visible: {
       opacity: 1,
       scale: 1,
       y: 0,
-      transition: { delay, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] },
+      filter: "blur(0px)",
+      transition: { delay, duration: 0.8, ease: [0.22, 0.8, 0.22, 1] },
     },
   });
 
   return (
     <section
       id="galeri"
-      className="relative py-20 bg-gradient-to-b from-[#FFF3E0] via-[#FFD9A3]/60 to-[#F9B04E]/20 overflow-hidden"
+      className="relative py-20 bg-gradient-to-b from-[#FFCF80] via-[#FFE5B3] to-[#FFF3E0] overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-6 text-center">
+      {/* ambient soft blob background */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+      >
+        <motion.div
+          animate={{ y: [0, -16, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute left-[8%] top-[10%] w-40 h-40 bg-[rgba(232,106,30,0.06)] blur-3xl rounded-full"
+        />
+        <motion.div
+          animate={{ y: [10, -10, 10] }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute right-[8%] bottom-[8%] w-48 h-48 bg-[rgba(249,176,78,0.05)] blur-3xl rounded-full"
+        />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +57,7 @@ export default function Galeri() {
         >
           Galeri <span className="text-[#E87524]">Suasana</span>
         </motion.h2>
-        <p className="text-[#4A1E0E]/80 mb-10 max-w-xl mx-auto">
+        <p className="text-[#4A1E0E]/80 mb-12 max-w-xl mx-auto">
           Beberapa momen dan sudut favorit pengunjung yang bikin betah berlama-lama di Gelap Nyawang.
         </p>
 
@@ -48,20 +69,44 @@ export default function Galeri() {
               variants={fadeZoom(i * 0.1)}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: false, amount: 0.2 }}
-              className="relative overflow-hidden rounded-2xl shadow-2xl group h-[260px] md:h-[320px]"
+              viewport={{ once: false, amount: 0.25 }}
+              className="relative overflow-hidden rounded-2xl shadow-2xl group h-[260px] md:h-[320px] cursor-pointer"
             >
-              <img
+              <Image
                 src={p.src}
                 alt={p.caption}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL="/assets/blur-placeholder.jpg"
               />
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
-                <p className="text-white text-lg font-medium">{p.caption}</p>
+
+              {/* Overlay muncul halus */}
+              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center p-5 backdrop-blur-[1px]">
+                <motion.p
+                  initial={{ y: 16, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="text-white text-lg font-medium"
+                >
+                  {p.caption}
+                </motion.p>
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* mobile hint */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 0.8 }}
+          transition={{ delay: 0.8, duration: 1 }}
+          className="mt-10 text-sm text-[#4A1E0E]/70 md:hidden"
+        >
+          ✦ Tap gambar untuk lihat caption ✦
+        </motion.p>
       </div>
     </section>
   );
