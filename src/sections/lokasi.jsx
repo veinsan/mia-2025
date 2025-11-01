@@ -20,7 +20,6 @@ export default function Lokasi() {
             "ease-[cubic-bezier(0.22,1,0.36,1)]"
           );
           section.classList.remove("opacity-0", "translate-y-10");
-          observer.unobserve(section); // animasi hanya sekali
         }
       },
       { threshold: 0.3 }

@@ -8,6 +8,7 @@ export default function Footer() {
   useEffect(() => {
     const footer = document.querySelector("footer");
 
+
     // Observer untuk trigger animasi isi footer
     const observer = new IntersectionObserver(
       ([entry]) => {

@@ -75,7 +75,7 @@ export default function TopResto() {
             variants={entrance("left", 0.1)}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.25 }}
+            viewport={{ once: false, amount: 0.25 }}
             className="drop-shadow-sm"
           >
             <p className="text-[#E87524] font-semibold mb-2">Tempat Andalan</p>
@@ -95,7 +95,7 @@ export default function TopResto() {
             variants={entrance("up", 0.2)}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="relative group rounded-3xl overflow-hidden shadow-2xl h-[400px] md:h-[465px] hover:shadow-[0_0_25px_rgba(232,117,36,0.3)] transition-shadow duration-500"
           >
             <motion.img
@@ -119,7 +119,7 @@ export default function TopResto() {
             variants={entrance("right", 0.15)}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="relative group rounded-3xl overflow-hidden shadow-2xl h-[220px] md:h-[260px] hover:shadow-[0_0_25px_rgba(232,117,36,0.3)] transition-shadow duration-500"
           >
             <motion.img
@@ -143,7 +143,7 @@ export default function TopResto() {
                 variants={entrance(i % 2 === 0 ? "left" : "right", i * 0.1)}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 className="relative group rounded-2xl overflow-hidden shadow-xl h-[160px] md:h-[180px] hover:shadow-[0_0_20px_rgba(232,117,36,0.25)] transition-shadow duration-500 snap-start"
               >
                 <motion.img

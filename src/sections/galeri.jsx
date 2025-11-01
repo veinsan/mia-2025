@@ -51,7 +51,7 @@ export default function Galeri() {
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ false: true }}
           transition={{ duration: 0.8 }}
           className="text-4xl md:text-5xl font-heading font-bold text-[#4A1E0E] mb-3"
         >
@@ -69,7 +69,7 @@ export default function Galeri() {
               variants={fadeZoom(i * 0.1)}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: false, amount: 0.25 }}
+              viewport={{ false: false, amount: 0.25 }}
               className="relative overflow-hidden rounded-2xl shadow-2xl group h-[260px] md:h-[320px] cursor-pointer"
             >
               <Image

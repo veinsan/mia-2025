@@ -5,7 +5,7 @@ import { motion, useAnimation, useInView } from "framer-motion";
 export default function Tentang() {
   const ref = useRef(null);
   // Cegah animasi bolak-balik terus → jalan sekali aja pas pertama muncul
-  const inView = useInView(ref, { amount: 0.26, once: true });
+  const inView = useInView(ref, { amount: 0.26, once: false });
   const controls = useAnimation();
 
   // Respect reduced motion
@@ -17,6 +17,7 @@ export default function Tentang() {
   // Trigger animasi saat section muncul pertama kali
   useEffect(() => {
     if (inView) controls.start("visible");
+    else controls.start("hidden");
   }, [inView, controls]);
 
   // Motion Variants
