@@ -5,7 +5,7 @@ export default function BannerDirektori() {
   return (
     <section
       id="kontak"
-      className="relative bg-[#FFEED1] text-[#2B1B0F] rounded-2xl mx-6 md:mx-10 lg:mx-20 my-20 overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
+      className="relative bg-[#FFEED1] text-[#2B1B0F] rounded-2xl mx-18 md:mx-35 lg:mx-40 my-20 overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
     >
       {/* Foto kiri */}
       <img
