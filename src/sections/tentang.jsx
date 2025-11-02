@@ -70,25 +70,32 @@ export default function Tentang() {
       aria-labelledby="tentang-title"
     >
       {/* Wave Divider */}
-      <div className="absolute inset-x-0 -top-[2px] pointer-events-none z-20">
-        <svg
-          viewBox="0 0 1440 80"
-          preserveAspectRatio="none"
-          className="w-full h-[80px] block"
-          aria-hidden
+      {/* TOP WAVE DIVIDER (optimized static-look but alive) */}
+      <div className="absolute inset-x-0 -top-[2px] pointer-events-none z-20 overflow-hidden">
+        <motion.div
+          animate={{ x: ["0%", "-25%", "0%"] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+          className="w-[200%]" // biar bisa digeser halus tanpa ngulang
         >
-          <defs>
-            <linearGradient id="waveGrad" x1="0" x2="1">
-              <stop offset="0%" stopColor="#000000" stopOpacity="0.12" />
-              <stop offset="50%" stopColor="#E86A1E" stopOpacity="0.18" />
-              <stop offset="100%" stopColor="#FFF3E0" stopOpacity="1" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M0,40 C200,80 400,0 720,40 C1040,80 1240,0 1440,40 L1440,0 L0,0 Z"
-            className="fill-[url(#waveGrad)] dark:fill-black/70 transition-colors duration-500"
-          />
-        </svg>
+          <svg
+            viewBox="0 0 1440 80"
+            preserveAspectRatio="none"
+            className="w-full h-[80px]"
+            aria-hidden="true"
+          >
+            <defs>
+              <linearGradient id="waveGrad" x1="0" x2="1">
+                <stop offset="0%" stopColor="#E7C49D" stopOpacity="0.4" />
+                <stop offset="50%" stopColor="#F5B66E" stopOpacity="0.55" />
+                <stop offset="100%" stopColor="#FFF3E0" stopOpacity="0.9" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M0,40 C200,80 400,0 720,40 C1040,80 1240,0 1440,40 L1440,0 L0,0 Z"
+              fill="url(#waveGrad)"
+            />
+          </svg>
+        </motion.div>
       </div>
 
       {/* Ambient floating blobs */}
