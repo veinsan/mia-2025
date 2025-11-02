@@ -1,10 +1,10 @@
 <div align="center">
-  <img src="assets/banner-gelapnyawang.png" alt="Banner Gelap Nyawang">
+  <img src="assets/ganyangbanner.png" alt="Banner">
 </div>
 
-# Gelap Nyawang – Direktori Kuliner Legendaris Mahasiswa ITB
+# Gelap Nyawang – Tempat Makan Setelah Semua Kesibukan Kuliah Anak ITB
 
-**Gelap Nyawang** adalah kawasan kuliner legendaris di sekitar Institut Teknologi Bandung (ITB) yang menjadi pusat kehidupan malam mahasiswa. Dari warkop sederhana sampai kafe modern, semua hadir dalam satu jalan penuh cita rasa dan cerita.
+**Gelap Nyawang** adalah kawasan kuliner legendaris di sekitar Institut Teknologi Bandung (ITB) yang menjadi pusat kehidupan malam mahasiswa. Dari tempat makan sederhana sampai kafe modern, semua hadir dalam satu jalan penuh cita rasa dan cerita.
 
 Website ini dibuat untuk memperkenalkan dan memperkuat eksistensi digital para pelaku UMKM di kawasan Gelap Nyawang. Dengan desain yang hangat, interaktif, dan mobile-first, pengguna dapat menjelajahi tempat makan favorit dengan mudah, lengkap dengan kategori, galeri, dan deskripsi unik tiap usaha.
 
@@ -14,16 +14,17 @@ Dengan semangat *“Dari Mahasiswa, Untuk Mahasiswa”*, proyek ini menghadirkan
 
 <!-- PROJECT LOGO -->
 <div align="center">
-  <img src="assets/logo.png" alt="Logo Gelap Nyawang" width="260">
+  <img src="assets/logo.png" alt="Logo" width="260">
   <p><strong>Jelajahi Rasa, Nikmati Suasana</strong></p>
 </div>
 
 <div align="center">
   <h3>Made by:</h3>
-  <p><strong>Boss (Riant)</strong> – Web Developer</p>
-  <p><strong>Gelap Nyawang Creative Team</strong> – Desain & Konten</p>
+  <p><strong>Riantama Putra</strong> – Web Developer</p>
+  <p><strong>Aldyto Rafif Abhinaya</strong> – </p>
+  <p><strong>Muhammad Ghiffary Alfathan</strong> – </p>
   <br />
-  <a href="https://github.com/yourusername/gelap-nyawang"><strong>Explore the docs »</strong></a>
+  <a href="https://github.com/veinsan/GelapNyawang"><strong>Explore the docs »</strong></a>
   <br />
   <br />
 </div>
@@ -93,7 +94,7 @@ Dengan semangat *“Dari Mahasiswa, Untuk Mahasiswa”*, proyek ini menghadirkan
    - Banner CTA & Footer  
 
 3. **Halaman Detail UMKM (`/direktori/[slug]`)**
-   - Informasi lengkap (nama, alamat, deskripsi, galeri, map embed)
+   - Informasi lengkap (nama, alamat, deskripsi, galeri, hidangan rekomendasi, map embed)
 
 ---
 
@@ -102,3 +103,24 @@ Dengan semangat *“Dari Mahasiswa, Untuk Mahasiswa”*, proyek ini menghadirkan
 1. **Clone repository ini**
    ```bash
    git clone https://github.com/yourusername/gelap-nyawang.git
+   ```
+
+2. **Masuk ke direktori project**
+   ```bash
+   git clone https://github.com/yourusername/gelap-nyawang.git
+   ```
+
+3. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+4. **Jalankan di localhost**
+   ```bash
+   git clone https://github.com/yourusername/gelap-nyawang.git
+   ```
+
+5. **Buka di browser**
+   ```bash
+   http://localhost:3000
+   ```
