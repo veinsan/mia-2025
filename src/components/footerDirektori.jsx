@@ -1,11 +1,12 @@
 "use client";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 
 export default function FooterDirektori() {
   const controls = useAnimation();
   const footerRef = useRef(null);
   const hasMounted = useRef(false);
+  const [showScrollTop, setShowScrollTop] = useState(false); // 🔹 kontrol visibilitas tombol
 
   // Pastikan animasi baru aktif setelah komponen benar-benar mounted
   useLayoutEffect(() => {
@@ -30,6 +31,18 @@ export default function FooterDirektori() {
     observer.observe(footer);
     return () => observer.disconnect();
   }, [controls]);
+
+  // 🔹 handle muncul/ngilang tombol scroll-top
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) setShowScrollTop(true);
+      else setShowScrollTop(false);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // panggil sekali waktu mount
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -179,12 +192,15 @@ export default function FooterDirektori() {
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
 
+      {/* 🔹 tombol scroll ke atas (auto hide di atas) */}
       <motion.button
         onClick={scrollToTop}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        className="fixed bottom-6 right-6 bg-[#FFD699]/30 backdrop-blur-md hover:bg-[#FFD699]/60 text-[#FFF] p-3 rounded-full shadow-lg transition-all duration-300"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: showScrollTop ? 1 : 0, y: showScrollTop ? 0 : 30 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="fixed bottom-6 right-6 bg-[#6A4A2E] hover:bg-[#8B5E3C] text-white p-3 rounded-full shadow-lg transition-all duration-300"
         title="Kembali ke atas"
+        style={{ pointerEvents: showScrollTop ? "auto" : "none" }}
       >
         ↑
       </motion.button>
