@@ -6,17 +6,18 @@ import { Search } from "lucide-react";
 import NavDirektori from "@/components/navDirektori";
 import FooterDirektori from "@/components/footerDirektori";
 import BannerDirektori from "@/components/bannerDirektori";
+import Link from "next/link";
 
 // =============================
 // DATA UMKM (12 item total)
 // =============================
 const UMKM_DATA = [
-  { id: 1, name: "Black Romantic", category: "makanan", img: "/assets/resto/resto1.webp", short: "ini kata faizi enak" },
-  { id: 2, name: "Kedai BWJ", category: "makanan", img: "/assets/resto/resto2.webp", short: "ini kata faizi enak juga" },
-  { id: 3, name: "Bebek Stallone", category: "makanan", img: "/assets/resto/resto3.jpg", short: "ini kata faizi enak juga kali" },
-  { id: 4, name: "Ayam Cola Kabita HC", category: "makanan", img: "/assets/resto/resto4.webp", short: "ini kata faizi enak juga kali mungkin" },
-  { id: 5, name: "Ayam & Bebek Besthal", category: "makanan", img: "/assets/resto/resto5.webp", short: "ini kata faizi enak juga kali mungkin asumsi" },
-  { id: 6, name: "Rumah Makan Pak Datuak", category: "makanan", img: "/assets/resto/resto6.webp", short: "ini kata faizi enak juga kali mungkin asumsi harusnya" },
+  { id: 1, slug: "blackromantic", name: "Black Romantic", category: "makanan", img: "/assets/resto/resto1.webp", short: "ini kata faizi enak" },
+  { id: 2, slug: "kedaibwj", name: "Kedai BWJ", category: "makanan", img: "/assets/resto/resto2.webp", short: "ini kata faizi enak juga" },
+  { id: 3, slug: "bebekstallone", name: "Bebek Stallone", category: "makanan", img: "/assets/resto/resto3.jpg", short: "ini kata faizi enak juga kali" },
+  { id: 4, slug: "ayamcola", name: "Ayam Cola Kabita HC", category: "makanan", img: "/assets/resto/resto4.webp", short: "ini kata faizi enak juga kali mungkin" },
+  { id: 5, slug: "ayambebekbesthal", name: "Ayam & Bebek Besthal", category: "makanan", img: "/assets/resto/resto5.webp", short: "ini kata faizi enak juga kali mungkin asumsi" },
+  { id: 6, slug: "rmpakdatuak", name: "Rumah Makan Pak Datuak", category: "makanan", img: "/assets/resto/resto6.webp", short: "ini kata faizi enak juga kali mungkin asumsi harusnya" },
   { id: 7, name: "Lorem Ipsum", category: "cemilan", img: "/assets/resto/resto7.webp", short: "lorem ipsum" },
   { id: 8, name: "Lorem Ipsum", category: "makanan", img: "/assets/resto/resto8.webp", short: "lorem ipsum" },
   { id: 9, name: "Lorem Ipsum", category: "makanan", img: "/assets/resto/resto9.webp", short: "lorem ipsum" },
@@ -47,32 +48,34 @@ const cardVariant = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0
 // =============================
 function UMKMCard({ item }) {
   return (
-    <motion.article
-      layout
-      variants={cardVariant}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: false, amount: 0.2 }}
-      whileHover={{ y: -6 }}
-      transition={{ type: "spring", stiffness: 220, damping: 20 }}
-      className="group relative rounded-[14px] overflow-hidden bg-white shadow-[0_6px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_14px_40px_rgba(232,117,36,0.12)] transition-all duration-300"
-      style={{ willChange: "transform, box-shadow" }}
-    >
-      <div className="w-full h-44 md:h-48 lg:h-40 bg-gray-100 overflow-hidden">
-        <img
-          src={item.img}
-          alt={item.name}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          draggable="false"
-        />
-      </div>
-      <div className="p-4">
-        <h3 className="text-base md:text-lg font-semibold text-[#4A1E0E] line-clamp-1 transition-colors duration-200 group-hover:text-primary">
-          {item.name}
-        </h3>
-        <p className="text-sm text-[#7B4F2D] mt-1 line-clamp-2">{item.short}</p>
-      </div>
-    </motion.article>
+    <Link href={`/direktori/${item.slug || ""}`} className="block">
+      <motion.article
+        layout
+        variants={cardVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+        whileHover={{ y: -6 }}
+        transition={{ type: "spring", stiffness: 220, damping: 20 }}
+        className="group relative rounded-[14px] overflow-hidden bg-white shadow-[0_6px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_14px_40px_rgba(232,117,36,0.12)] transition-all duration-300"
+        style={{ willChange: 'transform, box-shadow' }}
+      >
+        <div className="w-full h-44 md:h-48 lg:h-40 bg-gray-100 overflow-hidden">
+          <img
+            src={item.img}
+            alt={item.name}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            draggable="false"
+          />
+        </div>
+        <div className="p-4">
+          <h3 className="text-base md:text-lg font-semibold text-[#4A1E0E] line-clamp-1 transition-colors duration-200 group-hover:text-primary">
+            {item.name}
+          </h3>
+          <p className="text-sm text-[#7B4F2D] mt-1 line-clamp-2">{item.short}</p>
+        </div>
+      </motion.article>
+    </Link>
   );
 }
 

@@ -1,30 +1,36 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 
 export default function FooterDirektori() {
   const controls = useAnimation();
+  const footerRef = useRef(null);
+  const hasMounted = useRef(false);
+
+  // Pastikan animasi baru aktif setelah komponen benar-benar mounted
+  useLayoutEffect(() => {
+    hasMounted.current = true;
+    controls.start("visible"); // langsung tampil waktu mount pertama
+    return () => {
+      hasMounted.current = false;
+    };
+  }, [controls]);
 
   useEffect(() => {
-    const footer = document.querySelector("footer");
+    const footer = footerRef.current;
+    if (!footer) return;
 
-    // Observer untuk trigger animasi isi footer
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          controls.start("visible");
-        } else {
-          controls.start("hidden");
-        }
-      },
-      { threshold: 0.2 }
-    );
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!hasMounted.current) return; // cegah sebelum mount
+      if (entry.isIntersecting) {
+        controls.start("visible");
+      }
+    }, { threshold: 0.2 });
 
     observer.observe(footer);
     return () => observer.disconnect();
   }, [controls]);
 
-  // Variants animasi untuk isi footer
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },
     visible: {
@@ -37,20 +43,19 @@ export default function FooterDirektori() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer className="relative w-full bg-gradient-to-b from-[#D17B39] via-[#C36D2F] to-[#B35924] text-[#FFF9F0] py-16 px-6 md:px-20 font-sans overflow-hidden">
-      {/* grain texture */}
+    <footer
+      ref={footerRef}
+      className="relative w-full bg-[#B35924] text-[#FFF9F0] py-16 px-6 md:px-20 font-sans overflow-hidden"
+    >
       <div className="absolute inset-0 bg-[url('/grain-texture.png')] bg-repeat opacity-25 pointer-events-none"></div>
 
-      {/* Animasi isi footer */}
       <motion.div
         variants={fadeUp}
         initial="hidden"
         animate={controls}
         className="relative z-10"
       >
-        {/* container utama */}
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between mb-12 gap-10">
-          {/* Logo kiri */}
           <div className="flex flex-col items-center md:items-start w-full md:w-1/5">
             <img
               src="/assets/logo.png"
@@ -59,7 +64,6 @@ export default function FooterDirektori() {
             />
           </div>
 
-          {/* Deskripsi tengah */}
           <div className="w-full md:w-3/5 flex flex-col items-center md:items-start text-center md:text-left">
             <p className="text-base leading-relaxed text-[#FFF9F0] text-opacity-95 max-w-lg tracking-wide">
               Gelap Nyawang Culinary, spot kuliner favorit mahasiswa ITB. Dari
@@ -68,7 +72,6 @@ export default function FooterDirektori() {
             </p>
           </div>
 
-          {/* Logo kanan */}
           <div className="flex flex-col items-center md:items-end w-full md:w-1/5 mt-4 md:mt-8">
             <img
               src="/assets/mia2025.png"
@@ -78,10 +81,8 @@ export default function FooterDirektori() {
           </div>
         </div>
 
-        {/* Garis Pemisah */}
         <hr className="border-[#FFF3E0]/30 mb-12" />
 
-        {/* Grid */}
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-10 text-base md:text-lg mb-12 text-center md:text-left">
           <div>
             <h4 className="font-bold mb-3 text-[#FFF0E0]">Lokasi</h4>
@@ -172,14 +173,12 @@ export default function FooterDirektori() {
         </div>
       </motion.div>
 
-      {/* Ambient Glow Line */}
       <motion.div
         className="absolute bottom-0 left-0 w-full h-[6px] bg-gradient-to-r from-[#FFD699]/0 via-[#FFF3E0]/60 to-[#FFD699]/0 blur-sm opacity-80"
         animate={{ x: ["0%", "20%", "0%"] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Tombol Scroll to Top */}
       <motion.button
         onClick={scrollToTop}
         whileHover={{ scale: 1.1 }}
