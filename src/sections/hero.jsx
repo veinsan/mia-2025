@@ -212,7 +212,7 @@ export default function Hero() {
           className="mt-10 flex justify-center"
         >
           <motion.a
-            href="#tentang"
+            href="/direktori"
             whileHover={{
               scale: typeof window !== "undefined" && window.innerWidth > 640 ? 1.06 : 1,
               boxShadow: "0 8px 28px rgba(232,117,36,0.28)",
