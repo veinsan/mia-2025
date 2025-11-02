@@ -131,13 +131,13 @@ Selain menjadi direktori kuliner interaktif, website ini juga berfungsi sebagai 
 
 ### 🌐 Live Demo
 
-🔗 [gelapnyawang.vercel.app](https://gelapnyawang.vercel.app)
+🔗 [gelap-nyawang.vercel.app](https://gelap-nyawang.vercel.app)
 
 ---
 
 ## 🧠 Konsep Desain
 
-Warna, bentuk, dan tekstur dalam website ini terinspirasi dari suasana malam Gelap Nyawang — lampu jalan temaram, papan kedai berwarna oranye hangat, dan aroma kopi dari warkop mahasiswa.  
+Warna, bentuk, dan tekstur dalam website ini terinspirasi dari suasana malam Gelap Nyawang (lampu jalan temaram, papan kedai berwarna oranye hangat, dan aroma kopi dari warkop mahasiswa.)
 Tujuan desainnya bukan hanya menampilkan data, tapi **menghidupkan atmosfer lokal Bandung** ke dalam bentuk digital.
 
 ---
@@ -145,8 +145,3 @@ Tujuan desainnya bukan hanya menampilkan data, tapi **menghidupkan atmosfer loka
 ## 📍 Lokasi Asli
 
 > **Jl. Gelap Nyawang, Lebak Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132**  
-> Dikenal sebagai “Jalan Kuliner Mahasiswa ITB”
-
----
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
