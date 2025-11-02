@@ -18,16 +18,12 @@ Dengan semangat *“Dari Mahasiswa, Untuk Mahasiswa”*, proyek ini menghadirkan
   <p><strong>Jelajahi Rasa, Nikmati Suasana</strong></p>
 </div>
 
-<div align="center">
-  <h3>Made by:</h3>
-  <p><strong>Riantama Putra</strong> – Web Developer</p>
-  <p><strong>Aldyto Rafif Abhinaya</strong> – </p>
-  <p><strong>Muhammad Ghiffary Alfathan</strong> – </p>
-  <br />
-  <a href="https://github.com/veinsan/GelapNyawang"><strong>Explore the docs »</strong></a>
-  <br />
-  <br />
-</div>
+---
+
+### 🎯 Tujuan & Manfaat
+
+Proyek ini bertujuan untuk mendigitalisasi potensi UMKM di kawasan Gelap Nyawang agar lebih mudah ditemukan oleh mahasiswa, warga sekitar, dan wisatawan.  
+Selain menjadi direktori kuliner interaktif, website ini juga berfungsi sebagai wadah promosi gratis yang membantu pelaku usaha lokal meningkatkan visibilitas di dunia digital.
 
 ---
 
@@ -43,8 +39,6 @@ Dengan semangat *“Dari Mahasiswa, Untuk Mahasiswa”*, proyek ini menghadirkan
 
 </div>
 
-<br>
-
 | Teknologi | Deskripsi | Peran dalam Project |
 |-----------|------------|--------------------|
 | **Next.js 14** | Framework React modern | Routing halaman, modularisasi, dan SEO bawaan |
@@ -57,13 +51,13 @@ Dengan semangat *“Dari Mahasiswa, Untuk Mahasiswa”*, proyek ini menghadirkan
 
 ### 🚀 Fitur Teknologi
 
-- **🎨 Dark & Light Mode** – Mode tema dengan animasi rotasi ikon interaktif  
-- **🧭 Scroll Transition Navbar** – Efek transparan dan blur menyesuaikan posisi halaman  
-- **🔍 Live Search & Filter** – Pencarian real-time dan filter kategori (makanan, minuman, cemilan)  
-- **✨ Framer Animation** – Animasi halus di tiap section dan card  
-- **📱 Mobile First Design** – Tampilan responsif di semua ukuran layar  
-- **🗺️ Interactive Directory** – Halaman daftar UMKM dengan kategori, trending, dan navigasi ke detail page  
-- **📸 Banner & Footer Animatif** – Elemen visual dengan transisi warna dan efek glowing khas suasana malam Gelap Nyawang  
+- 🎨 **Dark & Light Mode** – Mode tema dengan animasi rotasi ikon interaktif  
+- 🧭 **Scroll Transition Navbar** – Efek transparan dan blur menyesuaikan posisi halaman  
+- 🔍 **Live Search & Filter** – Pencarian real-time dan filter kategori (makanan, minuman, cemilan)  
+- ✨ **Framer Animation** – Animasi halus di tiap section dan card  
+- 📱 **Mobile First Design** – Tampilan responsif di semua ukuran layar  
+- 🗺️ **Interactive Directory** – Halaman daftar UMKM dengan kategori, trending, dan navigasi ke detail page  
+- 📸 **Banner & Footer Animatif** – Elemen visual dengan transisi warna dan efek glowing khas suasana malam Gelap Nyawang  
 
 ---
 
@@ -97,17 +91,16 @@ Dengan semangat *“Dari Mahasiswa, Untuk Mahasiswa”*, proyek ini menghadirkan
    - Informasi lengkap (nama, alamat, deskripsi, galeri, hidangan rekomendasi, map embed)
 
 ---
-
 ## 📦 Instalasi & Cara Menjalankan
 
 1. **Clone repository ini**
    ```bash
-   git clone https://github.com/yourusername/gelap-nyawang.git
+   git clone https://github.com/veinsan/GelapNyawang.git
    ```
 
 2. **Masuk ke direktori project**
    ```bash
-   git clone https://github.com/yourusername/gelap-nyawang.git
+   cd gelap-nyawang
    ```
 
 3. **Install dependencies**
@@ -117,10 +110,43 @@ Dengan semangat *“Dari Mahasiswa, Untuk Mahasiswa”*, proyek ini menghadirkan
 
 4. **Jalankan di localhost**
    ```bash
-   git clone https://github.com/yourusername/gelap-nyawang.git
+   npm run dev
    ```
 
 5. **Buka di browser**
    ```bash
    http://localhost:3000
    ```
+
+---
+### 👥 Tim & Kontribusi
+
+| Nama | Peran | Tugas Utama |
+|------|--------|-------------|
+| **Riantama Putra** | Web Developer & Integrator | Bertanggung jawab penuh atas pengembangan website, mencakup struktur Next.js, implementasi Tailwind, animasi Framer Motion, interaktivitas, dark mode, dan seluruh integrasi komponen. |
+| **Aldyto Rafif Abhinaya** |  |  |
+| **Muhammad Ghiffary Alfathan** |  |  |
+
+---
+
+### 🌐 Live Demo
+
+🔗 [gelapnyawang.vercel.app](https://gelapnyawang.vercel.app)
+
+---
+
+## 🧠 Konsep Desain
+
+Warna, bentuk, dan tekstur dalam website ini terinspirasi dari suasana malam Gelap Nyawang — lampu jalan temaram, papan kedai berwarna oranye hangat, dan aroma kopi dari warkop mahasiswa.  
+Tujuan desainnya bukan hanya menampilkan data, tapi **menghidupkan atmosfer lokal Bandung** ke dalam bentuk digital.
+
+---
+
+## 📍 Lokasi Asli
+
+> **Jl. Gelap Nyawang, Lebak Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132**  
+> Dikenal sebagai “Jalan Kuliner Mahasiswa ITB”
+
+---
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
