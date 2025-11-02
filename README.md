@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+  <img src="assets/banner-gelapnyawang.png" alt="Banner Gelap Nyawang">
+</div>
 
-## Getting Started
+# Gelap Nyawang – Direktori Kuliner Legendaris Mahasiswa ITB
 
-First, run the development server:
+**Gelap Nyawang** adalah kawasan kuliner legendaris di sekitar Institut Teknologi Bandung (ITB) yang menjadi pusat kehidupan malam mahasiswa. Dari warkop sederhana sampai kafe modern, semua hadir dalam satu jalan penuh cita rasa dan cerita.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Website ini dibuat untuk memperkenalkan dan memperkuat eksistensi digital para pelaku UMKM di kawasan Gelap Nyawang. Dengan desain yang hangat, interaktif, dan mobile-first, pengguna dapat menjelajahi tempat makan favorit dengan mudah, lengkap dengan kategori, galeri, dan deskripsi unik tiap usaha.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Dengan semangat *“Dari Mahasiswa, Untuk Mahasiswa”*, proyek ini menghadirkan pengalaman menjelajah kuliner lokal yang tidak hanya informatif, tapi juga emosional.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+<a name="readme-top"></a>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<!-- PROJECT LOGO -->
+<div align="center">
+  <img src="assets/logo.png" alt="Logo Gelap Nyawang" width="260">
+  <p><strong>Jelajahi Rasa, Nikmati Suasana</strong></p>
+</div>
 
-## Learn More
+<div align="center">
+  <h3>Made by:</h3>
+  <p><strong>Boss (Riant)</strong> – Web Developer</p>
+  <p><strong>Gelap Nyawang Creative Team</strong> – Desain & Konten</p>
+  <br />
+  <a href="https://github.com/yourusername/gelap-nyawang"><strong>Explore the docs »</strong></a>
+  <br />
+  <br />
+</div>
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🛠️ Teknologi yang Digunakan
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+<div align="center">
 
-## Deploy on Vercel
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-E87524?style=for-the-badge&logo=framer&logoColor=white)
+![Lucide React](https://img.shields.io/badge/Lucide_Icons-181717?style=for-the-badge&logo=lucide&logoColor=white)
+![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-black?style=for-the-badge&logo=vercel)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+</div>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<br>
+
+| Teknologi | Deskripsi | Peran dalam Project |
+|-----------|------------|--------------------|
+| **Next.js 14** | Framework React modern | Routing halaman, modularisasi, dan SEO bawaan |
+| **Tailwind CSS** | Utility-first CSS framework | Styling cepat, responsif, dan konsisten |
+| **Framer Motion** | Library animasi React | Transisi smooth untuk elemen scroll dan hover |
+| **Lucide React** | Ikon ringan modern | Ikon pada navbar, tombol, dan dark mode toggle |
+| **Intersection Observer** | Native browser API | Deteksi elemen on-screen untuk animasi dinamis |
+
+---
+
+### 🚀 Fitur Teknologi
+
+- **🎨 Dark & Light Mode** – Mode tema dengan animasi rotasi ikon interaktif  
+- **🧭 Scroll Transition Navbar** – Efek transparan dan blur menyesuaikan posisi halaman  
+- **🔍 Live Search & Filter** – Pencarian real-time dan filter kategori (makanan, minuman, cemilan)  
+- **✨ Framer Animation** – Animasi halus di tiap section dan card  
+- **📱 Mobile First Design** – Tampilan responsif di semua ukuran layar  
+- **🗺️ Interactive Directory** – Halaman daftar UMKM dengan kategori, trending, dan navigasi ke detail page  
+- **📸 Banner & Footer Animatif** – Elemen visual dengan transisi warna dan efek glowing khas suasana malam Gelap Nyawang  
+
+---
+
+## ⭐ Fitur Unggulan
+
+- 🍜 **Trending Kuliner** – Rekomendasi tempat populer berdasarkan data UMKM lokal  
+- 🔎 **Search Real-Time** – Fitur pencarian cepat dengan keyword nama atau deskripsi  
+- 📂 **Filter Berdasarkan Kategori** – Pilih jenis kuliner: Makanan, Minuman, atau Cemilan  
+- 🧑‍🍳 **Halaman Detail UMKM (Coming Soon)** – Setiap kartu akan terhubung ke halaman detail usaha  
+- 🌙 **Dark Mode Interaktif** – Transisi lembut dengan rotasi ikon matahari dan bulan  
+- 🏙️ **Visual Suasana Lokal** – Menggabungkan foto suasana malam Gelap Nyawang dengan tone hangat khas Bandung  
+
+---
+
+## 🧩 Struktur Halaman
+
+1. **Halaman Utama (`/`)**
+   - Hero Section  
+   - Tentang  
+   - Rekomendasi & Testimoni  
+   - Galeri & Lokasi  
+   - Footer  
+
+2. **Halaman Direktori (`/direktori`)**
+   - Search & Filter  
+   - Trending UMKM  
+   - Grid Daftar UMKM  
+   - Banner CTA & Footer  
+
+3. **Halaman Detail UMKM (`/direktori/[slug]`)**
+   - Informasi lengkap (nama, alamat, deskripsi, galeri, map embed)
+
+---
+
+## 📦 Instalasi & Cara Menjalankan
+
+1. **Clone repository ini**
+   ```bash
+   git clone https://github.com/yourusername/gelap-nyawang.git
