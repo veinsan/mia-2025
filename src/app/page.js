@@ -6,6 +6,7 @@ import Testimoni from "@/sections/testimoni";
 import Galeri from "@/sections/galeri";
 import Lokasi from "@/sections/lokasi";
 import Footer from "@/components/footer";
+import BannerDirektori from "@/components/bannerDirektori";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <Testimoni />
       <Galeri />
       <Lokasi />
+      <BannerDirektori />
       <Footer />
     </main>
   );

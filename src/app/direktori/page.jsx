@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { Search } from "lucide-react";
 import NavDirektori from "@/components/navDirektori";
 import FooterDirektori from "@/components/footerDirektori";
-import BannerDirektori from "@/components/bannerDirektori";
 import Link from "next/link";
 
 // =============================
@@ -233,9 +232,6 @@ export default function DirektoriPage() {
             )}
         </motion.section>
         </div>
-
-      {/* BANNER CTA */}
-      <BannerDirektori />
 
       {/* FOOTER */}
       <FooterDirektori />
