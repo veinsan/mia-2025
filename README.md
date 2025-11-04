@@ -14,7 +14,7 @@ Dengan semangat *“Dari Mahasiswa, Untuk Mahasiswa”*, proyek ini menghadirkan
 
 <!-- PROJECT LOGO -->
 <div align="center">
-  <img src="assets/logo.png" alt="Logo" width="260">
+  <img src="public/assets/logo.png" alt="Logo" width="260">
   <p><strong>Jelajahi Rasa, Nikmati Suasana</strong></p>
 </div>
 
