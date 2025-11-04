@@ -6,31 +6,8 @@ import { Search } from "lucide-react";
 import NavDirektori from "@/components/navDirektori";
 import FooterDirektori from "@/components/footerDirektori";
 import Link from "next/link";
+import { UMKM_DATA, CATEGORIES } from "@/data/umkmData";
 
-// =============================
-// DATA UMKM (12 item total)
-// =============================
-const UMKM_DATA = [
-  { id: 1, slug: "blackromantic", name: "Black Romantic", category: "makanan", img: "/assets/resto/resto1.webp", short: "ini kata faizi enak" },
-  { id: 2, slug: "kedaibwj", name: "Kedai BWJ", category: "makanan", img: "/assets/resto/resto2.webp", short: "ini kata faizi enak juga" },
-  { id: 3, slug: "bebekstallone", name: "Bebek Stallone", category: "makanan", img: "/assets/resto/resto3.jpg", short: "ini kata faizi enak juga kali" },
-  { id: 4, slug: "ayamcola", name: "Ayam Cola Kabita HC", category: "makanan", img: "/assets/resto/resto4.webp", short: "ini kata faizi enak juga kali mungkin" },
-  { id: 5, slug: "ayambebekbesthal", name: "Ayam & Bebek Besthal", category: "makanan", img: "/assets/resto/resto5.webp", short: "ini kata faizi enak juga kali mungkin asumsi" },
-  { id: 6, slug: "rmpakdatuak", name: "Rumah Makan Pak Datuak", category: "makanan", img: "/assets/resto/resto6.webp", short: "ini kata faizi enak juga kali mungkin asumsi harusnya" },
-  { id: 7, name: "Lorem Ipsum", category: "cemilan", img: "/assets/resto/resto7.webp", short: "lorem ipsum" },
-  { id: 8, name: "Lorem Ipsum", category: "makanan", img: "/assets/resto/resto8.webp", short: "lorem ipsum" },
-  { id: 9, name: "Lorem Ipsum", category: "makanan", img: "/assets/resto/resto9.webp", short: "lorem ipsum" },
-  { id: 10, name: "Lorem Ipsum", category: "makanan", img: "/assets/resto/resto10.webp", short: "lorem ipsum" },
-  { id: 11, name: "Lorem Ipsum", category: "cemilan", img: "/assets/resto/resto11.webp", short: "lorem ipsum" },
-  { id: 12, name: "Lorem Ipsum", category: "minuman", img: "/assets/resto/resto12.webp", short: "lorem ipsum" },
-];
-
-const CATEGORIES = [
-  { id: "all", label: "Semua", icon: "🍽️" },
-  { id: "makanan", label: "Makanan", icon: "🍜" },
-  { id: "minuman", label: "Minuman", icon: "🥤" },
-  { id: "cemilan", label: "Cemilan", icon: "🍪" },
-];
 
 // =============================
 // MOTION VARIANTS
