@@ -3,9 +3,9 @@ export const UMKM_DATA = [
     id: 1,
     slug: "blackromantic",
     name: "Black Romantic",
-    category: "makanan",
-    img: "/assets/resto/br.webp",
-    short: "lorem ipsum",
+    category: "resto",
+    img: "/assets/resto/blackromantic.webp",
+    short: "Black Romantic adalah restoran yang menyediakan berbagai makanan, seperti Iga Bakar, Bebek, Nasgor, dsb.",
     rating: 4.5,
     rangeHarga: "Rp 1-25.000",
     alamat:
@@ -18,24 +18,143 @@ export const UMKM_DATA = [
     id: 2,
     slug: "bwj",
     name: "Kedai BWJ",
-    category: "makanan", 
-    img: "/assets/resto/resto2.webp",
-    short: "lorem ipsum"
+    category: "resto",
+    img: "/assets/resto/bwj.webp",
+    short: "lorem ipsum",
+    rating: 5.0,
+    rangeHarga: "Rp 1-25.000",
+    alamat:
+      "Ruko Bawah, Jl. Gelap Nyawang, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40123",
+    noTelp: "089601173847",
+    mapEmbed:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1425.6661213293146!2d107.61016129176576!3d-6.895169452449448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e75524c63b47%3A0x17a99e193aa9759b!2sKEDAI%20BWJ%20(%20BUTTERFLY%20WINGS%20JAVA%20)!5e0!3m2!1sen!2sid!4v1762404448819!5m2!1sen!2sid",
   },
-  { id: 3, slug: "stallone", name: "Bebek Stallone", category: "makanan", img: "/assets/resto/resto3.jpg", short: "lorem ipsum" },
-  { id: 4, slug: "cola", name: "Ayam Cola Kabita HC", category: "makanan", img: "/assets/resto/resto4.webp", short: "lorem ipsum" },
-  { id: 5, slug: "besthal", name: "Ayam & Bebek Besthal", category: "makanan", img: "/assets/resto/resto5.webp", short: "lorem ipsum" },
-  { id: 6, slug: "datuak", name: "Rumah Makan Pak Datuak", category: "makanan", img: "/assets/resto/resto6.webp", short: "lorem ipsum" },
-  { id: 7, slug: "miesan", name: "Mie San GK", category: "makanan", img: "/assets/resto/resto6.webp", short: "lorem ipsum" },
-  { id: 8, slug: "warmindo", name: "Warmindo KSC", category: "makanan", img: "/assets/resto/resto6.webp", short: "lorem ipsum" },
-  { id: 9, slug: "serbasepuluh", name: "Serba Sepuluh Cabang ITB Bandung", category: "makanan", img: "/assets/resto/resto6.webp", short: "lorem ipsum" },
-  { id: 10, slug: "angkringan", name: "Angkringan Mas Jo", category: "makanan", img: "/assets/resto/resto6.webp", short: "lorem ipsum" },
+  {
+    id: 3,
+    slug: "stallone",
+    name: "Bebek Stallone",
+    category: "resto",
+    img: "/assets/resto/stallone.webp",
+    short: "lorem ipsum",
+    rating: 4.5,
+    rangeHarga: "Rp 25.000-50.000",
+    alamat:
+      "Jl. Gelap Nyawang No.12, RW.04, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
+    noTelp: "082126727277",
+    mapEmbed:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.481362861835!2d107.60799263849678!3d-6.895062035463128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e65a62a66d4f%3A0x58578089d8304e1c!2sBebek%20Stallone!5e0!3m2!1sen!2sid!4v1762404596242!5m2!1sen!2sid", 
+  },
+  {
+    id: 4,
+    slug: "cola",
+    name: "Ayam Cola Kabita HC",
+    category: "resto",
+    img: "/assets/resto/cola.webp",
+    short: "lorem ipsum",
+    rating: 4.6,
+    rangeHarga: "Rp 1-25.000",
+    alamat:
+      "Ruko Bawah, Jl. Gelap Nyawang, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
+    noTelp: "081321885840",
+    mapEmbed:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.48178168613!2d107.60994873849678!3d-6.89496183546261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6505e6e0e8b%3A0x490332ec01160892!2sAyam%20Cola%20Kabita%20HC!5e0!3m2!1sen!2sid!4v1762404710431!5m2!1sen!2sid",
+  },
+  {
+    id: 5,
+    slug: "besthal",
+    name: "Ayam & Bebek Besthal",
+    category: "resto",
+    img: "/assets/resto/besthal.webp",
+    short: "lorem ipsum",
+    rating: 4.9,
+    rangeHarga: "Rp 1-25.000",
+    alamat:
+      "Jl. Gelap Nyawang No.4, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
+    noTelp: "081394127035",
+    mapEmbed:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.4820884857124!2d107.60957663849673!3d-6.89488843546219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e70e0f888deb%3A0x53442f97e61eacf!2sAyam%20%26%20Bebek%20Besthal!5e0!3m2!1sen!2sid!4v1762404848172!5m2!1sen!2sid",
+  },
+  {
+    id: 6,
+    slug: "datuak",
+    name: "Rumah Makan Pak Datuak",
+    category: "resto",
+    img: "/assets/resto/datuak.webp",
+    short: "lorem ipsum",
+    rating: 4.8,
+    rangeHarga: "Rp 1-25.000",
+    alamat:
+      "4J46+385, Jl. Gelap Nyawang, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
+    noTelp: "081281731151",
+    mapEmbed:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.4822356146042!2d107.60958493849677!3d-6.894853235461992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e650616ac425%3A0x39984aa948901187!2sRumah%20Makan%20Pak%20Datuak!5e0!3m2!1sen!2sid!4v1762407586168!5m2!1sen!2sid",
+  },
+  {
+    id: 7,
+    slug: "miesan",
+    name: "Mie San GK",
+    category: "resto",
+    img: "/assets/resto/miesan.webp",
+    short: "lorem ipsum",
+    rating: 5.0,
+    rangeHarga: "Rp 25.000-50.000",
+    alamat:
+      "Jl. Gelap Nyawang 12, Lb. Siliwangi, Kecamatan Coblong, Jawa, Barat 40132, Kota Bandung, Jawa Barat 40132",
+    noTelp: "082230709593",
+    mapEmbed:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.4817829400858!2d107.60783653849678!3d-6.894961535462591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e71243124505%3A0xa9c9c6f7d71aedf1!2sMie%20San%20GK!5e0!3m2!1sen!2sid!4v1762407928857!5m2!1sen!2sid",
+  },
+  {
+    id: 8,
+    slug: "warmindo",
+    name: "Warmindo KSC",
+    category: "resto",
+    img: "/assets/resto/warmindo.webp",
+    short: "lorem ipsum",
+    rating: 4.8,
+    rangeHarga: "Rp 1-25.000",
+    alamat:
+      "Jl. Gelap Nyawang No.3, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
+    noTelp: "0895354460602",
+    mapEmbed:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5208.444372593425!2d107.60734413754822!3d-6.894571055037678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e71abd094ef7%3A0x8ea1fb1ef9fe9014!2sWarmindo%20KSC!5e0!3m2!1sen!2sid!4v1762408017334!5m2!1sen!2sid",
+  },
+  {
+    id: 9,
+    slug: "serbasepuluh",
+    name: "Serba Sepuluh Cabang ITB Bandung",
+    category: "cemilan",
+    img: "/assets/resto/datuak.webp",
+    short: "lorem ipsum",
+    rating: 4.5,
+    rangeHarga: "Rp 1-25.000",
+    alamat:
+      "Jl. Gelap Nyawang No.1, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
+    noTelp: "085624091877",
+    mapEmbed:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.964416624359!2d107.60664257479226!3d-6.894859767471667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7b4dbdabc93%3A0xeb300b1ce3c42ae3!2sSerba%20Sepuluh%20Cabang%20ITB%20Bandung!5e0!3m2!1sen!2sid!4v1762408094030!5m2!1sen!2sid",
+  },
+  {
+    id: 10,
+    slug: "angkringan",
+    name: "Angkringan Mas Jo",
+    category: "resto",
+    img: "/assets/resto/datuak.webp",
+    short: "lorem ipsum",
+    rating: 4.6,
+    rangeHarga: "Rp 1-25.000",
+    alamat:
+      "Jl. Gelap Nyawang No.3, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
+    noTelp: "082219187723",
+    mapEmbed:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9636391779395!2d107.60667787479231!3d-6.894952767472645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e65a86c04d73%3A0x4c1e37cc2374e8f4!2sAngkringan%20Mas%20Jo!5e0!3m2!1sen!2sid!4v1762408149763!5m2!1sen!2sid",
+  },
   { 
     id: 11, 
     slug: "dapurlaut", 
     name: "Dapur Laut", 
-    category: "makanan", 
-    img: "/assets/resto/resto6.webp", 
+    category: "resto", 
+    img: "/assets/resto/dapurlaut.webp", 
     short: "Dapur Laut adalah restoran seafood di dekat kampus Dago yang terkenal dengan pilihan ikan bakar segar dan harga ramah mahasiswa.",
     rating: 4.6,
     rangeHarga: "Rp 25.000-50.000",
@@ -43,7 +162,11 @@ export const UMKM_DATA = [
     noTelp: "-",
     mapEmbed: " https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9636481016846!2d107.609416!3d-6.8949517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e65a80dd32c1%3A0x3e128d97c8a4830d!2sDapur%20Laut!5e0!3m2!1sen!2sid!4v1762265015704!5m2!1sen!2sid"
   },
-  { id: 12, slug: "komawa", name: "Kowawa Kedai Kopi", category: "kafe", img: "/assets/resto/resto6.webp", short: "Kowawa Kedai Kopi adalah kafe cozy di dekat kampus Dago yang cocok untuk nongkrong santai atau nugas dengan minuman harga ramah dan suasana tenang." ,
+  { id: 12,
+    slug: "komawa",
+    name: "Kowawa Kedai Kopi",
+    category: "kafe", img: "/assets/resto/komawa.webp",
+    short: "Kowawa Kedai Kopi adalah kafe cozy di dekat kampus Dago yang cocok untuk nongkrong santai atau nugas dengan minuman harga ramah dan suasana tenang." ,
     rating: 4.9,
     rangeHarga: "Rp 1-25.000",
     alamat:
@@ -51,7 +174,12 @@ export const UMKM_DATA = [
     noTelp: "087825412628",
     mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9636890641686!2d107.6094552!3d-6.8949468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7abb91e488d%3A0xd9078f02b4ca34dc!2sKowawa%20Kedai%20Kopi!5e0!3m2!1sen!2sid!4v1762265221274!5m2!1sen!2sid" 
   },
-  { id: 13, slug: "koboi", name: "Kedai Koboi", category: "kafe", img: "/assets/resto/resto6.webp", short: "Kedai Koboi adalah kafe santai bergaya western yang cocok untuk melepas penat sambil menikmati kopi dan camilan ringan dekat area Dago, Bandung.",
+  { id: 13,
+    slug: "koboi",
+    name: "Kedai Koboi",
+    category: "kafe",
+    img: "/assets/resto/koboi.webp",
+    short: "Kedai Koboi adalah kafe santai bergaya western yang cocok untuk melepas penat sambil menikmati kopi dan camilan ringan dekat area Dago, Bandung.",
     rating: 4.5,
     rangeHarga: "Rp 1-25.000",
     alamat:
@@ -60,7 +188,12 @@ export const UMKM_DATA = [
     mapEmbed:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9631950045164!2d107.60993099999999!3d-6.8950059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6507e51f6eb%3A0xe85958d5d31ad685!2sKedai%20Koboi!5e0!3m2!1sen!2sid!4v1762265737059!5m2!1sen!2sid"
   },
-  { id: 14, slug: "doamande", name: "Warnas Doa Mande", category: "makanan", img: "/assets/resto/resto6.webp", short: "Warung Nasi Padang Doa Mande adalah rumah makan Padang yang nyaman di Bandung, menyajikan berbagai pilihan lauk khas dengan harga terjangkau untuk mahasiswa dan pekerja.",
+  { id: 14,
+    slug: "doamande",
+    name: "Warnas Doa Mande",
+    category: "resto",
+    img: "/assets/resto/doamande.webp",
+    short: "Warung Nasi Padang Doa Mande adalah rumah makan Padang yang nyaman di Bandung, menyajikan berbagai pilihan lauk khas dengan harga terjangkau untuk mahasiswa dan pekerja.",
     rating: 4.2,
     rangeHarga: "Rp 1-25.000",
     alamat:
@@ -70,7 +203,12 @@ export const UMKM_DATA = [
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1993.1065983985452!2d107.60913518941679!3d-6.894713903293459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6507e848241%3A0x3a81ce613ee84f08!2sWarnas%20Doa%20Mande!5e0!3m2!1sen!2sid!4v1762266059119!5m2!1sen!2sid"
    },
 
-  { id: 15, slug: "kebab", name: "Kebab Lebanon Abu Salman", category: "makanan", img: "/assets/resto/resto6.webp", short: "Kebab Lebanon Abu Salman adalah restoran cepat saji di Bandung yang menyajikan kebab dengan resep khas Lebanon, pilihan tepat untuk makan praktis dan nikmat dekat area kampus." ,
+  { id: 15,
+    slug: "kebab",
+    name: "Kebab Lebanon Abu Salman",
+    category: "cemilan",
+    img: "/assets/resto/kebab.webp",
+    short: "Kebab Lebanon Abu Salman adalah restoran cepat saji di Bandung yang menyajikan kebab dengan resep khas Lebanon, pilihan tepat untuk makan praktis dan nikmat dekat area kampus." ,
     rating: 5.0,
     rangeHarga: "Rp 1-25.000",
     alamat:
@@ -79,7 +217,12 @@ export const UMKM_DATA = [
     mapEmbed:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63375.42699679064!2d107.5339188486328!3d-6.894887199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e70077fa0f6b%3A0x79995d0c13249014!2sKebab%20Lebanon%20Abu%20Salman!5e0!3m2!1sen!2sid!4v1762266282163!5m2!1sen!2sid"
   },
-  { id: 16, slug: "prancis", name: "Warnas Prancis", category: "makanan", img: "/assets/resto/resto6.webp", short: "Warnas Prancis adalah warung makan dengan konsep santai di Dago yang cocok untuk menikmati makanan ala Prancis ringan di suasana kampus.",
+  { id: 16,
+    slug: "prancis",
+    name: "Warnas Prancis",
+    category: "resto",
+    img: "/assets/resto/prancis.webp",
+    short: "Warnas Prancis adalah warung makan dengan konsep santai di Dago yang cocok untuk menikmati makanan ala Prancis ringan di suasana kampus.",
     rating: 4.7,
     rangeHarga: "Rp 1-25.000",
     alamat:
@@ -88,7 +231,12 @@ export const UMKM_DATA = [
     mapEmbed:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9640853120122!2d107.61026079999999!3d-6.894899399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6507c2f92d3%3A0x9c5d4c9e4c4a58fe!2sWarnas%20Prancis!5e0!3m2!1sen!2sid!4v1762267018450!5m2!1sen!2sid"
   },
-  { id: 17, slug: "nasgor", name: "Nasi Goreng Baso Sedap Malam", category: "makanan", img: "/assets/resto/resto6.webp", short: "Nasi Goreng Baso Sedap Malam adalah warung nasi goreng malam yang populer di area Dago, Bandung—ideal untuk makan malam santai setelah aktivitas kampus.",
+  { id: 17,
+    slug: "nasgor",
+    name: "Nasi Goreng Baso Sedap Malam",
+    category: "resto",
+    img: "/assets/resto/nasgor.webp",
+    short: "Nasi Goreng Baso Sedap Malam adalah warung nasi goreng malam yang populer di area Dago, Bandung—ideal untuk makan malam santai setelah aktivitas kampus.",
     rating: 4.5,
     rangeHarga: "Rp 1-25.000",
     alamat:
@@ -96,7 +244,12 @@ export const UMKM_DATA = [
     noTelp: "081321738834",
     mapEmbed:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9644456109677!2d107.6102896!3d-6.8948563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e650e7b58a09%3A0xeb759abb4ebb693e!2sNasi%20Goreng%20Baso%20Sedap%20Malam!5e0!3m2!1sen!2sid!4v1762268363505!5m2!1sen!2sid"  },
-  { id: 19, slug: "thaitea", name: "Thaitea Ganesha by Babeh", category: "minuman", img: "/assets/resto/resto6.webp", short: "Thaitea Ganesha by Babeh adalah kafe bubble tea nyaman di kawasan Ganesha Bandung yang cocok untuk istirahat singkat sambil menikmati minuman kekinian.",
+  { id: 19,
+    slug: "thaitea",
+    name: "Thaitea Ganesha by Babeh",
+    category: "minuman",
+    img: "/assets/resto/thaitea.webp",
+    short: "Thaitea Ganesha by Babeh adalah kafe bubble tea nyaman di kawasan Ganesha Bandung yang cocok untuk istirahat singkat sambil menikmati minuman kekinian.",
     rating: 5.0,
     rangeHarga: "Rp 1-25.000",
     alamat:
@@ -105,7 +258,12 @@ export const UMKM_DATA = [
     mapEmbed:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.964262535909!2d107.6105092!3d-6.8948782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7c888b08cc7%3A0x5d912f54de631ff4!2sThaitea%20Ganesha%20by%20Babeh!5e0!3m2!1sen!2sid!4v1762268660423!5m2!1sen!2sid"
   },
-  { id: 20, slug: "rajawali", name: "RAJAWALI STATIONERY", category: "lain", img: "/assets/resto/resto6.webp", short: "RAJAWALI STATIONERY adalah toko alat tulis yang menyediakan berbagai kebutuhan sekolah dan kampus di Bandung",
+  { id: 20,
+    slug: "rajawali",
+    name: "RAJAWALI STATIONERY",
+    category: "lain",
+    img: "/assets/resto/rajawali.webp",
+    short: "RAJAWALI STATIONERY adalah toko alat tulis yang menyediakan berbagai kebutuhan sekolah dan kampus di Bandung",
     rating: 4.0,
     rangeHarga: "Rp 1-25.000",
     alamat:
@@ -114,20 +272,25 @@ export const UMKM_DATA = [
     mapEmbed:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.964405484977!2d107.61070339999999!3d-6.8948611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7ea8d9644ad%3A0xea4b978085a65246!2sRAJAWALI%20STATIONERY!5e0!3m2!1sen!2sid!4v1762268933017!5m2!1sen!2sid"  },
   
-    { id: 21, slug: "asmad", name: "Asmad Cafe", category: "makanan", img: "/assets/resto/resto6.webp", short: "Asmad Cafe adalah kafe nyaman di Jl. Gelap Nyawang, Bandung yang buka Senin–Sabtu pukul 10.00–19.00 dan menawarkan menu makan dengan harga bersahabat",
-    rating: 4.6,
-    rangeHarga: "Rp 1-25.000",
-    alamat:
-      "Jl. Gelap Nyawang, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
-    noTelp: "-",
-    mapEmbed:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9635051507466!2d107.6110633!3d-6.894968800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e65060a5c5d1%3A0xab20c3cc5eabbf93!2sAsmad%20Cafe!5e0!3m2!1sen!2sid!4v1762269236273!5m2!1sen!2sid"
+    { id: 21,
+      slug: "asmad",
+      name: "Asmad Cafe",
+      category: "cafe",
+      img: "/assets/resto/asmad.webp",
+      short: "Asmad Cafe adalah kafe nyaman di Jl. Gelap Nyawang, Bandung yang buka Senin–Sabtu pukul 10.00–19.00 dan menawarkan menu makan dengan harga bersahabat",
+      rating: 4.6,
+      rangeHarga: "Rp 1-25.000",
+      alamat:
+        "Jl. Gelap Nyawang, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
+      noTelp: "082230709593",
+      mapEmbed:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9635051507466!2d107.6110633!3d-6.894968800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e65060a5c5d1%3A0xab20c3cc5eabbf93!2sAsmad%20Cafe!5e0!3m2!1sen!2sid!4v1762269236273!5m2!1sen!2sid"
   },
   { id: 22, 
     slug: "sindang", 
     name: "Warung Nasi Sindang Heula", 
     category: "resto", 
-    img: "/assets/resto/resto6.webp", 
+    img: "/assets/resto/sindang.webp", 
     short: "Menjual berbagai masakan khas sunda",
     rating:  5.0,
     rangeHarga: "Rp 1-25.000",
@@ -141,7 +304,7 @@ export const UMKM_DATA = [
     slug: "bakmi", 
     name: "Bakmie Ganyang", 
     category: "resto", 
-    img: "/assets/resto/resto6.webp", 
+    img: "/assets/resto/bakmi.webp", 
     short: "Menjual berbagai bakmie dan japanese food",
     rating: 5.0,
     rangeHarga: "Rp 1-25.000",
@@ -155,7 +318,7 @@ export const UMKM_DATA = [
     slug: "kios", 
     name: "Kios Erick", 
     category: "lain", 
-    img: "/assets/resto/resto6.webp", 
+    img: "/assets/resto/kios.webp", 
     short: "Sebuah kios yang menjual berbagai kebutuhan dan camilan",
     rating: 4.9,
     rangeHarga: "Rp 1-25.000",
@@ -169,7 +332,7 @@ export const UMKM_DATA = [
     slug: "mocktail", 
     name: "Ganesha Mocktail", 
     category: "cafe", 
-    img: "/assets/resto/resto6.webp", 
+    img: "/assets/resto/mocktail.webp", 
     short: "Berbagai macam mocktail dan smoothie menjadi ciri khas cafe ini",
     rating: 4.4,
     rangeHarga: "Rp 25.000-50.000",
@@ -183,7 +346,7 @@ export const UMKM_DATA = [
     slug: "ica", 
     name: "Warung Ica", 
     category: "resto", 
-    img: "/assets/resto/resto6.webp", 
+    img: "/assets/resto/ica.webp", 
     short: "Menjual berbagai makanan khas Indonesia",
     rating: 5.0,
     rangeHarga: "Rp 1-25.000",
@@ -197,7 +360,7 @@ export const UMKM_DATA = [
     slug: "garden", 
     name: "Garden Coffee Bandung", 
     category: "cafe", 
-    img: "/assets/resto/resto6.webp", 
+    img: "/assets/resto/garden.webp", 
     short: "Kreasi minuman kopi dan camilan kafe disajikan di tempat penuh lampu dengan taman rindang", 
     rating: 4.6,
     rangeHarga: "Rp 25.000-50.000",
@@ -211,7 +374,7 @@ export const UMKM_DATA = [
     slug: "nuesara", 
     name: "Nuesara Coffee & Habitual", 
     category: "cafe", 
-    img: "/assets/resto/resto6.webp", 
+    img: "/assets/resto/nuesara.webp", 
     short: "Tempat yang nyaman dan menjual berbagai minuman serta makanan yang terjangkau dan lezat",
     rating: 5.0,
     rangeHarga: "Rp 25.000-50.000",
@@ -225,7 +388,7 @@ export const UMKM_DATA = [
     slug: "cacto", 
     name: "Two Point One El cacto", 
     category: "cemilan", 
-    img: "/assets/resto/resto6.webp", 
+    img: "/assets/resto/cacto.webp", 
     short: "Menjual kebab yang khas dan lezat",
     rating: 5.0,
     rangeHarga: "Rp 1-25.000",
@@ -239,7 +402,7 @@ export const UMKM_DATA = [
     slug: "elvindo", 
     name: "PT.ELVINDO ANUGERAH PERKASA", 
     category: "lain", 
-    img: "/assets/resto/resto6.webp", 
+    img: "/assets/resto/elvindo.webp", 
     short: "Toko Motor Elektrik",
     rating: 5.0,
     rangeHarga: "Rp 2.000.000-5.000.000",
@@ -252,10 +415,10 @@ export const UMKM_DATA = [
     slug: "sembilan", 
     name: "Angka Sembilan Coffee", 
     category: "cafe", 
-    img: "/assets/resto/resto6.webp", 
+    img: "/assets/resto/sembilan.webp", 
     short: "Cafe dengan tempat yang menarik dan nyaman",
     rating: 4.8,
-    rangeHarga: "Rp 25.000-50.0000",
+    rangeHarga: "Rp 25.000-50.000",
     alamat:
       "Jl. Ciungwanara No.10, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
     noTelp: "081264282072",
@@ -266,7 +429,7 @@ export const UMKM_DATA = [
     slug: "kita", 
     name: "Warung Nasi Kita | Wanaki", 
     category: "resto", 
-    img: "/assets/resto/resto6.webp", 
+    img: "/assets/resto/kita.webp", 
     short: "Menjual berbagai makanan prasmanan",
     rating: 5.0,
     rangeHarga: "Rp 1-25.000",
@@ -276,12 +439,12 @@ export const UMKM_DATA = [
     mapEmbed: 
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.959473392092!2d107.60882847590626!3d-6.8954510674800655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7140b9b583f%3A0x40dc15c61e097cee!2sWarung%20Nasi%20Kita%20%7C%20Wanaki!5e0!3m2!1sid!2sid!4v1762275718984!5m2!1sid!2sid",  
   },
-};
+];
 
 export const CATEGORIES = [
   { id: "all", label: "Semua", icon: "🍽️" },
-  { id: "makanan", label: "Makanan", icon: "🍜" },
-  { id: "minuman", label: "Minuman", icon: "🥤" },
+  { id: "resto", label: "Resto", icon: "🍜" },
+  { id: "cafe", label: "Cafe", icon: "🥤" },
   { id: "cemilan", label: "Cemilan", icon: "🍪" },
   { id: "lain", label: "Lain-lain", icon: "🛍️" },
 ];  
