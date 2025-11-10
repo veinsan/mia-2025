@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ===================================
-   CSS VARIABLES - Connected to Tailwind
-   =================================== */
+/* CSS VARIABLES */
 
 :root {
   /* Light Mode Colors */
@@ -39,9 +38,7 @@
   --border-default: #3A2F28;
 }
 
-/* ===================================
-   BASE STYLES
-   =================================== */
+/* BASE STYLES */
 
 * {
   margin: 0;
@@ -60,9 +57,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ===================================
-   UTILITY CLASSES
-   =================================== */
+/* UTILITY CLASSES */
 
 @layer utilities {
   .transition-theme {
@@ -81,9 +76,7 @@ body {
   }
 }
 
-/* ===================================
-   SELECTION & LINKS
-   =================================== */
+/* SELECTION & LINKS */
 
 ::selection {
   background: #E57621;
@@ -95,9 +88,7 @@ a {
   text-decoration: none;
 }
 
-/* ===================================
-   ACCESSIBILITY
-   =================================== */
+/* ACCESSIBILITY */
 
 @media (prefers-reduced-motion: reduce) {
   *,
