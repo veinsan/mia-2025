@@ -4,81 +4,43 @@
 @tailwind components;
 @tailwind utilities;
 
-/* CSS VARIABLES FOR THEMING */
+/* ===================================
+   CSS VARIABLES - Connected to Tailwind
+   =================================== */
 
 :root {
-  /* Primary Colors */
-  --color-primary: #E57621;
-  --color-primary-hover: #EC760D;
-  --color-primary-active: #C13F14;
-  
-  --color-secondary: #C13F14;
-  --color-secondary-hover: #710002;
-  
-  --color-accent: #FCBB65;
-  --color-accent-hover: #EE760D;
-  
-  /* Background Colors */
+  /* Light Mode Colors */
   --bg-base: #FFFFFF;
   --bg-soft: #FFF8F0;
   --bg-warm: #FFEDD9;
   --bg-gold: #FEE6C8;
   
-  /* Text Colors */
   --text-primary: #1A0A03;
   --text-secondary: #4A1E0E;
   --text-muted: #8B4513;
-  --text-accent: #E57621;
   
-  /* Border Colors */
   --border-light: #F5E5D3;
   --border-default: #E8D4BE;
-  --border-dark: #C13F14;
-  
-  /* Shadows */
-  --shadow-glow: 0 0 20px rgba(229, 118, 33, 0.5);
-  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
-  
-  /* Navbar */
-  --nav-opacity: 0;
-  --nav-blur: 0px;
 }
 
-/* Dark Mode Variables */
+/* Dark Mode Colors */
 .dark {
-  --color-primary: #FCBB65;
-  --color-primary-hover: #EE760D;
-  --color-primary-active: #E57621;
-  
-  --color-secondary: #E57621;
-  --color-secondary-hover: #EC760D;
-  
-  --color-accent: #FFD699;
-  --color-accent-hover: #FCBB65;
-  
-  /* Dark Backgrounds */
   --bg-base: #0A0503;
   --bg-soft: #1A1210;
   --bg-warm: #2A1F1A;
   --bg-gold: #3A2F28;
   
-  /* Dark Text */
   --text-primary: #FFF8F0;
   --text-secondary: #FFE5CC;
   --text-muted: #D4B896;
-  --text-accent: #FCBB65;
   
-  /* Dark Borders */
   --border-light: #2A1F1A;
   --border-default: #3A2F28;
-  --border-dark: #C13F14;
-  
-  /* Dark Shadows */
-  --shadow-glow: 0 0 20px rgba(252, 187, 101, 0.4);
-  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* BASE STYLES */
+/* ===================================
+   BASE STYLES
+   =================================== */
 
 * {
   margin: 0;
@@ -94,173 +56,48 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: var(--bg-base);
-  color: var(--text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
-  overflow-x: hidden;
 }
 
-/* UTILITY CLASSES */
+/* ===================================
+   UTILITY CLASSES
+   =================================== */
 
 @layer utilities {
-  /* Smooth color transitions */
   .transition-theme {
     transition: background-color 0.3s ease, 
                 color 0.3s ease, 
-                border-color 0.3s ease,
-                box-shadow 0.3s ease;
+                border-color 0.3s ease;
   }
   
-  /* Text gradient */
-  .text-gradient-primary {
-    @apply bg-gradient-to-r from-primary via-primary-hover to-accent bg-clip-text text-transparent;
-  }
-  
-  .text-gradient-gold {
-    @apply bg-gradient-to-r from-accent via-accent-hover to-primary-hover bg-clip-text text-transparent;
-  }
-  
-  /* Glass effect */
-  .glass {
-    @apply bg-white/10 backdrop-blur-md border border-white/20;
-  }
-  
-  .glass-dark {
-    @apply dark:bg-black/20 dark:backdrop-blur-md dark:border-white/10;
-  }
-  
-  /* Smooth shadow */
-  .shadow-smooth {
-    box-shadow: var(--shadow-soft);
-  }
-  
-  .shadow-glow-smooth {
-    box-shadow: var(--shadow-glow);
-  }
-  
-  /* Hide scrollbar */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+  
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  
-  /* Custom scrollbar */
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: var(--bg-soft);
-    border-radius: 10px;
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: var(--color-primary);
-    border-radius: 10px;
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: var(--color-primary-hover);
-  }
-  
-  /* Focus visible */
-  .focus-ring {
-    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-bg-base;
-  }
-  
-  /* Shimmer effect */
-  .shimmer {
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(229, 118, 33, 0.1) 50%,
-      transparent 100%
-    );
-    background-size: 200% 100%;
-    animation: shimmer 2s infinite;
-  }
 }
 
-/* COMPONENT OVERRIDES */
+/* ===================================
+   SELECTION & LINKS
+   =================================== */
 
-/* Selection color */
 ::selection {
-  background: var(--color-primary);
+  background: #E57621;
   color: white;
 }
 
-::-moz-selection {
-  background: var(--color-primary);
-  color: white;
-}
-
-/* Link styles */
 a {
   color: inherit;
   text-decoration: none;
-  transition: color 0.2s ease;
 }
 
-a:hover {
-  color: var(--color-primary);
-}
+/* ===================================
+   ACCESSIBILITY
+   =================================== */
 
-/* Button reset */
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-/* Image optimization */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* ANIMATIONS */
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-/* Grain texture overlay */
-.grain-texture::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.03;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Touch device optimization */
-@media (hover: none) and (pointer: coarse) {
-  /* Larger touch targets */
-  button, a {
-    min-height: 44px;
-    min-width: 44px;
-  }
-  
-  /* Disable hover effects on touch */
-  .hover\:scale-105:hover {
-    transform: none;
-  }
-}
-
-/* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -269,18 +106,5 @@ img {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-}
-
-/* High contrast mode */
-@media (prefers-contrast: high) {
-  :root {
-    --color-primary: #D65000;
-    --text-primary: #000000;
-  }
-  
-  .dark {
-    --color-primary: #FFD699;
-    --text-primary: #FFFFFF;
   }
 }
