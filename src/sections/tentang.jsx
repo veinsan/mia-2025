@@ -1,62 +1,184 @@
 "use client";
-import { useEffect, useRef } from "react";
+
+import { useEffect, useRef, useState } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
+
+/* ANIMATION CONFIGURATION */
+
+const ANIMATION_CONFIG = {
+  CONTAINER: {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05,
+        when: "beforeChildren",
+      },
+    },
+  },
+  ITEM: {
+    hidden: { opacity: 0, y: 12 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.55,
+        ease: "easeOut",
+      },
+    },
+  },
+  WAVE: {
+    DURATION: 12,
+  },
+  GLOW_TEXT: {
+    DURATION: 3,
+    REPEAT: Infinity,
+    EASE: "easeInOut",
+  },
+  BLOB: {
+    DURATIONS: [6, 7, 6.5],
+  },
+  CARD_HOVER: {
+    SCALE: 1.04,
+    TRANSLATE_Y: -6,
+  },
+};
+
+/* CARD & VISUAL CONFIGURATION */
+
+const CARDS_DATA = [
+  {
+    id: "rumahan",
+    title: "Rasa Autentik",
+    desc: "Setiap sajian di Gelap Nyawang dibuat dengan cita rasa rumahan khas Bandung — sederhana tapi ngangenin.",
+    img: "/assets/about/t1.jpg",
+    badgeLabel: "Rasa",
+  },
+  {
+    id: "lokal",
+    title: "Dari Komunitas Lokal",
+    desc: "UMKM di sekitar Gelap Nyawang tumbuh bareng, mendukung satu sama lain demi kuliner yang tetap hidup dan autentik.",
+    img: "/assets/about/t2.jpg",
+    badgeLabel: "Komunitas",
+  },
+  {
+    id: "cepat",
+    title: "Cepat & Nyaman",
+    desc: "Mau nongkrong, nugas, atau sekadar makan cepat — suasana di sini selalu bikin betah dan produktif.",
+    img: "/assets/about/t3.jpg",
+    badgeLabel: "Praktis",
+  },
+];
+
+const IMAGE_EFFECT = {
+  brightness: 0.75,
+  hoverBrightness: 1.1,
+};
+
+const BADGE_COLORS = [
+  "bg-primary dark:bg-accent",
+  "bg-secondary dark:bg-secondary/80",
+  "bg-accent/80 dark:bg-accent",
+];
+
+const CARD_SHADOW = [
+  "0 6px 20px rgba(229, 118, 33, 0.18)", // primary
+  "0 6px 20px rgba(193, 63, 20, 0.14)", // secondary
+  "0 6px 20px rgba(252, 187, 101, 0.14)", // accent
+];
+
+const HOVER_SHADOW = "0 6px 16px rgba(0, 0, 0, 0.12), 0 0 0 2px rgba(229, 118, 33, 0.18)";
+
+/* CARD COMPONENT */
+
+const AboutCard = ({ card, index, isMobile, onHoverChange }) => {
+  return (
+    <motion.article
+      variants={ANIMATION_CONFIG.ITEM}
+      whileHover={
+        !isMobile
+          ? {
+              scale: ANIMATION_CONFIG.CARD_HOVER.SCALE,
+              translateY: -ANIMATION_CONFIG.CARD_HOVER.TRANSLATE_Y,
+              boxShadow: HOVER_SHADOW,
+            }
+          : {}
+      }
+      transition={{ type: "spring", stiffness: 180, damping: 16 }}
+      onHoverStart={() => !isMobile && onHoverChange(index, true)}
+      onHoverEnd={() => !isMobile && onHoverChange(index, false)}
+      className="relative rounded-3xl overflow-hidden shadow-xl bg-bg-base dark:bg-bg-soft transition-all duration-300 group"
+    >
+      {/* Background Image */}
+      <div
+        className="w-full h-[320px] sm:h-[360px] md:h-[420px] bg-cover bg-center transition-all duration-300 group-hover:brightness-110"
+        style={{
+          backgroundImage: `url(${card.img})`,
+          filter: `brightness(${IMAGE_EFFECT.brightness})`,
+        }}
+        role="img"
+        aria-label={`${card.title} image`}
+      />
+
+      {/* Content Overlay */}
+      <div className="absolute left-6 right-6 bottom-6 p-4 rounded-xl bg-gradient-to-t from-black/85 to-transparent backdrop-blur-sm">
+        <h3 className="text-xl md:text-2xl font-semibold text-white mb-1">
+          {card.title}
+        </h3>
+        <p className="text-sm md:text-base text-gray-200 mb-3 line-clamp-4">
+          {card.desc}
+        </p>
+
+        {/* Badge */}
+        <motion.div
+          className={`inline-flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium text-white ${BADGE_COLORS[index]}`}
+          style={{
+            boxShadow: CARD_SHADOW[index],
+          }}
+          whileHover={!isMobile ? { scale: 1.08 } : {}}
+          transition={{ duration: 0.2 }}
+        >
+          <span className="w-2.5 h-2.5 rounded-full bg-white/90" />
+          <span>{card.badgeLabel}</span>
+        </motion.div>
+      </div>
+    </motion.article>
+  );
+};
+
+/* MAIN TENTANG COMPONENT */
 
 export default function Tentang() {
   const ref = useRef(null);
   const inView = useInView(ref, { amount: 0.25, once: false });
   const controls = useAnimation();
+  const [isMobile, setIsMobile] = useState(false);
+  const [hoveredCardIndex, setHoveredCardIndex] = useState(null);
 
+  /* Mobile detection */
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  /* Reduced motion preference */
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mq.matches) controls.set("visible");
+    if (mq.matches) {
+      controls.set("visible");
+    }
   }, [controls]);
 
+  /* Animation trigger on scroll */
   useEffect(() => {
-    if (inView) controls.start("visible");
-    else controls.start("hidden");
+    if (inView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
   }, [inView, controls]);
-
-  // animasi lebih cepat, tapi tetap halus
-  const container = {
-    hidden: { opacity: 0, y: 15 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { staggerChildren: 0.08, when: "beforeChildren" },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 22, scale: 0.96 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { duration: 0.35, ease: [0.25, 0.8, 0.25, 1] },
-    },
-  };
-
-  const cards = [
-    {
-      id: "rumahan",
-      title: "Rasa Autentik",
-      desc: "Setiap sajian di Gelap Nyawang dibuat dengan cita rasa rumahan khas Bandung — sederhana tapi ngangenin.",
-      img: "/assets/about/t1.jpg",
-    },
-    {
-      id: "lokal",
-      title: "Dari Komunitas Lokal",
-      desc: "UMKM di sekitar Gelap Nyawang tumbuh bareng, mendukung satu sama lain demi kuliner yang tetap hidup dan autentik.",
-      img: "/assets/about/t2.jpg",
-    },
-    {
-      id: "cepat",
-      title: "Cepat & Nyaman",
-      desc: "Mau nongkrong, nugas, atau sekadar makan cepat — suasana di sini selalu bikin betah dan produktif.",
-      img: "/assets/about/t3.jpg",
-    },
-  ];
 
   return (
     <section
@@ -65,11 +187,15 @@ export default function Tentang() {
       className="relative overflow-hidden transition-colors duration-500"
       aria-labelledby="tentang-title"
     >
-      {/* flow wave — udah acc */}
+      {/* Wave SVG Top */}
       <div className="absolute inset-x-0 -top-[2px] pointer-events-none z-20 overflow-hidden">
         <motion.div
           animate={{ x: ["0%", "-18%", "0%"] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          transition={{
+            duration: ANIMATION_CONFIG.WAVE.DURATION,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
           className="w-[200%]"
         >
           <svg
@@ -98,43 +224,57 @@ export default function Tentang() {
         </motion.div>
       </div>
 
-      {/* ambient blobs */}
-      <div aria-hidden className="absolute inset-0 -z-10 pointer-events-none">
+      {/* Ambient Blobs - Decorative */}
+      <div aria-hidden="true" className="absolute inset-0 -z-10 pointer-events-none">
         <motion.div
           animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          transition={{
+            duration: ANIMATION_CONFIG.BLOB.DURATIONS[0],
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
           className="absolute left-6 top-10 w-36 h-36 rounded-full bg-primary/10 blur-3xl"
         />
         <motion.div
           animate={{ y: [-6, 6, -6] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+          transition={{
+            duration: ANIMATION_CONFIG.BLOB.DURATIONS[1],
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
           className="absolute right-8 top-24 w-44 h-44 rounded-full bg-accent/10 blur-3xl"
         />
         <motion.div
           animate={{ y: [5, -7, 5] }}
-          transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
+          transition={{
+            duration: ANIMATION_CONFIG.BLOB.DURATIONS[2],
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
           className="absolute left-1/2 -translate-x-1/2 bottom-20 w-40 h-40 rounded-full bg-secondary/10 blur-3xl"
         />
       </div>
 
-      {/* main content */}
+      {/* Main Content */}
       <div className="relative z-10 bg-gradient-to-b from-bg-base via-bg-soft to-bg-warm dark:from-bg-base dark:via-bg-soft dark:to-bg-warm">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-20">
+          {/* Header Section */}
           <motion.div
-            variants={container}
+            variants={ANIMATION_CONFIG.CONTAINER}
             initial="hidden"
             animate={controls}
             className="text-center max-w-3xl mx-auto"
           >
             <motion.h4
-              variants={item}
+              variants={ANIMATION_CONFIG.ITEM}
               className="text-primary font-semibold tracking-wide mb-2"
             >
               Keunggulan Kami
             </motion.h4>
 
             <motion.h2
-              variants={item}
+              variants={ANIMATION_CONFIG.ITEM}
+              id="tentang-title"
               className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-text-primary dark:text-text-secondary leading-tight"
             >
               Kenapa Makan{" "}
@@ -142,19 +282,23 @@ export default function Tentang() {
                 className="text-primary dark:text-[#F5B66E]"
                 animate={{
                   textShadow: [
-                    "0 0 0 var(--primary)",
-                    "0 0 10px rgba(245,182,110,0.3)",
-                    "0 0 0 var(--primary)",
+                    "0 0 0 rgb(229, 118, 33)",
+                    "0 0 10px rgba(229, 118, 33, 0.4)",
+                    "0 0 0 rgb(229, 118, 33)",
                   ],
                 }}
-                transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: ANIMATION_CONFIG.GLOW_TEXT.DURATION,
+                  repeat: ANIMATION_CONFIG.GLOW_TEXT.REPEAT,
+                  ease: ANIMATION_CONFIG.GLOW_TEXT.EASE,
+                }}
               >
                 di Gelap Nyawang?
               </motion.span>
             </motion.h2>
 
             <motion.p
-              variants={item}
+              variants={ANIMATION_CONFIG.ITEM}
               className="mt-4 text-base md:text-lg text-text-muted dark:text-text-secondary/80 leading-relaxed"
             >
               Di kawasan Gelap Nyawang, setiap warung dan kafe punya kisah unik —
@@ -162,66 +306,21 @@ export default function Tentang() {
             </motion.p>
           </motion.div>
 
-          {/* cards */}
+          {/* Cards Grid */}
           <motion.div
-            variants={container}
+            variants={ANIMATION_CONFIG.CONTAINER}
             initial="hidden"
             animate={controls}
             className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
           >
-            {cards.map((c, idx) => (
-              <motion.article
-                key={c.id}
-                variants={item}
-                whileHover={{
-                  scale: 1.035,
-                  translateY: -4,
-                  boxShadow:
-                    "0 6px 16px rgba(0,0,0,0.12), 0 0 0 2px rgba(229,93,24,0.18)",
-                }}
-                transition={{ type: "spring", stiffness: 180, damping: 16 }}
-                className="relative rounded-3xl overflow-hidden shadow-xl bg-bg-base dark:bg-bg-soft transition-all duration-300"
-              >
-                <div
-                  className="w-full h-[420px] sm:h-[460px] md:h-[500px] bg-cover bg-center transition-all duration-300 hover:brightness-110"
-                  style={{
-                    backgroundImage: `url(${c.img})`,
-                    filter: "brightness(0.75)",
-                  }}
-                />
-
-                <div className="absolute left-6 right-6 bottom-6 p-4 rounded-xl bg-gradient-to-t from-black/85 to-transparent">
-                  <h3 className="text-xl md:text-2xl font-semibold text-white mb-1">
-                    {c.title}
-                  </h3>
-                  <p className="text-sm md:text-base text-gray-200 mb-3 line-clamp-4">
-                    {c.desc}
-                  </p>
-
-                  <div
-                    className={`inline-flex items-center gap-2 px-3 py-2 rounded-full text-sm text-white ${
-                      idx === 0
-                        ? "bg-[#E86A1E] dark:bg-[#F9B04E]"
-                        : idx === 1
-                        ? "bg-[#C13F14] dark:bg-[#B54B22]"
-                        : "bg-[#E7C49D] dark:bg-[#F5B66E]"
-                    }`}
-                    style={{
-                      boxShadow:
-                        idx === 0
-                          ? "0 6px 20px rgba(232,106,30,0.18)"
-                          : idx === 1
-                          ? "0 6px 20px rgba(193,63,20,0.14)"
-                          : "0 6px 20px rgba(249,182,110,0.14)",
-                    }}
-                  >
-                    <span className="w-2.5 h-2.5 rounded-full bg-white/90" />
-                    <span className="font-medium">
-                      {idx === 0 ? "Rasa" : idx === 1 ? "Komunitas" : "Praktis"}
-                    </span>
-                  </div>
-                </div>
-              </motion.article>
+            {CARDS_DATA.map((card, idx) => (
+              <AboutCard
+                key={card.id}
+                card={card}
+                index={idx}
+                isMobile={isMobile}
+                onHoverChange={setHoveredCardIndex}
+              />
             ))}
           </motion.div>
         </div>
