@@ -88,7 +88,7 @@ module.exports = {
       transitionTimingFunction: {
         'bounce-smooth': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
       },
-      
+
       screens: {
         'xs': '475px',
       },

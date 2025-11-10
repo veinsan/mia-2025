@@ -52,7 +52,7 @@ export default function Hero() {
       const scrollY = window.scrollY || window.pageYOffset;
       const base = Math.min(window.innerHeight, 1200);
       const visibleRatio = Math.max(0, Math.min(1, scrollY / base));
-
+      
       layerRefs.current.forEach((el, i) => {
         const speed = (i + 1) * 0.08;
         const translateY = -visibleRatio * 30 * speed;
@@ -197,4 +197,3 @@ export default function Hero() {
     </section>
   );
 }
-  

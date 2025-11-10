@@ -1,9 +1,9 @@
 "use client";
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function Nav({ dataUMKM = [] }) {
+export default function Nav() {
   const [active, setActive] = useState("home");
   const [darkMode, setDarkMode] = useState(false);
   const [overlayOpen, setOverlayOpen] = useState(false);
@@ -15,7 +15,6 @@ export default function Nav({ dataUMKM = [] }) {
 
   const sections = useRef([]);
 
-  // register sections untuk scroll spy
   useEffect(() => {
     sections.current = [
       "hero",
@@ -27,7 +26,6 @@ export default function Nav({ dataUMKM = [] }) {
     ].map((id) => document.getElementById(id));
   }, []);
 
-  // scroll behavior
   useEffect(() => {
     const handleScroll = () => {
       const y = window.scrollY;
@@ -37,7 +35,6 @@ export default function Nav({ dataUMKM = [] }) {
       setInHero(y < heroHeight);
       setBgVisible(y > heroHeight * 0.6);
 
-      // scroll spy
       let current = "home";
       sections.current.forEach((sec) => {
         if (sec && y >= sec.offsetTop - 150) current = sec.id;
@@ -48,18 +45,15 @@ export default function Nav({ dataUMKM = [] }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // dark mode logic
   useEffect(() => {
     if (darkMode) document.documentElement.classList.add("dark");
     else document.documentElement.classList.remove("dark");
   }, [darkMode]);
 
-  // lock body scroll di mobile
   useEffect(() => {
     document.body.style.overflow = overlayOpen ? "hidden" : "";
   }, [overlayOpen]);
 
-  // toggle dark/light mode
   const handleToggleMode = () => {
     if (iconChanging) return;
     setIconChanging(true);
@@ -70,7 +64,6 @@ export default function Nav({ dataUMKM = [] }) {
     }, 500);
   };
 
-  // nav links
   const navLinks = [
     { id: "hero", label: "Beranda", href: "#hero" },
     { id: "tentang", label: "Tentang", href: "#tentang" },
@@ -80,7 +73,6 @@ export default function Nav({ dataUMKM = [] }) {
     { id: "lokasi", label: "Lokasi", href: "#lokasi" },
   ];
 
-  // background & blur transition logic
   const backgroundColor = inHero
     ? "rgba(0,0,0,0)"
     : bgVisible
@@ -136,7 +128,6 @@ export default function Nav({ dataUMKM = [] }) {
               } ${active === link.id ? "text-primary" : ""}`}
             >
               {link.label}
-              {/* underline smooth */}
               <motion.span
                 layoutId={active === link.id ? "underline" : undefined}
                 className={`absolute left-0 right-0 bottom-[-4px] h-[2px] rounded-full ${
@@ -183,7 +174,13 @@ export default function Nav({ dataUMKM = [] }) {
           >
             <Menu
               size={22}
-              className={inHero ? "text-white" : darkMode ? "text-white" : "text-text-primary"}
+              className={
+                inHero
+                  ? "text-white"
+                  : darkMode
+                  ? "text-white"
+                  : "text-text-primary"
+              }
             />
           </button>
         </div>

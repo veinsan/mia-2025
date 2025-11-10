@@ -5,8 +5,8 @@ import TopResto from "@/sections/topResto";
 import Testimoni from "@/sections/testimoni";
 import Galeri from "@/sections/galeri";
 import Lokasi from "@/sections/lokasi";
-import Footer from "@/components/footer";
 import BannerDirektori from "@/sections/banner";
+import Footer from "@/components/footer";
 import { UMKM_DATA } from "@/data/umkmData";
 
 export default function Home() {
