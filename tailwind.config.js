@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Primary brand colors dari extracted palette
+        // Primary colors
         primary: {
           DEFAULT: '#E57621',
           hover: '#EC760D',
@@ -24,7 +24,7 @@ module.exports = {
           light: '#FFD699',
         },
         
-        // Background system (light → dark via CSS vars)
+        // Background system
         bg: {
           base: 'var(--bg-base)',
           soft: 'var(--bg-soft)',
@@ -32,7 +32,7 @@ module.exports = {
           gold: 'var(--bg-gold)',
         },
         
-        // Text system (light → dark via CSS vars)
+        // Text system
         text: {
           primary: 'var(--text-primary)',
           secondary: 'var(--text-secondary)',
@@ -84,6 +84,15 @@ module.exports = {
           "100%": { opacity: "1", transform: "scale(1)" },
         },
       },
+
+      transitionTimingFunction: {
+        'bounce-smooth': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+      },
+      
+      screens: {
+        'xs': '475px',
+      },
+      
     },
   },
   plugins: [],
