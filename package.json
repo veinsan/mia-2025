@@ -2,7 +2,7 @@
   "name": "gelapnyawang",
   "version": "1.0.0",
   "private": true,
-  "description": "Ganyang Lapar di Gelap Nyawang",
+  "description": "Wisata kuliner baru di Bandung, mulai dari jajanan sederhana sampai kafe ber-wifi!",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -25,14 +25,19 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.10"
   },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
   "keywords": [
+    "Gelap Nyawang",
+    "UMKM Bandung",
+    "Kuliner ITB",
+    "Kuliner Gelap Nyawang",
+    "Wisata Kuliner Bandung",
     "Next.js",
     "Tailwind CSS",
     "Framer Motion",
-    "UMKM",
-    "Gelap Nyawang",
-    "ITB",
-    "Bandung",
     "Web In Action"
   ],
   "author": "Riantama Putra",
