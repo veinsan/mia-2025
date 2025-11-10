@@ -3,7 +3,7 @@ import { ThemeProvider } from "next-themes";
 
 export const metadata = {
   title: "Gelap Nyawang Culinary",
-  description: "Jelajahi kuliner legendaris di kawasan Gelap Nyawang Bandung",
+  description: "Jelajahi kuliner di kawasan Gelap Nyawang Bandung",
 };
 
 export default function RootLayout({ children }) {
