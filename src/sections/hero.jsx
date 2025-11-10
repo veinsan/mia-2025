@@ -1,6 +1,89 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
+
+import { useCallback, useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
+
+/* ANIMATION & PARALLAX CONFIGURATION */
+
+const ANIMATION_CONFIG = {
+  TYPING: {
+    INTERVAL: 52, // ms per karakter
+    COMPLETION_DELAY: 500, // ms sebelum sembunyiin kursor
+  },
+  PARALLAX: {
+    BASE_SPEED: 0.08,
+    TRANSLATE_MULTIPLIER: 30,
+    HORIZONTAL_OFFSET: 20,
+    VIEWPORT_RATIO_BASE: 0.8, // rasio dari tinggi viewport
+  },
+  LAYERS: {
+    DURATIONS: [16, 18, 20, 17, 19, 21], // sec per loop
+    OSCILLATE: {
+      Y: 18,
+      SCALE_MAX: 1.06,
+      ROTATE_MAX: 1.2,
+    },
+    BRIGHTNESS: {
+      MIN: 0.45,
+      MAX: 0.85,
+    },
+    BLUR_MIN: 1,
+    BLUR_MAX: 0,
+  },
+  ENTRANCE: {
+    H1_DURATION: 1,
+    P_DURATION: 1,
+    P_DELAY: 0.3,
+    BUTTON_DURATION: 1.2,
+    BUTTON_DELAY: 0.5,
+  },
+  GLOW: {
+    DURATION: 3,
+    REPEAT: Infinity,
+    EASE: "easeInOut",
+  },
+};
+
+/* BACKGROUND IMAGES CONFIGURATION */
+
+const BG_IMAGES = [
+  {
+    src: "/assets/hero/bg1.webp",
+    style: "left-[4%] top-[6%] max-w-[520px] w-[70vw]",
+  },
+  {
+    src: "/assets/hero/bg2.webp",
+    style: "left-[30%] top-[12%] max-w-[520px] w-[70vw]",
+  },
+  {
+    src: "/assets/hero/bg3.webp",
+    style: "right-[8%] top-[8%] max-w-[520px] w-[70vw]",
+  },
+  {
+    src: "/assets/hero/bg4.webp",
+    style: "left-[10%] bottom-[8%] max-w-[520px] w-[70vw]",
+  },
+  {
+    src: "/assets/hero/bg5.webp",
+    style: "right-[20%] bottom-[10%] max-w-[520px] w-[70vw]",
+  },
+  {
+    src: "/assets/hero/bg6.webp",
+    style: "right-[4%] top-[44%] max-w-[420px] w-[60vw]",
+  },
+];
+
+/* GLOW EFFECT CONFIGURATION */
+
+const TEXT_GLOW_EFFECT = {
+  textShadow: [
+    "0px 0px 0px rgb(229, 118, 33)",
+    "0px 0px 20px rgba(229, 118, 33, 0.6)",
+    "0px 0px 0px rgb(229, 118, 33)",
+  ],
+};
+
+/* HERO COMPONENT */
 
 export default function Hero() {
   const fullText =
@@ -8,92 +91,135 @@ export default function Hero() {
 
   const [displayText, setDisplayText] = useState("");
   const [typingDone, setTypingDone] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const layerRefs = useRef([]);
+
+  /* SETUP: Mobile Detection */
+
   useEffect(() => {
-    layerRefs.current = [];
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
-  const addLayerRef = (el) => {
-    if (el && !layerRefs.current.includes(el)) layerRefs.current.push(el);
-  };
+
+  /* SETUP: Layer Refs Callback */
+
+  const setLayerRef = useCallback((el, index) => {
+    if (el) layerRefs.current[index] = el;
+  }, []);
+
+  /* EFFECT: Typing Animation */
 
   useEffect(() => {
     let index = 0;
-    const interval = setInterval(() => {
+    let interval;
+    let timeoutId;
+
+    interval = setInterval(() => {
       setDisplayText(fullText.slice(0, index));
       index++;
+
       if (index > fullText.length) {
         clearInterval(interval);
-        setTimeout(() => setTypingDone(true), 500);
+        timeoutId = setTimeout(
+          () => setTypingDone(true),
+          ANIMATION_CONFIG.TYPING.COMPLETION_DELAY
+        );
       }
-    }, 52);
-    return () => clearInterval(interval);
-  }, []);
+    }, ANIMATION_CONFIG.TYPING.INTERVAL);
 
-  const bgImages = [
-    { src: "/assets/hero/bg1.webp", style: "left-[4%] top-[6%] max-w-[520px] w-[70vw]" },
-    { src: "/assets/hero/bg2.webp", style: "left-[30%] top-[12%] max-w-[520px] w-[70vw]" },
-    { src: "/assets/hero/bg3.webp", style: "right-[8%] top-[8%] max-w-[520px] w-[70vw]" },
-    { src: "/assets/hero/bg4.webp", style: "left-[10%] bottom-[8%] max-w-[520px] w-[70vw]" },
-    { src: "/assets/hero/bg5.webp", style: "right-[20%] bottom-[10%] max-w-[520px] w-[70vw]" },
-    { src: "/assets/hero/bg6.webp", style: "right-[4%] top-[44%] max-w-[420px] w-[60vw]" },
-  ];
-  const durations = [16, 18, 20, 17, 19, 21];
+    return () => {
+      clearInterval(interval);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [fullText]);
+
+  /* EFFECT: Parallax on Scroll (RAF) */
 
   useEffect(() => {
-    let mounted = true;
     let rafId = null;
-    const handle = () => {
-      if (!mounted) return;
-      if (document.hidden) {
-        rafId = requestAnimationFrame(handle);
-        return;
-      }
+
+    const handleParallax = () => {
       const scrollY = window.scrollY || window.pageYOffset;
-      const base = Math.min(window.innerHeight, 1200);
+      const base = Math.min(
+        window.innerHeight,
+        1200 / ANIMATION_CONFIG.PARALLAX.VIEWPORT_RATIO_BASE
+      );
       const visibleRatio = Math.max(0, Math.min(1, scrollY / base));
-      
+
+      // Ngitung dulu di luar loop biar ga ngitung ulang
+      const baseTranslateY =
+        -visibleRatio * ANIMATION_CONFIG.PARALLAX.TRANSLATE_MULTIPLIER;
+      const baseTranslateX =
+        visibleRatio * ANIMATION_CONFIG.PARALLAX.HORIZONTAL_OFFSET;
+
       layerRefs.current.forEach((el, i) => {
-        const speed = (i + 1) * 0.08;
-        const translateY = -visibleRatio * 30 * speed;
-        const translateX = visibleRatio * 20 * (i % 2 === 0 ? -1 : 1);
+        if (!el) return;
+
+        const speed = (i + 1) * ANIMATION_CONFIG.PARALLAX.BASE_SPEED;
+        const translateY = baseTranslateY * speed;
+        const translateX =
+          baseTranslateX * (i % 2 === 0 ? -1 : 1);
+
         el.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
       });
 
-      rafId = requestAnimationFrame(handle);
+      if (document.visibilityState === "visible") {
+        rafId = requestAnimationFrame(handleParallax);
+      }
     };
-    rafId = requestAnimationFrame(handle);
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        rafId = requestAnimationFrame(handleParallax);
+      }
+    };
+
+    rafId = requestAnimationFrame(handleParallax);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
     return () => {
-      mounted = false;
       if (rafId) cancelAnimationFrame(rafId);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, []);
+
+  /* RENDER: Hero Section */
 
   return (
     <section
       id="hero"
-      className="
-        relative flex flex-col justify-center items-center text-center overflow-hidden
-        min-h-screen pt-28 sm:pt-32 md:pt-40 pb-20 px-6 md:px-10
-        bg-[#0A0A0A] text-white
-      "
+      className="relative flex flex-col justify-center items-center text-center overflow-hidden min-h-screen pt-28 sm:pt-32 md:pt-40 pb-20 px-6 md:px-10 bg-[#0A0A0A] text-white"
     >
-      {/* Background Layer */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        {bgImages.map((img, i) => (
+      {/* Background Layer - Decorative */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden="true"
+        role="presentation"
+      >
+        {BG_IMAGES.map((img, i) => (
           <motion.div
-            key={i}
-            ref={addLayerRef}
+            key={`layer-${i}`}
+            ref={(el) => setLayerRef(el, i)}
             className={`absolute rounded-2xl overflow-hidden shadow-2xl ${img.style}`}
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{
               opacity: [0.9, 1, 0.9],
               y: [0, i % 2 === 0 ? -18 : 18, 0],
-              scale: [1, 1.06, 1],
-              rotate: [0, i % 2 === 0 ? 1.2 : -1.2, 0],
+              scale: [1, ANIMATION_CONFIG.LAYERS.OSCILLATE.SCALE_MAX, 1],
+              rotate: [
+                0,
+                i % 2 === 0
+                  ? ANIMATION_CONFIG.LAYERS.OSCILLATE.ROTATE_MAX
+                  : -ANIMATION_CONFIG.LAYERS.OSCILLATE.ROTATE_MAX,
+                0,
+              ],
             }}
             transition={{
-              duration: durations[i],
+              duration: ANIMATION_CONFIG.LAYERS.DURATIONS[i],
               repeat: Infinity,
               ease: "easeInOut",
               repeatType: "loop",
@@ -102,21 +228,27 @@ export default function Hero() {
           >
             <motion.img
               src={img.src}
-              alt={`Suasana kuliner di Gelap Nyawang ${i + 1}`}
-              loading="lazy"
+              alt=""
+              loading={i === 0 || i === 1 ? "eager" : "lazy"}
+              decoding="async"
               className="w-full h-full object-cover"
               animate={{
                 scale: [1, 1.08, 1],
                 filter: [
-                  "brightness(0.45) blur(1px)",
-                  "brightness(0.85) blur(0px)",
-                  "brightness(0.45) blur(1px)",
+                  `brightness(${ANIMATION_CONFIG.LAYERS.BRIGHTNESS.MIN}) blur(${ANIMATION_CONFIG.LAYERS.BLUR_MIN}px)`,
+                  `brightness(${ANIMATION_CONFIG.LAYERS.BRIGHTNESS.MAX}) blur(${ANIMATION_CONFIG.LAYERS.BLUR_MAX}px)`,
+                  `brightness(${ANIMATION_CONFIG.LAYERS.BRIGHTNESS.MIN}) blur(${ANIMATION_CONFIG.LAYERS.BLUR_MIN}px)`,
                 ],
               }}
               transition={{
-                duration: durations[i] + 6,
+                duration:
+                  ANIMATION_CONFIG.LAYERS.DURATIONS[i] +
+                  6,
                 repeat: Infinity,
                 ease: "easeInOut",
+              }}
+              onError={(e) => {
+                e.target.style.display = "none";
               }}
             />
           </motion.div>
@@ -126,32 +258,31 @@ export default function Hero() {
 
       {/* Content */}
       <div className="max-w-4xl mx-auto relative z-10 px-3 sm:px-6">
+        {/* Main Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight font-heading mb-6"
+          transition={{ duration: ANIMATION_CONFIG.ENTRANCE.H1_DURATION }}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight font-bold tracking-tight"
         >
           Ganyang Lapar di{" "}
           <motion.span
             className="text-primary inline-block"
-            animate={{
-              textShadow: [
-                "0px 0px 0px #E57621",
-                "0px 0px 20px rgba(229,118,33,0.6)",
-                "0px 0px 0px #E57621",
-              ],
-            }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            animate={TEXT_GLOW_EFFECT}
+            transition={ANIMATION_CONFIG.GLOW}
           >
             Gelap Nyawang
           </motion.span>
         </motion.h1>
 
+        {/* Typing Animation */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
+          transition={{
+            duration: ANIMATION_CONFIG.ENTRANCE.P_DURATION,
+            delay: ANIMATION_CONFIG.ENTRANCE.P_DELAY,
+          }}
           className="text-base sm:text-lg mt-4 max-w-2xl mx-auto font-light tracking-wide leading-relaxed text-white/90"
         >
           {displayText}
@@ -164,36 +295,54 @@ export default function Hero() {
             transition={
               typingDone
                 ? { duration: 0.4, ease: "easeInOut" }
-                : { duration: 0.7, repeat: Infinity, ease: "easeInOut" }
+                : {
+                    duration: 0.7,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }
             }
             className="ml-1 text-white/80"
+            aria-hidden="true"
           >
             |
           </motion.span>
         </motion.p>
 
+        {/* CTA Button */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.5 }}
+          transition={{
+            duration: ANIMATION_CONFIG.ENTRANCE.BUTTON_DURATION,
+            delay: ANIMATION_CONFIG.ENTRANCE.BUTTON_DELAY,
+          }}
           className="mt-10 flex justify-center"
         >
           <motion.a
             href="/direktori"
-            whileHover={{
-              scale: typeof window !== "undefined" && window.innerWidth > 640 ? 1.05 : 1,
-              boxShadow: "0 8px 28px rgba(229,118,33,0.35)",
-            }}
+            whileHover={
+              !isMobile
+                ? {
+                    scale: 1.05,
+                    boxShadow: "0 8px 28px rgba(229, 118, 33, 0.35)",
+                  }
+                : {}
+            }
             whileTap={{ scale: 0.97 }}
-            className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 sm:px-10 py-3 sm:py-4 rounded-full text-base sm:text-lg shadow-glow focus:ring-4 focus:ring-primary/40 transition-all"
+            className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 sm:px-10 py-3 sm:py-4 rounded-full text-base sm:text-lg shadow-glow focus:ring-4 focus:ring-primary/40 focus:outline-none transition-all cursor-pointer"
+            aria-label="Explore Gelap Nyawang culinary directory"
           >
             Jelajahi Sekarang
           </motion.a>
         </motion.div>
       </div>
 
-      {/* Bottom Fade */}
-      <div className="absolute bottom-0 left-0 w-full h-[200px] bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
+      {/* Bottom Fade Gradient */}
+      <div
+        className="absolute bottom-0 left-0 w-full h-[200px] bg-gradient-to-t from-black/80 to-transparent pointer-events-none"
+        aria-hidden="true"
+        role="presentation"
+      />
     </section>
   );
 }
