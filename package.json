@@ -3,23 +3,19 @@
   "version": "1.0.0",
   "private": true,
   "description": "Ganyang Lapar di Gelap Nyawang - Direktori UMKM Kuliner ITB",
-  "author": "Boss (Riant)",
+  "author": "Riantama Putra)",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "analyze": "ANALYZE=true next build",
-    "clean": "rm -rf .next out node_modules/.cache"
+    "lint": "next lint"
   },
   "dependencies": {
     "framer-motion": "^12.23.24",
     "lucide-react": "^0.548.0",
     "next": "16.0.0",
-    "next-themes": "^0.4.6",
+    "next-themes": "^0.4.4",
     "react": "19.2.0",
     "react-dom": "19.2.0"
   },
@@ -39,24 +35,6 @@
     "Gelap Nyawang",
     "ITB",
     "Bandung",
-    "Web In Action",
-    "Kuliner",
-    "Food Directory"
-  ],
-  "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=9.0.0"
-  },
-  "browserslist": {
-    "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "Web In Action"
+  ]
 }
