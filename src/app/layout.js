@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="id" suppressHydrationWarning>
       <body 
-        className="bg-bg-base text-text-primary transition-theme antialiased"
+        className="bg-bg-base text-text-primary antialiased"
         suppressHydrationWarning
       >
         <ThemeProvider
