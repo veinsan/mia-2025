@@ -2,9 +2,7 @@
   "name": "gelapnyawang",
   "version": "1.0.0",
   "private": true,
-  "description": "Ganyang Lapar di Gelap Nyawang - Direktori UMKM Kuliner ITB",
-  "author": "Riantama Putra)",
-  "license": "MIT",
+  "description": "Ganyang Lapar di Gelap Nyawang",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -36,5 +34,7 @@
     "ITB",
     "Bandung",
     "Web In Action"
-  ]
+  ],
+  "author": "Riantama Putra",
+  "license": "MIT"
 }
