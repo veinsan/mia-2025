@@ -165,7 +165,7 @@ export const UMKM_DATA = [
   { id: 12,
     slug: "komawa",
     name: "Kowawa Kedai Kopi",
-    category: "kafe", img: "/assets/resto/komawa.webp",
+    category: "cafe", img: "/assets/resto/komawa.webp",
     short: "Kowawa Kedai Kopi adalah kafe cozy di dekat kampus Dago yang cocok untuk nongkrong santai atau nugas dengan minuman harga ramah dan suasana tenang." ,
     rating: 4.9,
     rangeHarga: "Rp 1-25.000",
@@ -177,7 +177,7 @@ export const UMKM_DATA = [
   { id: 13,
     slug: "koboi",
     name: "Kedai Koboi",
-    category: "kafe",
+    category: "cafe",
     img: "/assets/resto/koboi.webp",
     short: "Kedai Koboi adalah kafe santai bergaya western yang cocok untuk melepas penat sambil menikmati kopi dan camilan ringan dekat area Dago, Bandung.",
     rating: 4.5,
@@ -442,9 +442,10 @@ export const UMKM_DATA = [
 ];
 
 export const CATEGORIES = [
-  { id: "all", label: "Semua", icon: "🍽️" },
-  { id: "resto", label: "Resto", icon: "🍜" },
-  { id: "cafe", label: "Cafe", icon: "🥤" },
-  { id: "cemilan", label: "Cemilan", icon: "🍪" },
-  { id: "lain", label: "Lain-lain", icon: "🛍️" },
-];  
+  { id: "all", label: "Semua", icon: "🍽️" },
+  { id: "resto", label: "Resto", icon: "🍜" },
+  { id: "cafe", label: "Kafe", icon: "☕" }, // Standarisasi ke 'cafe'
+  { id: "cemilan", label: "Cemilan", icon: "🍪" },
+  { id: "minuman", label: "Minuman", icon: "🥤" }, // Menambahkan yang hilang
+  { id: "lain", label: "Lain-lain", icon: "🛍️" },
+];
