@@ -1,172 +1,211 @@
 "use client";
-import { motion } from "framer-motion";
+
 import Link from "next/link";
-import { UMKM_DATA } from "@/data/umkmData";
+import { motion } from "framer-motion";
 
-export default function TopResto() {
-  // Ambil 6 data pertama dari UMKM_DATA
-  const restos = UMKM_DATA.slice(0, 6);
+/* ============================================
+   ANIMATION CONFIGURATION
+   ============================================ */
 
-  const entrance = (dir = "up", delay = 0) => ({
-    hidden: {
-      opacity: 0,
-      y: dir === "up" ? 60 : 0,
-      x: dir === "left" ? 60 : dir === "right" ? -60 : 0,
-      scale: 0.98,
-    },
-    visible: {
+const ANIMATION_CONFIG = {
+  ITEM: {
+    hidden: { opacity: 0, y: 20 },
+    visible: (custom = 0) => ({
       opacity: 1,
       y: 0,
-      x: 0,
-      scale: 1,
       transition: {
-        duration: 0.8,
-        delay,
-        ease: [0.25, 0.1, 0.25, 1],
+        duration: 0.55,
+        delay: custom * 0.05,
+        ease: "easeOut",
       },
-    },
-  });
+    }),
+  },
+};
+
+/* ============================================
+   RESTO DATA (HARDCODED - Specific to this section)
+   ============================================ */
+
+const RESTOS_DATA = [
+  {
+    slug: "blackromantic",
+    name: "Black Romantic",
+    desc: "Restoran dengan cita rasa iga bakar autentik yang memanjakan lidah, sempurna untuk makan bersama teman-teman.",
+    img: "/assets/resto/blackromantic.webp",
+  },
+  {
+    slug: "bwj",
+    name: "Kedai BWJ",
+    desc: "Butterfly Wings Java menyajikan masakan nusantara berkualitas dengan harga terjangkau dan pelayanan ramah.",
+    img: "/assets/resto/bwj.webp",
+  },
+  {
+    slug: "stallone",
+    name: "Bebek Stallone",
+    desc: "Bebek goreng renyah dengan bumbu yang menggugah selera, pilihan favorit para pecinta kuliner lokal.",
+    img: "/assets/resto/stallone.jpg",
+  },
+  {
+    slug: "cola",
+    name: "Ayam Cola Kabita HC",
+    desc: "Ayam bakar dengan racikan bumbu istimewa yang bikin ketagihan, cocok untuk lunch maupun dinner.",
+    img: "/assets/resto/cola.webp",
+  },
+  {
+    slug: "besthal",
+    name: "Ayam & Bebek Besthal",
+    desc: "Kombinasi ayam dan bebek berkualitas dengan bumbu rahasia turun temurun yang luar biasa lezat.",
+    img: "/assets/resto/besthal.webp",
+  },
+  {
+    slug: "datuak",
+    name: "Rumah Makan Pak Datuak",
+    desc: "Rumah makan autentik dengan masakan tradisional yang membawa cita rasa kampung ke hadapan Anda.",
+    img: "/assets/resto/datuak.webp",
+  },
+];
+
+/* ============================================
+   RESTO CARD COMPONENT
+   ============================================ */
+
+const RestoCard = ({ resto, variant = "large", custom = 0 }) => {
+  const isLarge = variant === "large";
+  const isMedium = variant === "medium";
+
+  return (
+    <motion.div
+      custom={custom}
+      variants={ANIMATION_CONFIG.ITEM}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.25 }}
+      className={`relative group rounded-3xl overflow-hidden shadow-xl transition-all duration-500 ${
+        isLarge
+          ? "h-[280px] sm:h-[350px] md:h-[400px]"
+          : isMedium
+            ? "h-[180px] sm:h-[220px] md:h-[260px]"
+            : "h-[140px] sm:h-[160px] md:h-[180px]"
+      }`}
+      whileHover={{
+        boxShadow: "0 0 30px rgba(229, 118, 33, 0.25)",
+      }}
+    >
+      {/* Image */}
+      <motion.img
+        src={resto.img}
+        alt={resto.name}
+        loading="lazy"
+        className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+      />
+
+      {/* Overlay Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
+
+      {/* Content - Semi Transparent */}
+      <Link href={`/direktori/${resto.slug}`}>
+        <div className="absolute inset-0 flex flex-col justify-end p-5 sm:p-6 md:p-8 text-white backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <h3 className={`font-semibold mb-2 line-clamp-2 ${isLarge ? "text-2xl md:text-3xl" : isMedium ? "text-lg md:text-xl" : "text-base md:text-lg"}`}>
+            {resto.name}
+          </h3>
+
+          <p className={`text-white/90 line-clamp-3 mb-4 ${isLarge ? "text-sm md:text-base" : isMedium ? "text-xs md:text-sm" : "text-xs"}`}>
+            {resto.desc}
+          </p>
+
+          {/* Subtle "Lihat Detail" Text Link */}
+          <motion.span
+            className="inline-flex items-center gap-1 text-primary font-semibold text-sm hover:text-primary/90 transition-colors"
+            whileHover={{ x: 2 }}
+          >
+            Lihat Detail →
+          </motion.span>
+        </div>
+      </Link>
+
+      {/* Default State - Bottom Info */}
+      <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-8 text-white drop-shadow-md group-hover:opacity-0 transition-opacity duration-300">
+        <h3 className={`font-semibold line-clamp-2 ${isLarge ? "text-2xl md:text-3xl" : isMedium ? "text-lg md:text-xl" : "text-base md:text-lg"}`}>
+          {resto.name}
+        </h3>
+      </div>
+    </motion.div>
+  );
+};
+
+/* ============================================
+   MAIN TOPRESO COMPONENT
+   ============================================ */
+
+export default function TopResto() {
+  const mainResto = RESTOS_DATA[1];
+  const topResto = RESTOS_DATA[0];
+  const gridRestos = RESTOS_DATA.slice(2, 6);
 
   return (
     <section
       id="topResto"
-      className="
-        relative overflow-hidden py-24 md:py-32
-        bg-gradient-to-b from-bg-soft via-bg-warm to-bg-gold
-        dark:from-bg-base dark:via-bg-soft dark:to-bg-warm
-        transition-colors duration-500
-      "
-      aria-labelledby="topResto-title"
+      className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-b from-bg-warm via-bg-soft to-bg-base dark:from-bg-warm dark:via-bg-soft dark:to-bg-base transition-colors duration-500"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12">
-        {/* === KIRI: Title & Big Feature === */}
+      <div className="max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
+        {/* === LEFT: Title + Large Image === */}
         <div className="lg:col-span-7 flex flex-col gap-10">
+          {/* Header Section */}
           <motion.div
-            variants={entrance("left", 0.1)}
+            custom={0}
+            variants={ANIMATION_CONFIG.ITEM}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.25 }}
+            viewport={{ once: false, amount: 0.5 }}
           >
-            <p className="text-primary font-semibold mb-2">Tempat Andalan</p>
-            <h2
-              id="topResto-title"
-              className="text-4xl md:text-5xl font-heading font-bold leading-tight mb-4 text-text-primary dark:text-text-secondary"
-            >
+            <p className="text-primary font-semibold mb-2 tracking-wide uppercase text-sm">
+              Tempat Andalan
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-4 text-text-primary dark:text-text-secondary">
               Rekomendasi{" "}
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Kuliner Pilihan
-              </span>
+              <motion.span
+                className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+                animate={{
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              >
+                Paijo
+              </motion.span>
             </h2>
             <p className="text-text-muted dark:text-text-secondary/80 text-base md:text-lg max-w-md leading-relaxed">
-              Daftar kuliner favorit mahasiswa ITB dan warga Bandung yang wajib
-              lu cobain saat mampir ke Gelap Nyawang.
+              Kumpulan tempat makan terbaik di Gelap Nyawang yang telah teruji kelezatannya. Pilihan yang tepat untuk memuaskan selera kuliner kamu!
             </p>
           </motion.div>
 
-          {/* Big Feature Card */}
-          <Link href={`/direktori/${restos[1]?.slug || "#"}`} passHref>
-            <motion.div
-              variants={entrance("up", 0.2)}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="
-                relative group rounded-3xl overflow-hidden shadow-card
-                h-[380px] md:h-[460px] cursor-pointer
-                hover:shadow-glow transition-shadow duration-500
-              "
-            >
-              <motion.img
-                src={restos[1]?.gambar?.[0] || "/assets/placeholder.jpg"}
-                alt={restos[1]?.nama || "UMKM"}
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 text-white drop-shadow-md">
-                <h3 className="text-2xl md:text-3xl font-semibold mb-2">
-                  {restos[1]?.nama}
-                </h3>
-                <p className="text-sm md:text-base opacity-90 max-w-xl line-clamp-2">
-                  {restos[1]?.deskripsi}
-                </p>
-              </div>
-            </motion.div>
-          </Link>
+          {/* Large Featured Image */}
+          <RestoCard resto={mainResto} variant="large" custom={1} />
         </div>
 
-        {/* === KANAN: Secondary & Grid === */}
+        {/* === RIGHT: Top Image + 4 Grid === */}
         <div className="lg:col-span-5 flex flex-col gap-10">
-          {/* Foto panjang atas */}
-          <Link href={`/direktori/${restos[0]?.slug || "#"}`} passHref>
-            <motion.div
-              variants={entrance("right", 0.15)}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="
-                relative group rounded-3xl overflow-hidden shadow-card
-                h-[220px] md:h-[260px] cursor-pointer
-                hover:shadow-glow transition-shadow duration-500
-              "
-            >
-              <motion.img
-                src={restos[0]?.gambar?.[0] || "/assets/placeholder.jpg"}
-                alt={restos[0]?.nama || "UMKM"}
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 text-white drop-shadow-md">
-                <h3 className="text-xl md:text-2xl font-semibold mb-1">
-                  {restos[0]?.nama}
-                </h3>
-                <p className="text-sm md:text-base opacity-90 max-w-md line-clamp-2">
-                  {restos[0]?.deskripsi}
-                </p>
-              </div>
-            </motion.div>
-          </Link>
+          {/* Top Medium Image */}
+          <RestoCard resto={topResto} variant="medium" custom={2} />
 
-          {/* Grid kecil */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 gap-6">
-            {restos.slice(2, 6).map((r, i) => (
-              <Link key={r.slug} href={`/direktori/${r.slug}`} passHref>
-                <motion.div
-                  variants={entrance(i % 2 === 0 ? "left" : "right", i * 0.1)}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  className="
-                    relative group rounded-2xl overflow-hidden shadow-card
-                    h-[160px] sm:h-[180px] cursor-pointer
-                    hover:shadow-glow transition-shadow duration-500
-                  "
-                >
-                  <motion.img
-                    src={r.gambar?.[0] || "/assets/placeholder.jpg"}
-                    alt={r.nama}
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white drop-shadow-md">
-                    <h4 className="text-base md:text-lg font-semibold mb-1">
-                      {r.nama}
-                    </h4>
-                    <p className="text-xs md:text-sm opacity-90 line-clamp-2">
-                      {r.deskripsi}
-                    </p>
-                  </div>
-                </motion.div>
-              </Link>
+          {/* Grid 4 Small Images */}
+          <div className="grid grid-cols-2 gap-6">
+            {gridRestos.map((resto, i) => (
+              <RestoCard
+                key={resto.slug}
+                resto={resto}
+                variant="small"
+                custom={3 + i}
+              />
             ))}
           </div>
         </div>
       </div>
 
-      {/* Bottom gradient transition biar nyambung ke section berikut */}
-      <div className="absolute bottom-0 left-0 w-full h-[160px] bg-gradient-to-t from-bg-gold/40 via-transparent to-transparent pointer-events-none dark:from-bg-warm/40" />
+      {/* Subtle Bottom Gradient */}
+      <div
+        className="absolute bottom-0 left-0 w-full h-[120px] bg-gradient-to-t from-bg-base to-transparent dark:from-bg-base pointer-events-none"
+        aria-hidden="true"
+      />
     </section>
   );
 }
