@@ -23,6 +23,16 @@ const ANIMATION_CONFIG = {
 };
 
 /* ============================================
+   REDUCED MOTION DETECTION
+   ============================================ */
+
+const prefersReducedMotion = () => {
+  return typeof window !== "undefined"
+    ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    : false;
+};
+
+/* ============================================
    RESTO DATA (HARDCODED - Specific to this section)
    ============================================ */
 
@@ -69,66 +79,74 @@ const RESTOS_DATA = [
    RESTO CARD COMPONENT
    ============================================ */
 
-const RestoCard = ({ resto, variant = "large", custom = 0 }) => {
+const RestoCard = ({ resto, variant = "large", index = 0 }) => {
   const isLarge = variant === "large";
   const isMedium = variant === "medium";
+  const reduceMotion = prefersReducedMotion();
 
   return (
     <motion.div
-      custom={custom}
-      variants={ANIMATION_CONFIG.ITEM}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: false, amount: 0.25 }}
-      className={`relative group rounded-3xl overflow-hidden shadow-xl transition-all duration-500 ${
-        isLarge
-          ? "h-[280px] sm:h-[350px] md:h-[400px]"
-          : isMedium
-            ? "h-[180px] sm:h-[220px] md:h-[260px]"
-            : "h-[140px] sm:h-[160px] md:h-[180px]"
-      }`}
-      whileHover={{
-        boxShadow: "0 0 30px rgba(229, 118, 33, 0.25)",
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration: reduceMotion ? 0.2 : 0.5,
+        delay: reduceMotion ? 0 : index * 0.08,
       }}
+      className={`relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 ${
+        isLarge
+          ? "h-[400px] md:h-[465px]"
+          : isMedium
+            ? "h-[220px] md:h-[260px]"
+            : "h-[160px] md:h-[180px]"
+      }`}
     >
-      {/* Image */}
-      <motion.img
-        src={resto.img}
-        alt={resto.name}
-        loading="lazy"
-        className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-      />
+      <Link href={`/direktori/${resto.slug}`} className="block h-full group">
+        {/* Image */}
+        <div className="absolute inset-0">
+          <img
+            src={resto.img}
+            alt={resto.name}
+            loading="lazy"
+            onError={(e) => {
+              e.target.style.backgroundColor = "#f5f5f5";
+            }}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+        </div>
 
-      {/* Overlay Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
-      {/* Content - Semi Transparent */}
-      <Link href={`/direktori/${resto.slug}`}>
-        <div className="absolute inset-0 flex flex-col justify-end p-5 sm:p-6 md:p-8 text-white backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <h3 className={`font-semibold mb-2 line-clamp-2 ${isLarge ? "text-2xl md:text-3xl" : isMedium ? "text-lg md:text-xl" : "text-base md:text-lg"}`}>
+        {/* Content Container */}
+        <div className="absolute inset-0 flex flex-col justify-end p-5 md:p-6">
+          {/* Title - Always visible */}
+          <h3 className={`font-semibold text-white mb-2 transition-all duration-300 ${
+            isLarge ? "text-2xl md:text-3xl" : isMedium ? "text-xl md:text-2xl" : "text-lg md:text-xl"
+          }`}>
             {resto.name}
           </h3>
 
-          <p className={`text-white/90 line-clamp-3 mb-4 ${isLarge ? "text-sm md:text-base" : isMedium ? "text-xs md:text-sm" : "text-xs"}`}>
-            {resto.desc}
-          </p>
-
-          {/* Subtle "Lihat Detail" Text Link */}
-          <motion.span
-            className="inline-flex items-center gap-1 text-primary font-semibold text-sm hover:text-primary/90 transition-colors"
-            whileHover={{ x: 2 }}
-          >
-            Lihat Detail →
-          </motion.span>
+          {/* Description - Shows on hover */}
+          <div className={`overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-32 opacity-0 group-hover:opacity-100 ${reduceMotion ? "!duration-200" : ""}`}>
+            <p className={`text-white/90 mb-3 ${
+              isLarge ? "text-sm md:text-base line-clamp-3" : "text-xs md:text-sm line-clamp-2"
+            }`}>
+              {resto.desc}
+            </p>
+            
+            {/* CTA Link */}
+            <motion.span
+              className="inline-flex items-center gap-1 text-primary font-medium text-sm hover:text-primary/80 transition-colors"
+              whileHover={reduceMotion ? {} : { x: 4 }}
+              transition={{ duration: 0.2 }}
+              aria-label={`Lihat detail ${resto.name}`}
+            >
+              Lihat Detail →
+            </motion.span>
+          </div>
         </div>
       </Link>
-
-      {/* Default State - Bottom Info */}
-      <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-8 text-white drop-shadow-md group-hover:opacity-0 transition-opacity duration-300">
-        <h3 className={`font-semibold line-clamp-2 ${isLarge ? "text-2xl md:text-3xl" : isMedium ? "text-lg md:text-xl" : "text-base md:text-lg"}`}>
-          {resto.name}
-        </h3>
-      </div>
     </motion.div>
   );
 };
@@ -152,11 +170,10 @@ export default function TopResto() {
         <div className="lg:col-span-7 flex flex-col gap-10">
           {/* Header Section */}
           <motion.div
-            custom={0}
-            variants={ANIMATION_CONFIG.ITEM}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.5 }}
+            variants={ANIMATION_CONFIG.ITEM}
           >
             <p className="text-primary font-semibold mb-2 tracking-wide uppercase text-sm">
               Tempat Andalan
@@ -168,7 +185,12 @@ export default function TopResto() {
                 animate={{
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
                 }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  ...(prefersReducedMotion() && { duration: 0 }),
+                }}
               >
                 Paijo
               </motion.span>
@@ -179,13 +201,13 @@ export default function TopResto() {
           </motion.div>
 
           {/* Large Featured Image */}
-          <RestoCard resto={mainResto} variant="large" custom={1} />
+          <RestoCard resto={mainResto} variant="large" index={1} />
         </div>
 
         {/* === RIGHT: Top Image + 4 Grid === */}
         <div className="lg:col-span-5 flex flex-col gap-10">
           {/* Top Medium Image */}
-          <RestoCard resto={topResto} variant="medium" custom={2} />
+          <RestoCard resto={topResto} variant="medium" index={2} />
 
           {/* Grid 4 Small Images */}
           <div className="grid grid-cols-2 gap-6">
@@ -194,7 +216,7 @@ export default function TopResto() {
                 key={resto.slug}
                 resto={resto}
                 variant="small"
-                custom={3 + i}
+                index={3 + i}
               />
             ))}
           </div>
