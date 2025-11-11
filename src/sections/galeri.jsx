@@ -1,123 +1,231 @@
 "use client";
+
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-export default function Galeri() {
-  const photos = [
-    { src: "/assets/galeri/1.jpeg", caption: "Jawa Tidur" },
-    { src: "/assets/galeri/2.jpeg", caption: "Orkay Tidur" },
-    { src: "/assets/galeri/3.jpeg", caption: "Cepak Tidur" },
-    { src: "/assets/galeri/4.jpeg", caption: "Galfish Tidur" },
-    { src: "/assets/galeri/5.jpeg", caption: "Kadies Tidur" },
-    { src: "/assets/galeri/6.jpeg", caption: "Irgay Tidur" },
-  ];
+/* ============================================
+   BALIK DAPUR STORIES DATA
+   ============================================ */
 
-  const fadeZoom = (delay = 0) => ({
-    hidden: { opacity: 0, scale: 0.95, y: 24 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-      transition: { delay, duration: 0.7, ease: [0.22, 0.8, 0.22, 1] },
-    },
-  });
+const GALERI_PHOTOS = [
+  {
+    src: "/assets/galeri/1.jpeg",
+    caption: "Jawa Tidur",
+  },
+  {
+    src: "/assets/galeri/2.jpeg",
+    caption: "Orkay Tidur",
+  },
+  {
+    src: "/assets/galeri/3.jpeg",
+    caption: "Cepak Tidur",
+  },
+  {
+    src: "/assets/galeri/4.jpeg",
+    caption: "Galfish Tidur",
+  },
+  {
+    src: "/assets/galeri/5.jpeg",
+    caption: "Kadies Tidur",
+  },
+  {
+    src: "/assets/galeri/6.jpeg",
+    caption: "Irgay Tidur",
+  },
+];
+
+/* ============================================
+   ANIMATION CONFIGURATION
+   ============================================ */
+
+const ANIMATION_CONFIG = {
+  CARD: {
+    DURATION: 0.5,
+    SCALE: 1.05,
+  },
+  OVERLAY: {
+    DURATION: 0.4,
+  },
+  TEXT: {
+    DURATION: 0.5,
+    DELAY: 0.05,
+  },
+};
+
+/* ============================================
+   REDUCED MOTION DETECTION
+   ============================================ */
+
+const prefersReducedMotion = () => {
+  return typeof window !== "undefined"
+    ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    : false;
+};
+
+/* ============================================
+   STORY CARD COMPONENT
+   ============================================ */
+
+const StoryCard = ({ story, index, reduceMotion }) => {
+  const [imageError, setImageError] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+
+  if (imageError) {
+    return (
+      <div
+        className="
+          relative overflow-hidden rounded-xl shadow-card
+          bg-bg-base dark:bg-bg-soft
+          flex items-center justify-center h-full
+        "
+      >
+        <p className="text-text-muted dark:text-text-secondary/50 text-sm">
+          Image not available
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{
+        duration: reduceMotion ? 0.1 : 0.6,
+        delay: index * 0.05,
+      }}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      className="
+        relative overflow-hidden rounded-xl shadow-card group
+        cursor-pointer bg-bg-base dark:bg-bg-soft h-full
+        will-change-transform
+      "
+    >
+      {/* Image */}
+      <Image
+        src={story.src}
+        alt={`Cerita ${index + 1}`}
+        fill
+        className="object-cover transition-transform duration-700 group-hover:scale-110"
+        sizes="(max-width: 768px) 50vw, 33vw"
+        loading="lazy"
+        onError={() => setImageError(true)}
+      />
+
+      {/* Overlay */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={isHovering ? { opacity: 1 } : { opacity: 0 }}
+        transition={{
+          duration: reduceMotion ? 0.1 : ANIMATION_CONFIG.OVERLAY.DURATION,
+        }}
+        className="
+          absolute inset-0 flex flex-col justify-center items-center
+          bg-black/60 dark:bg-black/70 backdrop-blur-sm p-4 md:p-6
+        "
+      >
+        {/* Story Text */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={
+            isHovering ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }
+          }
+          transition={{
+            duration: reduceMotion ? 0.1 : ANIMATION_CONFIG.TEXT.DURATION,
+            delay: ANIMATION_CONFIG.TEXT.DELAY,
+          }}
+          className="text-white text-center text-sm md:text-base font-medium leading-relaxed"
+          role="caption"
+        >
+          {story.story}
+        </motion.p>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+/* ============================================
+   MAIN BALIK DAPUR COMPONENT
+   ============================================ */
+
+export default function BafikDapur() {
+  const [reduceMotion, setReduceMotion] = useState(false);
+
+  /* Reduced motion preference */
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const handleChange = (e) => setReduceMotion(e.matches);
+
+    handleChange({ matches: mq.matches });
+
+    mq.addEventListener("change", handleChange);
+    return () => mq.removeEventListener("change", handleChange);
+  }, []);
 
   return (
     <section
-      id="galeri"
+      id="balikDapur"
       className="
-        relative py-20 overflow-hidden
-        bg-gradient-to-b from-bg-gold via-bg-soft to-bg-warm
-        dark:from-bg-base dark:via-bg-soft dark:to-bg-warm
+        relative py-20 md:py-28 overflow-hidden
+        bg-gradient-to-b from-bg-warm via-bg-gold to-bg-soft
+        dark:from-bg-warm dark:via-bg-gold dark:to-bg-soft
         transition-colors duration-500
       "
     >
-      {/* Ambient soft blobs */}
-      <div aria-hidden className="absolute inset-0 pointer-events-none">
-        <motion.div
-          animate={{ y: [0, -16, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-[8%] top-[10%] w-40 h-40 bg-primary/10 blur-3xl rounded-full"
-        />
-        <motion.div
-          animate={{ y: [10, -10, 10] }}
-          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute right-[8%] bottom-[8%] w-48 h-48 bg-accent/10 blur-3xl rounded-full"
-        />
-      </div>
+      {/* Background Texture */}
+      <div
+        className="absolute inset-0 opacity-5 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 80% 30%, rgba(252, 187, 101, 0.1) 0%, transparent 50%)",
+        }}
+        aria-hidden="true"
+      />
 
-      <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
+      {/* Content */}
+      <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
         {/* Heading */}
+        <motion.h4
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{
+            duration: reduceMotion ? 0.1 : 0.6,
+          }}
+          className="text-primary font-semibold mb-2 tracking-wide uppercase text-sm"
+        >
+          Dibalik Dapur
+        </motion.h4>
+
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-5xl font-heading font-bold text-text-primary dark:text-text-secondary mb-3"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{
+            duration: reduceMotion ? 0.1 : 0.8,
+            delay: 0.1,
+          }}
+          className="text-4xl md:text-5xl font-bold text-text-primary dark:text-text-secondary mb-12"
         >
-          Galeri <span className="text-primary">Suasana</span>
+          Cerita dari{" "}
+          <span className="text-primary">Dapur Gelap Nyawang</span>
         </motion.h2>
-        <p className="text-text-muted dark:text-text-secondary/80 mb-12 max-w-xl mx-auto leading-relaxed">
-          Beberapa momen dan sudut favorit pengunjung yang bikin betah berlama-lama di Gelap Nyawang.
-        </p>
 
-        {/* GRID FOTO */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {photos.map((p, i) => (
-            <motion.div
-              key={i}
-              variants={fadeZoom(i * 0.1)}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.25 }}
-              className="
-                relative overflow-hidden rounded-2xl shadow-card group 
-                aspect-[4/3] cursor-pointer bg-bg-base dark:bg-bg-soft
-                hover:shadow-glow transition-all duration-500
-              "
-            >
-              <Image
-                src={p.src}
-                alt={p.caption}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                loading="lazy"
-                placeholder="blur"
-                blurDataURL="/assets/blur-placeholder.jpg"
-              />
-
-              {/* Overlay caption */}
-              <div
-                className="
-                  absolute inset-0 flex items-end justify-center p-5
-                  bg-text-primary/70 dark:bg-black/50 opacity-0
-                  group-hover:opacity-100 backdrop-blur-[1px]
-                  transition-opacity duration-500
-                "
-              >
-                <motion.p
-                  initial={{ y: 16, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="text-white text-lg font-medium tracking-wide"
-                >
-                  {p.caption}
-                </motion.p>
-              </div>
-            </motion.div>
+        {/* Gallery Grid - 2x3 */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[250px]">
+          {GALERI_PHOTOS .map((item, index) => (
+            <StoryCard
+              key={`story-${index}`}
+              story={item}
+              index={index}
+              reduceMotion={reduceMotion}
+            />
           ))}
         </div>
-
-        {/* mobile hint */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 0.8 }}
-          transition={{ delay: 0.8, duration: 1 }}
-          className="mt-10 text-sm text-text-muted dark:text-text-secondary/70 md:hidden"
-        >
-          ✦ Tap gambar untuk lihat caption ✦
-        </motion.p>
       </div>
     </section>
   );
