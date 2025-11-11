@@ -3,7 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 
-/* ANIMATION CONFIGURATION */
+/* ============================================
+   ANIMATION CONFIGURATION
+   ============================================ */
 
 const ANIMATION_CONFIG = {
   CONTAINER: {
@@ -44,7 +46,19 @@ const ANIMATION_CONFIG = {
   },
 };
 
-/* CARD & VISUAL CONFIGURATION */
+/* ============================================
+   REDUCED MOTION DETECTION
+   ============================================ */
+
+const prefersReducedMotion = () => {
+  return typeof window !== "undefined"
+    ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    : false;
+};
+
+/* ============================================
+   CARD & VISUAL CONFIGURATION
+   ============================================ */
 
 const CARDS_DATA = [
   {
@@ -82,16 +96,21 @@ const BADGE_COLORS = [
 ];
 
 const CARD_SHADOW = [
-  "0 6px 20px rgba(229, 118, 33, 0.18)", // primary
-  "0 6px 20px rgba(193, 63, 20, 0.14)", // secondary
-  "0 6px 20px rgba(252, 187, 101, 0.14)", // accent
+  "0 6px 20px rgba(229, 118, 33, 0.18)",
+  "0 6px 20px rgba(193, 63, 20, 0.14)",
+  "0 6px 20px rgba(252, 187, 101, 0.14)",
 ];
 
-const HOVER_SHADOW = "0 6px 16px rgba(0, 0, 0, 0.12), 0 0 0 2px rgba(229, 118, 33, 0.18)";
+const HOVER_SHADOW =
+  "0 6px 16px rgba(0, 0, 0, 0.12), 0 0 0 2px rgba(229, 118, 33, 0.18)";
 
-/* CARD COMPONENT */
+/* ============================================
+   CARD COMPONENT
+   ============================================ */
 
 const AboutCard = ({ card, index, isMobile, onHoverChange }) => {
+  const reduceMotion = prefersReducedMotion();
+
   return (
     <motion.article
       variants={ANIMATION_CONFIG.ITEM}
@@ -104,7 +123,12 @@ const AboutCard = ({ card, index, isMobile, onHoverChange }) => {
             }
           : {}
       }
-      transition={{ type: "spring", stiffness: 180, damping: 16 }}
+      transition={{
+        type: "spring",
+        stiffness: 180,
+        damping: 16,
+        ...(reduceMotion && { duration: 0.2 }),
+      }}
       onHoverStart={() => !isMobile && onHoverChange(index, true)}
       onHoverEnd={() => !isMobile && onHoverChange(index, false)}
       className="relative rounded-3xl overflow-hidden shadow-xl bg-bg-base dark:bg-bg-soft transition-all duration-300 group"
@@ -136,7 +160,10 @@ const AboutCard = ({ card, index, isMobile, onHoverChange }) => {
             boxShadow: CARD_SHADOW[index],
           }}
           whileHover={!isMobile ? { scale: 1.08 } : {}}
-          transition={{ duration: 0.2 }}
+          transition={{
+            duration: 0.2,
+            ...(reduceMotion && { duration: 0.1 }),
+          }}
         >
           <span className="w-2.5 h-2.5 rounded-full bg-white/90" />
           <span>{card.badgeLabel}</span>
@@ -146,7 +173,9 @@ const AboutCard = ({ card, index, isMobile, onHoverChange }) => {
   );
 };
 
-/* MAIN TENTANG COMPONENT */
+/* ============================================
+   MAIN TENTANG COMPONENT
+   ============================================ */
 
 export default function Tentang() {
   const ref = useRef(null);
@@ -154,6 +183,7 @@ export default function Tentang() {
   const controls = useAnimation();
   const [isMobile, setIsMobile] = useState(false);
   const [hoveredCardIndex, setHoveredCardIndex] = useState(null);
+  const [reduceMotion, setReduceMotion] = useState(false);
 
   /* Mobile detection */
   useEffect(() => {
@@ -166,19 +196,26 @@ export default function Tentang() {
   /* Reduced motion preference */
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mq.matches) {
-      controls.set("visible");
-    }
-  }, [controls]);
+    
+    const handleChange = (e) => setReduceMotion(e.matches);
+    
+    // Set initial value via callback to avoid cascading
+    handleChange({ matches: mq.matches });
+    
+    mq.addEventListener("change", handleChange);
+    return () => mq.removeEventListener("change", handleChange);
+  }, []);
 
   /* Animation trigger on scroll */
   useEffect(() => {
-    if (inView) {
+    if (reduceMotion) {
+      controls.set("visible");
+    } else if (inView) {
       controls.start("visible");
     } else {
       controls.start("hidden");
     }
-  }, [inView, controls]);
+  }, [inView, controls, reduceMotion]);
 
   return (
     <section
@@ -192,7 +229,9 @@ export default function Tentang() {
         <motion.div
           animate={{ x: ["0%", "-18%", "0%"] }}
           transition={{
-            duration: ANIMATION_CONFIG.WAVE.DURATION,
+            duration: reduceMotion
+              ? 0.1
+              : ANIMATION_CONFIG.WAVE.DURATION,
             repeat: Infinity,
             ease: "easeInOut",
           }}
@@ -229,7 +268,9 @@ export default function Tentang() {
         <motion.div
           animate={{ y: [0, -10, 0] }}
           transition={{
-            duration: ANIMATION_CONFIG.BLOB.DURATIONS[0],
+            duration: reduceMotion
+              ? 0.1
+              : ANIMATION_CONFIG.BLOB.DURATIONS[0],
             repeat: Infinity,
             ease: "easeInOut",
           }}
@@ -238,7 +279,9 @@ export default function Tentang() {
         <motion.div
           animate={{ y: [-6, 6, -6] }}
           transition={{
-            duration: ANIMATION_CONFIG.BLOB.DURATIONS[1],
+            duration: reduceMotion
+              ? 0.1
+              : ANIMATION_CONFIG.BLOB.DURATIONS[1],
             repeat: Infinity,
             ease: "easeInOut",
           }}
@@ -247,7 +290,9 @@ export default function Tentang() {
         <motion.div
           animate={{ y: [5, -7, 5] }}
           transition={{
-            duration: ANIMATION_CONFIG.BLOB.DURATIONS[2],
+            duration: reduceMotion
+              ? 0.1
+              : ANIMATION_CONFIG.BLOB.DURATIONS[2],
             repeat: Infinity,
             ease: "easeInOut",
           }}
@@ -279,7 +324,7 @@ export default function Tentang() {
             >
               Kenapa Makan{" "}
               <motion.span
-                className="text-primary dark:text-[#F5B66E]"
+                className="text-primary"
                 animate={{
                   textShadow: [
                     "0 0 0 rgb(229, 118, 33)",
@@ -288,7 +333,9 @@ export default function Tentang() {
                   ],
                 }}
                 transition={{
-                  duration: ANIMATION_CONFIG.GLOW_TEXT.DURATION,
+                  duration: reduceMotion
+                    ? 0.1
+                    : ANIMATION_CONFIG.GLOW_TEXT.DURATION,
                   repeat: ANIMATION_CONFIG.GLOW_TEXT.REPEAT,
                   ease: ANIMATION_CONFIG.GLOW_TEXT.EASE,
                 }}

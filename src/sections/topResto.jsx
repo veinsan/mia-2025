@@ -223,9 +223,9 @@ export default function TopResto() {
         </div>
       </div>
 
-      {/* Subtle Bottom Gradient */}
+      {/* Subtle Bottom Gradient - Connects to next section */}
       <div
-        className="absolute bottom-0 left-0 w-full h-[120px] bg-gradient-to-t from-bg-base to-transparent dark:from-bg-base pointer-events-none"
+        className="absolute bottom-0 left-0 w-full h-[200px] bg-gradient-to-t from-bg-soft via-bg-warm to-transparent dark:from-bg-soft dark:via-bg-warm pointer-events-none"
         aria-hidden="true"
       />
     </section>
