@@ -392,10 +392,10 @@ export const UMKM_DATA = [
 ];
 
 export const CATEGORIES = [
-  { id: "all", label: "Semua", icon: "🍽️" },
-  { id: "resto", label: "Resto", icon: "🍜" },
-  { id: "cafe", label: "Kafe", icon: "☕" },
-  { id: "cemilan", label: "Cemilan", icon: "🍪" },
-  { id: "minuman", label: "Minuman", icon: "🥤" },
-  { id: "lain", label: "Lain-lain", icon: "🛍️" },
+  { id: "all", label: "Semua", icon: "🍽️" },
+  { id: "resto", label: "Resto", icon: "🍜" },
+  { id: "cafe", label: "Kafe", icon: "☕" },
+  { id: "cemilan", label: "Cemilan", icon: "🍪" },
+  { id: "minuman", label: "Minuman", icon: "🥤" },
+  { id: "lain", label: "Lain-lain", icon: "🛍️" },
 ];
