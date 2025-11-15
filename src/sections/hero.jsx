@@ -334,7 +334,7 @@ export default function Hero() {
           className="mt-10 flex justify-center"
         >
           <motion.a
-            href="/direktori"
+            href="/direktori#top-direktori"
             whileHover={
               !isMobile
                 ? {
