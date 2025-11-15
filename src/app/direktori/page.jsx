@@ -8,10 +8,6 @@ import FooterDirektori from "@/components/footerDirektori";
 import Link from "next/link";
 import { UMKM_DATA, CATEGORIES } from "@/data/umkmData";
 
-
-// =============================
-// MOTION VARIANTS
-// =============================
 const heroContainer = { hidden: {}, visible: { transition: { staggerChildren: 0.12 } } };
 const heroItem = { hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } } };
 const categoriesContainer = { hidden: { opacity: 0, y: 6 }, visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.06, delayChildren: 0.08 } } };
@@ -19,9 +15,6 @@ const categoryItem = { hidden: { opacity: 0, y: 8 }, visible: { opacity: 1, y: 0
 const gridContainer = { hidden: {}, visible: { transition: { staggerChildren: 0.06 } } };
 const cardVariant = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } } };
 
-// =============================
-// KOMPONEN CARD
-// =============================
 function UMKMCard({ item }) {
   return (
     <Link href={`/direktori/${item.slug || ""}`} className="block">
@@ -55,13 +48,10 @@ function UMKMCard({ item }) {
   );
 }
 
-// =============================
-// HALAMAN UTAMA DIREKTORI
-// =============================
 export default function DirektoriPage() {
   const [query, setQuery] = useState("");
   const [activeCat, setActiveCat] = useState("all");
-  const [visibleCount, setVisibleCount] = useState(6); // default 6 dulu
+  const [visibleCount, setVisibleCount] = useState(6);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -79,7 +69,6 @@ export default function DirektoriPage() {
     <main className="bg-[linear-gradient(180deg,#FFF3E0,white)]">
       <NavDirektori />
 
-      {/* HERO */}
       <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }} variants={heroContainer} className="pt-28 pb-12">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <motion.div variants={heroItem} className="bg-gradient-to-r from-[#FFF3E0] via-[#FFEFD8] to-[#FFFDF8] rounded-2xl p-8 md:p-12 shadow-[0_12px_40px_rgba(232,117,36,0.06)]">
@@ -111,7 +100,6 @@ export default function DirektoriPage() {
         </div>
       </motion.section>
 
-      {/* CATEGORY FILTER */}
       <motion.section initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.18 }} variants={categoriesContainer} className="pb-8">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <motion.div className="flex items-center justify-center gap-4 md:gap-6 -mt-6" layout>
@@ -138,7 +126,6 @@ export default function DirektoriPage() {
         </div>
       </motion.section>
 
-        {/* TRENDING */}
         <div className="w-full px-[5%] md:px-[7%] lg:px-[9%]">
         <motion.section
             id="trending"
@@ -164,7 +151,6 @@ export default function DirektoriPage() {
             </div>
         </motion.section>
 
-        {/* MAIN GRID */}
         <motion.section
             id="list"
             variants={gridContainer}
@@ -210,7 +196,6 @@ export default function DirektoriPage() {
         </motion.section>
         </div>
 
-      {/* FOOTER */}
       <FooterDirektori />
     </main>
   );
