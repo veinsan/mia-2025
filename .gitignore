@@ -1,40 +1,71 @@
+###############################
 # Dependencies
+# Folder paket npm yang tidak perlu masuk repository
+###############################
 /node_modules
 /.pnp
 .pnp.js
 
-# Next.js
-/.next/
-/out/
 
-# Production
-/build
+###############################
+# Next.js Build Output
+###############################
+/.next/        # Build cache Next.js
+/out/          # Output untuk "next export" (jika dipakai)
 
-# Misc
-.DS_Store
-*.pem
 
-# Debug
+###############################
+# Production Build
+###############################
+/build         # Folder build custom (beberapa setup menggunakannya)
+
+
+###############################
+# Miscellaneous
+###############################
+.DS_Store      # File metadata macOS (harus di-ignore)
+*.pem          # Private key (keamanan)
+
+
+###############################
+# Debugging Logs
+###############################
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Local env files (jaga-jaga untuk future)
+
+###############################
+# Local Environment Files
+# Disimpan lokal, jangan naik ke repo (security)
+###############################
 .env*.local
 
-# Vercel
+
+###############################
+# Vercel Deployment
+###############################
 .vercel
 
-# Typescript
+
+###############################
+# TypeScript Build Files
+###############################
 *.tsbuildinfo
-next-env.d.ts
+next-env.d.ts   # Auto-generated oleh Next.js
 
-# IDEs
-.vscode/*
+
+###############################
+# Editor / IDE Specific
+###############################
+.vscode/*       # Ignore semua VSCode kecuali settings
 !.vscode/settings.json
-.idea
-*.swp
-*~
+.idea           # JetBrains IDE folder
+*.swp           # Swap files (vim)
+*~              # Backup temp files
 
-# OS
-Thumbs.db
+
+###############################
+# OS-Specific Junk Files
+###############################
+Thumbs.db       # File cache Windows
