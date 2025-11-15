@@ -266,8 +266,6 @@ export default function Nav() {
     { id: "tentang", label: "Tentang", href: "#tentang" },
     { id: "topResto", label: "Rekomendasi", href: "#topResto" },
     { id: "testimoni", label: "Testimoni", href: "#testimoni" },
-    { id: "galeri", label: "Galeri", href: "#galeri" },
-    { id: "lokasi", label: "Lokasi", href: "#lokasi" },
   ];
 
   /* Compute dynamic background */

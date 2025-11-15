@@ -22,6 +22,19 @@ const ANIMATION_CONFIG = {
   },
 };
 
+const TEXT_GLOW = {
+  textShadow: [
+    "0 0 0px rgba(229,118,33,0)",
+    "0 0 12px rgba(229,118,33,0.35)",
+    "0 0 0px rgba(229,118,33,0)",
+  ],
+  transition: {
+    duration: 2.2,
+    repeat: Infinity,
+    ease: "easeInOut",
+  },
+};
+
 /* ============================================
    REDUCED MOTION DETECTION
    ============================================ */
@@ -95,10 +108,10 @@ const RestoCard = ({ resto, variant = "large", index = 0 }) => {
       }}
       className={`relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 ${
         isLarge
-          ? "h-[400px] md:h-[465px]"
+          ? "h-[360px] md:h-[420px]"
           : isMedium
-            ? "h-[220px] md:h-[260px]"
-            : "h-[160px] md:h-[180px]"
+            ? "h-[220px] md:h-[240px]"
+            : "h-[170px] md:h-[180px]"
       }`}
     >
       <Link href={`/direktori/${resto.slug}`} className="block h-full group">
@@ -163,17 +176,22 @@ export default function TopResto() {
   return (
     <section
       id="topResto"
-      className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-b from-bg-warm via-bg-soft to-bg-base dark:from-bg-warm dark:via-bg-soft dark:to-bg-base transition-colors duration-500"
+className="
+  relative py-24 md:py-32 overflow-hidden bg-gradient-to-b
+  from-[#E5D2BD] via-[#DCCBB5] to-[#D5C1A8]
+  dark:from-[#3C2E25] dark:via-[#2E241D] dark:to-[#1F1814]
+  transition-colors duration-500
+"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
         {/* === LEFT: Title + Large Image === */}
         <div className="lg:col-span-7 flex flex-col gap-10">
           {/* Header Section */}
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.5 }}
-            variants={ANIMATION_CONFIG.ITEM}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ duration: 0.5 }}
           >
             <p className="text-primary font-semibold mb-2 tracking-wide uppercase text-sm">
               Tempat Andalan
@@ -181,16 +199,8 @@ export default function TopResto() {
             <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-4 text-text-primary dark:text-text-secondary">
               Rekomendasi{" "}
               <motion.span
-                className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
-                animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  ...(prefersReducedMotion() && { duration: 0 }),
-                }}
+                className="text-primary inline-block"
+                animate={TEXT_GLOW}
               >
                 Paijo
               </motion.span>
@@ -222,12 +232,6 @@ export default function TopResto() {
           </div>
         </div>
       </div>
-
-      {/* Subtle Bottom Gradient - Connects to next section */}
-      <div
-        className="absolute bottom-0 left-0 w-full h-[200px] bg-gradient-to-t from-bg-soft via-bg-warm to-transparent dark:from-bg-soft dark:via-bg-warm pointer-events-none"
-        aria-hidden="true"
-      />
     </section>
   );
 }

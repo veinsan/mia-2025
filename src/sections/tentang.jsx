@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 
 /* ============================================
-   ANIMATION CONFIGURATION
+   ANIMATION CONFIGURATION (CLEANED)
    ============================================ */
 
 const ANIMATION_CONFIG = {
@@ -12,364 +12,275 @@ const ANIMATION_CONFIG = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-        when: "beforeChildren",
-      },
+      transition: { staggerChildren: 0.08, delayChildren: 0.1 },
     },
   },
+  
   ITEM: {
-    hidden: { opacity: 0, y: 12 },
+    hidden: { opacity: 0, scale: 0.92, y: 20 },
     visible: {
       opacity: 1,
+      scale: 1,
       y: 0,
       transition: {
-        duration: 0.55,
-        ease: "easeOut",
+        duration: 0.4,
+        ease: [0.25, 0.46, 0.45, 0.94], // easeOutCubic
       },
     },
   },
-  WAVE: {
-    DURATION: 12,
-  },
-  GLOW_TEXT: {
-    DURATION: 3,
-    REPEAT: Infinity,
-    EASE: "easeInOut",
-  },
-  BLOB: {
-    DURATIONS: [6, 7, 6.5],
-  },
+  
   CARD_HOVER: {
-    SCALE: 1.04,
-    TRANSLATE_Y: -6,
+    scale: 1.01,
+    y: -2,
+    transition: {
+      type: "spring",
+      stiffness: 260,
+      damping: 20,
+    },
+  },
+  
+  TEXT_GLOW: {
+    textShadow: [
+      "0 0 0px rgb(229 118 33 / 0)",
+      "0 0 16px rgb(229 118 33 / 0.4)",
+      "0 0 0px rgb(229 118 33 / 0)",
+    ],
+    transition: {
+      duration: 2.5,
+      repeat: Infinity,
+      ease: "easeInOut",
+    },
+  },
+  
+  WAVE: { 
+    duration: 14,
+    ease: "easeInOut",
+  },
+  
+  BLOB: { 
+    durations: [7, 8, 7.5] 
   },
 };
 
 /* ============================================
-   REDUCED MOTION DETECTION
-   ============================================ */
-
-const prefersReducedMotion = () => {
-  return typeof window !== "undefined"
-    ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    : false;
-};
-
-/* ============================================
-   CARD & VISUAL CONFIGURATION
+   CARD DATA
    ============================================ */
 
 const CARDS_DATA = [
   {
     id: "rumahan",
     title: "Rasa Autentik",
-    desc: "Setiap sajian di Gelap Nyawang dibuat dengan cita rasa rumahan khas Bandung — sederhana tapi ngangenin.",
+    desc: "Cita rasa rumahan Bandung yang hangat dan bikin kangen.",
     img: "/assets/about/t1.jpg",
-    badgeLabel: "Rasa",
   },
   {
     id: "lokal",
     title: "Dari Komunitas Lokal",
-    desc: "UMKM di sekitar Gelap Nyawang tumbuh bareng, mendukung satu sama lain demi kuliner yang tetap hidup dan autentik.",
+    desc: "Kuliner yang tumbuh dari komunitas Gelap Nyawang sendiri.",
     img: "/assets/about/t2.jpg",
-    badgeLabel: "Komunitas",
   },
   {
     id: "cepat",
     title: "Cepat & Nyaman",
-    desc: "Mau nongkrong, nugas, atau sekadar makan cepat — suasana di sini selalu bikin betah dan produktif.",
+    desc: "Tempat singgah yang pas buat makan cepat atau rehat sebentar.",
     img: "/assets/about/t3.jpg",
-    badgeLabel: "Praktis",
   },
 ];
 
-const IMAGE_EFFECT = {
-  brightness: 0.75,
-  hoverBrightness: 1.1,
-};
-
-const BADGE_COLORS = [
-  "bg-primary dark:bg-accent",
-  "bg-secondary dark:bg-secondary/80",
-  "bg-accent/80 dark:bg-accent",
-];
-
-const CARD_SHADOW = [
-  "0 6px 20px rgba(229, 118, 33, 0.18)",
-  "0 6px 20px rgba(193, 63, 20, 0.14)",
-  "0 6px 20px rgba(252, 187, 101, 0.14)",
-];
-
-const HOVER_SHADOW =
-  "0 6px 16px rgba(0, 0, 0, 0.12), 0 0 0 2px rgba(229, 118, 33, 0.18)";
-
 /* ============================================
-   CARD COMPONENT
+   CARD COMPONENT (OPTIMIZED)
    ============================================ */
 
-const AboutCard = ({ card, index, isMobile, onHoverChange }) => {
-  const reduceMotion = prefersReducedMotion();
-
-  return (
-    <motion.article
-      variants={ANIMATION_CONFIG.ITEM}
-      whileHover={
-        !isMobile
-          ? {
-              scale: ANIMATION_CONFIG.CARD_HOVER.SCALE,
-              translateY: -ANIMATION_CONFIG.CARD_HOVER.TRANSLATE_Y,
-              boxShadow: HOVER_SHADOW,
-            }
-          : {}
-      }
-      transition={{
-        type: "spring",
-        stiffness: 180,
-        damping: 16,
-        ...(reduceMotion && { duration: 0.2 }),
-      }}
-      onHoverStart={() => !isMobile && onHoverChange(index, true)}
-      onHoverEnd={() => !isMobile && onHoverChange(index, false)}
-      className="relative rounded-3xl overflow-hidden shadow-xl bg-bg-base dark:bg-bg-soft transition-all duration-300 group"
-    >
-      {/* Background Image */}
-      <div
-        className="w-full h-[320px] sm:h-[360px] md:h-[420px] bg-cover bg-center transition-all duration-300 group-hover:brightness-110"
-        style={{
-          backgroundImage: `url(${card.img})`,
-          filter: `brightness(${IMAGE_EFFECT.brightness})`,
-        }}
-        role="img"
-        aria-label={`${card.title} image`}
+const AboutCard = ({ card, isMobile }) => (
+  <motion.article
+    variants={ANIMATION_CONFIG.ITEM}
+    whileHover={!isMobile ? ANIMATION_CONFIG.CARD_HOVER : undefined}
+    className="relative rounded-2xl overflow-hidden shadow-card bg-bg-soft dark:bg-bg-warm group cursor-pointer"
+  >
+    {/* IMAGE with proper aspect ratio */}
+    <div className="relative w-full aspect-[3/4] overflow-hidden">
+      <motion.div
+        className="absolute inset-0 bg-cover bg-center brightness-75 
+                   transition-all duration-500 group-hover:scale-105 group-hover:brightness-90"
+        style={{ backgroundImage: `url(${card.img})` }}
       />
+    </div>
 
-      {/* Content Overlay */}
-      <div className="absolute left-6 right-6 bottom-6 p-4 rounded-xl bg-gradient-to-t from-black/85 to-transparent backdrop-blur-sm">
-        <h3 className="text-xl md:text-2xl font-semibold text-white mb-1">
-          {card.title}
-        </h3>
-        <p className="text-sm md:text-base text-gray-200 mb-3 line-clamp-4">
-          {card.desc}
-        </p>
+    {/* OVERLAY GRADIENT */}
+      <div
+        className="
+          absolute inset-x-0 bottom-0 h-[40%]
+          bg-gradient-to-t
+          from-primary/90 via-primary-light/70 to-transparent
+          dark:from-accent/90 dark:via-accent-light/70 dark:to-transparent
+          flex flex-col justify-end p-6 backdrop-blur-[2px]"
+      >
+      
+      {/* TITLE with consistent glow */}
+      <motion.h3
+        animate={ANIMATION_CONFIG.TEXT_GLOW}
+        className="text-2xl sm:text-2xl md:text-3xl font-bold text-white 
+                   drop-shadow-lg mb-1.5 tracking-tight"
+      >
+        {card.title}
+      </motion.h3>
 
-        {/* Badge */}
-        <motion.div
-          className={`inline-flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium text-white ${BADGE_COLORS[index]}`}
-          style={{
-            boxShadow: CARD_SHADOW[index],
-          }}
-          whileHover={!isMobile ? { scale: 1.08 } : {}}
-          transition={{
-            duration: 0.2,
-            ...(reduceMotion && { duration: 0.1 }),
-          }}
-        >
-          <span className="w-2.5 h-2.5 rounded-full bg-white/90" />
-          <span>{card.badgeLabel}</span>
-        </motion.div>
-      </div>
-    </motion.article>
-  );
-};
+      {/* DESCRIPTION */}
+      <p className="text-sm sm:text-base text-white/95 leading-relaxed line-clamp-2">
+        {card.desc}
+      </p>
+    </div>
+  </motion.article>
+);
 
 /* ============================================
-   MAIN TENTANG COMPONENT
+   MAIN SECTION (CLEANED)
    ============================================ */
 
 export default function Tentang() {
   const ref = useRef(null);
-  const inView = useInView(ref, { amount: 0.25, once: false });
+  const inView = useInView(ref, { amount: 0.2, once: true });
   const controls = useAnimation();
-  const [isMobile, setIsMobile] = useState(false);
-  const [hoveredCardIndex, setHoveredCardIndex] = useState(null);
-  const [reduceMotion, setReduceMotion] = useState(false);
 
-  /* Mobile detection */
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Mobile detection
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 640);
     checkMobile();
-    window.addEventListener("resize", checkMobile);
+    
+    window.addEventListener("resize", checkMobile, { passive: true });
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  /* Reduced motion preference */
+  // Animation trigger
   useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    
-    const handleChange = (e) => setReduceMotion(e.matches);
-    
-    // Set initial value via callback to avoid cascading
-    handleChange({ matches: mq.matches });
-    
-    mq.addEventListener("change", handleChange);
-    return () => mq.removeEventListener("change", handleChange);
-  }, []);
-
-  /* Animation trigger on scroll */
-  useEffect(() => {
-    if (reduceMotion) {
-      controls.set("visible");
-    } else if (inView) {
-      controls.start("visible");
-    } else {
-      controls.start("hidden");
-    }
-  }, [inView, controls, reduceMotion]);
+    if (inView) controls.start("visible");
+  }, [inView, controls]);
 
   return (
     <section
       id="tentang"
       ref={ref}
-      className="relative overflow-hidden transition-colors duration-500"
-      aria-labelledby="tentang-title"
+      className="relative overflow-hidden bg-gradient-to-b 
+                 from-bg-base via-bg-soft to-bg-warm transition-colors duration-500 pb-[120px] md:pb-[50px]"
     >
-      {/* Wave SVG Top */}
-      <div className="absolute inset-x-0 -top-[2px] pointer-events-none z-20 overflow-hidden">
+      {/* WAVE TOP */}
+      <div className="absolute inset-x-0 -top-px z-20 overflow-hidden pointer-events-none">
         <motion.div
-          animate={{ x: ["0%", "-18%", "0%"] }}
+          animate={{ x: ["0%", "-50%"] }}
           transition={{
-            duration: reduceMotion
-              ? 0.1
-              : ANIMATION_CONFIG.WAVE.DURATION,
+            duration: ANIMATION_CONFIG.WAVE.duration,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: ANIMATION_CONFIG.WAVE.ease,
           }}
           className="w-[200%]"
         >
-          <svg
-            viewBox="0 0 1440 80"
-            preserveAspectRatio="none"
-            className="w-full h-[80px]"
-            aria-hidden="true"
+          <svg 
+            viewBox="0 0 1440 80" 
+            preserveAspectRatio="none" 
+            className="w-full h-[60px] sm:h-[80px]"
           >
             <defs>
-              <linearGradient id="waveGradLight" x1="0" x2="1">
-                <stop offset="0%" stopColor="#E7C49D" stopOpacity="0.4" />
-                <stop offset="50%" stopColor="#F5B66E" stopOpacity="0.55" />
-                <stop offset="100%" stopColor="#FFF3E0" stopOpacity="0.9" />
-              </linearGradient>
-              <linearGradient id="waveGradDark" x1="0" x2="1">
-                <stop offset="0%" stopColor="#3A0E00" stopOpacity="0.45" />
-                <stop offset="50%" stopColor="#B54B22" stopOpacity="0.6" />
-                <stop offset="100%" stopColor="#F9B04E" stopOpacity="0.75" />
+              <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" className="[stop-color:theme(colors.primary.DEFAULT)] [stop-opacity:0.4]" />
+                <stop offset="50%" className="[stop-color:theme(colors.accent.DEFAULT)] [stop-opacity:0.6]" />
+                <stop offset="100%" className="[stop-color:theme(colors.primary.hover)] [stop-opacity:0.5]" />
               </linearGradient>
             </defs>
             <path
-              d="M0,40 C200,80 400,0 720,40 C1040,80 1240,0 1440,40 L1440,0 L0,0 Z"
-              className="fill-[url(#waveGradLight)] dark:fill-[url(#waveGradDark)]"
+              d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 L0,0 Z"
+              fill="url(#waveGradient)"
             />
           </svg>
         </motion.div>
       </div>
 
-      {/* Ambient Blobs - Decorative */}
-      <div aria-hidden="true" className="absolute inset-0 -z-10 pointer-events-none">
-        <motion.div
-          animate={{ y: [0, -10, 0] }}
-          transition={{
-            duration: reduceMotion
-              ? 0.1
-              : ANIMATION_CONFIG.BLOB.DURATIONS[0],
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute left-6 top-10 w-36 h-36 rounded-full bg-primary/10 blur-3xl"
-        />
-        <motion.div
-          animate={{ y: [-6, 6, -6] }}
-          transition={{
-            duration: reduceMotion
-              ? 0.1
-              : ANIMATION_CONFIG.BLOB.DURATIONS[1],
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute right-8 top-24 w-44 h-44 rounded-full bg-accent/10 blur-3xl"
-        />
-        <motion.div
-          animate={{ y: [5, -7, 5] }}
-          transition={{
-            duration: reduceMotion
-              ? 0.1
-              : ANIMATION_CONFIG.BLOB.DURATIONS[2],
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute left-1/2 -translate-x-1/2 bottom-20 w-40 h-40 rounded-full bg-secondary/10 blur-3xl"
-        />
+      {/* DECORATIVE BLOBS (simplified) */}
+      <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
+        {[
+          { class: "left-[5%] top-[8%] w-40 h-40 bg-primary/8", duration: ANIMATION_CONFIG.BLOB.durations[0] },
+          { class: "right-[8%] top-[25%] w-48 h-48 bg-accent/8", duration: ANIMATION_CONFIG.BLOB.durations[1] },
+          { class: "left-1/2 bottom-[15%] -translate-x-1/2 w-44 h-44 bg-secondary/8", duration: ANIMATION_CONFIG.BLOB.durations[2] },
+        ].map((blob, i) => (
+          <motion.div
+            key={i}
+            animate={{ y: [0, i % 2 === 0 ? -15 : 15, 0] }}
+            transition={{ duration: blob.duration, repeat: Infinity, ease: "easeInOut" }}
+            className={`absolute rounded-full blur-3xl ${blob.class}`}
+          />
+        ))}
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 bg-gradient-to-b from-bg-base via-bg-soft to-bg-warm dark:from-bg-base dark:via-bg-soft dark:to-bg-warm">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-20">
-          {/* Header Section */}
-          <motion.div
-            variants={ANIMATION_CONFIG.CONTAINER}
-            initial="hidden"
-            animate={controls}
-            className="text-center max-w-3xl mx-auto"
+      {/* MAIN CONTENT */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-16 sm:py-20 md:py-24">
+        
+        {/* HEADER */}
+        <motion.div
+          variants={ANIMATION_CONFIG.CONTAINER}
+          initial="hidden"
+          animate={controls}
+          className="text-center max-w-3xl mx-auto mb-6 sm:mb-8"
+        >
+          <motion.span
+            variants={ANIMATION_CONFIG.ITEM}
+            className="inline-block text-primary font-semibold text-sm sm:text-base 
+                       tracking-wider uppercase mb-3"
           >
-            <motion.h4
-              variants={ANIMATION_CONFIG.ITEM}
-              className="text-primary font-semibold tracking-wide mb-2"
-            >
-              Keunggulan Kami
-            </motion.h4>
+            Keunggulan Kami
+          </motion.span>
 
-            <motion.h2
-              variants={ANIMATION_CONFIG.ITEM}
-              id="tentang-title"
-              className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-text-primary dark:text-text-secondary leading-tight"
-            >
-              Kenapa Makan{" "}
-              <motion.span
-                className="text-primary"
-                animate={{
-                  textShadow: [
-                    "0 0 0 rgb(229, 118, 33)",
-                    "0 0 10px rgba(229, 118, 33, 0.4)",
-                    "0 0 0 rgb(229, 118, 33)",
-                  ],
-                }}
-                transition={{
-                  duration: reduceMotion
-                    ? 0.1
-                    : ANIMATION_CONFIG.GLOW_TEXT.DURATION,
-                  repeat: ANIMATION_CONFIG.GLOW_TEXT.REPEAT,
-                  ease: ANIMATION_CONFIG.GLOW_TEXT.EASE,
-                }}
-              >
-                di Gelap Nyawang?
-              </motion.span>
-            </motion.h2>
-
-            <motion.p
-              variants={ANIMATION_CONFIG.ITEM}
-              className="mt-4 text-base md:text-lg text-text-muted dark:text-text-secondary/80 leading-relaxed"
-            >
-              Di kawasan Gelap Nyawang, setiap warung dan kafe punya kisah unik —
-              dari resep turun-temurun sampai inovasi anak muda Bandung yang penuh semangat.
-            </motion.p>
-          </motion.div>
-
-          {/* Cards Grid */}
-          <motion.div
-            variants={ANIMATION_CONFIG.CONTAINER}
-            initial="hidden"
-            animate={controls}
-            className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
+          <motion.h2
+            variants={ANIMATION_CONFIG.ITEM}
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold 
+                       text-text-primary leading-tight mb-4"
           >
-            {CARDS_DATA.map((card, idx) => (
-              <AboutCard
-                key={card.id}
-                card={card}
-                index={idx}
-                isMobile={isMobile}
-                onHoverChange={setHoveredCardIndex}
-              />
-            ))}
-          </motion.div>
+            Kenapa Makan{" "}
+            <motion.span
+              animate={ANIMATION_CONFIG.TEXT_GLOW}
+              className="text-primary inline-block"
+            >
+              di Gelap Nyawang?
+            </motion.span>
+          </motion.h2>
+
+          <motion.p
+            variants={ANIMATION_CONFIG.ITEM}
+            className="text-base sm:text-lg text-text-muted leading-relaxed max-w-2xl mx-auto"
+          >
+            Tiap sudut Gelap Nyawang punya cerita: dari resep keluarga,
+            inovasi anak muda Bandung, sampai rasa hangat yang susah dilupain.
+          </motion.p>
+        </motion.div>
+
+        {/* CARDS GRID */}
+        <motion.div
+          variants={ANIMATION_CONFIG.CONTAINER}
+          initial="hidden"
+          animate={controls}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+        >
+          {CARDS_DATA.map((card) => (
+            <AboutCard key={card.id} card={card} isMobile={isMobile} />
+          ))}
+        </motion.div>
+      </div>
+      {/* BluLine Bottom Banner */}
+      <div
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1400%] md:w-[750%] z-40"
+        style={{ overflow: "hidden" }}
+      >
+        <div className="marquee-right flex">
+          <img
+            src="/assets/BluLine.svg"
+            alt="BluLine"
+            className="w-full object-contain inline-block"
+          />
+          <img
+            src="/assets/BluLine.svg"
+            alt="BluLine"
+            className="w-full object-contain inline-block"
+          />
         </div>
       </div>
     </section>

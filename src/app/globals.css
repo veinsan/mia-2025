@@ -76,6 +76,24 @@ body {
   }
 }
 
+/* ANIMASI SVG */
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.marquee-right {
+  width: 200%;
+  display: flex;
+  animation: marquee-right 32s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-blu-line {
+    animation: none;
+  }
+}
+
 /* SELECTION & LINKS */
 
 ::selection {
