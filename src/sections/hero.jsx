@@ -3,25 +3,27 @@
 import { useCallback, useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
-/* ANIMATION & PARALLAX CONFIGURATION */
-
+/*
+  Kumpulan konfigurasi animasi dan parallax. 
+  Dibuat terstruktur biar gampang diatur ulang nanti tanpa nyari satu-satu di kode.
+*/
 const ANIMATION_CONFIG = {
   TYPING: {
-    INTERVAL: 52, // ms per karakter
-    COMPLETION_DELAY: 500, // ms sebelum sembunyiin kursor
+    INTERVAL: 52,              // jeda antar karakter
+    COMPLETION_DELAY: 500,     // waktu sebelum cursor hilang
   },
   PARALLAX: {
-    BASE_SPEED: 0.08,
-    TRANSLATE_MULTIPLIER: 30,
-    HORIZONTAL_OFFSET: 20,
-    VIEWPORT_RATIO_BASE: 0.8, // rasio dari tinggi viewport
+    BASE_SPEED: 0.08,          // kecepatan dasar tiap layer
+    TRANSLATE_MULTIPLIER: 30,  // seberapa jauh layer bergerak secara vertikal
+    HORIZONTAL_OFFSET: 20,     // efek geser horizontal
+    VIEWPORT_RATIO_BASE: 0.8,  // patokan jarak scroll
   },
   LAYERS: {
-    DURATIONS: [16, 18, 20, 17, 19, 21], // sec per loop
+    DURATIONS: [16, 18, 20, 17, 19, 21], // durasi animasi looping tiap layer
     OSCILLATE: {
-      Y: 18,
-      SCALE_MAX: 1.06,
-      ROTATE_MAX: 1.2,
+      Y: 18,                       // jarak oscillation
+      SCALE_MAX: 1.06,             // skala maksimal
+      ROTATE_MAX: 1.2,             // sedikit rotasi untuk dinamika
     },
     BRIGHTNESS: {
       MIN: 0.45,
@@ -44,37 +46,23 @@ const ANIMATION_CONFIG = {
   },
 };
 
-/* BACKGROUND IMAGES CONFIGURATION */
-
+/*
+  Semua layer background hero dengan posisi masing-masing.
+  Kode ini cukup panjang, jadi dipisah supaya rapi dan gampang maintain.
+*/
 const BG_IMAGES = [
-  {
-    src: "/assets/hero/bg1.webp",
-    style: "left-[4%] top-[6%] max-w-[520px] w-[70vw]",
-  },
-  {
-    src: "/assets/hero/bg2.webp",
-    style: "left-[30%] top-[12%] max-w-[520px] w-[70vw]",
-  },
-  {
-    src: "/assets/hero/bg3.webp",
-    style: "right-[8%] top-[8%] max-w-[520px] w-[70vw]",
-  },
-  {
-    src: "/assets/hero/bg4.webp",
-    style: "left-[10%] bottom-[8%] max-w-[520px] w-[70vw]",
-  },
-  {
-    src: "/assets/hero/bg5.webp",
-    style: "right-[20%] bottom-[10%] max-w-[520px] w-[70vw]",
-  },
-  {
-    src: "/assets/hero/bg6.webp",
-    style: "right-[4%] top-[44%] max-w-[420px] w-[60vw]",
-  },
+  { src: "/assets/hero/bg1.webp", style: "left-[4%] top-[6%] max-w-[520px] w-[70vw]" },
+  { src: "/assets/hero/bg2.webp", style: "left-[30%] top-[12%] max-w-[520px] w-[70vw]" },
+  { src: "/assets/hero/bg3.webp", style: "right-[8%] top-[8%] max-w-[520px] w-[70vw]" },
+  { src: "/assets/hero/bg4.webp", style: "left-[10%] bottom-[8%] max-w-[520px] w-[70vw]" },
+  { src: "/assets/hero/bg5.webp", style: "right-[20%] bottom-[10%] max-w-[520px] w-[70vw]" },
+  { src: "/assets/hero/bg6.webp", style: "right-[4%] top-[44%] max-w-[420px] w-[60vw]" },
 ];
 
-/* GLOW EFFECT CONFIGURATION */
-
+/*
+  Efek glow halus pada teks "Gelap Nyawang".
+  Biar ada nuansa neonsign tanpa pakai filter berat.
+*/
 const TEXT_GLOW_EFFECT = {
   textShadow: [
     "0px 0px 0px rgb(229, 118, 33)",
@@ -83,8 +71,9 @@ const TEXT_GLOW_EFFECT = {
   ],
 };
 
-/* HERO COMPONENT */
-
+/* ============================================================
+   HERO COMPONENT
+   ============================================================ */
 export default function Hero() {
   const fullText =
     "Wisata kuliner baru di Bandung, mulai dari jajanan sederhana sampai kafe ber-wifi!";
@@ -93,10 +82,12 @@ export default function Hero() {
   const [typingDone, setTypingDone] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
+  // Menyimpan ref DOM dari setiap layer background
   const layerRefs = useRef([]);
 
-  /* SETUP: Mobile Detection */
-
+  /* ---------------------------
+     DETEKSI MOBILE
+     --------------------------- */
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 640);
     checkMobile();
@@ -105,14 +96,17 @@ export default function Hero() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  /* SETUP: Layer Refs Callback */
-
+  /*
+    Callback untuk memasukkan elemen layer ke array refs secara terurut.
+    Framer Motion butuh elemen actual DOM, jadi kita ambil satu-satu lewat ref callback.
+  */
   const setLayerRef = useCallback((el, index) => {
     if (el) layerRefs.current[index] = el;
   }, []);
 
-  /* EFFECT: Typing Animation */
-
+  /* ---------------------------
+     TYPING EFFECT
+     --------------------------- */
   useEffect(() => {
     let index = 0;
     let interval;
@@ -124,6 +118,7 @@ export default function Hero() {
 
       if (index > fullText.length) {
         clearInterval(interval);
+
         timeoutId = setTimeout(
           () => setTypingDone(true),
           ANIMATION_CONFIG.TYPING.COMPLETION_DELAY
@@ -137,32 +132,42 @@ export default function Hero() {
     };
   }, [fullText]);
 
-  /* EFFECT: Parallax on Scroll (RAF) */
-
+  /* ---------------------------
+     PARALLAX VIA RAF LOOP
+     --------------------------- */
   useEffect(() => {
     let rafId = null;
 
     const handleParallax = () => {
       const scrollY = window.scrollY || window.pageYOffset;
+
+      /*
+        Batas perhitungan efek parallax, biar gerakan tetap halus saat scroll cepat.
+      */
       const base = Math.min(
         window.innerHeight,
         1200 / ANIMATION_CONFIG.PARALLAX.VIEWPORT_RATIO_BASE
       );
+
       const visibleRatio = Math.max(0, Math.min(1, scrollY / base));
 
-      // Ngitung dulu di luar loop biar ga ngitung ulang
       const baseTranslateY =
         -visibleRatio * ANIMATION_CONFIG.PARALLAX.TRANSLATE_MULTIPLIER;
+
       const baseTranslateX =
         visibleRatio * ANIMATION_CONFIG.PARALLAX.HORIZONTAL_OFFSET;
 
+      /*
+        Mengaplikasikan transform ke masing-masing layer.
+        Layer di index genap dan ganjil punya arah horizontal berbeda untuk efek dinamis.
+      */
       layerRefs.current.forEach((el, i) => {
         if (!el) return;
 
         const speed = (i + 1) * ANIMATION_CONFIG.PARALLAX.BASE_SPEED;
+
         const translateY = baseTranslateY * speed;
-        const translateX =
-          baseTranslateX * (i % 2 === 0 ? -1 : 1);
+        const translateX = baseTranslateX * (i % 2 === 0 ? -1 : 1);
 
         el.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
       });
@@ -172,6 +177,10 @@ export default function Hero() {
       }
     };
 
+    /*
+      Kalau tab jadi visible (misalnya habis switch tab),
+      animasi lanjut ulang supaya posisi layer tidak ketinggalan.
+    */
     const handleVisibilityChange = () => {
       if (document.visibilityState === "visible") {
         rafId = requestAnimationFrame(handleParallax);
@@ -187,19 +196,19 @@ export default function Hero() {
     };
   }, []);
 
-  /* RENDER: Hero Section */
+  /* ============================================================
+     RENDER HERO
+     ============================================================ */
 
   return (
     <section
       id="hero"
       className="relative flex flex-col justify-center items-center text-center overflow-hidden min-h-screen pt-28 sm:pt-32 md:pt-40 pb-20 px-6 md:px-10 bg-[#0A0A0A] text-white"
     >
-      {/* Background Layer - Decorative */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        aria-hidden="true"
-        role="presentation"
-      >
+      {/* --------------------------
+          DECORATIVE BACKGROUND LAYERS
+         -------------------------- */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         {BG_IMAGES.map((img, i) => (
           <motion.div
             key={`layer-${i}`}
@@ -226,10 +235,11 @@ export default function Hero() {
             }}
             style={{ willChange: "transform, opacity" }}
           >
+            {/* Layer Image */}
             <motion.img
               src={img.src}
               alt=""
-              loading={i === 0 || i === 1 ? "eager" : "lazy"}
+              loading={i <= 1 ? "eager" : "lazy"}
               decoding="async"
               className="w-full h-full object-cover"
               animate={{
@@ -241,24 +251,27 @@ export default function Hero() {
                 ],
               }}
               transition={{
-                duration:
-                  ANIMATION_CONFIG.LAYERS.DURATIONS[i] +
-                  6,
+                duration: ANIMATION_CONFIG.LAYERS.DURATIONS[i] + 6,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
               onError={(e) => {
+                // fallback kalau image gagal load
                 e.target.style.display = "none";
               }}
             />
           </motion.div>
         ))}
+
+        {/* Overlay gelap agar teks tetap terbaca di atas layer */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90" />
       </div>
 
-      {/* Content */}
+      {/* --------------------------
+          MAIN CONTENT
+         -------------------------- */}
       <div className="max-w-4xl mx-auto relative z-10 px-3 sm:px-6">
-        {/* Main Heading */}
+        {/* Big Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -275,7 +288,7 @@ export default function Hero() {
           </motion.span>
         </motion.h1>
 
-        {/* Typing Animation */}
+        {/* Typing Animation Intro */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -286,6 +299,8 @@ export default function Hero() {
           className="text-base sm:text-lg mt-4 max-w-2xl mx-auto font-light tracking-wide leading-relaxed text-white/90"
         >
           {displayText}
+
+          {/* Cursor kedip-kedip */}
           <motion.span
             animate={
               typingDone
@@ -308,7 +323,7 @@ export default function Hero() {
           </motion.span>
         </motion.p>
 
-        {/* CTA Button */}
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
@@ -330,18 +345,16 @@ export default function Hero() {
             }
             whileTap={{ scale: 0.97 }}
             className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 sm:px-10 py-3 sm:py-4 rounded-full text-base sm:text-lg shadow-glow focus:ring-4 focus:ring-primary/40 focus:outline-none transition-all cursor-pointer"
-            aria-label="Explore Gelap Nyawang culinary directory"
           >
             Jelajahi Sekarang
           </motion.a>
         </motion.div>
       </div>
 
-      {/* Bottom Fade Gradient */}
+      {/* Fade ke bawah supaya transisi ke section berikutnya lebih halus */}
       <div
         className="absolute bottom-0 left-0 w-full h-[200px] bg-gradient-to-t from-black/80 to-transparent pointer-events-none"
         aria-hidden="true"
-        role="presentation"
       />
     </section>
   );

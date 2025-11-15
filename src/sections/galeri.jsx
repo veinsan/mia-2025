@@ -3,6 +3,10 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+/*
+  Kumpulan foto yang ditampilkan di grid Galeri.
+  Masing-masing item punya deskripsi singkat untuk overlay hover.
+*/
 const GALERI_PHOTOS = [
   {
     src: "/assets/galeri/1.jpeg",
@@ -30,6 +34,10 @@ const GALERI_PHOTOS = [
   },
 ];
 
+/*
+  Kartu individual untuk satu item galeri.
+  Ada animasi fade-up saat masuk viewport, dan overlay saat hover.
+*/
 const GalleryCard = ({ item, index }) => {
   return (
     <motion.article
@@ -41,6 +49,7 @@ const GalleryCard = ({ item, index }) => {
                  transition-all duration-500 ease-in-out will-change-transform
                  aspect-square"
     >
+      {/* Foto utama */}
       <Image
         src={item.src}
         alt={`Foto ${index + 1} Gelap Nyawang`}
@@ -48,12 +57,15 @@ const GalleryCard = ({ item, index }) => {
         className="object-cover transition-transform duration-500 ease-in-out
                    group-hover:scale-105"
         sizes="(max-width: 768px) 50vw, 33vw"
-        loading={index < 2 ? "eager" : "lazy"}
+        loading={index < 2 ? "eager" : "lazy"} // percepat load foto pertama
       />
 
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100
-                      bg-primary/70 flex flex-col justify-center items-center 
-                      text-white text-center px-4 transition-opacity duration-300">
+      {/* Overlay info saat hover */}
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100
+                    bg-primary/70 flex flex-col justify-center items-center 
+                    text-white text-center px-4 transition-opacity duration-300"
+      >
         <img
           src="/assets/logo.png"
           alt=""
@@ -71,6 +83,10 @@ const GalleryCard = ({ item, index }) => {
   );
 };
 
+/*
+  Section Galeri berisi heading + grid foto.
+  Grid responsif otomatis menyesuaikan device (2 kolom → 3 kolom).
+*/
 export default function Galeri() {
   return (
     <section
@@ -80,6 +96,7 @@ export default function Galeri() {
                  dark:from-bg-gold dark:via-bg-warm dark:to-bg-soft
                  transition-colors duration-500"
     >
+      {/* --------- Heading --------- */}
       <header className="text-center mb-12 px-6">
         <motion.h4
           initial={{ opacity: 0, y: 20 }}
@@ -101,12 +118,14 @@ export default function Galeri() {
         </motion.h2>
       </header>
 
+      {/* --------- Grid Galeri --------- */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 px-6 md:px-16">
         {GALERI_PHOTOS.map((item, i) => (
           <GalleryCard key={i} item={item} index={i} />
         ))}
       </div>
 
+      {/* Gradient transisi ke section berikutnya */}
       <div
         className="absolute bottom-0 left-0 w-full h-24 md:h-32
                    bg-gradient-to-b from-bg-soft via-bg-warm to-bg-gold

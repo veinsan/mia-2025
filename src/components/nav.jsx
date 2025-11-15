@@ -4,8 +4,10 @@ import { useState, useEffect, useRef } from "react";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-/* MOTION & ANIMATION CONFIGURATIONS */
-
+/*
+  Konfigurasi animasi yang dipake di beberapa elemen,
+  dipisah biar gampang maintain dan konsisten.
+*/
 const MOTION_CONFIG = {
   navContainer: {
     duration: 0.4,
@@ -25,19 +27,22 @@ const MOTION_CONFIG = {
   },
 };
 
-/* STYLE HELPER FUNCTIONS */
-
+/*
+  Helper untuk styling yang berubah tergantung posisi nav
+  (lagi di hero section atau enggak) dan mode terang/gelap.
+*/
 const getNavTextColor = (inHero, darkMode) => {
   if (inHero) return "text-white";
   return darkMode ? "text-white" : "text-text-primary";
 };
 
 const getNavButtonStyles = (inHero, darkMode) => {
-  const baseClasses = "rounded-full w-[48px] h-[48px] transition-all duration-300 flex items-center justify-center";
+  const base =
+    "rounded-full w-[48px] h-[48px] transition-all duration-300 flex items-center justify-center";
 
-  if (inHero) return `${baseClasses} bg-white/20 text-white`;
-  if (darkMode) return `${baseClasses} bg-bg-soft text-white`;
-  return `${baseClasses} bg-bg-base text-text-primary`;
+  if (inHero) return `${base} bg-white/20 text-white`;
+  if (darkMode) return `${base} bg-bg-soft text-white`;
+  return `${base} bg-bg-base text-text-primary`;
 };
 
 const getMenuIconColor = (inHero, darkMode) => {
@@ -50,8 +55,10 @@ const getBlurFilterStyle = (blurLevel) => ({
   WebkitBackdropFilter: `blur(${blurLevel}px)`,
 });
 
-/* SUB-COMPONENTS */
-
+/*
+  Komponen tombol toggle mode gelap/terang.
+  Dipisah biar lebih modular dan enak dipakai di manapun.
+*/
 const IconToggle = ({ darkMode, rotation, onToggle, inHero }) => (
   <motion.button
     onClick={onToggle}
@@ -75,6 +82,10 @@ const IconToggle = ({ darkMode, rotation, onToggle, inHero }) => (
   </motion.button>
 );
 
+/*
+  Komponen link yang muncul di navbar versi desktop.
+  Ada animasi underline pakai layoutId biar smooth pas pindah.
+*/
 const NavLink = ({ link, active, inHero, darkMode, onClick }) => (
   <motion.a
     href={link.href}
@@ -85,6 +96,7 @@ const NavLink = ({ link, active, inHero, darkMode, onClick }) => (
     )} ${active === link.id ? "text-primary" : ""}`}
   >
     {link.label}
+
     <motion.span
       layoutId={active === link.id ? "underline" : undefined}
       className={`absolute left-0 right-0 bottom-[-4px] h-[2px] rounded-full ${
@@ -96,6 +108,10 @@ const NavLink = ({ link, active, inHero, darkMode, onClick }) => (
   </motion.a>
 );
 
+/*
+  Drawer navigasi untuk mobile.
+  Dibikin terpisah untuk jaga kebersihan komponen utama.
+*/
 const MobileDrawer = ({
   isOpen,
   onClose,
@@ -123,7 +139,7 @@ const MobileDrawer = ({
           className="w-[80%] sm:w-[400px] bg-bg-base text-text-primary h-full shadow-2xl p-6"
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Drawer Header */}
+          {/* Header drawer: logo + tombol close */}
           <div className="flex items-center justify-between mb-6">
             <a href="#hero" onClick={onClose} aria-label="Go to home">
               <motion.img
@@ -133,6 +149,7 @@ const MobileDrawer = ({
                 draggable="false"
               />
             </a>
+
             <button
               onClick={onClose}
               aria-label="Close navigation menu"
@@ -143,7 +160,7 @@ const MobileDrawer = ({
             </button>
           </div>
 
-          {/* Drawer Navigation */}
+          {/* Daftar link navigasi mobile */}
           <nav className="flex flex-col gap-4 mt-6">
             {navLinks.map((link) => (
               <a
@@ -166,8 +183,11 @@ const MobileDrawer = ({
   </AnimatePresence>
 );
 
-/* MAIN NAVIGATION COMPONENT */
-
+/*
+  Komponen utama NAVBAR.
+  Berisi logika: scroll spy, mode gelap, blur dynamic,
+  overlay menu, dan highlight link aktif.
+*/
 export default function Nav() {
   const [active, setActive] = useState("hero");
   const [darkMode, setDarkMode] = useState(false);
@@ -178,25 +198,26 @@ export default function Nav() {
   const [inHero, setInHero] = useState(true);
   const [bgVisible, setBgVisible] = useState(false);
 
+  // Referensi ke semua section untuk scroll-spy
   const sections = useRef([]);
 
-  /* Initialize sections references */
+  /*
+    Init daftar section yang mau dipantau scroll-nya.
+    Dilakukan setelah mount biar aman dari SSR.
+  */
   useEffect(() => {
-    const sectionIds = [
-      "hero",
-      "tentang",
-      "topResto",
-      "testimoni",
-      "galeri",
-      "lokasi",
-    ];
-
-    sections.current = sectionIds
+    const ids = ["hero", "tentang", "topResto", "testimoni", "galeri", "lokasi"];
+    sections.current = ids
       .map((id) => document.getElementById(id))
-      .filter((el) => el !== null);
+      .filter(Boolean);
   }, []);
 
-  /* Handle scroll detection */
+  /*
+    Listener scroll:
+    - menentukan apakah masih di hero
+    - mengatur background navbar
+    - update section aktif berdasarkan posisi scroll
+  */
   useEffect(() => {
     const handleScroll = () => {
       const y = window.scrollY;
@@ -208,7 +229,7 @@ export default function Nav() {
 
       let current = "hero";
       sections.current.forEach((sec) => {
-        if (sec && y >= sec.offsetTop - 150) {
+        if (y >= sec.offsetTop - 150) {
           current = sec.id;
         }
       });
@@ -219,16 +240,19 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  /* Handle dark mode class toggle */
+  /*
+    Sinkronisasi class "dark" di <html> dengan state darkMode.
+    Pendekatan standar biar tailwind dark mode jalan.
+  */
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+    const root = document.documentElement;
+    darkMode ? root.classList.add("dark") : root.classList.remove("dark");
   }, [darkMode]);
 
-  /* Handle body overflow for mobile drawer */
+  /*
+    Kunci body saat drawer mobile terbuka,
+    mencegah halaman ikut scroll.
+  */
   useEffect(() => {
     document.body.style.overflow = overlayOpen ? "hidden" : "";
     return () => {
@@ -236,9 +260,13 @@ export default function Nav() {
     };
   }, [overlayOpen]);
 
-  /* Handle dark mode toggle */
+  /*
+    Toggle dark mode dengan animasi rotasi icon.
+    Ada guard biar gak spam klik.
+  */
   const handleToggleMode = () => {
     if (iconChanging) return;
+
     setIconChanging(true);
     setRotation((r) => r + 360);
 
@@ -250,12 +278,8 @@ export default function Nav() {
     return () => clearTimeout(timer);
   };
 
-  /* Handle mobile menu close */
-  const handleDrawerClose = () => {
-    setOverlayOpen(false);
-  };
+  const handleDrawerClose = () => setOverlayOpen(false);
 
-  /* Handle mobile nav link click */
   const handleMobileLinkClick = (linkId) => {
     setActive(linkId);
     setOverlayOpen(false);
@@ -268,14 +292,17 @@ export default function Nav() {
     { id: "testimoni", label: "Testimoni", href: "#testimoni" },
   ];
 
-  /* Compute dynamic background */
+  /*
+    Background dan blur navbar dibuat dinamis
+    tergantung seberapa jauh user scroll.
+  */
   const backgroundColor = inHero
     ? "rgba(0,0,0,0)"
     : bgVisible
-      ? darkMode
-        ? "rgba(10,10,10,0.75)"
-        : "rgba(255,255,255,0.75)"
-      : "rgba(0,0,0,0.25)";
+    ? darkMode
+      ? "rgba(10,10,10,0.75)"
+      : "rgba(255,255,255,0.75)"
+    : "rgba(0,0,0,0.25)";
 
   const blurLevel = inHero ? 0 : bgVisible ? 14 : 8;
 
@@ -294,8 +321,12 @@ export default function Nav() {
         transition={MOTION_CONFIG.navContainer}
         className="flex items-center justify-between px-4 sm:px-6 md:px-10 py-3 md:py-4 w-full"
       >
-        {/* LOGO */}
-        <a href="#hero" className="flex items-center select-none" aria-label="Go to home">
+        {/* Logo utama, ikut adaptasi warna sesuai section */}
+        <a
+          href="#hero"
+          className="flex items-center select-none"
+          aria-label="Go to home"
+        >
           <motion.img
             src={darkMode ? "/assets/logo.png" : "/assets/black.png"}
             alt="Gelap Nyawang Culinary Logo"
@@ -309,7 +340,7 @@ export default function Nav() {
           />
         </a>
 
-        {/* DESKTOP NAV */}
+        {/* NAV Desktop */}
         <nav
           className="hidden md:flex items-center gap-8 font-medium relative"
           role="navigation"
@@ -327,7 +358,7 @@ export default function Nav() {
           ))}
         </nav>
 
-        {/* CONTROLS: TOGGLE & MOBILE MENU */}
+        {/* Kontrol: dark mode dan hamburger menu */}
         <div className="flex items-center gap-3 md:gap-5">
           <IconToggle
             darkMode={darkMode}
@@ -336,7 +367,7 @@ export default function Nav() {
             inHero={inHero}
           />
 
-          {/* MOBILE MENU BUTTON */}
+          {/* Tombol mobile menu */}
           <button
             className="md:hidden p-2 rounded-full ml-1 hover:bg-white/10 transition-colors"
             onClick={() => setOverlayOpen(true)}
@@ -349,7 +380,7 @@ export default function Nav() {
         </div>
       </motion.div>
 
-      {/* MOBILE DRAWER */}
+      {/* Drawer mobile navigation */}
       <MobileDrawer
         isOpen={overlayOpen}
         onClose={handleDrawerClose}

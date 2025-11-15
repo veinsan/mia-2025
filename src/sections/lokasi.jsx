@@ -4,13 +4,21 @@ import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 import { useState } from "react";
 
+/*
+  Lokasi default Gelap Nyawang ditulis dalam format query Google Maps.
+  Dipisah supaya lebih mudah dipakai dan tidak hardcode di iframe.
+*/
 const MAPS_LOCATION =
   "Jl.+Gelap+Nyawang,+Lb.+Siliwangi,+Kecamatan+Coblong,+Kota+Bandung,+Jawa+Barat+40132";
 
+/*
+  Link langsung menuju aplikasi Google Maps (Android/iOS).
+  Berbeda dengan iframe embed yang hanya menampilkan peta.
+*/
 const MAPS_DIRECT_URL = "https://maps.app.goo.gl/kAUnsipvPasm7YzT9";
 
 export default function Lokasi() {
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(false); // kontrol loading spinner peta
 
   return (
     <section
@@ -26,7 +34,10 @@ export default function Lokasi() {
         dark:from-bg-soft dark:via-bg-warm dark:to-bg-gold
       "
     >
-      {/* Top Gradient */}
+      {/* ---------------------------------------------------------
+         GRADIENT TRANSISI BAGIAN ATAS 
+         Membantu section ini menyatu halus dengan section sebelumnya.
+      ---------------------------------------------------------- */}
       <div
         className="
           absolute top-0 left-0 w-full h-20 md:h-24
@@ -38,7 +49,9 @@ export default function Lokasi() {
         aria-hidden="true"
       />
 
-      {/* Header */}
+      {/* -----------------------
+          HEADING SECTION
+         ----------------------- */}
       <header className="relative z-10 text-center pt-20 md:pt-24 mb-10 md:mb-12">
         <motion.h4
           initial={{ opacity: 0, y: 20 }}
@@ -63,7 +76,10 @@ export default function Lokasi() {
         </motion.h2>
       </header>
 
-      {/* Map Container */}
+      {/* ---------------------------------------------------------
+         MAP EMBED GOOGLE 
+         Dibungkus card dengan loading spinner sebelum peta siap.
+      ---------------------------------------------------------- */}
       <motion.div
         initial={{ opacity: 0, scale: 0.97 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -80,7 +96,7 @@ export default function Lokasi() {
           dark:bg-bg-base
         "
       >
-        {/* Loading Spinner */}
+        {/* Spinner loading sampai iframe selesai load */}
         {!loaded && (
           <div
             className="
@@ -98,20 +114,23 @@ export default function Lokasi() {
           </div>
         )}
 
+        {/* Iframe peta Google Maps */}
         <iframe
           src={`https://www.google.com/maps?q=${MAPS_LOCATION}&output=embed`}
           width="100%"
           height="100%"
           style={{ border: 0 }}
           loading="lazy"
-          onLoad={() => setLoaded(true)}
+          onLoad={() => setLoaded(true)} // matikan spinner ketika peta siap
           className="w-full h-full"
           title="Lokasi Gelap Nyawang di Google Maps"
           allowFullScreen
         />
       </motion.div>
 
-      {/* CTA Button */}
+      {/* ---------------------------------------------------------
+         CTA BUTTON MENUJU GOOGLE MAPS
+      ---------------------------------------------------------- */}
       <motion.div
         initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -137,7 +156,10 @@ export default function Lokasi() {
         </a>
       </motion.div>
 
-      {/* Bottom Gradient */}
+      {/* ---------------------------------------------------------
+         GRADIENT TRANSISI BAGIAN BAWAH 
+         Untuk menghubungkan section berikutnya dengan nyaman.
+      ---------------------------------------------------------- */}
       <div
         className="
           absolute bottom-0 left-0 w-full 

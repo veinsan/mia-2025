@@ -2,6 +2,12 @@
 
 import { motion } from "framer-motion";
 
+/*
+  Footer website menampilkan informasi lokasi, jam buka, sosial media,
+  navigasi internal, dan CTA scroll-to-top.
+  Struktur dibuat responsif dengan kombinasi grid dan flex.
+*/
+
 const FADE_UP = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -11,24 +17,38 @@ const FADE_UP = {
   },
 };
 
+/* 
+  Navigasi sederhana untuk footer.
+  Link merujuk ke bagian dalam halaman utama.
+*/
 const NAV_LINKS = [
   { name: "Beranda", link: "#" },
   { name: "Rekomendasi", link: "#topResto" },
 ];
 
+/*
+  Kumpulan link sosial media. Dipisah biar mudah dirapikan atau diganti nantinya.
+*/
 const SOCIAL_LINKS = [
   { name: "Instagram", link: "https://www.instagram.com/gelapnyawang.culinary/" },
   { name: "Facebook", link: "https://www.facebook.com" },
   { name: "Tiktok", link: "https://www.tiktok.com" },
 ];
 
+/*
+  Tombol kembali ke atas halaman dengan efek smooth scroll native.
+*/
 const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
 export default function Footer() {
   return (
     <>
+      {/* ------------------------------------------------------
+          FOOTER UTAMA
+        ------------------------------------------------------ */}
       <footer className="w-full bg-[#E57621] dark:bg-[#B55610] text-white py-16 px-6 md:px-20 font-sans relative overflow-hidden">
-        {/* Grain */}
+        
+        {/* Lapisan grain halus sebagai tekstur latar */}
         <div
           className="absolute inset-0 bg-[url('/grain-texture.png')] bg-repeat opacity-10 pointer-events-none"
           aria-hidden="true"
@@ -41,9 +61,12 @@ export default function Footer() {
           viewport={{ once: true, amount: 0.2 }}
           className="relative z-10"
         >
-          {/* TOP: 3 Columns */}
+          {/* --------------------------------------------------
+              TOP SECTION — 3 Kolom besar (Logo - Deskripsi - Logo)
+            -------------------------------------------------- */}
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start mb-12 gap-10">
-            {/* Left – Logo */}
+            
+            {/* Logo kiri (GN Culinary) */}
             <div className="flex-shrink-0 flex flex-col items-center md:items-start">
               <img
                 src="/assets/logo.png"
@@ -52,7 +75,7 @@ export default function Footer() {
               />
             </div>
 
-            {/* Middle – Text */}
+            {/* Deskripsi tengah */}
             <div className="w-full md:w-2/4 flex flex-col items-center md:items-start">
               <p className="text-base md:text-lg leading-relaxed text-center md:text-left max-w-md text-white/90">
                 Gelap Nyawang Culinary, spot kuliner favorit mahasiswa ITB.
@@ -61,7 +84,7 @@ export default function Footer() {
               </p>
             </div>
 
-            {/* Right – Logo */}
+            {/* Logo kanan (MIA 2025) */}
             <div className="flex-shrink-0 flex flex-col items-center md:items-end">
               <img
                 src="/assets/mia2025.png"
@@ -73,9 +96,13 @@ export default function Footer() {
 
           <hr className="border-white/30 mb-12" />
 
-          {/* GRID: 5 Columns */}
+          {/* --------------------------------------------------
+              GRID 5 KOLOM 
+              Lokasi | Jam buka | Navigasi | Sosial Media | Kontak
+            -------------------------------------------------- */}
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-16 text-base md:text-lg mb-12 text-center md:text-left">
-            {/* Lokasi */}
+            
+            {/* Kolom Lokasi */}
             <div>
               <h3 className="font-bold mb-3">Lokasi</h3>
               <address className="not-italic">
@@ -85,13 +112,13 @@ export default function Footer() {
               </address>
             </div>
 
-            {/* Jam Buka */}
+            {/* Kolom Jam Buka */}
             <div>
               <h3 className="font-bold mb-3">Jam Buka</h3>
               <p>06.00 AM - 01.00 AM</p>
             </div>
 
-            {/* Navigasi */}
+            {/* Kolom Navigasi */}
             <nav aria-label="Footer navigation">
               <h3 className="font-bold mb-3">Navigasi</h3>
               {NAV_LINKS.map((item) => (
@@ -103,7 +130,7 @@ export default function Footer() {
               ))}
             </nav>
 
-            {/* Media Sosial */}
+            {/* Kolom Media Sosial */}
             <nav aria-label="Social media">
               <h3 className="font-bold mb-3">Media Sosial</h3>
               {SOCIAL_LINKS.map((sos) => (
@@ -120,7 +147,7 @@ export default function Footer() {
               ))}
             </nav>
 
-            {/* Kontak */}
+            {/* Kolom Kontak */}
             <div>
               <h3 className="font-bold mb-3">Kontak</h3>
               <p>
@@ -146,7 +173,9 @@ export default function Footer() {
           </div>
         </motion.div>
 
-        {/* Glow Line */}
+        {/* --------------------------------------------------
+            Glow line animasi tipis sebagai pemanis visual bawah.
+          -------------------------------------------------- */}
         <motion.div
           className="absolute bottom-0 left-0 w-full h-[6px] bg-white/50 blur-sm opacity-70"
           animate={{ x: ["0%", "20%", "0%"] }}
@@ -155,12 +184,19 @@ export default function Footer() {
         />
       </footer>
 
-      {/* Scroll to Top Button */}
+      {/* ------------------------------------------------------
+          Scroll-To-Top Button 
+        ------------------------------------------------------ */}
       <motion.button
         onClick={scrollToTop}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="fixed bottom-6 right-6 z-40 bg-white/25 backdrop-blur-md hover:bg-white/40 text-white p-3 rounded-full shadow-lg transition-all duration-300"
+        className="
+          fixed bottom-6 right-6 z-40 
+          bg-white/25 backdrop-blur-md hover:bg-white/40 
+          text-white p-3 rounded-full shadow-lg 
+          transition-all duration-300
+        "
         title="Kembali ke atas"
         aria-label="Scroll to top"
       >

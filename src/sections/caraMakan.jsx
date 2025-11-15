@@ -56,7 +56,6 @@ const StepItem = ({ step }) => (
         {step.title}
       </span>
 
-      {/* Subtitle — ✔ dark mode fix */}
       <span className="text-black/90 dark:text-white/80 whitespace-nowrap">
         {step.subtitle}
       </span>
@@ -98,7 +97,6 @@ export default function CaraMakan() {
               text-2xl sm:text-3xl md:text-4xl
               leading-relaxed font-semibold
               max-w-full sm:max-w-xl md:max-w-2xl
-              text-text-primary dark:text-text-secondary
             "
           >
             Makan di Gelap Nyawang itu bukan cuma soal rasa.
@@ -121,8 +119,6 @@ export default function CaraMakan() {
 
         {/* RIGHT SECTION */}
         <div className="relative w-full h-[600px] md:h-full">
-          
-          {/* BACKGROUND IMAGE */}
           <img
             src="/assets/about/t1.jpg"
             alt="Background"
@@ -130,7 +126,6 @@ export default function CaraMakan() {
             loading="lazy"
           />
 
-          {/* DARK OVERLAY */}
           <div
             className="
               relative z-10 h-full w-full 
@@ -140,7 +135,6 @@ export default function CaraMakan() {
               text-white
             "
           >
-            {/* TITLE */}
             <motion.header
               initial="hidden"
               whileInView="show"
@@ -156,7 +150,6 @@ export default function CaraMakan() {
               </p>
             </motion.header>
 
-            {/* STEP LIST */}
             <motion.div
               variants={STAGGER}
               initial="hidden"

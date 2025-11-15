@@ -3,6 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 
+/*
+  Konfigurasi animasi yang dipakai untuk section “Tentang”.
+  Dibuat terpusat biar gampang maintain dan konsisten.
+*/
 const ANIMATION_CONFIG = {
   CONTAINER: {
     hidden: { opacity: 0 },
@@ -11,7 +15,7 @@ const ANIMATION_CONFIG = {
       transition: { staggerChildren: 0.08, delayChildren: 0.1 },
     },
   },
-  
+
   ITEM: {
     hidden: { opacity: 0, scale: 0.92, y: 20 },
     visible: {
@@ -24,7 +28,7 @@ const ANIMATION_CONFIG = {
       },
     },
   },
-  
+
   CARD_HOVER: {
     scale: 1.01,
     y: -2,
@@ -34,7 +38,7 @@ const ANIMATION_CONFIG = {
       damping: 20,
     },
   },
-  
+
   TEXT_GLOW: {
     textShadow: [
       "0 0 0px rgb(229 118 33 / 0)",
@@ -47,17 +51,19 @@ const ANIMATION_CONFIG = {
       ease: "easeInOut",
     },
   },
-  
-  WAVE: { 
+
+  WAVE: {
     duration: 14,
     ease: "easeInOut",
   },
-  
-  BLOB: { 
-    durations: [7, 8, 7.5] 
-  },
+
+  BLOB: { durations: [7, 8, 7.5] },
 };
 
+/*
+  Data tetap untuk tiga kartu “Keunggulan Kami”.
+  Dipisahkan dari UI biar lebih bersih dan reusable.
+*/
 const CARDS_DATA = [
   {
     id: "rumahan",
@@ -79,12 +85,17 @@ const CARDS_DATA = [
   },
 ];
 
+/*
+  Komponen kartu individual untuk setiap highlight.
+  Dibuat terpisah biar bagian utama tetap ringkas.
+*/
 const AboutCard = ({ card, isMobile }) => (
   <motion.article
     variants={ANIMATION_CONFIG.ITEM}
     whileHover={!isMobile ? ANIMATION_CONFIG.CARD_HOVER : undefined}
     className="relative rounded-2xl overflow-hidden shadow-card bg-bg-soft dark:bg-bg-warm group cursor-pointer"
   >
+    {/* Gambar utama */}
     <div className="relative w-full aspect-[3/4] overflow-hidden">
       <img
         src={card.img}
@@ -96,6 +107,7 @@ const AboutCard = ({ card, isMobile }) => (
       />
     </div>
 
+    {/* Overlay bagian bawah (judul + deskripsi) */}
     <div
       className="absolute inset-x-0 bottom-0 h-[40%]
                  bg-gradient-to-t from-primary/90 via-primary-light/70 to-transparent
@@ -117,25 +129,42 @@ const AboutCard = ({ card, isMobile }) => (
   </motion.article>
 );
 
+/*
+  Komponen Utama: Section “Tentang”.
+  Berisi animasi scroll-triggered, decorative blob, wave, dan grid cards.
+*/
 export default function Tentang() {
   const ref = useRef(null);
+
+  // Menentukan apakah user sudah scroll sampai section
   const inView = useInView(ref, { amount: 0.2, once: true });
+
+  // Controller animasi framer-motion
   const controls = useAnimation();
 
   const [isMobile, setIsMobile] = useState(false);
 
+  /* -----------------------------------------------------------
+     DETEKSI MOBILE
+     ----------------------------------------------------------- */
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 640);
     checkMobile();
-    
+
     window.addEventListener("resize", checkMobile, { passive: true });
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  /* -----------------------------------------------------------
+     MULAI ANIMASI SAAT MASUK VIEWPORT
+     ----------------------------------------------------------- */
   useEffect(() => {
     if (inView) controls.start("visible");
   }, [inView, controls]);
 
+  /* -----------------------------------------------------------
+     RENDER SECTION TENTANG
+     ----------------------------------------------------------- */
   return (
     <section
       id="tentang"
@@ -143,6 +172,9 @@ export default function Tentang() {
       className="relative overflow-hidden bg-gradient-to-b 
                  from-bg-base via-bg-soft to-bg-warm transition-colors duration-500 pb-[120px] md:pb-[50px]"
     >
+      {/* -------------------------------------------------------
+          WAVE GRADIENT TOP DECORATION
+         ------------------------------------------------------- */}
       <div className="absolute inset-x-0 -top-px z-20 overflow-hidden pointer-events-none">
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
@@ -153,9 +185,9 @@ export default function Tentang() {
           }}
           className="w-[200%]"
         >
-          <svg 
-            viewBox="0 0 1440 80" 
-            preserveAspectRatio="none" 
+          <svg
+            viewBox="0 0 1440 80"
+            preserveAspectRatio="none"
             className="w-full h-[60px] sm:h-[80px]"
           >
             <defs>
@@ -165,6 +197,7 @@ export default function Tentang() {
                 <stop offset="100%" className="[stop-color:theme(colors.primary.hover)] [stop-opacity:0.5]" />
               </linearGradient>
             </defs>
+
             <path
               d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 L0,0 Z"
               fill="url(#waveGradient)"
@@ -173,6 +206,9 @@ export default function Tentang() {
         </motion.div>
       </div>
 
+      {/* -------------------------------------------------------
+          DECORATIVE FLOATING BLOBS
+         ------------------------------------------------------- */}
       <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
         {[
           { class: "left-[5%] top-[8%] w-40 h-40 bg-primary/8", duration: ANIMATION_CONFIG.BLOB.durations[0] },
@@ -188,7 +224,14 @@ export default function Tentang() {
         ))}
       </div>
 
+      {/* -------------------------------------------------------
+          CONTENT WRAPPER
+         ------------------------------------------------------- */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-16 sm:py-20 md:py-24">
+
+        {/* ----------------------
+            Heading + Subtext
+           ---------------------- */}
         <motion.div
           variants={ANIMATION_CONFIG.CONTAINER}
           initial="hidden"
@@ -226,6 +269,9 @@ export default function Tentang() {
           </motion.p>
         </motion.div>
 
+        {/* ----------------------
+            Cards Grid
+           ---------------------- */}
         <motion.div
           variants={ANIMATION_CONFIG.CONTAINER}
           initial="hidden"
@@ -238,22 +284,17 @@ export default function Tentang() {
         </motion.div>
       </div>
 
+      {/* -------------------------------------------------------
+          BOTTOM MARQUEE DECORATION
+         ------------------------------------------------------- */}
       <div
         className="absolute bottom-0 left-1/2 -translate-x-1/2 
                    w-[250%] md:w-[500%] h-[30px] md:h-[70px]
                    z-40 overflow-hidden"
       >
         <div className="marquee-right flex h-full">
-          <img
-            src="/assets/Banner.svg"
-            alt="Banner"
-            className="w-full h-full object-cover inline-block"
-          />
-          <img
-            src="/assets/Banner.svg"
-            alt="Banner"
-            className="w-full h-full object-cover inline-block"
-          />
+          <img src="/assets/Banner.svg" alt="Banner" className="w-full h-full object-cover inline-block" />
+          <img src="/assets/Banner.svg" alt="Banner" className="w-full h-full object-cover inline-block" />
         </div>
       </div>
     </section>
