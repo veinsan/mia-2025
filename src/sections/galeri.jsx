@@ -1,232 +1,119 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-
-/* ============================================
-   BALIK DAPUR STORIES DATA
-   ============================================ */
 
 const GALERI_PHOTOS = [
   {
     src: "/assets/galeri/1.jpeg",
-    caption: "Jawa Tidur",
+    text: "Warung kecil yang nyimpen cerita anak kos tiap malam.",
   },
   {
     src: "/assets/galeri/2.jpeg",
-    caption: "Orkay Tidur",
+    text: "Dari gelas kopi sampai suara gerobak, semuanya punya nostalgia.",
   },
   {
     src: "/assets/galeri/3.jpeg",
-    caption: "Cepak Tidur",
+    text: "Setiap foto punya suasana; meriah, hangat, dan penuh tawa.",
   },
   {
     src: "/assets/galeri/4.jpeg",
-    caption: "Galfish Tidur",
+    text: "Dapur sederhana yang hidup dari obrolan dan pesanan yang gak pernah berhenti.",
   },
   {
     src: "/assets/galeri/5.jpeg",
-    caption: "Kadies Tidur",
+    text: "Rasa yang nempel karena dibuat pelan-pelan, bukan buru-buru.",
   },
   {
     src: "/assets/galeri/6.jpeg",
-    caption: "Irgay Tidur",
+    text: "Suasana malam Gelap Nyawang itu beda—hangat, riuh, dan ngangenin.",
   },
 ];
 
-/* ============================================
-   ANIMATION CONFIGURATION
-   ============================================ */
-
-const ANIMATION_CONFIG = {
-  CARD: {
-    DURATION: 0.5,
-    SCALE: 1.05,
-  },
-  OVERLAY: {
-    DURATION: 0.4,
-  },
-  TEXT: {
-    DURATION: 0.5,
-    DELAY: 0.05,
-  },
-};
-
-/* ============================================
-   REDUCED MOTION DETECTION
-   ============================================ */
-
-const prefersReducedMotion = () => {
-  return typeof window !== "undefined"
-    ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    : false;
-};
-
-/* ============================================
-   STORY CARD COMPONENT
-   ============================================ */
-
-const StoryCard = ({ story, index, reduceMotion }) => {
-  const [imageError, setImageError] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
-
-  if (imageError) {
-    return (
-      <div
-        className="
-          relative overflow-hidden rounded-xl shadow-card
-          bg-bg-base dark:bg-bg-soft
-          flex items-center justify-center h-full
-        "
-      >
-        <p className="text-text-muted dark:text-text-secondary/50 text-sm">
-          Image not available
-        </p>
-      </div>
-    );
-  }
-
+const GalleryCard = ({ item, index }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
+    <motion.article
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{
-        duration: reduceMotion ? 0.1 : 0.6,
-        delay: index * 0.05,
-      }}
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
-      className="
-        relative overflow-hidden rounded-xl shadow-card group
-        cursor-pointer bg-bg-base dark:bg-bg-soft h-full
-        will-change-transform
-      "
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.7, delay: index * 0.05 }}
+      className="group relative overflow-hidden rounded-xl cursor-pointer
+                 transition-all duration-500 ease-in-out will-change-transform
+                 aspect-square"
     >
-      {/* Image */}
       <Image
-        src={story.src}
-        alt={`Cerita ${index + 1}`}
+        src={item.src}
+        alt={`Foto ${index + 1} Gelap Nyawang`}
         fill
-        className="object-cover transition-transform duration-700 group-hover:scale-110"
+        className="object-cover transition-transform duration-500 ease-in-out
+                   group-hover:scale-105"
         sizes="(max-width: 768px) 50vw, 33vw"
-        loading="lazy"
-        onError={() => setImageError(true)}
+        loading={index < 2 ? "eager" : "lazy"}
       />
 
-      {/* Overlay */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={isHovering ? { opacity: 1 } : { opacity: 0 }}
-        transition={{
-          duration: reduceMotion ? 0.1 : ANIMATION_CONFIG.OVERLAY.DURATION,
-        }}
-        className="
-          absolute inset-0 flex flex-col justify-center items-center
-          bg-black/60 dark:bg-black/70 backdrop-blur-sm p-4 md:p-6
-        "
-      >
-        {/* Story Text */}
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={
-            isHovering ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }
-          }
-          transition={{
-            duration: reduceMotion ? 0.1 : ANIMATION_CONFIG.TEXT.DURATION,
-            delay: ANIMATION_CONFIG.TEXT.DELAY,
-          }}
-          className="text-white text-center text-sm md:text-base font-medium leading-relaxed"
-          role="caption"
-        >
-          {story.story}
-        </motion.p>
-      </motion.div>
-    </motion.div>
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100
+                      bg-primary/70 flex flex-col justify-center items-center 
+                      text-white text-center px-4 transition-opacity duration-300">
+        <img
+          src="/assets/logo.png"
+          alt=""
+          width={112}
+          height={112}
+          className="w-20 md:w-28 mb-3"
+          aria-hidden="true"
+        />
+
+        <p className="font-medium text-sm md:text-lg leading-relaxed">
+          {item.text}
+        </p>
+      </div>
+    </motion.article>
   );
 };
 
-/* ============================================
-   MAIN BALIK DAPUR COMPONENT
-   ============================================ */
-
-export default function BafikDapur() {
-  const [reduceMotion, setReduceMotion] = useState(false);
-
-  /* Reduced motion preference */
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-    const handleChange = (e) => setReduceMotion(e.matches);
-
-    handleChange({ matches: mq.matches });
-
-    mq.addEventListener("change", handleChange);
-    return () => mq.removeEventListener("change", handleChange);
-  }, []);
-
+export default function Galeri() {
   return (
     <section
-      id="balikDapur"
-      className="
-        relative py-20 md:py-28 overflow-hidden
-        bg-gradient-to-b from-bg-warm via-bg-gold to-bg-soft
-        dark:from-bg-warm dark:via-bg-gold dark:to-bg-soft
-        transition-colors duration-500
-      "
+      id="galeri"
+      className="w-full pt-0 pb-32 md:pb-40 relative overflow-visible
+                 bg-gradient-to-b from-bg-gold via-bg-warm to-bg-soft
+                 dark:from-bg-gold dark:via-bg-warm dark:to-bg-soft
+                 transition-colors duration-500"
     >
-      {/* Background Texture */}
-      <div
-        className="absolute inset-0 opacity-5 pointer-events-none"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 80% 30%, rgba(252, 187, 101, 0.1) 0%, transparent 50%)",
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Content */}
-      <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
-        {/* Heading */}
+      <header className="text-center mb-12 px-6">
         <motion.h4
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{
-            duration: reduceMotion ? 0.1 : 0.6,
-          }}
-          className="text-primary font-semibold mb-2 tracking-wide uppercase text-sm"
+          viewport={{ once: true }}
+          className="text-primary font-semibold mb-3 text-sm tracking-wide uppercase"
         >
-          Dibalik Dapur
+          Dibalik Dapur Gelap Nyawang
         </motion.h4>
 
         <motion.h2
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 26 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{
-            duration: reduceMotion ? 0.1 : 0.8,
-            delay: 0.1,
-          }}
-          className="text-4xl md:text-5xl font-bold text-text-primary dark:text-text-secondary mb-12"
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="text-3xl md:text-5xl font-bold text-text-primary dark:text-text-secondary"
         >
-          Cerita dari{" "}
-          <span className="text-primary">Dapur Gelap Nyawang</span>
+          Cerita dari <span className="text-primary">Dapur Kami</span>
         </motion.h2>
+      </header>
 
-        {/* Gallery Grid - 2x3 */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[250px]">
-          {GALERI_PHOTOS .map((item, index) => (
-            <StoryCard
-              key={`story-${index}`}
-              story={item}
-              index={index}
-              reduceMotion={reduceMotion}
-            />
-          ))}
-        </div>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 px-6 md:px-16">
+        {GALERI_PHOTOS.map((item, i) => (
+          <GalleryCard key={i} item={item} index={i} />
+        ))}
       </div>
+
+      <div
+        className="absolute bottom-0 left-0 w-full h-24 md:h-32
+                   bg-gradient-to-b from-bg-soft via-bg-warm to-bg-gold
+                   dark:from-bg-soft dark:via-bg-warm dark:to-bg-gold
+                   pointer-events-none"
+        aria-hidden="true"
+      />
     </section>
   );
 }

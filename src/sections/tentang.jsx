@@ -3,10 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 
-/* ============================================
-   ANIMATION CONFIGURATION (CLEANED)
-   ============================================ */
-
 const ANIMATION_CONFIG = {
   CONTAINER: {
     hidden: { opacity: 0 },
@@ -24,7 +20,7 @@ const ANIMATION_CONFIG = {
       y: 0,
       transition: {
         duration: 0.4,
-        ease: [0.25, 0.46, 0.45, 0.94], // easeOutCubic
+        ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
   },
@@ -62,10 +58,6 @@ const ANIMATION_CONFIG = {
   },
 };
 
-/* ============================================
-   CARD DATA
-   ============================================ */
-
 const CARDS_DATA = [
   {
     id: "rumahan",
@@ -87,36 +79,29 @@ const CARDS_DATA = [
   },
 ];
 
-/* ============================================
-   CARD COMPONENT (OPTIMIZED)
-   ============================================ */
-
 const AboutCard = ({ card, isMobile }) => (
   <motion.article
     variants={ANIMATION_CONFIG.ITEM}
     whileHover={!isMobile ? ANIMATION_CONFIG.CARD_HOVER : undefined}
     className="relative rounded-2xl overflow-hidden shadow-card bg-bg-soft dark:bg-bg-warm group cursor-pointer"
   >
-    {/* IMAGE with proper aspect ratio */}
     <div className="relative w-full aspect-[3/4] overflow-hidden">
-      <motion.div
-        className="absolute inset-0 bg-cover bg-center brightness-75 
-                   transition-all duration-500 group-hover:scale-105 group-hover:brightness-90"
-        style={{ backgroundImage: `url(${card.img})` }}
+      <img
+        src={card.img}
+        alt={`${card.title} illustration`}
+        loading="lazy"
+        className="absolute inset-0 w-full h-full object-cover brightness-75 
+                   transition-all duration-500 group-hover:scale-105 
+                   group-hover:brightness-90"
       />
     </div>
 
-    {/* OVERLAY GRADIENT */}
-      <div
-        className="
-          absolute inset-x-0 bottom-0 h-[40%]
-          bg-gradient-to-t
-          from-primary/90 via-primary-light/70 to-transparent
-          dark:from-accent/90 dark:via-accent-light/70 dark:to-transparent
-          flex flex-col justify-end p-6 backdrop-blur-[2px]"
-      >
-      
-      {/* TITLE with consistent glow */}
+    <div
+      className="absolute inset-x-0 bottom-0 h-[40%]
+                 bg-gradient-to-t from-primary/90 via-primary-light/70 to-transparent
+                 dark:from-accent/90 dark:via-accent-light/70 dark:to-transparent
+                 flex flex-col justify-end p-6 backdrop-blur-[2px]"
+    >
       <motion.h3
         animate={ANIMATION_CONFIG.TEXT_GLOW}
         className="text-2xl sm:text-2xl md:text-3xl font-bold text-white 
@@ -125,17 +110,12 @@ const AboutCard = ({ card, isMobile }) => (
         {card.title}
       </motion.h3>
 
-      {/* DESCRIPTION */}
       <p className="text-sm sm:text-base text-white/95 leading-relaxed line-clamp-2">
         {card.desc}
       </p>
     </div>
   </motion.article>
 );
-
-/* ============================================
-   MAIN SECTION (CLEANED)
-   ============================================ */
 
 export default function Tentang() {
   const ref = useRef(null);
@@ -144,7 +124,6 @@ export default function Tentang() {
 
   const [isMobile, setIsMobile] = useState(false);
 
-  // Mobile detection
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 640);
     checkMobile();
@@ -153,7 +132,6 @@ export default function Tentang() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Animation trigger
   useEffect(() => {
     if (inView) controls.start("visible");
   }, [inView, controls]);
@@ -165,7 +143,6 @@ export default function Tentang() {
       className="relative overflow-hidden bg-gradient-to-b 
                  from-bg-base via-bg-soft to-bg-warm transition-colors duration-500 pb-[120px] md:pb-[50px]"
     >
-      {/* WAVE TOP */}
       <div className="absolute inset-x-0 -top-px z-20 overflow-hidden pointer-events-none">
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
@@ -196,7 +173,6 @@ export default function Tentang() {
         </motion.div>
       </div>
 
-      {/* DECORATIVE BLOBS (simplified) */}
       <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
         {[
           { class: "left-[5%] top-[8%] w-40 h-40 bg-primary/8", duration: ANIMATION_CONFIG.BLOB.durations[0] },
@@ -212,10 +188,7 @@ export default function Tentang() {
         ))}
       </div>
 
-      {/* MAIN CONTENT */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-16 sm:py-20 md:py-24">
-        
-        {/* HEADER */}
         <motion.div
           variants={ANIMATION_CONFIG.CONTAINER}
           initial="hidden"
@@ -253,7 +226,6 @@ export default function Tentang() {
           </motion.p>
         </motion.div>
 
-        {/* CARDS GRID */}
         <motion.div
           variants={ANIMATION_CONFIG.CONTAINER}
           initial="hidden"
@@ -265,21 +237,22 @@ export default function Tentang() {
           ))}
         </motion.div>
       </div>
-      {/* BluLine Bottom Banner */}
+
       <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1400%] md:w-[750%] z-40"
-        style={{ overflow: "hidden" }}
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 
+                   w-[250%] md:w-[500%] h-[30px] md:h-[70px]
+                   z-40 overflow-hidden"
       >
-        <div className="marquee-right flex">
+        <div className="marquee-right flex h-full">
           <img
-            src="/assets/BluLine.svg"
-            alt="BluLine"
-            className="w-full object-contain inline-block"
+            src="/assets/Banner.svg"
+            alt="Banner"
+            className="w-full h-full object-cover inline-block"
           />
           <img
-            src="/assets/BluLine.svg"
-            alt="BluLine"
-            className="w-full object-contain inline-block"
+            src="/assets/Banner.svg"
+            alt="Banner"
+            className="w-full h-full object-cover inline-block"
           />
         </div>
       </div>

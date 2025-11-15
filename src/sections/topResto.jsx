@@ -2,10 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-
-/* ============================================
-   ANIMATION CONFIGURATION
-   ============================================ */
+import { UMKM_DATA } from "@/data/umkmData";
 
 const ANIMATION_CONFIG = {
   ITEM: {
@@ -35,62 +32,16 @@ const TEXT_GLOW = {
   },
 };
 
-/* ============================================
-   REDUCED MOTION DETECTION
-   ============================================ */
-
 const prefersReducedMotion = () => {
   return typeof window !== "undefined"
     ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
     : false;
 };
 
-/* ============================================
-   RESTO DATA (HARDCODED - Specific to this section)
-   ============================================ */
-
-const RESTOS_DATA = [
-  {
-    slug: "blackromantic",
-    name: "Black Romantic",
-    desc: "Restoran dengan cita rasa iga bakar autentik yang memanjakan lidah, sempurna untuk makan bersama teman-teman.",
-    img: "/assets/resto/blackromantic.webp",
-  },
-  {
-    slug: "bwj",
-    name: "Kedai BWJ",
-    desc: "Butterfly Wings Java menyajikan masakan nusantara berkualitas dengan harga terjangkau dan pelayanan ramah.",
-    img: "/assets/resto/bwj.webp",
-  },
-  {
-    slug: "stallone",
-    name: "Bebek Stallone",
-    desc: "Bebek goreng renyah dengan bumbu yang menggugah selera, pilihan favorit para pecinta kuliner lokal.",
-    img: "/assets/resto/stallone.jpg",
-  },
-  {
-    slug: "cola",
-    name: "Ayam Cola Kabita HC",
-    desc: "Ayam bakar dengan racikan bumbu istimewa yang bikin ketagihan, cocok untuk lunch maupun dinner.",
-    img: "/assets/resto/cola.webp",
-  },
-  {
-    slug: "besthal",
-    name: "Ayam & Bebek Besthal",
-    desc: "Kombinasi ayam dan bebek berkualitas dengan bumbu rahasia turun temurun yang luar biasa lezat.",
-    img: "/assets/resto/besthal.webp",
-  },
-  {
-    slug: "datuak",
-    name: "Rumah Makan Pak Datuak",
-    desc: "Rumah makan autentik dengan masakan tradisional yang membawa cita rasa kampung ke hadapan Anda.",
-    img: "/assets/resto/datuak.webp",
-  },
-];
-
-/* ============================================
-   RESTO CARD COMPONENT
-   ============================================ */
+const FEATURED_SLUGS = ["bwj", "blackromantic", "stallone", "cola", "besthal", "datuak"];
+const RESTOS_DATA = FEATURED_SLUGS.map(slug => 
+  UMKM_DATA.find(item => item.slug === slug)
+).filter(Boolean);
 
 const RestoCard = ({ resto, variant = "large", index = 0 }) => {
   const isLarge = variant === "large";
@@ -115,11 +66,10 @@ const RestoCard = ({ resto, variant = "large", index = 0 }) => {
       }`}
     >
       <Link href={`/direktori/${resto.slug}`} className="block h-full group">
-        {/* Image */}
         <div className="absolute inset-0">
           <img
             src={resto.img}
-            alt={resto.name}
+            alt={`${resto.name} - ${resto.short}`}
             loading="lazy"
             onError={(e) => {
               e.target.style.backgroundColor = "#f5f5f5";
@@ -128,27 +78,22 @@ const RestoCard = ({ resto, variant = "large", index = 0 }) => {
           />
         </div>
 
-        {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
-        {/* Content Container */}
         <div className="absolute inset-0 flex flex-col justify-end p-5 md:p-6">
-          {/* Title - Always visible */}
           <h3 className={`font-semibold text-white mb-2 transition-all duration-300 ${
             isLarge ? "text-2xl md:text-3xl" : isMedium ? "text-xl md:text-2xl" : "text-lg md:text-xl"
           }`}>
             {resto.name}
           </h3>
 
-          {/* Description - Shows on hover */}
           <div className={`overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-32 opacity-0 group-hover:opacity-100 ${reduceMotion ? "!duration-200" : ""}`}>
             <p className={`text-white/90 mb-3 ${
               isLarge ? "text-sm md:text-base line-clamp-3" : "text-xs md:text-sm line-clamp-2"
             }`}>
-              {resto.desc}
+              {resto.short}
             </p>
             
-            {/* CTA Link */}
             <motion.span
               className="inline-flex items-center gap-1 text-primary font-medium text-sm hover:text-primary/80 transition-colors"
               whileHover={reduceMotion ? {} : { x: 4 }}
@@ -164,29 +109,21 @@ const RestoCard = ({ resto, variant = "large", index = 0 }) => {
   );
 };
 
-/* ============================================
-   MAIN TOPRESO COMPONENT
-   ============================================ */
-
 export default function TopResto() {
-  const mainResto = RESTOS_DATA[1];
-  const topResto = RESTOS_DATA[0];
+  const mainResto = RESTOS_DATA[0];
+  const topResto = RESTOS_DATA[1];
   const gridRestos = RESTOS_DATA.slice(2, 6);
 
   return (
     <section
       id="topResto"
-className="
-  relative py-24 md:py-32 overflow-hidden bg-gradient-to-b
-  from-[#E5D2BD] via-[#DCCBB5] to-[#D5C1A8]
-  dark:from-[#3C2E25] dark:via-[#2E241D] dark:to-[#1F1814]
-  transition-colors duration-500
-"
+      className="relative pt-20 md:pt-20 pb-20 md:pb-28 overflow-hidden
+                 bg-gradient-to-b from-bg-warm via-bg-soft to-bg-base
+                 dark:from-bg-warm dark:via-bg-soft dark:to-bg-base
+                 transition-colors duration-500"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
-        {/* === LEFT: Title + Large Image === */}
         <div className="lg:col-span-7 flex flex-col gap-10">
-          {/* Header Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -210,16 +147,12 @@ className="
             </p>
           </motion.div>
 
-          {/* Large Featured Image */}
           <RestoCard resto={mainResto} variant="large" index={1} />
         </div>
 
-        {/* === RIGHT: Top Image + 4 Grid === */}
         <div className="lg:col-span-5 flex flex-col gap-10">
-          {/* Top Medium Image */}
           <RestoCard resto={topResto} variant="medium" index={2} />
 
-          {/* Grid 4 Small Images */}
           <div className="grid grid-cols-2 gap-6">
             {gridRestos.map((resto, i) => (
               <RestoCard

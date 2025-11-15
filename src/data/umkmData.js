@@ -30,7 +30,7 @@ export const UMKM_DATA = [
     slug: "stallone",
     name: "Bebek Stallone",
     category: "resto",
-    img: "/assets/resto/stallone.webp",
+    img: "/assets/resto/stallone.jpg",
     short: "Bebek goreng gurih favorit mahasiswa",
     rating: 4.5,
     rangeHarga: "Rp 25.000-50.000",
