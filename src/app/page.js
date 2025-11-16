@@ -1,13 +1,13 @@
-import Nav from "@/components/Nav";
-import Hero from "@/sections/hero";
-import Tentang from "@/sections/tentang";
-import TopResto from "@/sections/topResto";
-import CaraEksplor from "@/sections/caraEksplor";
-import Testimoni from "@/sections/testimoni";
-import Galeri from "@/sections/galeri";
-import Lokasi from "@/sections/lokasi";
-import BannerDirektori from "@/sections/banner";
-import Footer from "@/components/Footer";
+import Nav from "@/components/nav/Nav";
+import Hero from "@/sections/hero/Hero";
+import Tentang from "@/sections/tentang/Tentang";
+import TopResto from "@/sections/topResto/TopResto";
+import CaraEksplor from "@/sections/caraEksplor/CaraEksplor";
+import Testimoni from "@/sections/testimoni/Testimoni";
+import Galeri from "@/sections/galeri/Galeri";
+import Lokasi from "@/sections/lokasi/Lokasi";
+import Banner from "@/sections/banner/Banner";
+import Footer from "@/components/footer/Footer";
 import { UMKM_DATA } from "@/data/umkmData";
 
 export default function Home() {
@@ -21,7 +21,7 @@ export default function Home() {
       <Testimoni />
       <Galeri />
       <Lokasi />
-      <BannerDirektori />
+      <Banner />
       <Footer />
     </main>
   );

@@ -1,0 +1,58 @@
+export const GALERI_PHOTOS = [
+  {
+    src: "/assets/galeri/1.jpeg",
+    text: "Warung kecil yang nyimpen cerita anak kos tiap malam.",
+    location: "Black Romantic",
+    tags: ["#GelapNyawang", "#KulinerMalam"],
+    aspectRatio: "4/3",
+  },
+  {
+    src: "/assets/galeri/2.jpeg",
+    text: "Dari gelas kopi sampai suara gerobak, semuanya punya nostalgia",
+    location: "Dapur Laut",
+    tags: ["#Nongkrong", "#KopiMalam"],
+    aspectRatio: "4/3",
+  },
+  {
+    src: "/assets/galeri/3.jpeg",
+    text: "Setiap foto punya suasana; meriah, hangat, dan penuh tawa",
+    location: "Kedai BWJ",
+    tags: ["#Mahasiswa", "#LateNight"],
+    aspectRatio: "4/3",
+  },
+  {
+    src: "/assets/galeri/4.jpeg",
+    text: "Dapur sederhana yang hidup dari obrolan dan pesanan yang gak pernah berhenti",
+    location: "Ayam Besthal",
+    tags: ["#DapurPanas", "#StreetFood"],
+    aspectRatio: "4/3",
+  },
+  {
+    src: "/assets/galeri/5.jpeg",
+    text: "Rasa yang nempel karena dibuat pelan-pelan, bukan buru-buru",
+    location: "Angkringan Mas Jo",
+    tags: ["#MasakanRumahan"],
+    aspectRatio: "4/3",
+  },
+  {
+    src: "/assets/galeri/6.jpeg",
+    text: "Suasana malam Gelap Nyawang itu beda—hangat, riuh, dan ngangenin",
+    location: "Warnas Doa Mande",
+    tags: ["#NightVibes", "#Bandung"],
+    aspectRatio: "4/3",
+  },
+  {
+    src: "/assets/galeri/7.jpeg",
+    text: "Tempat singgah pas lagi capek kuliah. Ayamnya unik, suasananya bikin betah",
+    location: "Ayam Cola Kabita HC",
+    tags: ["#Nongkies", "#GenZ"],
+    aspectRatio: "4/3",
+  },
+  {
+    src: "/assets/galeri/8.jpeg",
+    text: "SDari wangi bebek gorengnya aja udah bikin lapar lagi. Suasana malamnya ngeblend sama obrolan ringan",
+    location: "Bebek Stallone",
+    tags: ["#Makan", "#Lapar"],
+    aspectRatio: "4/3",
+  },
+];
