@@ -1,7 +1,7 @@
 import { UMKM_DATA } from "@/data/umkmData";
 import NavDirektori from "@/components/navDirektori";
 import FooterDirektori from "@/components/footerDirektori";
-import GalleryClient from "./GalleryClient";
+import GalleryClient from "./galleryClient";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { 
