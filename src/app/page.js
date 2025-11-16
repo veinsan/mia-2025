@@ -1,4 +1,4 @@
-import Nav from "@/components/nav";
+import Nav from "@/components/Nav";
 import Hero from "@/sections/hero";
 import Tentang from "@/sections/tentang";
 import TopResto from "@/sections/topResto";
@@ -7,7 +7,7 @@ import Testimoni from "@/sections/testimoni";
 import Galeri from "@/sections/galeri";
 import Lokasi from "@/sections/lokasi";
 import BannerDirektori from "@/sections/banner";
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 import { UMKM_DATA } from "@/data/umkmData";
 
 export default function Home() {
