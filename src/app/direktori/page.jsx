@@ -48,8 +48,10 @@ const cardVariant = {
    CARD COMPONENT
 =========================================== */
 function UMKMCard({ item }) {
+  if (!item.slug) return null;
+
   return (
-    <Link href={`/direktori/${item.slug || ""}`} className="block">
+    <Link href={`/direktori/${item.slug}`} className="block">
       <motion.article
         variants={cardVariant}
         className="group relative rounded-2xl overflow-hidden bg-bg-base dark:bg-bg-soft shadow-md hover:shadow-xl transition-all duration-300 will-change-transform"
@@ -77,7 +79,7 @@ function UMKMCard({ item }) {
 }
 
 /* ===========================================
-   HORIZONTAL SCROLL ROW (FIXED WIDTH)
+   HORIZONTAL SCROLL ROW
 =========================================== */
 function ScrollRow({ children, scrollRef }) {
   return (
@@ -85,10 +87,10 @@ function ScrollRow({ children, scrollRef }) {
       <div
         ref={scrollRef}
         className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth py-2"
-        style={{ 
-          scrollbarWidth: "none", 
+        style={{
+          scrollbarWidth: "none",
           msOverflowStyle: "none",
-          scrollSnapType: "x mandatory"
+          scrollSnapType: "x mandatory",
         }}
       >
         {children}
@@ -98,13 +100,12 @@ function ScrollRow({ children, scrollRef }) {
 }
 
 /* ===========================================
-   SCROLL BUTTONS (FIXED CALCULATION)
+   SCROLL BUTTONS
 =========================================== */
 function ScrollButtons({ scrollRef, itemCount }) {
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
 
-  // Jika item <= 5, tidak perlu button
   if (itemCount <= 5) return null;
 
   useEffect(() => {
@@ -119,20 +120,15 @@ function ScrollButtons({ scrollRef, itemCount }) {
     };
 
     el.addEventListener("scroll", update, { passive: true });
-    
-    // Initial check
     update();
-
     return () => el.removeEventListener("scroll", update);
   }, [scrollRef, itemCount]);
 
   const scroll = (dir) => {
     if (!scrollRef.current) return;
-    
-    // FIXED: Scroll exactly 5 cards (270px * 5 + 24px gaps * 4 = 1446px)
-    // But we do smaller increments for smoother UX: 1 card at a time
+
     const scrollAmount = 270 + 24; // card width + gap
-    
+
     scrollRef.current.scrollBy({
       left: dir === "right" ? scrollAmount * 5 : -scrollAmount * 5,
       behavior: "smooth",
@@ -145,13 +141,10 @@ function ScrollButtons({ scrollRef, itemCount }) {
         <button
           onClick={() => scroll("left")}
           className="hidden lg:flex absolute left-2 top-1/2 -translate-y-1/2
-          w-12 h-12 rounded-full bg-white dark:bg-bg-soft
-          shadow-lg hover:shadow-xl
-          transition-all items-center justify-center
-          text-primary z-10"
-          aria-label="Scroll left"
+          w-12 h-12 rounded-full bg-white dark:bg-bg-soft shadow-lg hover:shadow-xl
+          transition-all items-center justify-center text-primary z-10"
         >
-          <span className="text-xl">❮</span>
+          ❮
         </button>
       )}
 
@@ -159,13 +152,10 @@ function ScrollButtons({ scrollRef, itemCount }) {
         <button
           onClick={() => scroll("right")}
           className="hidden lg:flex absolute right-2 top-1/2 -translate-y-1/2
-          w-12 h-12 rounded-full bg-white dark:bg-bg-soft
-          shadow-lg hover:shadow-xl
-          transition-all items-center justify-center
-          text-primary z-10"
-          aria-label="Scroll right"
+          w-12 h-12 rounded-full bg-white dark:bg-bg-soft shadow-lg hover:shadow-xl
+          transition-all items-center justify-center text-primary z-10"
         >
-          <span className="text-xl">❯</span>
+          ❯
         </button>
       )}
     </>
@@ -173,22 +163,23 @@ function ScrollButtons({ scrollRef, itemCount }) {
 }
 
 /* ===========================================
-   SMALL CARD (FIXED WIDTH - NO CUTTING)
+   SMALL CARD
 =========================================== */
 function SmallCard({ item }) {
+  if (!item.slug) return null;
+
   return (
     <Link href={`/direktori/${item.slug}`} className="block">
       <motion.div
         whileHover={{ y: -6 }}
         className="relative h-[170px] 
-          w-[160px] sm:w-[220px] lg:w-[260px]
-          flex-shrink-0 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all"
+        w-[160px] sm:w-[220px] lg:w-[260px]
+        flex-shrink-0 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all"
       >
         <img
           src={item.img}
           alt={item.name}
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-          loading="lazy"
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -204,7 +195,7 @@ function SmallCard({ item }) {
 }
 
 /* ===========================================
-   CATEGORY SECTION (Horizontal Scroll)
+   CATEGORY SECTION
 =========================================== */
 function CategorySection({ title, subtitle, items }) {
   const scrollRef = useRef(null);
@@ -227,7 +218,7 @@ function CategorySection({ title, subtitle, items }) {
       <div className="relative">
         <ScrollRow scrollRef={scrollRef}>
           {items.map((item) => (
-            <SmallCard key={item.id} item={item} />
+            <SmallCard key={item.slug} item={item} />
           ))}
         </ScrollRow>
 
@@ -238,21 +229,19 @@ function CategorySection({ title, subtitle, items }) {
 }
 
 /* ===========================================
-   MAIN PAGE COMPONENT (FIXED ALL ISSUES)
+   MAIN PAGE
 =========================================== */
 export default function DirektoriPage() {
   const [query, setQuery] = useState("");
   const [activeCat, setActiveCat] = useState("all");
 
-  // Filter logic
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return UMKM_DATA.filter((u) => {
       const matchesCat = activeCat === "all" ? true : u.category === activeCat;
       const matchesQuery =
-        !q
-          ? true
-          : u.name.toLowerCase().includes(q) || u.short.toLowerCase().includes(q);
+        !q ? true : u.name.toLowerCase().includes(q) || u.short.toLowerCase().includes(q);
+
       return matchesCat && matchesQuery;
     });
   }, [query, activeCat]);
@@ -261,19 +250,19 @@ export default function DirektoriPage() {
 
   const trending = UMKM_DATA.slice(0, 3);
 
-  // Category data
-  const restoItems = UMKM_DATA.filter((item) => item.category === "resto").slice(0, 8);
-  const cafeItems = UMKM_DATA.filter((item) => item.category === "cafe").slice(0, 8);
-  const cemilanItems = UMKM_DATA.filter((item) => item.category === "cemilan").slice(0, 8);
-  const minumanItems = UMKM_DATA.filter((item) => item.category === "minuman").slice(0, 8);
-  const lainItems = UMKM_DATA.filter((item) => item.category === "lain").slice(0, 8);
+  const restoItems = UMKM_DATA.filter((i) => i.category === "resto").slice(0, 8);
+  const cafeItems = UMKM_DATA.filter((i) => i.category === "cafe").slice(0, 8);
+  const cemilanItems = UMKM_DATA.filter((i) => i.category === "cemilan").slice(0, 8);
+  const minumanItems = UMKM_DATA.filter((i) => i.category === "minuman").slice(0, 8);
+  const lainItems = UMKM_DATA.filter((i) => i.category === "lain").slice(0, 8);
 
   return (
     <main className="bg-transparent transition-theme">
       <NavDirektori onCategoryClick={(cat) => setActiveCat(cat)} />
 
       <div className="w-full bg-bg-gold dark:bg-bg-gold min-h-screen pb-16">
-        {/* HERO SECTION */}
+        
+        {/* ===== HERO ===== */}
         <motion.section
           id="top-direktori"
           initial="hidden"
@@ -285,57 +274,61 @@ export default function DirektoriPage() {
             variants={heroItem}
             className="w-full mx-auto min-h-[420px] rounded-b-[40px] px-6 pt-24 pb-16 flex flex-col items-center justify-start overflow-hidden transition-theme bg-gradient-to-b from-[#FCBB65] to-[#E45D18] dark:from-bg-warm dark:to-bg-base"
           >
+
+
             <div className="max-w-3xl text-center mt-4">
               <h1 className="text-3xl md:text-5xl font-extrabold text-[#2B1B0F] dark:text-[#FFF8F0] leading-snug tracking-tight">
                 Cari Tempat Makan Favoritmu
-                <br /> di <span className="text-[#C13F14]">Gelap Nyawang</span>
+                <br /> di{" "}
+                <span className="text-[#C13F14]">
+                  Gelap Nyawang
+                </span>
               </h1>
-              <p className="mt-3 text-base md:text-lg text-[#2B1B0F]/80 dark:text-[#FFE5CC]/90">
-                Mulai dari ayam bakar, warmindo, sampai kopi buat nugas. Semua ada di satu tempat.
-              </p>
             </div>
+
+
 
             {/* SEARCH BAR */}
             <div className="w-full max-w-3xl mt-8 relative">
-              <Search
-                className="absolute left-6 top-1/2 -translate-y-1/2 text-[#C13F14] dark:text-[#EC760D]"
-                size={24}
-              />
+              <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-[#C13F14]" size={24} />
+
               <input
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder='Cari resto… misal: "Black Romantic", "BWJ"…'
-                className="w-full py-4 pl-14 pr-6 rounded-full bg-white/85 dark:bg-bg-soft border border-white/60 dark:border-border-default text-[#2B1B0F] dark:text-[#FFF8F0] shadow-lg focus:shadow-xl outline-none transition-all backdrop-blur-sm"
+                placeholder='Cari resto… misal: "BWJ" atau "Black Romantic"...'
+                className="w-full py-4 pl-14 pr-6 rounded-full bg-white/85 dark:bg-bg-soft border border-white/60 text-[#2B1B0F] shadow-lg focus:shadow-xl outline-none transition-all backdrop-blur-sm"
               />
             </div>
 
-            {/* CATEGORY BUTTONS (ALWAYS VISIBLE - ISSUE #2 FIXED) */}
+
+
+
+            {/* CATEGORY BUTTONS */}
             <motion.div
               variants={categoriesContainer}
               className="mt-10 flex flex-wrap md:flex-nowrap justify-center gap-4 w-full max-w-4xl"
             >
               {CATEGORIES.map((cat) => {
                 const active = cat.id === activeCat;
+
                 return (
                   <motion.button
                     key={cat.id}
                     variants={heroItem}
                     onClick={() => setActiveCat(cat.id)}
-                    className={`flex flex-col items-center gap-2 px-5 py-4 rounded-2xl min-w-[95px] 
-                      bg-white/75 dark:bg-bg-soft border transition-all
+                    className={`flex flex-col items-center gap-2 px-5 py-4 rounded-2xl min-w-[95px]
+                      bg-white/75 border transition-all
                       ${
                         active
-                          ? "border-[#EB7610] dark:border-[#EC760D] shadow-lg scale-105"
-                          : "border-white/40 dark:border-border-default hover:shadow-md hover:scale-102"
+                          ? "border-[#EB7610] shadow-lg scale-105"
+                          : "border-white/40 hover:shadow-md hover:scale-102"
                       }`}
                   >
                     <span className="text-2xl">{cat.icon}</span>
-                    <span 
-                      className={`text-sm font-medium transition-colors ${
-                        active 
-                          ? "text-[#EB7610] dark:text-[#EC760D]" 
-                          : "text-[#2B1B0F] dark:text-[#FFF8F0]"
+                    <span
+                      className={`text-sm font-medium ${
+                        active ? "text-[#EB7610]" : "text-[#2B1B0F]"
                       }`}
                     >
                       {cat.label}
@@ -347,7 +340,10 @@ export default function DirektoriPage() {
           </motion.div>
         </motion.section>
 
-        {/* FILTERING STATE: Show Grid Results (ISSUE #1 FIXED) */}
+
+
+
+        {/* ========= FILTER RESULT SECTION ========= */}
         {isFiltering ? (
           <motion.section
             key={`filter-${activeCat}-${query}`}
@@ -374,7 +370,7 @@ export default function DirektoriPage() {
                 className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5"
               >
                 {filtered.map((item) => (
-                  <UMKMCard key={item.id} item={item} />
+                  <UMKMCard key={item.slug} item={item} />
                 ))}
               </motion.div>
             ) : (
@@ -393,7 +389,7 @@ export default function DirektoriPage() {
             )}
           </motion.section>
         ) : (
-          /* DEFAULT STATE: Show Category Sections */
+          /* ========= DEFAULT CATEGORY SECTIONS ========= */
           <motion.div
             key="category-sections"
             initial={{ opacity: 0 }}
@@ -402,37 +398,40 @@ export default function DirektoriPage() {
           >
             <CategorySection
               title="Resto Pilihan"
-              subtitle="Makan enak tanpa ribet. Dari ayam bakar sampai warmindo favorit mahasiswa."
+              subtitle="Makan enak tanpa ribet."
               items={restoItems}
             />
 
             <CategorySection
               title="Kafe Nyaman"
-              subtitle="Tempat ideal buat nugas, nongkrong, atau sekadar cari suasana tenang."
+              subtitle="Tempat ideal buat nugas dan nongkrong."
               items={cafeItems}
             />
 
             <CategorySection
               title="Cemilan Enak"
-              subtitle="Pilihan ringan buat ganjel lapar sambil nunggu kelas berikutnya."
+              subtitle="Camilan cepat buat ganjel lapar."
               items={cemilanItems}
             />
 
             <CategorySection
               title="Minuman Segar"
-              subtitle="Thai tea, kopi, mocktail—temeni hari panjang di kampus."
+              subtitle="Peneman hari panjang di kampus."
               items={minumanItems}
             />
 
             <CategorySection
               title="Layanan Lain"
-              subtitle="Pilihan tempat yang mendukung kebutuhan mahasiswa di sekitar kampus."
+              subtitle="Pilihan kebutuhan mahasiswa di sekitar kampus."
               items={lainItems}
             />
           </motion.div>
         )}
 
-        {/* TRENDING SECTION (Always Visible) */}
+
+
+
+        {/* ===== TRENDING SECTION ===== */}
         <motion.section
           id="trending"
           initial={{ opacity: 0, y: 20 }}
@@ -441,7 +440,7 @@ export default function DirektoriPage() {
           transition={{ duration: 0.6 }}
           className="px-[5%] md:px-[7%] lg:px-[9%] mt-20 scroll-mt-24"
         >
-          <div className="bg-white dark:bg-bg-soft rounded-3xl p-10 shadow-xl flex flex-col lg:flex-row gap-10">
+          <div className="bg-white rounded-3xl p-10 shadow-xl flex flex-col lg:flex-row gap-10">
             <div className="flex-1 max-w-lg">
               <h2 className="text-3xl md:text-4xl font-bold text-text-secondary mb-4">
                 Trending di{" "}
@@ -451,27 +450,25 @@ export default function DirektoriPage() {
               </h2>
 
               <p className="text-text-muted text-base leading-relaxed">
-                Tempat makan yang lagi sering dibicarakan. Tiga pilihan paling populer minggu ini.
+                Tempat makan yang lagi sering dibicarakan minggu ini.
               </p>
             </div>
 
             <div className="flex-[2] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {trending.map((item, index) => (
+              {trending.map((item, idx) => (
                 <motion.div
-                  key={item.id}
+                  key={item.slug}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.45, delay: index * 0.1 }}
-                  className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-[220px]
-"
+                  transition={{ duration: 0.45, delay: idx * 0.1 }}
+                  className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-[220px]"
                 >
                   <div className="absolute inset-0">
                     <img
                       src={item.img}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       alt={item.name}
-                      loading="lazy"
                     />
                   </div>
 
@@ -482,18 +479,19 @@ export default function DirektoriPage() {
                       {item.name}
                     </h3>
 
-                    <p className="text-white/90 text-sm opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-20 transition-all duration-300 line-clamp-2">
+                    <p className="text-white/90 text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 line-clamp-2">
                       {item.short}
                     </p>
                   </div>
 
-                  <Link
-                    href={`/direktori/${item.slug}`}
-                    className="absolute inset-0"
-                    aria-label={`View ${item.name}`}
-                  >
-                    <span className="sr-only">View {item.name}</span>
-                  </Link>
+                  {item.slug && (
+                    <Link
+                      href={`/direktori/${item.slug}`}
+                      className="absolute inset-0"
+                    >
+                      <span className="sr-only">View {item.name}</span>
+                    </Link>
+                  )}
                 </motion.div>
               ))}
             </div>
