@@ -467,7 +467,10 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-const MOTION_CONFIG = {
+/* ------------------------------------------------------------
+   Animation configuration untuk transition dan efek UI.
+   Disusun supaya mudah disesuaikan dari satu tempat.
+------------------------------------------------------------ */ const MOTION_CONFIG = {
     navContainer: {
         duration: 0.4,
         ease: "easeInOut"
@@ -489,8 +492,14 @@ const MOTION_CONFIG = {
         ease: "easeInOut"
     }
 };
-const getNavButtonStyles = (darkMode)=>`rounded-full w-[48px] h-[48px] transition-all duration-300 flex items-center justify-center ${darkMode ? "bg-bg-soft text-white" : "bg-bg-base text-text-primary"}`;
-const IconToggle = ({ darkMode, rotation, onToggle })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].button, {
+/* ------------------------------------------------------------
+   Helper styling untuk tombol mode gelap/terang.
+   Menghindari repetisi class utility.
+------------------------------------------------------------ */ const getNavButtonStyles = (darkMode)=>`rounded-full w-[48px] h-[48px] transition-all duration-300 flex items-center justify-center ${darkMode ? "bg-bg-soft text-white" : "bg-bg-base text-text-primary"}`;
+/* ------------------------------------------------------------
+   Toggle icon (Sun/Moon) dengan animasi rotasi.
+   Dipisah agar lebih modular dan mudah dibaca.
+------------------------------------------------------------ */ const IconToggle = ({ darkMode, rotation, onToggle })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].button, {
         onClick: onToggle,
         className: getNavButtonStyles(darkMode),
         animate: {
@@ -519,32 +528,35 @@ const IconToggle = ({ darkMode, rotation, onToggle })=>/*#__PURE__*/ (0, __TURBO
                     size: 20
                 }, void 0, false, {
                     fileName: "[project]/src/components/navDirektori.jsx",
-                    lineNumber: 38,
+                    lineNumber: 50,
                     columnNumber: 21
                 }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$moon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Moon$3e$__["Moon"], {
                     size: 20
                 }, void 0, false, {
                     fileName: "[project]/src/components/navDirektori.jsx",
-                    lineNumber: 38,
+                    lineNumber: 50,
                     columnNumber: 41
                 }, ("TURBOPACK compile-time value", void 0))
             }, darkMode ? "sun" : "moon", false, {
                 fileName: "[project]/src/components/navDirektori.jsx",
-                lineNumber: 31,
+                lineNumber: 43,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/src/components/navDirektori.jsx",
-            lineNumber: 30,
+            lineNumber: 42,
             columnNumber: 5
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/components/navDirektori.jsx",
-        lineNumber: 22,
+        lineNumber: 34,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 _c = IconToggle;
-function MobileDrawer({ open, onClose, navLinks, darkMode, onCategoryClick }) {
+/* ------------------------------------------------------------
+   Drawer menu khusus mobile.
+   Berisi link navigasi dan kategori untuk filter UMKM.
+------------------------------------------------------------ */ function MobileDrawer({ open, onClose, navLinks, darkMode, onCategoryClick }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
         children: open && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
             initial: {
@@ -590,12 +602,12 @@ function MobileDrawer({ open, onClose, navLinks, darkMode, onCategoryClick }) {
                                     draggable: "false"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/navDirektori.jsx",
-                                    lineNumber: 67,
+                                    lineNumber: 85,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                lineNumber: 66,
+                                lineNumber: 84,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -606,18 +618,18 @@ function MobileDrawer({ open, onClose, navLinks, darkMode, onCategoryClick }) {
                                     size: 22
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/navDirektori.jsx",
-                                    lineNumber: 80,
+                                    lineNumber: 98,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                lineNumber: 75,
+                                lineNumber: 93,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/navDirektori.jsx",
-                        lineNumber: 65,
+                        lineNumber: 83,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
@@ -630,14 +642,14 @@ function MobileDrawer({ open, onClose, navLinks, darkMode, onCategoryClick }) {
                                     children: l.label
                                 }, l.id, false, {
                                     fileName: "[project]/src/components/navDirektori.jsx",
-                                    lineNumber: 86,
+                                    lineNumber: 105,
                                     columnNumber: 17
                                 }, this)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
                                 className: "my-4 border-border-light dark:border-border-default"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                lineNumber: 96,
+                                lineNumber: 115,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -647,7 +659,7 @@ function MobileDrawer({ open, onClose, navLinks, darkMode, onCategoryClick }) {
                                         children: "Kategori"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/navDirektori.jsx",
-                                        lineNumber: 99,
+                                        lineNumber: 119,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -664,53 +676,53 @@ function MobileDrawer({ open, onClose, navLinks, darkMode, onCategoryClick }) {
                                                         children: c.icon
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/navDirektori.jsx",
-                                                        lineNumber: 110,
+                                                        lineNumber: 131,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         children: c.label
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/navDirektori.jsx",
-                                                        lineNumber: 111,
+                                                        lineNumber: 132,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, c.id, true, {
                                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                                lineNumber: 102,
+                                                lineNumber: 123,
                                                 columnNumber: 21
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/navDirektori.jsx",
-                                        lineNumber: 100,
+                                        lineNumber: 121,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                lineNumber: 98,
+                                lineNumber: 118,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/navDirektori.jsx",
-                        lineNumber: 84,
+                        lineNumber: 103,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/navDirektori.jsx",
-                lineNumber: 56,
+                lineNumber: 73,
                 columnNumber: 11
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/components/navDirektori.jsx",
-            lineNumber: 48,
+            lineNumber: 64,
             columnNumber: 9
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/navDirektori.jsx",
-        lineNumber: 46,
+        lineNumber: 62,
         columnNumber: 5
     }, this);
 }
@@ -726,7 +738,7 @@ function NavDirektori({ onCategoryClick }) {
     const [catOpen, setCatOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const catButtonRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const catMenuRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    const navLinks = [
+    /* Link navigasi utama */ const navLinks = [
         {
             id: "home",
             label: "Beranda",
@@ -743,7 +755,9 @@ function NavDirektori({ onCategoryClick }) {
             href: "#trending"
         }
     ];
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+    /* ------------------------------------------------------------
+     State scroll: aktifkan background blur saat navbar dilewati
+  ------------------------------------------------------------ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "NavDirektori.useEffect": ()=>{
             const handleScroll = {
                 "NavDirektori.useEffect.handleScroll": ()=>setScrolled(window.scrollY > 32)
@@ -756,14 +770,16 @@ function NavDirektori({ onCategoryClick }) {
             })["NavDirektori.useEffect"];
         }
     }["NavDirektori.useEffect"], []);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+    /* Sync state dark mode dengan <html> */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "NavDirektori.useEffect": ()=>{
             document.documentElement.classList.toggle("dark", darkMode);
         }
     }["NavDirektori.useEffect"], [
         darkMode
     ]);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+    /* ------------------------------------------------------------
+     Handler klik luar untuk menutup dropdown kategori
+  ------------------------------------------------------------ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "NavDirektori.useEffect": ()=>{
             function onDocClick(e) {
                 if (!catOpen) return;
@@ -785,7 +801,9 @@ function NavDirektori({ onCategoryClick }) {
     }["NavDirektori.useEffect"], [
         catOpen
     ]);
-    const handleToggleMode = ()=>{
+    /* ------------------------------------------------------------
+     Toggle dark mode dengan animasi rotasi icon
+  ------------------------------------------------------------ */ const handleToggleMode = ()=>{
         if (iconChanging) return;
         setIconChanging(true);
         setRotation((r)=>r + 360);
@@ -794,7 +812,7 @@ function NavDirektori({ onCategoryClick }) {
             setIconChanging(false);
         }, 500);
     };
-    const backgroundColor = scrolled ? darkMode ? "rgba(10,10,10,0.75)" : "rgba(255,255,255,0.75)" : "rgba(0,0,0,0)";
+    /* Background dinamis navbar sesuai scroll + mode */ const backgroundColor = scrolled ? darkMode ? "rgba(10,10,10,0.75)" : "rgba(255,255,255,0.75)" : "rgba(0,0,0,0)";
     const blurLevel = scrolled ? 14 : 0;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
         className: "fixed top-0 left-0 w-full z-50",
@@ -820,12 +838,12 @@ function NavDirektori({ onCategoryClick }) {
                             draggable: "false"
                         }, void 0, false, {
                             fileName: "[project]/src/components/navDirektori.jsx",
-                            lineNumber: 203,
+                            lineNumber: 253,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/navDirektori.jsx",
-                        lineNumber: 202,
+                        lineNumber: 252,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
@@ -846,18 +864,18 @@ function NavDirektori({ onCategoryClick }) {
                                                 className: `absolute left-0 right-0 bottom-[-6px] h-[2px] rounded-full ${active === link.id ? "bg-primary" : "bg-primary/0 group-hover:bg-primary/80 transition-all duration-300"}`
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                                lineNumber: 226,
+                                                lineNumber: 277,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/navDirektori.jsx",
-                                        lineNumber: 218,
+                                        lineNumber: 269,
                                         columnNumber: 15
                                     }, this)
                                 }, link.id, false, {
                                     fileName: "[project]/src/components/navDirektori.jsx",
-                                    lineNumber: 217,
+                                    lineNumber: 268,
                                     columnNumber: 13
                                 }, this)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -868,28 +886,28 @@ function NavDirektori({ onCategoryClick }) {
                                         onClick: ()=>setCatOpen((s)=>!s),
                                         "aria-haspopup": "menu",
                                         "aria-expanded": catOpen,
-                                        className: `flex items-center gap-2 px-3 py-2 rounded-md transition-colors focus:outline-none ${darkMode ? "text-white" : "text-text-primary"} hover:text-primary`,
+                                        className: `flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${darkMode ? "text-white" : "text-text-primary"} hover:text-primary`,
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "select-none",
                                                 children: "Kategori"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                                lineNumber: 248,
+                                                lineNumber: 300,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
                                                 size: 16,
-                                                className: `transform ${catOpen ? "rotate-180" : "rotate-0"} transition-transform`
+                                                className: `transform transition-transform ${catOpen ? "rotate-180" : ""}`
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                                lineNumber: 249,
+                                                lineNumber: 301,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/navDirektori.jsx",
-                                        lineNumber: 239,
+                                        lineNumber: 291,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -913,7 +931,7 @@ function NavDirektori({ onCategoryClick }) {
                                             transition: MOTION_CONFIG.dropdown,
                                             role: "menu",
                                             "aria-label": "Kategori menu",
-                                            className: "absolute mt-2 right-0 w-[220px] bg-bg-base dark:bg-bg-warm rounded-2xl shadow-xl ring-1 ring-black/6 p-3 z-40",
+                                            className: "absolute right-0 mt-2 w-[220px] bg-bg-base dark:bg-bg-warm rounded-2xl shadow-xl ring-1 ring-black/6 p-3 z-40",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
                                                 className: "flex flex-col gap-1",
                                                 children: [
@@ -931,7 +949,7 @@ function NavDirektori({ onCategoryClick }) {
                                                                         children: c.icon
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/navDirektori.jsx",
-                                                                        lineNumber: 280,
+                                                                        lineNumber: 331,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -939,18 +957,18 @@ function NavDirektori({ onCategoryClick }) {
                                                                         children: c.label
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/navDirektori.jsx",
-                                                                        lineNumber: 281,
+                                                                        lineNumber: 332,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                                                lineNumber: 272,
+                                                                lineNumber: 323,
                                                                 columnNumber: 25
                                                             }, this)
                                                         }, c.id, false, {
                                                             fileName: "[project]/src/components/navDirektori.jsx",
-                                                            lineNumber: 271,
+                                                            lineNumber: 322,
                                                             columnNumber: 23
                                                         }, this)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -964,40 +982,40 @@ function NavDirektori({ onCategoryClick }) {
                                                             children: "Lihat Semua"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/navDirektori.jsx",
-                                                            lineNumber: 288,
+                                                            lineNumber: 341,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/navDirektori.jsx",
-                                                        lineNumber: 287,
+                                                        lineNumber: 340,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                                lineNumber: 269,
+                                                lineNumber: 320,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/navDirektori.jsx",
-                                            lineNumber: 259,
+                                            lineNumber: 310,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/navDirektori.jsx",
-                                        lineNumber: 257,
+                                        lineNumber: 308,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                lineNumber: 238,
+                                lineNumber: 290,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/navDirektori.jsx",
-                        lineNumber: 211,
+                        lineNumber: 262,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1009,7 +1027,7 @@ function NavDirektori({ onCategoryClick }) {
                                 onToggle: handleToggleMode
                             }, void 0, false, {
                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                lineNumber: 307,
+                                lineNumber: 361,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1021,24 +1039,24 @@ function NavDirektori({ onCategoryClick }) {
                                     className: darkMode ? "text-white" : "text-text-primary"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/navDirektori.jsx",
-                                    lineNumber: 314,
+                                    lineNumber: 368,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                lineNumber: 309,
+                                lineNumber: 363,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/navDirektori.jsx",
-                        lineNumber: 306,
+                        lineNumber: 360,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/navDirektori.jsx",
-                lineNumber: 192,
+                lineNumber: 241,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MobileDrawer, {
@@ -1049,13 +1067,13 @@ function NavDirektori({ onCategoryClick }) {
                 onCategoryClick: onCategoryClick
             }, void 0, false, {
                 fileName: "[project]/src/components/navDirektori.jsx",
-                lineNumber: 319,
+                lineNumber: 374,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/navDirektori.jsx",
-        lineNumber: 191,
+        lineNumber: 239,
         columnNumber: 5
     }, this);
 }
@@ -1081,7 +1099,10 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$mo
 "use client";
 ;
 ;
-const FADE_UP = {
+/* ------------------------------------------------------------
+   ANIMASI GLOBAL FOOTER
+   Dipakai untuk efek fade-up ketika footer masuk viewport.
+------------------------------------------------------------ */ const FADE_UP = {
     hidden: {
         opacity: 0,
         y: 40
@@ -1100,7 +1121,11 @@ const FADE_UP = {
         }
     }
 };
-const NAV_LINKS = [
+/* ------------------------------------------------------------
+   STATIC LINKS
+   - NAV_LINKS: navigasi internal direktori
+   - SOCIAL_LINKS: list media sosial Gelap Nyawang
+------------------------------------------------------------ */ const NAV_LINKS = [
     {
         name: "Beranda",
         link: "/"
@@ -1124,7 +1149,9 @@ const SOCIAL_LINKS = [
         link: "https://www.tiktok.com"
     }
 ];
-const scrollToTop = ()=>window.scrollTo({
+/* ------------------------------------------------------------
+   Scroll to top (dipakai oleh tombol floating di kanan bawah)
+------------------------------------------------------------ */ const scrollToTop = ()=>window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
@@ -1139,7 +1166,7 @@ function FooterDirektori() {
                         "aria-hidden": "true"
                     }, void 0, false, {
                         fileName: "[project]/src/components/footerDirektori.jsx",
-                        lineNumber: 33,
+                        lineNumber: 59,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1163,12 +1190,12 @@ function FooterDirektori() {
                                             className: "w-28 md:w-36 object-contain"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/footerDirektori.jsx",
-                                            lineNumber: 47,
+                                            lineNumber: 80,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/footerDirektori.jsx",
-                                        lineNumber: 46,
+                                        lineNumber: 79,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1178,12 +1205,12 @@ function FooterDirektori() {
                                             children: "Gelap Nyawang Culinary, spot kuliner favorit mahasiswa ITB. Dari warkop sampai kafe, semua hadir buat nemenin ngobrol, nugas, atau sekadar nyari suasana."
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/footerDirektori.jsx",
-                                            lineNumber: 55,
+                                            lineNumber: 89,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/footerDirektori.jsx",
-                                        lineNumber: 54,
+                                        lineNumber: 88,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1194,25 +1221,25 @@ function FooterDirektori() {
                                             className: "w-32 md:w-40 object-contain"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/footerDirektori.jsx",
-                                            lineNumber: 63,
+                                            lineNumber: 98,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/footerDirektori.jsx",
-                                        lineNumber: 62,
+                                        lineNumber: 97,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/footerDirektori.jsx",
-                                lineNumber: 45,
+                                lineNumber: 76,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
                                 className: "border-white/30 mb-12"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/footerDirektori.jsx",
-                                lineNumber: 71,
+                                lineNumber: 106,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1225,7 +1252,7 @@ function FooterDirektori() {
                                                 children: "Lokasi"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/footerDirektori.jsx",
-                                                lineNumber: 75,
+                                                lineNumber: 115,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("address", {
@@ -1234,26 +1261,26 @@ function FooterDirektori() {
                                                     "Jl. Gelap Nyawang, Lb. Siliwangi,",
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                                         fileName: "[project]/src/components/footerDirektori.jsx",
-                                                        lineNumber: 78,
+                                                        lineNumber: 118,
                                                         columnNumber: 17
                                                     }, this),
                                                     "Kecamatan Coblong, Bandung",
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                                         fileName: "[project]/src/components/footerDirektori.jsx",
-                                                        lineNumber: 80,
+                                                        lineNumber: 120,
                                                         columnNumber: 17
                                                     }, this),
                                                     "Jawa Barat 40132"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/footerDirektori.jsx",
-                                                lineNumber: 76,
+                                                lineNumber: 116,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/footerDirektori.jsx",
-                                        lineNumber: 74,
+                                        lineNumber: 114,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1263,20 +1290,20 @@ function FooterDirektori() {
                                                 children: "Jam Buka"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/footerDirektori.jsx",
-                                                lineNumber: 86,
+                                                lineNumber: 127,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                 children: "06.00 AM - 01.00 AM"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/footerDirektori.jsx",
-                                                lineNumber: 87,
+                                                lineNumber: 128,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/footerDirektori.jsx",
-                                        lineNumber: 85,
+                                        lineNumber: 126,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
@@ -1287,7 +1314,7 @@ function FooterDirektori() {
                                                 children: "Navigasi"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/footerDirektori.jsx",
-                                                lineNumber: 91,
+                                                lineNumber: 133,
                                                 columnNumber: 15
                                             }, this),
                                             NAV_LINKS.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1297,18 +1324,18 @@ function FooterDirektori() {
                                                         children: item.name
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/footerDirektori.jsx",
-                                                        lineNumber: 94,
+                                                        lineNumber: 136,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, item.name, false, {
                                                     fileName: "[project]/src/components/footerDirektori.jsx",
-                                                    lineNumber: 93,
+                                                    lineNumber: 135,
                                                     columnNumber: 17
                                                 }, this))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/footerDirektori.jsx",
-                                        lineNumber: 90,
+                                        lineNumber: 132,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
@@ -1319,8 +1346,8 @@ function FooterDirektori() {
                                                 children: "Media Sosial"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/footerDirektori.jsx",
-                                                lineNumber: 102,
-                                                columnNumber: 3
+                                                lineNumber: 145,
+                                                columnNumber: 15
                                             }, this),
                                             SOCIAL_LINKS.map((s)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -1331,19 +1358,19 @@ function FooterDirektori() {
                                                         children: s.name
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/footerDirektori.jsx",
-                                                        lineNumber: 105,
-                                                        columnNumber: 7
+                                                        lineNumber: 148,
+                                                        columnNumber: 19
                                                     }, this)
                                                 }, s.name, false, {
                                                     fileName: "[project]/src/components/footerDirektori.jsx",
-                                                    lineNumber: 104,
-                                                    columnNumber: 5
+                                                    lineNumber: 147,
+                                                    columnNumber: 17
                                                 }, this))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/footerDirektori.jsx",
-                                        lineNumber: 101,
-                                        columnNumber: 1
+                                        lineNumber: 144,
+                                        columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
@@ -1352,8 +1379,8 @@ function FooterDirektori() {
                                                 children: "Kontak"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/footerDirektori.jsx",
-                                                lineNumber: 118,
-                                                columnNumber: 3
+                                                lineNumber: 162,
+                                                columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                                 href: "https://wa.me/6289656054453",
@@ -1363,34 +1390,26 @@ function FooterDirektori() {
                                                 children: "Whatsapp"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/footerDirektori.jsx",
-                                                lineNumber: 119,
-                                                columnNumber: 3
+                                                lineNumber: 163,
+                                                columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/footerDirektori.jsx",
-                                        lineNumber: 117,
-                                        columnNumber: 1
+                                        lineNumber: 161,
+                                        columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/footerDirektori.jsx",
-                                lineNumber: 73,
+                                lineNumber: 111,
                                 columnNumber: 11
                             }, this),
-                            "   ",
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
                                 className: "border-white/30 mb-8"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/footerDirektori.jsx",
-                                lineNumber: 131,
-                                columnNumber: 1
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
-                                className: "border-white/30 mb-8"
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/footerDirektori.jsx",
-                                lineNumber: 133,
+                                lineNumber: 174,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1398,13 +1417,13 @@ function FooterDirektori() {
                                 children: "© 2025 Gelap Nyawang. Website ini dibuat untuk Web Development Competition MIA 2025."
                             }, void 0, false, {
                                 fileName: "[project]/src/components/footerDirektori.jsx",
-                                lineNumber: 135,
+                                lineNumber: 179,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/footerDirektori.jsx",
-                        lineNumber: 38,
+                        lineNumber: 65,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1424,13 +1443,13 @@ function FooterDirektori() {
                         "aria-hidden": "true"
                     }, void 0, false, {
                         fileName: "[project]/src/components/footerDirektori.jsx",
-                        lineNumber: 141,
+                        lineNumber: 188,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/footerDirektori.jsx",
-                lineNumber: 32,
+                lineNumber: 56,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -1447,7 +1466,7 @@ function FooterDirektori() {
                 children: "↑"
             }, void 0, false, {
                 fileName: "[project]/src/components/footerDirektori.jsx",
-                lineNumber: 149,
+                lineNumber: 199,
                 columnNumber: 7
             }, this)
         ]
@@ -1475,6 +1494,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 function GalleryClient({ images }) {
     _s();
+    // Foto yang sedang aktif ditampilkan sebagai foto utama
     const [active, setActive] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(images[0]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         children: [
@@ -1484,7 +1504,7 @@ function GalleryClient({ images }) {
                 className: "w-full h-[320px] md:h-[420px] object-cover rounded-xl shadow-lg mb-4"
             }, void 0, false, {
                 fileName: "[project]/src/app/direktori/[slug]/GalleryClient.jsx",
-                lineNumber: 9,
+                lineNumber: 20,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1494,21 +1514,23 @@ function GalleryClient({ images }) {
                         onClick: ()=>setActive(img),
                         className: `w-28 h-20 object-cover rounded-lg cursor-pointer shadow 
               transition-all duration-200 
-              ${img === active ? "ring-4 ring-[#E87524]" : "opacity-80 hover:opacity-100"}`
+              ${img === active ? "ring-4 ring-[#E87524]" // State aktif → diberi ring highlight
+                         : "opacity-80 hover:opacity-100" // Tidak aktif → agak redup
+                        }`
                     }, i, false, {
                         fileName: "[project]/src/app/direktori/[slug]/GalleryClient.jsx",
-                        lineNumber: 17,
+                        lineNumber: 33,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/app/direktori/[slug]/GalleryClient.jsx",
-                lineNumber: 15,
+                lineNumber: 31,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/direktori/[slug]/GalleryClient.jsx",
-        lineNumber: 8,
+        lineNumber: 15,
         columnNumber: 5
     }, this);
 }

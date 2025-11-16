@@ -5,6 +5,10 @@ import { Sun, Moon, Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CATEGORIES } from "@/data/umkmData";
 
+/* ------------------------------------------------------------
+   Animation configuration untuk transition dan efek UI.
+   Disusun supaya mudah disesuaikan dari satu tempat.
+------------------------------------------------------------ */
 const MOTION_CONFIG = {
   navContainer: { duration: 0.4, ease: "easeInOut" },
   iconToggle: { duration: 0.6, ease: "easeInOut" },
@@ -13,11 +17,19 @@ const MOTION_CONFIG = {
   dropdown: { duration: 0.22, ease: "easeInOut" },
 };
 
+/* ------------------------------------------------------------
+   Helper styling untuk tombol mode gelap/terang.
+   Menghindari repetisi class utility.
+------------------------------------------------------------ */
 const getNavButtonStyles = (darkMode) =>
   `rounded-full w-[48px] h-[48px] transition-all duration-300 flex items-center justify-center ${
     darkMode ? "bg-bg-soft text-white" : "bg-bg-base text-text-primary"
   }`;
 
+/* ------------------------------------------------------------
+   Toggle icon (Sun/Moon) dengan animasi rotasi.
+   Dipisah agar lebih modular dan mudah dibaca.
+------------------------------------------------------------ */
 const IconToggle = ({ darkMode, rotation, onToggle }) => (
   <motion.button
     onClick={onToggle}
@@ -41,6 +53,10 @@ const IconToggle = ({ darkMode, rotation, onToggle }) => (
   </motion.button>
 );
 
+/* ------------------------------------------------------------
+   Drawer menu khusus mobile.
+   Berisi link navigasi dan kategori untuk filter UMKM.
+------------------------------------------------------------ */
 function MobileDrawer({ open, onClose, navLinks, darkMode, onCategoryClick }) {
   return (
     <AnimatePresence>
@@ -53,6 +69,7 @@ function MobileDrawer({ open, onClose, navLinks, darkMode, onCategoryClick }) {
           className="fixed inset-0 z-50 bg-black/60 backdrop-blur-md flex justify-end"
           onClick={onClose}
         >
+          {/* Side drawer */}
           <motion.aside
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
@@ -62,6 +79,7 @@ function MobileDrawer({ open, onClose, navLinks, darkMode, onCategoryClick }) {
             onClick={(e) => e.stopPropagation()}
             aria-label="Mobile navigation"
           >
+            {/* Header drawer */}
             <div className="flex items-center justify-between mb-6">
               <a href="/" onClick={onClose} aria-label="Go to home">
                 <img
@@ -81,6 +99,7 @@ function MobileDrawer({ open, onClose, navLinks, darkMode, onCategoryClick }) {
               </button>
             </div>
 
+            {/* Navigasi + kategori */}
             <nav className="flex flex-col gap-3">
               {navLinks.map((l) => (
                 <a
@@ -95,8 +114,10 @@ function MobileDrawer({ open, onClose, navLinks, darkMode, onCategoryClick }) {
 
               <hr className="my-4 border-border-light dark:border-border-default" />
 
+              {/* Kategori UMKM */}
               <div>
                 <h4 className="text-sm font-medium mb-3 text-text-muted">Kategori</h4>
+
                 <div className="grid grid-cols-2 gap-2">
                   {CATEGORIES.filter((c) => c.id !== "all").map((c) => (
                     <button
@@ -121,6 +142,16 @@ function MobileDrawer({ open, onClose, navLinks, darkMode, onCategoryClick }) {
   );
 }
 
+/* ------------------------------------------------------------
+   NAV DIREKTORI
+   Digunakan di halaman direktori UMKM.
+   Memiliki:
+   - toggle dark mode
+   - link navigasi
+   - dropdown kategori
+   - drawer mobile
+   - efek backdrop blur saat scroll
+------------------------------------------------------------ */
 export default function NavDirektori({ onCategoryClick }) {
   const [darkMode, setDarkMode] = useState(false);
   const [rotation, setRotation] = useState(0);
@@ -129,26 +160,34 @@ export default function NavDirektori({ onCategoryClick }) {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("list");
   const [catOpen, setCatOpen] = useState(false);
-  
+
   const catButtonRef = useRef(null);
   const catMenuRef = useRef(null);
 
+  /* Link navigasi utama */
   const navLinks = [
     { id: "home", label: "Beranda", href: "/" },
     { id: "list", label: "Direktori", href: "/direktori#top-direktori" },
     { id: "trending", label: "Trending", href: "#trending" },
   ];
 
+  /* ------------------------------------------------------------
+     State scroll: aktifkan background blur saat navbar dilewati
+  ------------------------------------------------------------ */
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 32);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  /* Sync state dark mode dengan <html> */
   useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);
   }, [darkMode]);
 
+  /* ------------------------------------------------------------
+     Handler klik luar untuk menutup dropdown kategori
+  ------------------------------------------------------------ */
   useEffect(() => {
     function onDocClick(e) {
       if (!catOpen) return;
@@ -159,36 +198,46 @@ export default function NavDirektori({ onCategoryClick }) {
         return;
       setCatOpen(false);
     }
+
     function onKey(e) {
       if (e.key === "Escape") setCatOpen(false);
     }
+
     document.addEventListener("click", onDocClick);
     document.addEventListener("keydown", onKey);
+
     return () => {
       document.removeEventListener("click", onDocClick);
       document.removeEventListener("keydown", onKey);
     };
   }, [catOpen]);
 
+  /* ------------------------------------------------------------
+     Toggle dark mode dengan animasi rotasi icon
+  ------------------------------------------------------------ */
   const handleToggleMode = () => {
     if (iconChanging) return;
     setIconChanging(true);
     setRotation((r) => r + 360);
+
     setTimeout(() => {
       setDarkMode((p) => !p);
       setIconChanging(false);
     }, 500);
   };
 
+  /* Background dinamis navbar sesuai scroll + mode */
   const backgroundColor = scrolled
     ? darkMode
       ? "rgba(10,10,10,0.75)"
       : "rgba(255,255,255,0.75)"
     : "rgba(0,0,0,0)";
+
   const blurLevel = scrolled ? 14 : 0;
 
   return (
     <header className="fixed top-0 left-0 w-full z-50">
+      {/* Navbar utama */}
       <motion.div
         animate={{
           backgroundColor,
@@ -199,6 +248,7 @@ export default function NavDirektori({ onCategoryClick }) {
         transition={MOTION_CONFIG.navContainer}
         className="flex items-center justify-between px-4 sm:px-6 md:px-10 py-3 md:py-4 w-full"
       >
+        {/* Logo kiri */}
         <a href="/" className="flex items-center select-none" aria-label="Kembali ke beranda">
           <img
             src={darkMode ? "/assets/logo.png" : "/assets/black.png"}
@@ -208,6 +258,7 @@ export default function NavDirektori({ onCategoryClick }) {
           />
         </a>
 
+        {/* Navigasi desktop */}
         <nav
           className="hidden md:flex items-center gap-8 font-medium"
           role="navigation"
@@ -235,25 +286,25 @@ export default function NavDirektori({ onCategoryClick }) {
             </div>
           ))}
 
+          {/* Dropdown kategori */}
           <div className="relative">
             <button
               ref={catButtonRef}
               onClick={() => setCatOpen((s) => !s)}
               aria-haspopup="menu"
               aria-expanded={catOpen}
-              className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors focus:outline-none ${
+              className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${
                 darkMode ? "text-white" : "text-text-primary"
               } hover:text-primary`}
             >
               <span className="select-none">Kategori</span>
               <ChevronDown
                 size={16}
-                className={`transform ${
-                  catOpen ? "rotate-180" : "rotate-0"
-                } transition-transform`}
+                className={`transform transition-transform ${catOpen ? "rotate-180" : ""}`}
               />
             </button>
 
+            {/* Menu dropdown kategori */}
             <AnimatePresence>
               {catOpen && (
                 <motion.div
@@ -264,7 +315,7 @@ export default function NavDirektori({ onCategoryClick }) {
                   transition={MOTION_CONFIG.dropdown}
                   role="menu"
                   aria-label="Kategori menu"
-                  className="absolute mt-2 right-0 w-[220px] bg-bg-base dark:bg-bg-warm rounded-2xl shadow-xl ring-1 ring-black/6 p-3 z-40"
+                  className="absolute right-0 mt-2 w-[220px] bg-bg-base dark:bg-bg-warm rounded-2xl shadow-xl ring-1 ring-black/6 p-3 z-40"
                 >
                   <ul className="flex flex-col gap-1">
                     {CATEGORIES.filter((c) => c.id !== "all").map((c) => (
@@ -284,6 +335,8 @@ export default function NavDirektori({ onCategoryClick }) {
                         </button>
                       </li>
                     ))}
+
+                    {/* Opsi kategori all */}
                     <li>
                       <button
                         onClick={() => {
@@ -303,6 +356,7 @@ export default function NavDirektori({ onCategoryClick }) {
           </div>
         </nav>
 
+        {/* Tombol toggle + menu mobile */}
         <div className="flex items-center gap-3 md:gap-5">
           <IconToggle darkMode={darkMode} rotation={rotation} onToggle={handleToggleMode} />
 
@@ -316,6 +370,7 @@ export default function NavDirektori({ onCategoryClick }) {
         </div>
       </motion.div>
 
+      {/* Drawer menu untuk mobile */}
       <MobileDrawer
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}

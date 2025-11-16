@@ -582,15 +582,19 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 ;
 ;
 async function DetailUMKM({ params }) {
-    const { slug } = await params;
+    const { slug } = await params; // slug dari URL dynamic route
+    // Cari UMKM berdasarkan slug
     const umkm = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$umkmData$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["UMKM_DATA"].find((item)=>item.slug === slug);
-    if (!umkm) {
+    /* --------------------------------------------------------------
+     FALLBACK: Jika slug tidak ada di UMKM_DATA
+     Tampilkan halaman error + tombol kembali ke direktori
+  -------------------------------------------------------------- */ if (!umkm) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
             className: "min-h-screen bg-bg-soft text-text-primary transition-theme flex flex-col",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$navDirektori$2e$jsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                     fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                    lineNumber: 15,
+                    lineNumber: 26,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -601,7 +605,7 @@ async function DetailUMKM({ params }) {
                             children: "UMKM Tidak Ditemukan"
                         }, void 0, false, {
                             fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                            lineNumber: 17,
+                            lineNumber: 28,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
@@ -610,33 +614,36 @@ async function DetailUMKM({ params }) {
                             children: "Kembali ke Direktori"
                         }, void 0, false, {
                             fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                            lineNumber: 18,
+                            lineNumber: 30,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                    lineNumber: 16,
+                    lineNumber: 27,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$footerDirektori$2e$jsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                     fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                    lineNumber: 25,
+                    lineNumber: 37,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-            lineNumber: 14,
+            lineNumber: 25,
             columnNumber: 7
         }, this);
     }
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
+    /* --------------------------------------------------------------
+     MAIN PAGE: Halaman Detail UMKM
+     Memuat hero image, galeri, info, map, dan tombol kembali
+  -------------------------------------------------------------- */ return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
         className: "min-h-screen bg-bg-soft text-text-primary transition-theme",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$navDirektori$2e$jsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                lineNumber: 32,
+                lineNumber: 48,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -648,14 +655,14 @@ async function DetailUMKM({ params }) {
                         className: "w-full h-full object-cover brightness-[0.8]"
                     }, void 0, false, {
                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                        lineNumber: 36,
+                        lineNumber: 57,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"
                     }, void 0, false, {
                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                        lineNumber: 43,
+                        lineNumber: 64,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -666,7 +673,7 @@ async function DetailUMKM({ params }) {
                                 children: umkm.name
                             }, void 0, false, {
                                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                lineNumber: 47,
+                                lineNumber: 68,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -674,19 +681,19 @@ async function DetailUMKM({ params }) {
                                 children: umkm.short
                             }, void 0, false, {
                                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                lineNumber: 50,
+                                lineNumber: 71,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                        lineNumber: 46,
+                        lineNumber: 67,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                lineNumber: 35,
+                lineNumber: 56,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -704,7 +711,7 @@ async function DetailUMKM({ params }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                lineNumber: 61,
+                                lineNumber: 89,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -715,7 +722,7 @@ async function DetailUMKM({ params }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                lineNumber: 64,
+                                lineNumber: 93,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -726,13 +733,13 @@ async function DetailUMKM({ params }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                lineNumber: 67,
+                                lineNumber: 97,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                        lineNumber: 60,
+                        lineNumber: 88,
                         columnNumber: 9
                     }, this),
                     umkm.gallery && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -743,20 +750,20 @@ async function DetailUMKM({ params }) {
                                 children: "Galeri"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                lineNumber: 75,
+                                lineNumber: 108,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$direktori$2f5b$slug$5d2f$GalleryClient$2e$jsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                                 images: umkm.gallery
                             }, void 0, false, {
                                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                lineNumber: 76,
+                                lineNumber: 109,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                        lineNumber: 74,
+                        lineNumber: 107,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -769,7 +776,7 @@ async function DetailUMKM({ params }) {
                                         children: "Informasi"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                        lineNumber: 83,
+                                        lineNumber: 121,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -781,7 +788,7 @@ async function DetailUMKM({ params }) {
                                                         children: "Alamat:"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                                        lineNumber: 85,
+                                                        lineNumber: 123,
                                                         columnNumber: 18
                                                     }, this),
                                                     " ",
@@ -789,7 +796,7 @@ async function DetailUMKM({ params }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                                lineNumber: 85,
+                                                lineNumber: 123,
                                                 columnNumber: 15
                                             }, this),
                                             umkm.noTelp && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -798,16 +805,16 @@ async function DetailUMKM({ params }) {
                                                         children: "No. Telp:"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                                        lineNumber: 86,
-                                                        columnNumber: 34
+                                                        lineNumber: 126,
+                                                        columnNumber: 20
                                                     }, this),
                                                     " ",
                                                     umkm.noTelp
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                                lineNumber: 86,
-                                                columnNumber: 31
+                                                lineNumber: 126,
+                                                columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                 children: [
@@ -815,7 +822,7 @@ async function DetailUMKM({ params }) {
                                                         children: "Harga:"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                                        lineNumber: 87,
+                                                        lineNumber: 129,
                                                         columnNumber: 18
                                                     }, this),
                                                     " ",
@@ -823,19 +830,19 @@ async function DetailUMKM({ params }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                                lineNumber: 87,
+                                                lineNumber: 129,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                        lineNumber: 84,
+                                        lineNumber: 122,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                lineNumber: 82,
+                                lineNumber: 120,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -852,12 +859,12 @@ async function DetailUMKM({ params }) {
                                             allowFullScreen: true
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                            lineNumber: 94,
+                                            lineNumber: 138,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                        lineNumber: 93,
+                                        lineNumber: 137,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -867,19 +874,19 @@ async function DetailUMKM({ params }) {
                                         children: "Buka di Google Maps"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                        lineNumber: 104,
+                                        lineNumber: 149,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                lineNumber: 92,
+                                lineNumber: 134,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                        lineNumber: 81,
+                        lineNumber: 117,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
@@ -888,24 +895,24 @@ async function DetailUMKM({ params }) {
                         children: "← Kembali ke Direktori"
                     }, void 0, false, {
                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                        lineNumber: 116,
+                        lineNumber: 161,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                lineNumber: 57,
+                lineNumber: 85,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$footerDirektori$2e$jsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                lineNumber: 124,
+                lineNumber: 169,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-        lineNumber: 31,
+        lineNumber: 47,
         columnNumber: 5
     }, this);
 }

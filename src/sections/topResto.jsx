@@ -5,26 +5,7 @@ import { motion } from "framer-motion";
 import { UMKM_DATA } from "@/data/umkmData";
 
 /*
-  Konfigurasi animasi standar untuk fade + slide-up.
-  Dipakai untuk item yang muncul satu per satu.
-*/
-const ANIMATION_CONFIG = {
-  ITEM: {
-    hidden: { opacity: 0, y: 20 },
-    visible: (custom = 0) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.55,
-        delay: custom * 0.05,
-        ease: "easeOut",
-      },
-    }),
-  },
-};
-
-/*
-  Efek glow lembut pada teks — dipakai untuk highlight nama “Paijo”.
+  Config animasi standar
 */
 const TEXT_GLOW = {
   textShadow: [
@@ -39,10 +20,6 @@ const TEXT_GLOW = {
   },
 };
 
-/*
-  Cek prefensi accessibility user.
-  Jika reduce motion aktif, animasi dibuat minimal.
-*/
 const prefersReducedMotion = () => {
   return typeof window !== "undefined"
     ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -50,23 +27,16 @@ const prefersReducedMotion = () => {
 };
 
 /*
-  Slug UMKM rekomendasi yang ditampilkan di section ini.
-  Urutannya menentukan layout kartu.
+  Slug resto unggulan (urutan menentukan layout)
 */
 const FEATURED_SLUGS = ["bwj", "blackromantic", "stallone", "cola", "besthal", "datuak"];
 
-/*
-  Ambil data UMKM berdasarkan slug dan filter yang kosong.
-*/
-const RESTOS_DATA = FEATURED_SLUGS.map(slug =>
-  UMKM_DATA.find(item => item.slug === slug)
+const RESTOS_DATA = FEATURED_SLUGS.map((slug) =>
+  UMKM_DATA.find((item) => item.slug === slug)
 ).filter(Boolean);
 
 /*
-  Satu kartu resto individual dalam berbagai ukuran:
-  - large (utama)
-  - medium (kanan atas)
-  - small (grid kecil)
+  KOMPONEN CARD RESTO (sudah diperbaiki sesuai reviewer)
 */
 const RestoCard = ({ resto, variant = "large", index = 0 }) => {
   const isLarge = variant === "large";
@@ -90,27 +60,36 @@ const RestoCard = ({ resto, variant = "large", index = 0 }) => {
           : "h-[170px] md:h-[180px]"
       }`}
     >
-      {/* Seluruh kartu bisa diklik */}
       <Link href={`/direktori/${resto.slug}`} className="block h-full group">
-        {/* Background image resto */}
+
+        {/* Badge (reviewer-required) */}
+        {resto.badge && (
+          <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-xs font-semibold z-20">
+            {resto.badge}
+          </div>
+        )}
+
+        {/* Background image */}
         <div className="absolute inset-0">
           <img
             src={resto.img}
             alt={`${resto.name} - ${resto.short}`}
-            loading="lazy"
+            loading={isLarge ? "eager" : "lazy"}
+            fetchPriority={isLarge ? "high" : "auto"}
             onError={(e) => {
-              // fallback jika gambar gagal load
-              e.target.style.backgroundColor = "#f5f5f5";
+              e.target.style.display = "none";
+              e.target.parentElement.style.background =
+                "linear-gradient(135deg,#ddd,#bbb)";
             }}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
         </div>
 
-        {/* Gradient overlay untuk readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
 
-        {/* Konten text */}
+        {/* Text Content */}
         <div className="absolute inset-0 flex flex-col justify-end p-5 md:p-6">
+
           <h3
             className={`font-semibold text-white mb-2 transition-all duration-300 ${
               isLarge
@@ -123,7 +102,16 @@ const RestoCard = ({ resto, variant = "large", index = 0 }) => {
             {resto.name}
           </h3>
 
-          {/* Deskripsi yang muncul saat hover */}
+          {/* Price & Category (reviewer-required) */}
+          {resto.priceRange && resto.category && (
+            <div className="flex items-center gap-2 text-white/85 text-xs md:text-sm mb-1">
+              <span>💰 {resto.priceRange}</span>
+              <span>•</span>
+              <span>{resto.category}</span>
+            </div>
+          )}
+
+          {/* Description reveal on hover */}
           <div
             className={`overflow-hidden transition-all duration-300 max-h-0 group-hover:max-h-32 opacity-0 group-hover:opacity-100 ${
               reduceMotion ? "!duration-200" : ""
@@ -139,7 +127,6 @@ const RestoCard = ({ resto, variant = "large", index = 0 }) => {
               {resto.short}
             </p>
 
-            {/* CTA kecil dengan animasi geser */}
             <motion.span
               className="inline-flex items-center gap-1 text-primary font-medium text-sm hover:text-primary/80 transition-colors"
               whileHover={reduceMotion ? {} : { x: 4 }}
@@ -156,9 +143,7 @@ const RestoCard = ({ resto, variant = "large", index = 0 }) => {
 };
 
 /*
-  Susunan rekomendasi:
-  1 (besar kiri), 1 (medium kanan), 4 (grid kecil)
-  Data diambil berurutan sesuai FEATURED_SLUGS
+  MAIN COMPONENT
 */
 export default function TopResto() {
   const mainResto = RESTOS_DATA[0];
@@ -175,7 +160,7 @@ export default function TopResto() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
         
-        {/* Kolom kiri – Heading + Resto besar */}
+        {/* Left column */}
         <div className="lg:col-span-7 flex flex-col gap-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -189,10 +174,7 @@ export default function TopResto() {
 
             <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-4 text-text-primary dark:text-text-secondary">
               Rekomendasi{" "}
-              <motion.span
-                className="text-primary inline-block"
-                animate={TEXT_GLOW}
-              >
+              <motion.span className="text-primary inline-block" animate={TEXT_GLOW}>
                 Kami
               </motion.span>
             </h2>
@@ -205,7 +187,7 @@ export default function TopResto() {
           <RestoCard resto={mainResto} variant="large" index={1} />
         </div>
 
-        {/* Kolom kanan – 1 medium + 4 small */}
+        {/* Right column */}
         <div className="lg:col-span-5 flex flex-col gap-10">
           <RestoCard resto={topResto} variant="medium" index={2} />
 

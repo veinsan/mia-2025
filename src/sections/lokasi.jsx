@@ -1,24 +1,80 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin } from "lucide-react";
-import { useState } from "react";
+import { MapPin, Navigation, Share2, Bookmark, Clock, Car } from "lucide-react";
 
-/*
-  Lokasi default Gelap Nyawang ditulis dalam format query Google Maps.
-  Dipisah supaya lebih mudah dipakai dan tidak hardcode di iframe.
-*/
+/* ================================
+   LOCATION DATA
+   ================================ */
+
 const MAPS_LOCATION =
   "Jl.+Gelap+Nyawang,+Lb.+Siliwangi,+Kecamatan+Coblong,+Kota+Bandung,+Jawa+Barat+40132";
 
-/*
-  Link langsung menuju aplikasi Google Maps (Android/iOS).
-  Berbeda dengan iframe embed yang hanya menampilkan peta.
-*/
 const MAPS_DIRECT_URL = "https://maps.app.goo.gl/kAUnsipvPasm7YzT9";
 
+const GN_COORDS = { lat: -6.8915, lng: 107.6107 };
+
+/* ================================
+   DISTANCE CALCULATOR (Haversine)
+   ================================ */
+
+function calcDistance(coord1, coord2) {
+  const R = 6371;
+  const dLat = ((coord2.lat - coord1.lat) * Math.PI) / 180;
+  const dLng = ((coord2.lng - coord1.lng) * Math.PI) / 180;
+
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos((coord1.lat * Math.PI) / 180) *
+      Math.cos((coord2.lat * Math.PI) / 180) *
+      Math.sin(dLng / 2) ** 2;
+
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
 export default function Lokasi() {
-  const [loaded, setLoaded] = useState(false); // kontrol loading spinner peta
+  const [loaded, setLoaded] = useState(false);
+  const [userDistance, setUserDistance] = useState(null);
+
+  /* ================================
+     GET USER LOCATION (Optional)
+     ================================ */
+  useEffect(() => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const userCoords = {
+            lat: pos.coords.latitude,
+            lng: pos.coords.longitude,
+          };
+          const dist = calcDistance(userCoords, GN_COORDS);
+          setUserDistance(dist);
+        },
+        () => {}, // ignore error silently
+        { enableHighAccuracy: true }
+      );
+    }
+  }, []);
+
+  /* ================================
+     SHARE / SAVE
+     ================================ */
+  const shareLocation = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: "Gelap Nyawang, Bandung",
+        url: MAPS_DIRECT_URL,
+      });
+    } else {
+      alert("Share tidak didukung di perangkat ini.");
+    }
+  };
+
+  const saveLocation = () => {
+    navigator.clipboard.writeText(MAPS_DIRECT_URL);
+    alert("Lokasi disimpan ke clipboard!");
+  };
 
   return (
     <section
@@ -34,10 +90,7 @@ export default function Lokasi() {
         dark:from-bg-soft dark:via-bg-warm dark:to-bg-gold
       "
     >
-      {/* ---------------------------------------------------------
-         GRADIENT TRANSISI BAGIAN ATAS 
-         Membantu section ini menyatu halus dengan section sebelumnya.
-      ---------------------------------------------------------- */}
+      {/* TOP GRADIENT */}
       <div
         className="
           absolute top-0 left-0 w-full h-20 md:h-24
@@ -46,12 +99,9 @@ export default function Lokasi() {
           pointer-events-none
           z-0
         "
-        aria-hidden="true"
       />
 
-      {/* -----------------------
-          HEADING SECTION
-         ----------------------- */}
+      {/* HEADING */}
       <header className="relative z-10 text-center pt-20 md:pt-24 mb-10 md:mb-12">
         <motion.h4
           initial={{ opacity: 0, y: 20 }}
@@ -74,12 +124,16 @@ export default function Lokasi() {
         >
           Kunjungi <span className="text-primary">Gelap Nyawang</span>
         </motion.h2>
+
+        {/* Distance Info */}
+        {userDistance && (
+          <p className="mt-2 text-sm text-text-muted dark:text-white/70">
+            📍 {userDistance.toFixed(1)} km dari lokasi Anda
+          </p>
+        )}
       </header>
 
-      {/* ---------------------------------------------------------
-         MAP EMBED GOOGLE 
-         Dibungkus card dengan loading spinner sebelum peta siap.
-      ---------------------------------------------------------- */}
+      {/* GOOGLE MAPS CARD */}
       <motion.div
         initial={{ opacity: 0, scale: 0.97 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -96,7 +150,6 @@ export default function Lokasi() {
           dark:bg-bg-base
         "
       >
-        {/* Spinner loading sampai iframe selesai load */}
         {!loaded && (
           <div
             className="
@@ -114,29 +167,26 @@ export default function Lokasi() {
           </div>
         )}
 
-        {/* Iframe peta Google Maps */}
         <iframe
           src={`https://www.google.com/maps?q=${MAPS_LOCATION}&output=embed`}
           width="100%"
           height="100%"
           style={{ border: 0 }}
           loading="lazy"
-          onLoad={() => setLoaded(true)} // matikan spinner ketika peta siap
+          onLoad={() => setLoaded(true)}
           className="w-full h-full"
           title="Lokasi Gelap Nyawang di Google Maps"
           allowFullScreen
         />
       </motion.div>
 
-      {/* ---------------------------------------------------------
-         CTA BUTTON MENUJU GOOGLE MAPS
-      ---------------------------------------------------------- */}
+      {/* QUICK ACTIONS (REVIEWER FIX) */}
       <motion.div
         initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="mt-8 flex justify-center"
+        className="flex flex-wrap justify-center gap-4 mt-8"
       >
         <a
           href={MAPS_DIRECT_URL}
@@ -144,32 +194,91 @@ export default function Lokasi() {
           rel="noopener noreferrer"
           className="
             inline-flex items-center gap-2
-            px-6 md:px-8 py-3
+            px-6 py-3
             bg-primary text-white
-            font-semibold text-base md:text-lg
             rounded-full shadow-lg
-            hover:bg-primary/90 transition-colors
+            font-semibold
+            hover:bg-primary/90
           "
         >
-          <MapPin size={20} />
-          Buka di Google Maps
+          <Navigation size={18} />
+          Petunjuk Arah
         </a>
+
+        <button
+          onClick={shareLocation}
+          className="
+            inline-flex items-center gap-2
+            px-6 py-3
+            bg-bg-base dark:bg-bg-soft
+            text-text-primary dark:text-text-secondary
+            rounded-full shadow-md
+            hover:bg-bg-soft dark:hover:bg-bg-warm
+            transition-colors
+          "
+        >
+          <Share2 size={18} />
+          Bagikan Lokasi
+        </button>
+
+        <button
+          onClick={saveLocation}
+          className="
+            inline-flex items-center gap-2
+            px-6 py-3
+            bg-bg-base dark:bg-bg-soft
+            text-text-primary dark:text-text-secondary
+            rounded-full shadow-md
+            hover:bg-bg-soft dark:hover:bg-bg-warm
+            transition-colors
+          "
+        >
+          <Bookmark size={18} />
+          Simpan
+        </button>
       </motion.div>
 
-      {/* ---------------------------------------------------------
-         GRADIENT TRANSISI BAGIAN BAWAH 
-         Untuk menghubungkan section berikutnya dengan nyaman.
-      ---------------------------------------------------------- */}
+      {/* INFO GRID (LANDMARKS, HOURS, ACCESS) */}
+      <div className="grid md:grid-cols-3 gap-8 mt-14 max-w-4xl mx-auto text-center">
+        <div>
+          <MapPin className="mx-auto mb-2 text-primary" size={26} />
+          <p className="font-semibold text-text-primary dark:text-text-secondary">
+            Lokasi
+          </p>
+          <p className="text-sm text-text-muted dark:text-white/70">
+            Dekat Gerbang Belakang ITB
+          </p>
+        </div>
+
+        <div>
+          <Clock className="mx-auto mb-2 text-primary" size={26} />
+          <p className="font-semibold text-text-primary dark:text-text-secondary">
+            Jam Operasional
+          </p>
+          <p className="text-sm text-text-muted dark:text-white/70">
+            06:00 – 01:00
+          </p>
+        </div>
+
+        <div>
+          <Car className="mx-auto mb-2 text-primary" size={26} />
+          <p className="font-semibold text-text-primary dark:text-text-secondary">
+            Akses
+          </p>
+          <p className="text-sm text-text-muted dark:text-white/70">
+            Parkir Motor Tersedia
+          </p>
+        </div>
+      </div>
+
+      {/* BOTTOM GRADIENT */}
       <div
         className="
           absolute bottom-0 left-0 w-full 
           h-24 md:h-32
           bg-gradient-to-b 
           from-transparent via-bg-warm/50 to-bg-gold 
-          dark:via-bg-warm/50 dark:to-bg-gold
-          pointer-events-none
         "
-        aria-hidden="true"
       />
     </section>
   );

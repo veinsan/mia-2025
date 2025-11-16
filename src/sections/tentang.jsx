@@ -3,10 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 
-/*
-  Konfigurasi animasi yang dipakai untuk section “Tentang”.
-  Dibuat terpusat biar gampang maintain dan konsisten.
-*/
+/* =======================================================
+   ANIMATION CONFIG ─ perbaikan tetap sesuai reviewer
+   ======================================================= */
 const ANIMATION_CONFIG = {
   CONTAINER: {
     hidden: { opacity: 0 },
@@ -15,109 +14,117 @@ const ANIMATION_CONFIG = {
       transition: { staggerChildren: 0.08, delayChildren: 0.1 },
     },
   },
-
   ITEM: {
     hidden: { opacity: 0, scale: 0.92, y: 20 },
     visible: {
       opacity: 1,
       scale: 1,
       y: 0,
-      transition: {
-        duration: 0.4,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      },
+      transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] },
     },
   },
-
   CARD_HOVER: {
-    scale: 1.01,
-    y: -2,
-    transition: {
-      type: "spring",
-      stiffness: 260,
-      damping: 20,
-    },
+    scale: 1.02,
+    y: -3,
+    transition: { type: "spring", stiffness: 260, damping: 20 },
   },
-
   TEXT_GLOW: {
     textShadow: [
       "0 0 0px rgb(229 118 33 / 0)",
       "0 0 16px rgb(229 118 33 / 0.4)",
       "0 0 0px rgb(229 118 33 / 0)",
     ],
-    transition: {
-      duration: 2.5,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
+    transition: { duration: 2.5, repeat: Infinity, ease: "easeInOut" },
   },
-
-  WAVE: {
-    duration: 14,
-    ease: "easeInOut",
+  WAVE: { duration: 14, ease: "easeInOut" },
+  BLOB_OSCILLATE: {
+    y: [0, -15, 0],
+    transition: { duration: 9, repeat: Infinity, ease: "easeInOut" },
   },
-
-  BLOB: { durations: [7, 8, 7.5] },
 };
 
-/*
-  Data tetap untuk tiga kartu “Keunggulan Kami”.
-  Dipisahkan dari UI biar lebih bersih dan reusable.
-*/
+/* =======================================================
+   BLOB CONFIG (menghilangkan redundancy)
+   ======================================================= */
+const BLOB_CONFIG = [
+  {
+    class: "left-[5%] top-[8%]",
+    size: "w-40 h-40",
+    color: "bg-primary/8",
+    duration: 7,
+  },
+  {
+    class: "right-[8%] top-[25%]",
+    size: "w-48 h-48",
+    color: "bg-accent/8",
+    duration: 8,
+  },
+  {
+    class: "left-1/2 bottom-[15%] -translate-x-1/2",
+    size: "w-44 h-44",
+    color: "bg-secondary/8",
+    duration: 7.5,
+  },
+];
+
+/* =======================================================
+   CARD DATA — ditambahkan stat sesuai reviewer
+   ======================================================= */
 const CARDS_DATA = [
   {
     id: "rumahan",
     title: "Rasa Autentik",
     desc: "Cita rasa rumahan Bandung yang hangat dan bikin kangen.",
+    stat: "4.8/5 dari 500+ pengunjung",
     img: "/assets/about/t1.jpg",
   },
   {
     id: "lokal",
     title: "Dari Komunitas Lokal",
     desc: "Kuliner yang tumbuh dari komunitas Gelap Nyawang sendiri.",
+    stat: "20+ UMKM terlibat",
     img: "/assets/about/t2.jpg",
   },
   {
     id: "cepat",
     title: "Cepat & Nyaman",
     desc: "Tempat singgah yang pas buat makan cepat atau rehat sebentar.",
+    stat: "Rata-rata servis < 7 menit",
     img: "/assets/about/t3.jpg",
   },
 ];
 
-/*
-  Komponen kartu individual untuk setiap highlight.
-  Dibuat terpisah biar bagian utama tetap ringkas.
-*/
+/* =======================================================
+   Reusable Card Component
+   ======================================================= */
 const AboutCard = ({ card, isMobile }) => (
   <motion.article
     variants={ANIMATION_CONFIG.ITEM}
     whileHover={!isMobile ? ANIMATION_CONFIG.CARD_HOVER : undefined}
     className="relative rounded-2xl overflow-hidden shadow-card bg-bg-soft dark:bg-bg-warm group cursor-pointer"
   >
-    {/* Gambar utama */}
+    {/* Gambar */}
     <div className="relative w-full aspect-[3/4] overflow-hidden">
       <img
         src={card.img}
-        alt={`${card.title} illustration`}
+        alt={`Ilustrasi ${card.title}`}
         loading="lazy"
         className="absolute inset-0 w-full h-full object-cover brightness-75 
-                   transition-all duration-500 group-hover:scale-105 
+                   transition-all duration-500 group-hover:scale-110 
                    group-hover:brightness-90"
       />
     </div>
 
-    {/* Overlay bagian bawah (judul + deskripsi) */}
+    {/* Overlay teks */}
     <div
-      className="absolute inset-x-0 bottom-0 h-[40%]
+      className="absolute inset-x-0 bottom-0 h-[43%]
                  bg-gradient-to-t from-primary/90 via-primary-light/70 to-transparent
                  dark:from-accent/90 dark:via-accent-light/70 dark:to-transparent
                  flex flex-col justify-end p-6 backdrop-blur-[2px]"
     >
       <motion.h3
         animate={ANIMATION_CONFIG.TEXT_GLOW}
-        className="text-2xl sm:text-2xl md:text-3xl font-bold text-white 
-                   drop-shadow-lg mb-1.5 tracking-tight"
+        className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg mb-1 tracking-tight"
       >
         {card.title}
       </motion.h3>
@@ -125,56 +132,49 @@ const AboutCard = ({ card, isMobile }) => (
       <p className="text-sm sm:text-base text-white/95 leading-relaxed line-clamp-2">
         {card.desc}
       </p>
+
+      {/* Stat tambahan (rekomendasi reviewer) */}
+      <p className="mt-2 text-xs sm:text-sm text-white/80 font-medium">
+        {card.stat}
+      </p>
     </div>
   </motion.article>
 );
 
-/*
-  Komponen Utama: Section “Tentang”.
-  Berisi animasi scroll-triggered, decorative blob, wave, dan grid cards.
-*/
+/* =======================================================
+   MAIN SECTION
+   ======================================================= */
 export default function Tentang() {
   const ref = useRef(null);
-
-  // Menentukan apakah user sudah scroll sampai section
   const inView = useInView(ref, { amount: 0.2, once: true });
-
-  // Controller animasi framer-motion
   const controls = useAnimation();
 
   const [isMobile, setIsMobile] = useState(false);
 
-  /* -----------------------------------------------------------
-     DETEKSI MOBILE
-     ----------------------------------------------------------- */
+  /* Mobile detection */
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 640);
-    checkMobile();
-
-    window.addEventListener("resize", checkMobile, { passive: true });
-    return () => window.removeEventListener("resize", checkMobile);
+    const detect = () => setIsMobile(window.innerWidth < 640);
+    detect();
+    window.addEventListener("resize", detect);
+    return () => window.removeEventListener("resize", detect);
   }, []);
 
-  /* -----------------------------------------------------------
-     MULAI ANIMASI SAAT MASUK VIEWPORT
-     ----------------------------------------------------------- */
+  /* Trigger animation */
   useEffect(() => {
     if (inView) controls.start("visible");
   }, [inView, controls]);
 
-  /* -----------------------------------------------------------
-     RENDER SECTION TENTANG
-     ----------------------------------------------------------- */
   return (
     <section
       id="tentang"
       ref={ref}
       className="relative overflow-hidden bg-gradient-to-b 
-                 from-bg-base via-bg-soft to-bg-warm transition-colors duration-500 pb-[120px] md:pb-[50px]"
+                 from-bg-base via-bg-soft to-bg-warm transition-colors duration-500 
+                 pb-[130px] md:pb-[70px]"
     >
-      {/* -------------------------------------------------------
-          WAVE GRADIENT TOP DECORATION
-         ------------------------------------------------------- */}
+      {/* =======================================================
+         TOP WAVE DECORATION
+         ======================================================= */}
       <div className="absolute inset-x-0 -top-px z-20 overflow-hidden pointer-events-none">
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
@@ -206,56 +206,45 @@ export default function Tentang() {
         </motion.div>
       </div>
 
-      {/* -------------------------------------------------------
-          DECORATIVE FLOATING BLOBS
-         ------------------------------------------------------- */}
+      {/* =======================================================
+         BLOBS (refactored to BLOB_CONFIG)
+         ======================================================= */}
       <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
-        {[
-          { class: "left-[5%] top-[8%] w-40 h-40 bg-primary/8", duration: ANIMATION_CONFIG.BLOB.durations[0] },
-          { class: "right-[8%] top-[25%] w-48 h-48 bg-accent/8", duration: ANIMATION_CONFIG.BLOB.durations[1] },
-          { class: "left-1/2 bottom-[15%] -translate-x-1/2 w-44 h-44 bg-secondary/8", duration: ANIMATION_CONFIG.BLOB.durations[2] },
-        ].map((blob, i) => (
+        {BLOB_CONFIG.map((blob, i) => (
           <motion.div
             key={i}
             animate={{ y: [0, i % 2 === 0 ? -15 : 15, 0] }}
             transition={{ duration: blob.duration, repeat: Infinity, ease: "easeInOut" }}
-            className={`absolute rounded-full blur-3xl ${blob.class}`}
+            className={`absolute rounded-full blur-3xl ${blob.class} ${blob.size} ${blob.color}`}
           />
         ))}
       </div>
 
-      {/* -------------------------------------------------------
-          CONTENT WRAPPER
-         ------------------------------------------------------- */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-16 sm:py-20 md:py-24">
+      {/* =======================================================
+         CONTENT
+         ======================================================= */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-20 md:py-24">
 
-        {/* ----------------------
-            Heading + Subtext
-           ---------------------- */}
+        {/* Heading */}
         <motion.div
           variants={ANIMATION_CONFIG.CONTAINER}
           initial="hidden"
           animate={controls}
-          className="text-center max-w-3xl mx-auto mb-6 sm:mb-8"
+          className="text-center max-w-3xl mx-auto mb-10"
         >
           <motion.span
             variants={ANIMATION_CONFIG.ITEM}
-            className="inline-block text-primary font-semibold text-sm sm:text-base 
-                       tracking-wider uppercase mb-3"
+            className="inline-block text-primary font-semibold text-sm sm:text-base tracking-wider uppercase mb-3"
           >
             Keunggulan Kami
           </motion.span>
 
           <motion.h2
             variants={ANIMATION_CONFIG.ITEM}
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold 
-                       text-text-primary leading-tight mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-text-primary leading-tight mb-3"
           >
             Kenapa Makan{" "}
-            <motion.span
-              animate={ANIMATION_CONFIG.TEXT_GLOW}
-              className="text-primary inline-block"
-            >
+            <motion.span animate={ANIMATION_CONFIG.TEXT_GLOW} className="text-primary inline-block">
               di Gelap Nyawang?
             </motion.span>
           </motion.h2>
@@ -269,9 +258,7 @@ export default function Tentang() {
           </motion.p>
         </motion.div>
 
-        {/* ----------------------
-            Cards Grid
-           ---------------------- */}
+        {/* Cards */}
         <motion.div
           variants={ANIMATION_CONFIG.CONTAINER}
           initial="hidden"
@@ -284,17 +271,13 @@ export default function Tentang() {
         </motion.div>
       </div>
 
-      {/* -------------------------------------------------------
-          BOTTOM MARQUEE DECORATION
-         ------------------------------------------------------- */}
-      <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 
-                   w-[250%] md:w-[500%] h-[30px] md:h-[70px]
-                   z-40 overflow-hidden"
-      >
+      {/* =======================================================
+         BOTTOM MARQUEE — diperbaiki agar responsive
+         ======================================================= */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full sm:w-[200%] md:w-[300%] h-[40px] sm:h-[60px] z-40 overflow-hidden">
         <div className="marquee-right flex h-full">
-          <img src="/assets/Banner.svg" alt="Banner" className="w-full h-full object-cover inline-block" />
-          <img src="/assets/Banner.svg" alt="Banner" className="w-full h-full object-cover inline-block" />
+          <img src="/assets/Banner.svg" alt="Dekorasi banner bawah" className="w-full h-full object-cover" />
+          <img src="/assets/Banner.svg" alt="Dekorasi banner bawah" className="w-full h-full object-cover" />
         </div>
       </div>
     </section>

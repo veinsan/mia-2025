@@ -1,12 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-/*
-  Footer website menampilkan informasi lokasi, jam buka, sosial media,
-  navigasi internal, dan CTA scroll-to-top.
-  Struktur dibuat responsif dengan kombinasi grid dan flex.
-*/
+import { ChevronDown } from "lucide-react";
+import { useState } from "react";
 
 const FADE_UP = {
   hidden: { opacity: 0, y: 40 },
@@ -17,38 +13,42 @@ const FADE_UP = {
   },
 };
 
-/* 
-  Navigasi sederhana untuk footer.
-  Link merujuk ke bagian dalam halaman utama.
-*/
 const NAV_LINKS = [
   { name: "Beranda", link: "#" },
   { name: "Rekomendasi", link: "#topResto" },
 ];
 
-/*
-  Kumpulan link sosial media. Dipisah biar mudah dirapikan atau diganti nantinya.
-*/
 const SOCIAL_LINKS = [
   { name: "Instagram", link: "https://www.instagram.com/gelapnyawang.culinary/" },
   { name: "Facebook", link: "https://www.facebook.com" },
   { name: "Tiktok", link: "https://www.tiktok.com" },
 ];
 
-/*
-  Tombol kembali ke atas halaman dengan efek smooth scroll native.
-*/
+// 🔧 REVIEW FIX #1: Abstraction komponen link
+const LinkSection = ({ title, links, ariaLabel }) => (
+  <nav aria-label={ariaLabel}>
+    <h3 className="font-bold mb-3">{title}</h3>
+    {links.map((item) => (
+      <p key={item.name}>
+        <a href={item.link} className="hover:underline">
+          {item.name}
+        </a>
+      </p>
+    ))}
+  </nav>
+);
+
 const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
 export default function Footer() {
+  const [expanded, setExpanded] = useState(null);
+
+  const toggle = (name) =>
+    setExpanded(expanded === name ? null : name);
+
   return (
     <>
-      {/* ------------------------------------------------------
-          FOOTER UTAMA
-        ------------------------------------------------------ */}
       <footer className="w-full bg-[#E57621] dark:bg-[#B55610] text-white py-16 px-6 md:px-20 font-sans relative overflow-hidden">
-        
-        {/* Lapisan grain halus sebagai tekstur latar */}
         <div
           className="absolute inset-0 bg-[url('/grain-texture.png')] bg-repeat opacity-10 pointer-events-none"
           aria-hidden="true"
@@ -61,100 +61,171 @@ export default function Footer() {
           viewport={{ once: true, amount: 0.2 }}
           className="relative z-10"
         >
-          {/* --------------------------------------------------
-              TOP SECTION — 3 Kolom besar (Logo - Deskripsi - Logo)
-            -------------------------------------------------- */}
+          {/* TOP SECTION */}
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start mb-12 gap-10">
-            
-            {/* Logo kiri (GN Culinary) */}
-            <div className="flex-shrink-0 flex flex-col items-center md:items-start">
-              <img
-                src="/assets/logo.png"
-                alt="Gelap Nyawang Logo"
-                className="w-28 md:w-36 object-contain"
-              />
-            </div>
+            <img src="/assets/logo.png" alt="Gelap Nyawang Logo" className="w-28 md:w-36" />
 
-            {/* Deskripsi tengah */}
-            <div className="w-full md:w-2/4 flex flex-col items-center md:items-start">
-              <p className="text-base md:text-lg leading-relaxed text-center md:text-left max-w-md text-white/90">
+            <div className="w-full md:w-2/4 text-center md:text-left">
+              <p className="text-base md:text-lg leading-relaxed max-w-md text-white/90 mx-auto md:mx-0">
                 Gelap Nyawang Culinary, spot kuliner favorit mahasiswa ITB.
                 Dari warkop sederhana sampai kafe ber-wifi, semua hadir buat nemenin
                 ngobrol, nugas, atau sekadar nyari suasana tenang.
               </p>
             </div>
 
-            {/* Logo kanan (MIA 2025) */}
-            <div className="flex-shrink-0 flex flex-col items-center md:items-end">
-              <img
-                src="/assets/mia2025.png"
-                alt="MIA 2025 Logo"
-                className="w-32 md:w-40 object-contain"
-              />
-            </div>
+            <img src="/assets/mia2025.png" alt="MIA 2025 Logo" className="w-32 md:w-40" />
           </div>
 
           <hr className="border-white/30 mb-12" />
 
-          {/* --------------------------------------------------
-              GRID 5 KOLOM 
-              Lokasi | Jam buka | Navigasi | Sosial Media | Kontak
-            -------------------------------------------------- */}
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-16 text-base md:text-lg mb-12 text-center md:text-left">
-            
-            {/* Kolom Lokasi */}
+          {/* =====================================================
+              REVIEW FIX #2 & #3:
+              - Mobile accordion
+              - Mobile grid optimized (2 columns)
+          ===================================================== */}
+
+          {/* MOBILE ACCORDION */}
+          <div className="md:hidden space-y-6">
+            {/* Lokasi */}
+            <div>
+              <button
+                onClick={() => toggle("lokasi")}
+                className="flex justify-between w-full font-bold text-left"
+              >
+                Lokasi
+                <ChevronDown
+                  className={`transition-transform ${
+                    expanded === "lokasi" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {expanded === "lokasi" && (
+                <div className="mt-2 text-white/90">
+                  Jl. Gelap Nyawang, Lb. Siliwangi,<br />
+                  Kota Bandung, Jawa Barat
+                </div>
+              )}
+            </div>
+
+            {/* Jam Buka */}
+            <div>
+              <button
+                onClick={() => toggle("jam")}
+                className="flex justify-between w-full font-bold text-left"
+              >
+                Jam Buka
+                <ChevronDown
+                  className={`transition-transform ${
+                    expanded === "jam" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {expanded === "jam" && (
+                <p className="mt-2 text-white/90">06.00 - 01.00</p>
+              )}
+            </div>
+
+            {/* Navigasi */}
+            <div>
+              <button
+                onClick={() => toggle("nav")}
+                className="flex justify-between w-full font-bold text-left"
+              >
+                Navigasi
+                <ChevronDown
+                  className={`transition-transform ${
+                    expanded === "nav" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {expanded === "nav" && (
+                <div className="mt-2">
+                  <LinkSection
+                    title=""
+                    links={NAV_LINKS}
+                    ariaLabel="Footer navigation mobile"
+                  />
+                </div>
+              )}
+            </div>
+
+            {/* Sosmed */}
+            <div>
+              <button
+                onClick={() => toggle("sosmed")}
+                className="flex justify-between w-full font-bold text-left"
+              >
+                Media Sosial
+                <ChevronDown
+                  className={`transition-transform ${
+                    expanded === "sosmed" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {expanded === "sosmed" && (
+                <div className="mt-2">
+                  <LinkSection
+                    title=""
+                    links={SOCIAL_LINKS}
+                    ariaLabel="Social media mobile"
+                  />
+                </div>
+              )}
+            </div>
+
+            {/* Kontak */}
+            <div>
+              <button
+                onClick={() => toggle("kontak")}
+                className="flex justify-between w-full font-bold text-left"
+              >
+                Kontak
+                <ChevronDown
+                  className={`transition-transform ${
+                    expanded === "kontak" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {expanded === "kontak" && (
+                <p className="mt-2">
+                  <a
+                    href="https://wa.me/6289656054453"
+                    className="hover:underline"
+                    target="_blank"
+                  >
+                    Whatsapp
+                  </a>
+                </p>
+              )}
+            </div>
+          </div>
+
+          {/* ===========================
+              DESKTOP GRID
+          =========================== */}
+          <div className="hidden md:grid max-w-7xl mx-auto grid-cols-5 gap-16 mb-12 text-base">
             <div>
               <h3 className="font-bold mb-3">Lokasi</h3>
               <address className="not-italic">
                 Jl. Gelap Nyawang, Lb. Siliwangi,<br />
-                Kecamatan Coblong, Kota Bandung,<br />
-                Jawa Barat 40132
+                Kota Bandung, Jawa Barat
               </address>
             </div>
 
-            {/* Kolom Jam Buka */}
             <div>
               <h3 className="font-bold mb-3">Jam Buka</h3>
-              <p>06.00 AM - 01.00 AM</p>
+              <p>06.00 - 01.00</p>
             </div>
 
-            {/* Kolom Navigasi */}
-            <nav aria-label="Footer navigation">
-              <h3 className="font-bold mb-3">Navigasi</h3>
-              {NAV_LINKS.map((item) => (
-                <p key={item.name}>
-                  <a href={item.link} className="hover:underline">
-                    {item.name}
-                  </a>
-                </p>
-              ))}
-            </nav>
+            <LinkSection title="Navigasi" links={NAV_LINKS} ariaLabel="Footer navigation" />
+            <LinkSection title="Media Sosial" links={SOCIAL_LINKS} ariaLabel="Social media" />
 
-            {/* Kolom Media Sosial */}
-            <nav aria-label="Social media">
-              <h3 className="font-bold mb-3">Media Sosial</h3>
-              {SOCIAL_LINKS.map((sos) => (
-                <p key={sos.name}>
-                  <a
-                    href={sos.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:underline"
-                  >
-                    {sos.name}
-                  </a>
-                </p>
-              ))}
-            </nav>
-
-            {/* Kolom Kontak */}
             <div>
               <h3 className="font-bold mb-3">Kontak</h3>
               <p>
                 <a
                   href="https://wa.me/6289656054453"
                   target="_blank"
-                  rel="noopener noreferrer"
                   className="hover:underline"
                 >
                   Whatsapp
@@ -165,17 +236,11 @@ export default function Footer() {
 
           <hr className="border-white/30 mb-8" />
 
-          {/* Copyright */}
-          <div className="max-w-7xl mx-auto text-center text-sm md:text-base text-white/80 leading-relaxed">
-            © 2025 Gelap Nyawang. Website ini dibuat untuk Web Development Competition MIA 2025.
-            <br />
-            Desain & konten dikembangkan oleh tim Gelap Nyawang Creative.
+          <div className="text-center text-white/80 text-sm leading-relaxed">
+            © 2025 Gelap Nyawang • Website untuk MIA 2025
           </div>
         </motion.div>
 
-        {/* --------------------------------------------------
-            Glow line animasi tipis sebagai pemanis visual bawah.
-          -------------------------------------------------- */}
         <motion.div
           className="absolute bottom-0 left-0 w-full h-[6px] bg-white/50 blur-sm opacity-70"
           animate={{ x: ["0%", "20%", "0%"] }}
@@ -184,9 +249,7 @@ export default function Footer() {
         />
       </footer>
 
-      {/* ------------------------------------------------------
-          Scroll-To-Top Button 
-        ------------------------------------------------------ */}
+      {/* SCROLL TO TOP */}
       <motion.button
         onClick={scrollToTop}
         whileHover={{ scale: 1.1 }}
@@ -197,7 +260,6 @@ export default function Footer() {
           text-white p-3 rounded-full shadow-lg 
           transition-all duration-300
         "
-        title="Kembali ke atas"
         aria-label="Scroll to top"
       >
         ↑

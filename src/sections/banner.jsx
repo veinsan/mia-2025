@@ -2,11 +2,27 @@
 
 import { motion } from "framer-motion";
 
-/*
-  BannerDirektori: komponen hero/banner untuk halaman Direktori.
-  Memuat visual besar kiri-kanan + heading + tombol CTA.
-  Fokusnya pada animasi masuk dan komposisi visual yang simetris.
-*/
+/* ===========================
+   Decorative Image Component
+   =========================== */
+const DecorativeImage = ({ src, side }) => (
+  <motion.img
+    src={src}
+    alt=""
+    initial={{ opacity: 0, x: side === "left" ? -40 : 40 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8 }}
+    className={`
+      absolute 
+      ${side === "left" ? "-left-[285px]" : "-right-[300px]"} 
+      w-[600px] md:w-[680px] lg:w-[760px]
+      object-contain pointer-events-none
+    `}
+    aria-hidden="true"
+  />
+);
+
 export default function BannerDirektori() {
   return (
     <section
@@ -16,10 +32,6 @@ export default function BannerDirektori() {
         relative overflow-hidden
       "
     >
-      {/* ---------------------------------------------------------
-         WRAPPER UTAMA BANNER
-         Berisi background merah (primary) + gambar dekoratif + teks.
-      ---------------------------------------------------------- */}
       <motion.article
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -34,49 +46,28 @@ export default function BannerDirektori() {
           flex items-center justify-center
         "
       >
-        {/* -------------------------------------------------------
-           Gambar dekorasi kiri
-           Satu frame besar yang muncul masuk dari kiri.
-        -------------------------------------------------------- */}
-        <motion.img
-          src="/assets/banner/left.png"
-          alt=""
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="
-            absolute -left-[285px]
-            w-[600px] md:w-[680px] lg:w-[760px]
-            object-contain pointer-events-none
-          "
-          aria-hidden="true"
-        />
+        {/* Decorative images (revised) */}
+        <DecorativeImage src="/assets/banner/left.png" side="left" />
+        <DecorativeImage src="/assets/banner/right.png" side="right" />
 
-        {/* -------------------------------------------------------
-           Gambar dekorasi kanan
-           Simetris dengan kiri, namun masuk dari kanan.
-        -------------------------------------------------------- */}
-        <motion.img
-          src="/assets/banner/right.png"
-          alt=""
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="
-            absolute -right-[300px]
-            w-[600px] md:w-[680px] lg:w-[760px]
-            object-contain pointer-events-none
-          "
-          aria-hidden="true"
-        />
-
-        {/* -------------------------------------------------------
-           TEKS UTAMA + CTA
-           Terpusat dan berada di atas layer dekoratif.
-        -------------------------------------------------------- */}
+        {/* TEXT BLOCK */}
         <div className="relative z-20 text-center w-full max-w-5xl mx-auto">
+
+          {/* 🔥 Urgency element (reviewer request) */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.75 }}
+            className="
+              text-sm bg-white/20 backdrop-blur-sm 
+              px-4 py-2 rounded-full inline-block 
+              mb-5 font-medium
+            "
+          >
+            🔥 10+ UMKM baru ditambahkan minggu ini!
+          </motion.p>
+
           {/* Heading */}
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -106,30 +97,41 @@ export default function BannerDirektori() {
             khas Gelap Nyawang yang nggak bakal lu temuin di tempat lain.
           </motion.p>
 
-          {/* CTA Button */}
-          <motion.a
-            href="/direktori"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.96 }}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.85, delay: 0.2 }}
-            className="
-              inline-block bg-white text-primary 
-              font-semibold text-base md:text-lg 
-              px-8 py-3 rounded-full 
-              hover:bg-white/90 transition-colors
-            "
-          >
-            Lihat Direktori
-          </motion.a>
+          {/* Multiple CTAs (reviewer request) */}
+          <div className="flex gap-4 justify-center flex-wrap">
+            <motion.a
+              href="/direktori"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.96 }}
+              className="
+                inline-block bg-white text-primary 
+                font-semibold text-base md:text-lg 
+                px-8 py-3 rounded-full 
+                hover:bg-white/90 transition-colors
+              "
+            >
+              Lihat Direktori
+            </motion.a>
+
+            <motion.a
+              href="#topResto"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.96 }}
+              className="
+                inline-block bg-white/20 text-white 
+                font-semibold text-base md:text-lg 
+                px-8 py-3 rounded-full 
+                backdrop-blur-sm
+                hover:bg-white/30 transition-colors
+              "
+            >
+              Lihat Rekomendasi
+            </motion.a>
+          </div>
         </div>
       </motion.article>
 
-      {/* ---------------------------------------------------------
-         GRADIENT BAWAH UNTUK TRANSISI SECTION
-      ---------------------------------------------------------- */}
+      {/* Bottom gradient */}
       <div
         className="
           absolute bottom-0 left-0 w-full 
