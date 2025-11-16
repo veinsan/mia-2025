@@ -190,7 +190,7 @@ const StepItem = ({ step, completed, toggle, isMobile }) => {
 /* =========================================================
    MAIN SECTION COMPONENT
    ========================================================= */
-export default function CaraMakan() {
+export default function CaraEksplor() {
   const [completedSteps, setCompletedSteps] = useState([]);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -210,7 +210,7 @@ export default function CaraMakan() {
 
   return (
     <section
-      id="caraMakan"
+      id="caraEksplor"
       className="
         w-full relative overflow-hidden
         bg-gradient-to-br from-bg-warm via-bg-soft to-bg-gold

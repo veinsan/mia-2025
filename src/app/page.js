@@ -2,7 +2,7 @@ import Nav from "@/components/nav";
 import Hero from "@/sections/hero";
 import Tentang from "@/sections/tentang";
 import TopResto from "@/sections/topResto";
-import CaraMakan from "@/sections/caraMakan";
+import CaraEksplor from "@/sections/caraEksplor";
 import Testimoni from "@/sections/testimoni";
 import Galeri from "@/sections/galeri";
 import Lokasi from "@/sections/lokasi";
@@ -17,7 +17,7 @@ export default function Home() {
       <Hero />
       <Tentang />
       <TopResto />
-      <CaraMakan />
+      <CaraEksplor />
       <Testimoni />
       <Galeri />
       <Lokasi />
