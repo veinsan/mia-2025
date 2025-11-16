@@ -1597,6 +1597,12 @@ img, video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-black\/90 {
+  --tw-gradient-from: #000000e6 var(--tw-gradient-from-position);
+  --tw-gradient-to: #0000 var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .from-primary\/5 {
   --tw-gradient-from: #e576210d var(--tw-gradient-from-position);
   --tw-gradient-to: #e5762100 var(--tw-gradient-to-position);
@@ -2559,12 +2565,6 @@ a {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.hover\:scale-105:hover {
-  --tw-scale-x: 1.05;
-  --tw-scale-y: 1.05;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .hover\:scale-110:hover {
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
@@ -2683,6 +2683,10 @@ a {
 
 .focus\:ring-primary\/50:focus {
   --tw-ring-color: #e5762180;
+}
+
+.group:hover .group-hover\:max-h-16 {
+  max-height: 4rem;
 }
 
 .group:hover .group-hover\:max-h-20 {
@@ -3240,6 +3244,10 @@ a {
 
   .md\:mb-16 {
     margin-bottom: 4rem;
+  }
+
+  .md\:block {
+    display: block;
   }
 
   .md\:inline {

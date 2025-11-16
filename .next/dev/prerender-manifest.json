@@ -1,11 +1,1 @@
-{
-  "version": 4,
-  "routes": {},
-  "dynamicRoutes": {},
-  "notFoundRoutes": [],
-  "preview": {
-    "previewModeId": "18f8f84ddb3557c5a6d0e065b195cddc",
-    "previewModeSigningKey": "0efa59bf55c6fa71a0c1e4e0945a6328b2e21bea1addb0bade83f57d8557dcb9",
-    "previewModeEncryptionKey": "de275c622df59f65add5c9533ee218180a54b0b252f205a49472629fde942400"
-  }
-}
+{"version":4,"routes":{"/direktori/blackromantic":{},"/direktori/bwj":{},"/direktori/stallone":{},"/direktori/cola":{},"/direktori/besthal":{},"/direktori/datuak":{},"/direktori/miesan":{},"/direktori/warmindo":{},"/direktori/serbasepuluh":{},"/direktori/angkringan":{},"/direktori/dapurlaut":{},"/direktori/komawa":{},"/direktori/koboi":{},"/direktori/doamande":{},"/direktori/kebab":{},"/direktori/prancis":{},"/direktori/nasgor":{},"/direktori/thaitea":{},"/direktori/asmad":{},"/direktori/sindang":{},"/direktori/bakmi":{},"/direktori/kios":{},"/direktori/mocktail":{},"/direktori/ica":{},"/direktori/garden":{},"/direktori/nuesara":{},"/direktori/cacto":{},"/direktori/elvindo":{},"/direktori/sembilan":{},"/direktori/kita":{}},"dynamicRoutes":{"/direktori/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/direktori/[slug]","routeRegex":"^\\/direktori\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"ea91bb73f28fef628a60c853a3604c6f","previewModeSigningKey":"df598b67bd5f24ecfa007024a1a927e6f1c27f44ccc491e2c836d1a6de37bfe6","previewModeEncryptionKey":"c603f7d45f5527e1ae79d625e1e39ae9a9f2800ec274c8edc2030b295a47cb56"}}
