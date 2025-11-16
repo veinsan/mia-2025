@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Navigation, Share2, Bookmark, Clock, Car } from "lucide-react";
 
 /* ================================
@@ -37,8 +37,15 @@ export default function Lokasi() {
   const [loaded, setLoaded] = useState(false);
   const [userDistance, setUserDistance] = useState(null);
 
+  // 🔔 Toast state
+  const [toast, setToast] = useState(null);
+  const showToast = (msg) => {
+    setToast(msg);
+    setTimeout(() => setToast(null), 3000);
+  };
+
   /* ================================
-     GET USER LOCATION (Optional)
+     GET USER LOCATION
      ================================ */
   useEffect(() => {
     if ("geolocation" in navigator) {
@@ -51,7 +58,7 @@ export default function Lokasi() {
           const dist = calcDistance(userCoords, GN_COORDS);
           setUserDistance(dist);
         },
-        () => {}, // ignore error silently
+        () => {},
         { enableHighAccuracy: true }
       );
     }
@@ -67,13 +74,13 @@ export default function Lokasi() {
         url: MAPS_DIRECT_URL,
       });
     } else {
-      alert("Share tidak didukung di perangkat ini.");
+      showToast("Share tidak didukung di perangkat ini.");
     }
   };
 
   const saveLocation = () => {
     navigator.clipboard.writeText(MAPS_DIRECT_URL);
-    alert("Lokasi disimpan ke clipboard!");
+    showToast("✓ Lokasi disimpan ke clipboard!");
   };
 
   return (
@@ -90,18 +97,19 @@ export default function Lokasi() {
         dark:from-bg-soft dark:via-bg-warm dark:to-bg-gold
       "
     >
-      {/* TOP GRADIENT */}
+      {/* 🔥 FIX: TOP GRADIENT Tidak Overlap */}
       <div
         className="
           absolute top-0 left-0 w-full h-20 md:h-24
-          bg-gradient-to-b from-bg-gold via-bg-warm to-bg-soft
-          dark:from-bg-gold dark:via-bg-warm dark:to-bg-soft
-          pointer-events-none
-          z-0
+          bg-gradient-to-b from-bg-soft via-bg-warm/80 to-transparent
+          dark:from-bg-soft dark:via-bg-warm/80 dark:to-transparent
+          pointer-events-none z-0
         "
       />
 
-      {/* HEADING */}
+      {/* ================================
+          HEADING
+      ================================ */}
       <header className="relative z-10 text-center pt-20 md:pt-24 mb-10 md:mb-12">
         <motion.h4
           initial={{ opacity: 0, y: 20 }}
@@ -125,7 +133,6 @@ export default function Lokasi() {
           Kunjungi <span className="text-primary">Gelap Nyawang</span>
         </motion.h2>
 
-        {/* Distance Info */}
         {userDistance && (
           <p className="mt-2 text-sm text-text-muted dark:text-white/70">
             📍 {userDistance.toFixed(1)} km dari lokasi Anda
@@ -133,7 +140,9 @@ export default function Lokasi() {
         )}
       </header>
 
-      {/* GOOGLE MAPS CARD */}
+      {/* ================================
+          GOOGLE MAPS CARD
+      ================================ */}
       <motion.div
         initial={{ opacity: 0, scale: 0.97 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -180,7 +189,9 @@ export default function Lokasi() {
         />
       </motion.div>
 
-      {/* QUICK ACTIONS (REVIEWER FIX) */}
+      {/* ================================
+          QUICK ACTION BUTTONS
+      ================================ */}
       <motion.div
         initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -238,7 +249,9 @@ export default function Lokasi() {
         </button>
       </motion.div>
 
-      {/* INFO GRID (LANDMARKS, HOURS, ACCESS) */}
+      {/* ================================
+          INFO GRID
+      ================================ */}
       <div className="grid md:grid-cols-3 gap-8 mt-14 max-w-4xl mx-auto text-center">
         <div>
           <MapPin className="mx-auto mb-2 text-primary" size={26} />
@@ -280,6 +293,25 @@ export default function Lokasi() {
           from-transparent via-bg-warm/50 to-bg-gold 
         "
       />
+
+      {/* 🔔 TOAST NOTIFICATION */}
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            className="
+              fixed top-20 left-1/2 -translate-x-1/2 z-50
+              bg-green-500 text-white
+              px-6 py-3 rounded-full shadow-lg
+              text-sm font-medium
+            "
+          >
+            {toast}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

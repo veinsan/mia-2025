@@ -14,10 +14,12 @@ const DecorativeImage = ({ src, side }) => (
     viewport={{ once: true }}
     transition={{ duration: 0.8 }}
     className={`
+      hidden lg:block                 /* ✅ FIX: Hide di mobile/tablet */
       absolute 
       ${side === "left" ? "-left-[285px]" : "-right-[300px]"} 
-      w-[600px] md:w-[680px] lg:w-[760px]
+      w-[680px] lg:w-[760px]
       object-contain pointer-events-none
+      opacity-80                      /* 🔥 lebih soft */
     `}
     aria-hidden="true"
   />
@@ -42,18 +44,21 @@ export default function BannerDirektori() {
           bg-primary text-white 
           rounded-2xl p-10 md:p-16 
           overflow-hidden 
-          min-h-[500px] 
+
+          /* ✅ FIX: tinggi mobile dikurangi */
+          min-h-[400px] md:min-h-[500px]
+
           flex items-center justify-center
         "
       >
-        {/* Decorative images (revised) */}
+        {/* Decorative images (fixed & hidden in mobile) */}
         <DecorativeImage src="/assets/banner/left.png" side="left" />
         <DecorativeImage src="/assets/banner/right.png" side="right" />
 
         {/* TEXT BLOCK */}
         <div className="relative z-20 text-center w-full max-w-5xl mx-auto">
 
-          {/* 🔥 Urgency element (reviewer request) */}
+          {/* 🔥 Urgency text */}
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -97,8 +102,9 @@ export default function BannerDirektori() {
             khas Gelap Nyawang yang nggak bakal lu temuin di tempat lain.
           </motion.p>
 
-          {/* Multiple CTAs (reviewer request) */}
+          {/* CTAs */}
           <div className="flex gap-4 justify-center flex-wrap">
+            {/* Primary CTA */}
             <motion.a
               href="/direktori"
               whileHover={{ scale: 1.05 }}
@@ -113,6 +119,7 @@ export default function BannerDirektori() {
               Lihat Direktori
             </motion.a>
 
+            {/* Secondary CTA — FIXED wording */}
             <motion.a
               href="#topResto"
               whileHover={{ scale: 1.05 }}
@@ -125,13 +132,13 @@ export default function BannerDirektori() {
                 hover:bg-white/30 transition-colors
               "
             >
-              Lihat Rekomendasi
+              Lihat Top 5 Pilihan   {/* ✅ Perbaikan reviewer */}
             </motion.a>
           </div>
         </div>
       </motion.article>
 
-      {/* Bottom gradient */}
+      {/* Bottom Gradient */}
       <div
         className="
           absolute bottom-0 left-0 w-full 

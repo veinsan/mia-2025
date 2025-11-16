@@ -3273,20 +3273,28 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$utils$2f$reduced$2d$motion$2f$use$2d$reduced$2d$motion$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/utils/reduced-motion/use-reduced-motion.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$star$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Star$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/star.js [app-ssr] (ecmascript) <export default as Star>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$badge$2d$check$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Verified$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/badge-check.js [app-ssr] (ecmascript) <export default as Verified>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$quote$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Quote$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/quote.js [app-ssr] (ecmascript) <export default as Quote>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trending$2d$up$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__TrendingUp$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/trending-up.js [app-ssr] (ecmascript) <export default as TrendingUp>");
 "use client";
 ;
 ;
 ;
-/* ==========================
-   DATA (improved per review)
-   ========================== */ const TESTIMONIALS_TOP = [
+;
+/* =========================================================
+   DATA - Enhanced dengan verified badge & category
+   ========================================================= */ const TESTIMONIALS_TOP = [
     {
         text: "Tempat terbaik buat ngobrol santai abis kelas. Makanannya murah tapi enak banget!",
         name: "Ibnes",
         role: "Mahasiswa IF '22",
         rating: 5,
         date: "2 minggu lalu",
-        avatar: "/assets/avatar/a1.webp"
+        avatar: "/assets/avatar/a1.webp",
+        verified: true,
+        category: "Makanan"
     },
     {
         text: "Memorable banget! tiap hari ke Tamgan, kalau rame ya lanjut ke Ganyang.",
@@ -3294,7 +3302,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$mo
         role: "Mahasiswa STEI '23",
         rating: 5,
         date: "1 bulan lalu",
-        avatar: "/assets/avatar/a2.webp"
+        avatar: "/assets/avatar/a2.webp",
+        verified: true,
+        category: "Suasana"
     },
     {
         text: "Suasananya khas banget, apalagi pas malam. Lampu-lampunya bikin nyaman.",
@@ -3302,7 +3312,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$mo
         role: "Mahasiswa Minyak '21",
         rating: 4,
         date: "3 hari lalu",
-        avatar: "/assets/avatar/a3.jpeg"
+        avatar: "/assets/avatar/a3.jpeg",
+        verified: true,
+        category: "Suasana"
     }
 ];
 const TESTIMONIALS_BOTTOM = [
@@ -3312,7 +3324,9 @@ const TESTIMONIALS_BOTTOM = [
         role: "Mahasiswa Sipil '20",
         rating: 5,
         date: "1 minggu lalu",
-        avatar: "/assets/avatar/a4.gif"
+        avatar: "/assets/avatar/a4.gif",
+        verified: true,
+        category: "Hangout"
     },
     {
         text: "Makanannya enak, pelayannya ramah. Feels like home!",
@@ -3320,7 +3334,9 @@ const TESTIMONIALS_BOTTOM = [
         role: "Mahasiswa Mesin '21",
         rating: 4,
         date: "5 hari lalu",
-        avatar: "/assets/avatar/a5.jpg"
+        avatar: "/assets/avatar/a5.jpg",
+        verified: true,
+        category: "Pelayanan"
     },
     {
         text: "Tempat favorit buat nugas bareng temen. Kopinya mantap!",
@@ -3328,33 +3344,92 @@ const TESTIMONIALS_BOTTOM = [
         role: "Mahasiswa Tambang '23",
         rating: 5,
         date: "2 minggu lalu",
-        avatar: "/assets/avatar/a6.jpg"
+        avatar: "/assets/avatar/a6.jpg",
+        verified: true,
+        category: "Kafe"
     }
 ];
-/* ==========================
-   ANIMATION
-   ========================== */ const ANIMATION = {
-    hidden: {
-        opacity: 0,
-        y: 20
+/* =========================================================
+   ANIMATION CONFIG - Optimized dengan spring physics
+   ========================================================= */ const ANIMATION_CONFIG = {
+    FADE_UP: {
+        hidden: {
+            opacity: 0,
+            y: 30
+        },
+        show: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.7,
+                ease: [
+                    0.22,
+                    1,
+                    0.36,
+                    1
+                ]
+            }
+        }
     },
-    show: {
-        opacity: 1,
-        y: 0,
+    STAGGER: {
+        hidden: {
+            opacity: 0
+        },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.1
+            }
+        }
+    },
+    CARD_HOVER: {
+        scale: 1.03,
+        y: -8,
         transition: {
-            duration: 0.7,
-            ease: [
-                0.22,
-                1,
-                0.36,
-                1
-            ]
+            type: "spring",
+            stiffness: 300,
+            damping: 20
+        }
+    },
+    STAT_NUMBER: {
+        hidden: {
+            opacity: 0,
+            scale: 0.5
+        },
+        show: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+                type: "spring",
+                stiffness: 200,
+                damping: 15
+            }
         }
     }
 };
-/* ==========================
-   CSS Marquee (Same logic as original)
-   ========================== */ const useMarqueeStyles = ()=>{
+/* =========================================================
+   STATS DATA - Social proof enhancement
+   ========================================================= */ const STATS = [
+    {
+        label: "Review Positif",
+        value: "500+",
+        icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trending$2d$up$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__TrendingUp$3e$__["TrendingUp"]
+    },
+    {
+        label: "Rating Rata-rata",
+        value: "4.8",
+        icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$star$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Star$3e$__["Star"]
+    },
+    {
+        label: "Mahasiswa Setia",
+        value: "1.2K+",
+        icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$badge$2d$check$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Verified$3e$__["Verified"]
+    }
+];
+/* =========================================================
+   MARQUEE STYLES - Enhanced dengan will-change
+   ========================================================= */ const useMarqueeStyles = ()=>{
     const styleContent = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>`
     @keyframes marquee-left { 
       0% { transform: translateX(0%); } 
@@ -3367,14 +3442,50 @@ const TESTIMONIALS_BOTTOM = [
 
     .marquee-left { 
       animation: marquee-left 55s linear infinite;
+      will-change: transform;
     }
     .marquee-right { 
       animation: marquee-right 55s linear infinite;
+      will-change: transform;
+    }
+
+    /* Pause on hover for accessibility */
+    .marquee-container:hover .marquee-left,
+    .marquee-container:hover .marquee-right {
+      animation-play-state: paused;
     }
 
     @media (prefers-reduced-motion: reduce) {
       .marquee-left, .marquee-right {
         animation: none !important;
+        transform: translateX(0) !important;
+      }
+    }
+
+    /* Smooth edge fade */
+    .marquee-fade::before,
+    .marquee-fade::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .marquee-fade::before {
+      left: 0;
+      background: linear-gradient(to right, var(--bg-soft) 0%, transparent 100%);
+    }
+    .marquee-fade::after {
+      right: 0;
+      background: linear-gradient(to left, var(--bg-soft) 0%, transparent 100%);
+    }
+
+    @media (max-width: 640px) {
+      .marquee-fade::before,
+      .marquee-fade::after {
+        width: 40px;
       }
     }
   `, []);
@@ -3384,249 +3495,507 @@ const TESTIMONIALS_BOTTOM = [
         style.id = "testimoni-styles";
         style.textContent = styleContent;
         document.head.appendChild(style);
+        return ()=>{
+            const existingStyle = document.getElementById("testimoni-styles");
+            if (existingStyle) existingStyle.remove();
+        };
     }, [
         styleContent
     ]);
 };
-/* ==========================
-   CARD COMPONENT
-   ========================== */ const TestimonialCard = ({ text, name, role, rating, date, avatar })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("article", {
-        className: "bg-bg-soft dark:bg-bg-warm rounded-2xl p-6 md:p-8 shadow-card    w-[85vw] sm:w-[400px] md:w-[480px] min-h-[260px]   flex flex-col justify-between transition-all duration-300    hover:shadow-xl hover:-translate-y-1",
+/* =========================================================
+   TESTIMONIAL CARD - Enhanced dengan microinteractions
+   ========================================================= */ const TestimonialCard = ({ text, name, role, rating, date, avatar, verified, category, isMobile })=>{
+    const [isHovered, setIsHovered] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].article, {
+        className: "   bg-white/90 dark:bg-bg-warm/90 backdrop-blur-sm   rounded-2xl p-6 md:p-8    shadow-card border border-orange-100/50 dark:border-orange-900/20   w-[85vw] sm:w-[400px] md:w-[480px]    min-h-[280px] sm:min-h-[300px]   flex flex-col justify-between    transition-all duration-300    hover:shadow-2xl hover:border-primary/30   cursor-default   relative overflow-hidden   ",
+        onMouseEnter: ()=>!isMobile && setIsHovered(true),
+        onMouseLeave: ()=>!isMobile && setIsHovered(false),
+        whileHover: !isMobile ? ANIMATION_CONFIG.CARD_HOVER : {},
+        "aria-label": `Testimoni dari ${name}, ${role}`,
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "text-primary text-4xl mb-4",
-                        children: "❝"
-                    }, void 0, false, {
-                        fileName: "[project]/src/sections/testimoni.jsx",
-                        lineNumber: 132,
-                        columnNumber: 7
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-base md:text-lg leading-relaxed text-text-primary dark:text-text-secondary text-center",
-                        children: text
-                    }, void 0, false, {
-                        fileName: "[project]/src/sections/testimoni.jsx",
-                        lineNumber: 134,
-                        columnNumber: 7
-                    }, ("TURBOPACK compile-time value", void 0))
-                ]
-            }, void 0, true, {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                className: "absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl",
+                initial: {
+                    opacity: 0
+                },
+                animate: {
+                    opacity: isHovered ? 1 : 0
+                },
+                transition: {
+                    duration: 0.3
+                }
+            }, void 0, false, {
                 fileName: "[project]/src/sections/testimoni.jsx",
-                lineNumber: 131,
-                columnNumber: 5
+                lineNumber: 238,
+                columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex flex-col items-center gap-2 mt-6",
+                className: "relative z-10",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                        src: avatar,
-                        alt: name,
-                        className: "w-12 h-12 rounded-full object-cover border border-primary/40"
-                    }, void 0, false, {
-                        fileName: "[project]/src/sections/testimoni.jsx",
-                        lineNumber: 141,
-                        columnNumber: 7
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-sm font-semibold text-text-primary dark:text-text-secondary",
-                        children: name
-                    }, void 0, false, {
-                        fileName: "[project]/src/sections/testimoni.jsx",
-                        lineNumber: 147,
-                        columnNumber: 7
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-xs text-text-muted dark:text-text-secondary/70",
-                        children: role
-                    }, void 0, false, {
-                        fileName: "[project]/src/sections/testimoni.jsx",
-                        lineNumber: 151,
-                        columnNumber: 7
-                    }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex gap-1 text-primary text-sm",
-                        children: Array.from({
-                            length: rating
-                        }).map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                children: "⭐"
-                            }, i, false, {
+                        className: "flex items-center justify-between mb-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "   text-xs font-semibold px-3 py-1 rounded-full   bg-primary/10 text-primary   dark:bg-accent/20 dark:text-accent   ",
+                                children: category
+                            }, void 0, false, {
                                 fileName: "[project]/src/sections/testimoni.jsx",
-                                lineNumber: 155,
+                                lineNumber: 248,
                                 columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0)))
-                    }, void 0, false, {
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$quote$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Quote$3e$__["Quote"], {
+                                className: "text-primary/40",
+                                size: 32
+                            }, void 0, false, {
+                                fileName: "[project]/src/sections/testimoni.jsx",
+                                lineNumber: 257,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
                         fileName: "[project]/src/sections/testimoni.jsx",
-                        lineNumber: 153,
-                        columnNumber: 7
+                        lineNumber: 247,
+                        columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-[11px] text-text-muted dark:text-text-secondary/70",
-                        children: date
-                    }, void 0, false, {
+                        className: "text-sm sm:text-base md:text-lg leading-relaxed text-text-primary dark:text-text-secondary mb-6",
+                        children: [
+                            '"',
+                            text,
+                            '"'
+                        ]
+                    }, void 0, true, {
                         fileName: "[project]/src/sections/testimoni.jsx",
-                        lineNumber: 159,
-                        columnNumber: 7
+                        lineNumber: 261,
+                        columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/sections/testimoni.jsx",
-                lineNumber: 139,
-                columnNumber: 5
+                lineNumber: 245,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "flex items-center gap-4 relative z-10",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "relative shrink-0",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                src: avatar,
+                                alt: `${name}'s avatar`,
+                                className: "   w-14 h-14 rounded-full object-cover    border-2 border-primary/40   shadow-md   ",
+                                loading: "lazy",
+                                onError: (e)=>{
+                                    e.target.src = "/assets/avatar/default.png";
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/sections/testimoni.jsx",
+                                lineNumber: 271,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            verified && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                                className: "   absolute -bottom-1 -right-1    bg-green-500 rounded-full p-1   shadow-lg   ",
+                                initial: {
+                                    scale: 0
+                                },
+                                animate: {
+                                    scale: 1
+                                },
+                                transition: {
+                                    delay: 0.3,
+                                    type: "spring"
+                                },
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$badge$2d$check$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Verified$3e$__["Verified"], {
+                                    size: 12,
+                                    className: "text-white"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/sections/testimoni.jsx",
+                                    lineNumber: 295,
+                                    columnNumber: 15
+                                }, ("TURBOPACK compile-time value", void 0))
+                            }, void 0, false, {
+                                fileName: "[project]/src/sections/testimoni.jsx",
+                                lineNumber: 285,
+                                columnNumber: 13
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/sections/testimoni.jsx",
+                        lineNumber: 270,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex-1 min-w-0",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center gap-2 mb-1",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "   text-sm sm:text-base font-bold    text-text-primary dark:text-text-secondary   truncate   ",
+                                    children: name
+                                }, void 0, false, {
+                                    fileName: "[project]/src/sections/testimoni.jsx",
+                                    lineNumber: 302,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0))
+                            }, void 0, false, {
+                                fileName: "[project]/src/sections/testimoni.jsx",
+                                lineNumber: 301,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "   text-xs text-text-muted dark:text-text-secondary/70   truncate   ",
+                                children: role
+                            }, void 0, false, {
+                                fileName: "[project]/src/sections/testimoni.jsx",
+                                lineNumber: 311,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center gap-2 mt-2",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex gap-0.5",
+                                        children: Array.from({
+                                            length: 5
+                                        }).map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                                                initial: {
+                                                    opacity: 0,
+                                                    scale: 0
+                                                },
+                                                animate: {
+                                                    opacity: 1,
+                                                    scale: 1
+                                                },
+                                                transition: {
+                                                    delay: i * 0.1
+                                                },
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$star$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Star$3e$__["Star"], {
+                                                    size: 14,
+                                                    className: i < rating ? "fill-yellow-400 text-yellow-400" : "fill-gray-200 text-gray-200 dark:fill-gray-700 dark:text-gray-700"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/sections/testimoni.jsx",
+                                                    lineNumber: 328,
+                                                    columnNumber: 19
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            }, i, false, {
+                                                fileName: "[project]/src/sections/testimoni.jsx",
+                                                lineNumber: 322,
+                                                columnNumber: 17
+                                            }, ("TURBOPACK compile-time value", void 0)))
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/sections/testimoni.jsx",
+                                        lineNumber: 320,
+                                        columnNumber: 13
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "text-xs text-text-muted dark:text-text-secondary/70",
+                                        children: date
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/sections/testimoni.jsx",
+                                        lineNumber: 340,
+                                        columnNumber: 13
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/sections/testimoni.jsx",
+                                lineNumber: 319,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/sections/testimoni.jsx",
+                        lineNumber: 300,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/sections/testimoni.jsx",
+                lineNumber: 268,
+                columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/sections/testimoni.jsx",
-        lineNumber: 125,
-        columnNumber: 3
+        lineNumber: 219,
+        columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
-/* ==========================
-   MARQUEE ROW (NONSTOP)
-   ========================== */ const MarqueeRow = ({ testimonials, direction })=>{
+};
+/* =========================================================
+   MARQUEE ROW - Enhanced dengan fade effect
+   ========================================================= */ const MarqueeRow = ({ testimonials, direction, isMobile })=>{
     const cls = direction === "left" ? "marquee-left" : "marquee-right";
+    const shouldReduceMotion = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$utils$2f$reduced$2d$motion$2f$use$2d$reduced$2d$motion$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useReducedMotion"])();
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "overflow-hidden",
+        className: "relative marquee-container marquee-fade",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: `flex gap-6 w-max ${cls}`,
+            className: `flex gap-6 ${shouldReduceMotion ? "" : cls}`,
+            style: {
+                width: shouldReduceMotion ? "fit-content" : "max-content"
+            },
             children: [
+                ...testimonials,
                 ...testimonials,
                 ...testimonials
             ].map((t, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(TestimonialCard, {
-                    ...t
-                }, i, false, {
+                    ...t,
+                    isMobile: isMobile
+                }, `${t.name}-${i}`, false, {
                     fileName: "[project]/src/sections/testimoni.jsx",
-                    lineNumber: 175,
+                    lineNumber: 367,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0)))
         }, void 0, false, {
             fileName: "[project]/src/sections/testimoni.jsx",
-            lineNumber: 173,
+            lineNumber: 359,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/sections/testimoni.jsx",
-        lineNumber: 172,
+        lineNumber: 358,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
+/* =========================================================
+   STATS SECTION - Social proof component
+   ========================================================= */ const StatsSection = ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+        variants: ANIMATION_CONFIG.STAGGER,
+        initial: "hidden",
+        whileInView: "show",
+        viewport: {
+            once: true,
+            amount: 0.5
+        },
+        className: "   flex flex-wrap justify-center gap-8 sm:gap-12    mt-12 mb-16   ",
+        children: STATS.map((stat, index)=>{
+            const Icon = stat.icon;
+            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                variants: ANIMATION_CONFIG.STAT_NUMBER,
+                className: "text-center",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "   flex items-center justify-center    w-16 h-16 sm:w-20 sm:h-20   mx-auto mb-3   rounded-full    bg-primary/10 dark:bg-accent/20   ",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Icon, {
+                            className: "text-primary dark:text-accent",
+                            size: 32
+                        }, void 0, false, {
+                            fileName: "[project]/src/sections/testimoni.jsx",
+                            lineNumber: 407,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/src/sections/testimoni.jsx",
+                        lineNumber: 400,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "   text-3xl sm:text-4xl font-extrabold    text-primary dark:text-accent   mb-1   ",
+                        children: stat.value
+                    }, void 0, false, {
+                        fileName: "[project]/src/sections/testimoni.jsx",
+                        lineNumber: 409,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "   text-sm sm:text-base    text-text-muted dark:text-text-secondary   ",
+                        children: stat.label
+                    }, void 0, false, {
+                        fileName: "[project]/src/sections/testimoni.jsx",
+                        lineNumber: 416,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, index, true, {
+                fileName: "[project]/src/sections/testimoni.jsx",
+                lineNumber: 395,
+                columnNumber: 9
+            }, ("TURBOPACK compile-time value", void 0));
+        })
+    }, void 0, false, {
+        fileName: "[project]/src/sections/testimoni.jsx",
+        lineNumber: 382,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0));
 function Testimoni() {
     useMarqueeStyles();
+    const [isMobile, setIsMobile] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const checkMobile = ()=>setIsMobile(window.innerWidth < 640);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return ()=>window.removeEventListener("resize", checkMobile);
+    }, []);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         id: "testimoni",
-        className: "relative w-full py-20 md:py-28 overflow-hidden   bg-gradient-to-b from-bg-soft via-bg-warm to-bg-gold   dark:from-bg-soft dark:via-bg-warm dark:to-bg-gold",
+        className: "   relative w-full    py-16 sm:py-20 md:py-28    overflow-hidden   bg-gradient-to-b from-bg-soft via-bg-warm to-bg-gold   dark:from-bg-soft dark:via-bg-warm dark:to-bg-gold   transition-colors duration-500   ",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute inset-0 opacity-5 pointer-events-none",
+                className: "absolute inset-0 opacity-[0.03] dark:opacity-[0.02] pointer-events-none",
                 style: {
-                    backgroundImage: "radial-gradient(circle at 20% 50%, rgba(229,118,33,0.1) 0%, transparent 50%)"
-                }
+                    backgroundImage: "radial-gradient(circle at 20% 50%, rgba(229,118,33,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(252,187,101,0.15) 0%, transparent 50%)"
+                },
+                "aria-hidden": "true"
             }, void 0, false, {
                 fileName: "[project]/src/sections/testimoni.jsx",
-                lineNumber: 196,
+                lineNumber: 455,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                className: "   absolute top-1/4 left-1/4    w-48 h-48 sm:w-64 sm:h-64   bg-primary/5 rounded-full blur-3xl   ",
+                animate: {
+                    y: [
+                        0,
+                        -30,
+                        0
+                    ],
+                    x: [
+                        0,
+                        20,
+                        0
+                    ]
+                },
+                transition: {
+                    duration: 10,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                },
+                "aria-hidden": "true"
+            }, void 0, false, {
+                fileName: "[project]/src/sections/testimoni.jsx",
+                lineNumber: 465,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "relative z-10",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].header, {
-                        variants: ANIMATION,
+                        variants: ANIMATION_CONFIG.FADE_UP,
                         initial: "hidden",
                         whileInView: "show",
                         viewport: {
-                            once: true
+                            once: true,
+                            amount: 0.5
                         },
-                        className: "text-center mb-16",
+                        className: "text-center mb-8 sm:mb-12 px-4",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-primary font-semibold mb-2 tracking-wide uppercase text-sm",
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].p, {
+                                className: "   text-primary dark:text-accent   font-semibold mb-2    tracking-wider uppercase    text-xs sm:text-sm   ",
+                                animate: {
+                                    opacity: [
+                                        0.7,
+                                        1,
+                                        0.7
+                                    ]
+                                },
+                                transition: {
+                                    duration: 2,
+                                    repeat: Infinity
+                                },
                                 children: "Apa Kata Mereka?"
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/testimoni.jsx",
-                                lineNumber: 213,
+                                lineNumber: 488,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                className: "text-3xl md:text-5xl font-bold text-text-primary dark:text-text-secondary",
+                                className: "   text-3xl sm:text-4xl md:text-5xl    font-extrabold    text-text-primary dark:text-text-secondary   leading-tight   ",
                                 children: [
-                                    "Testimoni dari ",
+                                    "Testimoni dari",
+                                    " ",
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "text-primary",
+                                        className: "text-primary dark:text-accent",
                                         children: "Mahasiswa"
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/testimoni.jsx",
-                                        lineNumber: 218,
-                                        columnNumber: 28
+                                        lineNumber: 510,
+                                        columnNumber: 13
                                     }, this),
-                                    " ITB"
+                                    " ",
+                                    "ITB"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/sections/testimoni.jsx",
-                                lineNumber: 217,
+                                lineNumber: 503,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "   mt-4 text-sm sm:text-base md:text-lg   text-text-muted dark:text-text-secondary/80   max-w-2xl mx-auto   ",
+                                children: "Dengar langsung pengalaman mereka yang sudah jelajahi kuliner Gelap Nyawang"
+                            }, void 0, false, {
+                                fileName: "[project]/src/sections/testimoni.jsx",
+                                lineNumber: 516,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/sections/testimoni.jsx",
-                        lineNumber: 206,
+                        lineNumber: 481,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(StatsSection, {}, void 0, false, {
+                        fileName: "[project]/src/sections/testimoni.jsx",
+                        lineNumber: 527,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
-                        variants: ANIMATION,
+                        variants: ANIMATION_CONFIG.FADE_UP,
                         initial: "hidden",
                         whileInView: "show",
-                        className: "mb-10",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(MarqueeRow, {
-                            testimonials: TESTIMONIALS_TOP,
-                            direction: "left"
-                        }, void 0, false, {
-                            fileName: "[project]/src/sections/testimoni.jsx",
-                            lineNumber: 228,
-                            columnNumber: 11
-                        }, this)
-                    }, void 0, false, {
+                        viewport: {
+                            once: true,
+                            amount: 0.2
+                        },
+                        className: "space-y-8 sm:space-y-10",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(MarqueeRow, {
+                                testimonials: TESTIMONIALS_TOP,
+                                direction: "left",
+                                isMobile: isMobile
+                            }, void 0, false, {
+                                fileName: "[project]/src/sections/testimoni.jsx",
+                                lineNumber: 537,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(MarqueeRow, {
+                                testimonials: TESTIMONIALS_BOTTOM,
+                                direction: "right",
+                                isMobile: isMobile
+                            }, void 0, false, {
+                                fileName: "[project]/src/sections/testimoni.jsx",
+                                lineNumber: 542,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
                         fileName: "[project]/src/sections/testimoni.jsx",
-                        lineNumber: 222,
+                        lineNumber: 530,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
-                        variants: ANIMATION,
+                        variants: ANIMATION_CONFIG.FADE_UP,
                         initial: "hidden",
                         whileInView: "show",
-                        className: "mb-10",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(MarqueeRow, {
-                            testimonials: TESTIMONIALS_BOTTOM,
-                            direction: "right"
-                        }, void 0, false, {
-                            fileName: "[project]/src/sections/testimoni.jsx",
-                            lineNumber: 237,
-                            columnNumber: 11
-                        }, this)
+                        viewport: {
+                            once: true
+                        },
+                        className: "   w-full h-[1px]    bg-gradient-to-r from-transparent via-primary/40 to-transparent    mt-16 sm:mt-20   ",
+                        "aria-hidden": "true"
                     }, void 0, false, {
                         fileName: "[project]/src/sections/testimoni.jsx",
-                        lineNumber: 231,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
-                        variants: ANIMATION,
-                        initial: "hidden",
-                        whileInView: "show",
-                        className: "w-full h-[1px] bg-gradient-to-r from-transparent    via-primary/40 to-transparent mt-16"
-                    }, void 0, false, {
-                        fileName: "[project]/src/sections/testimoni.jsx",
-                        lineNumber: 240,
+                        lineNumber: 550,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/sections/testimoni.jsx",
-                lineNumber: 204,
+                lineNumber: 479,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/sections/testimoni.jsx",
-        lineNumber: 190,
+        lineNumber: 443,
         columnNumber: 5
     }, this);
 }
@@ -3641,17 +4010,21 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/x.js [app-ssr] (ecmascript) <export default as X>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$left$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronLeft$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/chevron-left.js [app-ssr] (ecmascript) <export default as ChevronLeft>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronRight$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/chevron-right.js [app-ssr] (ecmascript) <export default as ChevronRight>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$maximize$2d$2$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Maximize2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/maximize-2.js [app-ssr] (ecmascript) <export default as Maximize2>");
 "use client";
 ;
 ;
 ;
 ;
 ;
-/* ===========================
-   GALERI DATA (improved)
-   =========================== */ const GALERI_PHOTOS = [
+/* =========================================================
+   GALERI DATA - Enhanced dengan better metadata
+   ========================================================= */ const GALERI_PHOTOS = [
     {
         src: "/assets/galeri/1.jpeg",
         text: "Warung kecil yang nyimpen cerita anak kos tiap malam.",
@@ -3659,309 +4032,762 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
         tags: [
             "#GelapNyawang",
             "#KulinerMalam"
-        ]
+        ],
+        aspectRatio: "4/3"
     },
     {
         src: "/assets/galeri/2.jpeg",
-        text: "Dari gelas kopi sampai suara gerobak, semuanya punya nostalgia.",
+        text: "Dari gelas kopi sampai suara gerobak, semuanya punya nostalgia",
         location: "Dapur Laut",
         tags: [
             "#Nongkrong",
             "#KopiMalam"
-        ]
+        ],
+        aspectRatio: "4/3"
     },
     {
         src: "/assets/galeri/3.jpeg",
-        text: "Setiap foto punya suasana; meriah, hangat, dan penuh tawa.",
+        text: "Setiap foto punya suasana; meriah, hangat, dan penuh tawa",
         location: "Kedai BWJ",
         tags: [
             "#Mahasiswa",
             "#LateNight"
-        ]
+        ],
+        aspectRatio: "4/3"
     },
     {
         src: "/assets/galeri/4.jpeg",
-        text: "Dapur sederhana yang hidup dari obrolan dan pesanan yang gak pernah berhenti.",
+        text: "Dapur sederhana yang hidup dari obrolan dan pesanan yang gak pernah berhenti",
         location: "Ayam Besthal",
         tags: [
             "#DapurPanas",
             "#StreetFood"
-        ]
+        ],
+        aspectRatio: "4/3"
     },
     {
         src: "/assets/galeri/5.jpeg",
-        text: "Rasa yang nempel karena dibuat pelan-pelan, bukan buru-buru.",
+        text: "Rasa yang nempel karena dibuat pelan-pelan, bukan buru-buru",
         location: "Angkringan Mas Jo",
         tags: [
             "#MasakanRumahan"
-        ]
+        ],
+        aspectRatio: "4/3"
     },
     {
         src: "/assets/galeri/6.jpeg",
-        text: "Suasana malam Gelap Nyawang itu beda—hangat, riuh, dan ngangenin.",
+        text: "Suasana malam Gelap Nyawang itu beda—hangat, riuh, dan ngangenin",
         location: "Warnas Doa Mande",
         tags: [
             "#NightVibes",
             "#Bandung"
-        ]
+        ],
+        aspectRatio: "4/3"
+    },
+    {
+        src: "/assets/galeri/7.jpeg",
+        text: "Tempat singgah pas lagi capek kuliah. Ayamnya unik, suasananya bikin betah",
+        location: "Ayam Cola Kabita HC",
+        tags: [
+            "#Nongkies",
+            "#GenZ"
+        ],
+        aspectRatio: "4/3"
+    },
+    {
+        src: "/assets/galeri/8.jpeg",
+        text: "SDari wangi bebek gorengnya aja udah bikin lapar lagi. Suasana malamnya ngeblend sama obrolan ringan",
+        location: "Bebek Stallone",
+        tags: [
+            "#Makan",
+            "#Lapar"
+        ],
+        aspectRatio: "4/3"
     }
 ];
-/* ===========================
-   GALLERY CARD
-   =========================== */ const GalleryCard = ({ item, index, onClick })=>{
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].article, {
-        initial: {
+/* =========================================================
+   ANIMATION CONFIG
+   ========================================================= */ const ANIMATION_CONFIG = {
+    CARD: {
+        hidden: {
             opacity: 0,
             y: 24
         },
-        whileInView: {
+        show: {
             opacity: 1,
-            y: 0
+            y: 0,
+            transition: {
+                duration: 0.6,
+                ease: [
+                    0.22,
+                    1,
+                    0.36,
+                    1
+                ]
+            }
+        }
+    },
+    STAGGER: {
+        hidden: {
+            opacity: 0
         },
-        viewport: {
-            once: true,
-            amount: 0.2
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.08,
+                delayChildren: 0.1
+            }
+        }
+    },
+    OVERLAY: {
+        hidden: {
+            opacity: 0
         },
-        transition: {
-            duration: 0.7,
-            delay: index * 0.05
+        show: {
+            opacity: 1,
+            transition: {
+                duration: 0.3
+            }
+        }
+    },
+    LIGHTBOX: {
+        backdrop: {
+            hidden: {
+                opacity: 0
+            },
+            show: {
+                opacity: 1,
+                transition: {
+                    duration: 0.3
+                }
+            }
         },
+        content: {
+            hidden: {
+                opacity: 0,
+                scale: 0.95,
+                y: 20
+            },
+            show: {
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                transition: {
+                    duration: 0.4,
+                    ease: [
+                        0.22,
+                        1,
+                        0.36,
+                        1
+                    ]
+                }
+            }
+        }
+    }
+};
+/* =========================================================
+   GALLERY CARD - Fully Responsive dengan better hover
+   ========================================================= */ const GalleryCard = ({ item, index, onClick, isMobile })=>{
+    const [isHovered, setIsHovered] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].article, {
+        variants: ANIMATION_CONFIG.CARD,
         onClick: onClick,
-        className: "group relative overflow-hidden rounded-xl cursor-pointer   transition-all duration-500 ease-in-out will-change-transform   aspect-square",
+        onMouseEnter: ()=>!isMobile && setIsHovered(true),
+        onMouseLeave: ()=>!isMobile && setIsHovered(false),
+        className: "   group relative overflow-hidden    rounded-xl sm:rounded-2xl   cursor-pointer   bg-gray-100 dark:bg-gray-800   transition-all duration-300   hover:shadow-2xl hover:-translate-y-1   ",
+        style: {
+            aspectRatio: "4/3"
+        },
+        whileHover: !isMobile ? {
+            scale: 1.02
+        } : {},
+        whileTap: {
+            scale: 0.98
+        },
+        "aria-label": `Lihat foto ${item.location}`,
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                 src: item.src,
-                alt: `Foto ${index + 1} Gelap Nyawang`,
+                alt: `${item.location} - ${item.text}`,
                 fill: true,
-                className: "object-cover transition-transform duration-500 ease-in-out group-hover:scale-105",
-                sizes: "(max-width: 768px) 50vw, 33vw",
-                loading: index < 2 ? "eager" : "lazy"
+                className: "   object-cover    transition-transform duration-700 ease-out   group-hover:scale-110   ",
+                sizes: "(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw",
+                loading: index < 3 ? "eager" : "lazy",
+                priority: index < 2,
+                quality: 85
             }, void 0, false, {
                 fileName: "[project]/src/sections/galeri.jsx",
-                lineNumber: 68,
+                lineNumber: 141,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute inset-0 opacity-0 group-hover:opacity-100   bg-primary/70 flex flex-col justify-center items-center    text-white text-center px-4 transition-opacity duration-300",
+                className: "   absolute inset-0    bg-gradient-to-t from-black/60 via-black/0 to-black/0   pointer-events-none   "
+            }, void 0, false, {
+                fileName: "[project]/src/sections/galeri.jsx",
+                lineNumber: 157,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                animate: {
+                    opacity: isHovered && !isMobile ? 0 : 1,
+                    y: isHovered && !isMobile ? 10 : 0
+                },
+                transition: {
+                    duration: 0.3
+                },
+                className: "   absolute bottom-3 left-3 right-3   flex items-center justify-between   pointer-events-none   z-10   ",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                        src: "/assets/logo.png",
-                        alt: "",
-                        width: 112,
-                        height: 112,
-                        className: "w-20 md:w-28 mb-3",
-                        "aria-hidden": "true"
-                    }, void 0, false, {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                        className: "   text-white font-semibold    text-xs sm:text-sm   bg-black/40 backdrop-blur-sm   px-2 sm:px-3 py-1 rounded-full   border border-white/20   truncate   max-w-[75%]   ",
+                        children: [
+                            "📍 ",
+                            item.location
+                        ]
+                    }, void 0, true, {
                         fileName: "[project]/src/sections/galeri.jsx",
-                        lineNumber: 83,
+                        lineNumber: 177,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "font-medium text-sm md:text-lg leading-relaxed mb-2",
-                        children: item.text
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$maximize$2d$2$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Maximize2$3e$__["Maximize2"], {
+                        size: 18,
+                        className: "text-white drop-shadow-lg"
                     }, void 0, false, {
                         fileName: "[project]/src/sections/galeri.jsx",
-                        lineNumber: 92,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-xs md:text-sm opacity-90",
-                        children: item.location
-                    }, void 0, false, {
-                        fileName: "[project]/src/sections/galeri.jsx",
-                        lineNumber: 97,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-[10px] md:text-xs opacity-80 mt-1",
-                        children: item.tags.join("  ")
-                    }, void 0, false, {
-                        fileName: "[project]/src/sections/galeri.jsx",
-                        lineNumber: 98,
+                        lineNumber: 189,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/sections/galeri.jsx",
-                lineNumber: 78,
+                lineNumber: 164,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
+                children: isHovered && !isMobile && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                    variants: ANIMATION_CONFIG.OVERLAY,
+                    initial: "hidden",
+                    animate: "show",
+                    exit: "hidden",
+                    className: "   absolute inset-0    bg-gradient-to-br from-primary/95 via-primary/90 to-primary-dark/95   backdrop-blur-sm   flex flex-col justify-center items-center    text-white text-center    px-4 sm:px-6   pointer-events-none   opacity-30   ",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].img, {
+                            src: "/assets/logo.png",
+                            alt: "",
+                            width: 80,
+                            height: 80,
+                            className: "w-14 sm:w-16 md:w-20 mb-3 drop-shadow-lg",
+                            "aria-hidden": "true",
+                            initial: {
+                                opacity: 0,
+                                y: -10
+                            },
+                            animate: {
+                                opacity: 1,
+                                y: 0
+                            },
+                            transition: {
+                                delay: 0.1
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/sections/galeri.jsx",
+                            lineNumber: 215,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].p, {
+                            className: "   font-medium    text-xs sm:text-sm md:text-base   leading-relaxed    mb-2   line-clamp-3   drop-shadow-md   ",
+                            initial: {
+                                opacity: 0
+                            },
+                            animate: {
+                                opacity: 1
+                            },
+                            transition: {
+                                delay: 0.15
+                            },
+                            children: item.text
+                        }, void 0, false, {
+                            fileName: "[project]/src/sections/galeri.jsx",
+                            lineNumber: 228,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                            className: "flex flex-wrap gap-1 sm:gap-2 justify-center mt-2 max-w-full px-2",
+                            initial: {
+                                opacity: 0
+                            },
+                            animate: {
+                                opacity: 1
+                            },
+                            transition: {
+                                delay: 0.2
+                            },
+                            children: item.tags.map((tag, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    className: "   text-[10px] sm:text-xs    bg-white/20 backdrop-blur-sm   px-2 py-0.5 rounded-full   border border-white/30   whitespace-nowrap   ",
+                                    children: tag
+                                }, i, false, {
+                                    fileName: "[project]/src/sections/galeri.jsx",
+                                    lineNumber: 252,
+                                    columnNumber: 17
+                                }, ("TURBOPACK compile-time value", void 0)))
+                        }, void 0, false, {
+                            fileName: "[project]/src/sections/galeri.jsx",
+                            lineNumber: 245,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0))
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/sections/galeri.jsx",
+                    lineNumber: 198,
+                    columnNumber: 11
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/sections/galeri.jsx",
+                lineNumber: 196,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/sections/galeri.jsx",
-        lineNumber: 57,
+        lineNumber: 120,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+/* =========================================================
+   LIGHTBOX MODAL - Production-grade dengan navigation
+   ========================================================= */ const Lightbox = ({ photos, currentIndex, onClose, onNavigate })=>{
+    const current = photos[currentIndex];
+    const [imageLoaded, setImageLoaded] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    // Keyboard navigation
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const handleKeyDown = (e)=>{
+            if (e.key === "Escape") onClose();
+            if (e.key === "ArrowLeft") onNavigate("prev");
+            if (e.key === "ArrowRight") onNavigate("next");
+        };
+        window.addEventListener("keydown", handleKeyDown);
+        return ()=>window.removeEventListener("keydown", handleKeyDown);
+    }, [
+        onClose,
+        onNavigate
+    ]);
+    // Prevent body scroll
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        document.body.style.overflow = "hidden";
+        return ()=>{
+            document.body.style.overflow = "";
+        };
+    }, []);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+            variants: ANIMATION_CONFIG.LIGHTBOX.backdrop,
+            initial: "hidden",
+            animate: "show",
+            exit: "hidden",
+            className: "   fixed inset-0 z-[100]    bg-black/95 backdrop-blur-md   flex items-center justify-center   p-4 sm:p-6   ",
+            onClick: onClose,
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
+                    onClick: onClose,
+                    className: "   absolute top-4 right-4 sm:top-6 sm:right-6   z-10   w-10 h-10 sm:w-12 sm:h-12   flex items-center justify-center   bg-white/10 hover:bg-white/20   backdrop-blur-md   rounded-full   text-white   transition-all duration-200   hover:scale-110   focus:outline-none focus:ring-2 focus:ring-white/50   ",
+                    whileTap: {
+                        scale: 0.95
+                    },
+                    "aria-label": "Close gallery",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
+                        size: 24
+                    }, void 0, false, {
+                        fileName: "[project]/src/sections/galeri.jsx",
+                        lineNumber: 339,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0))
+                }, void 0, false, {
+                    fileName: "[project]/src/sections/galeri.jsx",
+                    lineNumber: 321,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0)),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "hidden sm:block",
+                    children: [
+                        currentIndex > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
+                            onClick: (e)=>{
+                                e.stopPropagation();
+                                onNavigate("prev");
+                            },
+                            className: "   absolute left-4 top-1/2 -translate-y-1/2   w-12 h-12   flex items-center justify-center   bg-white/10 hover:bg-white/20   backdrop-blur-md   rounded-full   text-white   transition-all duration-200   hover:scale-110   ",
+                            whileTap: {
+                                scale: 0.95
+                            },
+                            "aria-label": "Previous photo",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$left$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronLeft$3e$__["ChevronLeft"], {
+                                size: 28
+                            }, void 0, false, {
+                                fileName: "[project]/src/sections/galeri.jsx",
+                                lineNumber: 364,
+                                columnNumber: 15
+                            }, ("TURBOPACK compile-time value", void 0))
+                        }, void 0, false, {
+                            fileName: "[project]/src/sections/galeri.jsx",
+                            lineNumber: 345,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        currentIndex < photos.length - 1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
+                            onClick: (e)=>{
+                                e.stopPropagation();
+                                onNavigate("next");
+                            },
+                            className: "   absolute right-4 top-1/2 -translate-y-1/2   w-12 h-12   flex items-center justify-center   bg-white/10 hover:bg-white/20   backdrop-blur-md   rounded-full   text-white   transition-all duration-200   hover:scale-110   ",
+                            whileTap: {
+                                scale: 0.95
+                            },
+                            "aria-label": "Next photo",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronRight$3e$__["ChevronRight"], {
+                                size: 28
+                            }, void 0, false, {
+                                fileName: "[project]/src/sections/galeri.jsx",
+                                lineNumber: 388,
+                                columnNumber: 15
+                            }, ("TURBOPACK compile-time value", void 0))
+                        }, void 0, false, {
+                            fileName: "[project]/src/sections/galeri.jsx",
+                            lineNumber: 369,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0))
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/sections/galeri.jsx",
+                    lineNumber: 343,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0)),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                    variants: ANIMATION_CONFIG.LIGHTBOX.content,
+                    initial: "hidden",
+                    animate: "show",
+                    exit: "hidden",
+                    onClick: (e)=>e.stopPropagation(),
+                    className: "   relative w-full    max-w-5xl max-h-[85vh]   flex flex-col items-center   ",
+                    children: [
+                        !imageLoaded && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "   absolute inset-0    bg-gray-800 animate-pulse    rounded-xl   "
+                        }, void 0, false, {
+                            fileName: "[project]/src/sections/galeri.jsx",
+                            lineNumber: 408,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                            src: current.src,
+                            alt: current.text,
+                            className: "   max-w-full max-h-[70vh] sm:max-h-[75vh]   object-contain    rounded-xl   shadow-2xl   ",
+                            onLoad: ()=>setImageLoaded(true)
+                        }, void 0, false, {
+                            fileName: "[project]/src/sections/galeri.jsx",
+                            lineNumber: 416,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                            initial: {
+                                opacity: 0,
+                                y: 20
+                            },
+                            animate: {
+                                opacity: 1,
+                                y: 0
+                            },
+                            transition: {
+                                delay: 0.3
+                            },
+                            className: "   mt-4 sm:mt-6    w-full max-w-2xl   bg-white/10 backdrop-blur-md   border border-white/20   rounded-xl   p-4 sm:p-6   text-white text-center   ",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "   font-semibold    text-sm sm:text-base md:text-lg   leading-relaxed    mb-2   ",
+                                    children: current.text
+                                }, void 0, false, {
+                                    fileName: "[project]/src/sections/galeri.jsx",
+                                    lineNumber: 443,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "   flex flex-wrap items-center justify-center    gap-2 sm:gap-3   text-xs sm:text-sm   text-white/80   ",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "   bg-white/10    px-3 py-1    rounded-full   border border-white/20   ",
+                                            children: [
+                                                "📍 ",
+                                                current.location
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/sections/galeri.jsx",
+                                            lineNumber: 458,
+                                            columnNumber: 15
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        current.tags.map((tag, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "   bg-white/10    px-2 sm:px-3 py-1    rounded-full   border border-white/20   ",
+                                                children: tag
+                                            }, i, false, {
+                                                fileName: "[project]/src/sections/galeri.jsx",
+                                                lineNumber: 468,
+                                                columnNumber: 17
+                                            }, ("TURBOPACK compile-time value", void 0)))
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/sections/galeri.jsx",
+                                    lineNumber: 452,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "   mt-3    text-xs sm:text-sm    text-white/60   font-mono   ",
+                                    children: [
+                                        currentIndex + 1,
+                                        " / ",
+                                        photos.length
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/sections/galeri.jsx",
+                                    lineNumber: 483,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0))
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/sections/galeri.jsx",
+                            lineNumber: 429,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0))
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/sections/galeri.jsx",
+                    lineNumber: 394,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0)),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                    initial: {
+                        opacity: 0
+                    },
+                    animate: {
+                        opacity: 1
+                    },
+                    transition: {
+                        delay: 1
+                    },
+                    className: "   sm:hidden   absolute bottom-6 left-1/2 -translate-x-1/2   text-white/60 text-xs   flex items-center gap-2   ",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$left$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronLeft$3e$__["ChevronLeft"], {
+                            size: 16
+                        }, void 0, false, {
+                            fileName: "[project]/src/sections/galeri.jsx",
+                            lineNumber: 506,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            children: "Swipe untuk navigate"
+                        }, void 0, false, {
+                            fileName: "[project]/src/sections/galeri.jsx",
+                            lineNumber: 507,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronRight$3e$__["ChevronRight"], {
+                            size: 16
+                        }, void 0, false, {
+                            fileName: "[project]/src/sections/galeri.jsx",
+                            lineNumber: 508,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0))
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/sections/galeri.jsx",
+                    lineNumber: 495,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            ]
+        }, void 0, true, {
+            fileName: "[project]/src/sections/galeri.jsx",
+            lineNumber: 307,
+            columnNumber: 7
+        }, ("TURBOPACK compile-time value", void 0))
+    }, void 0, false, {
+        fileName: "[project]/src/sections/galeri.jsx",
+        lineNumber: 306,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
 function Galeri() {
-    const [lightbox, setLightbox] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [lightboxIndex, setLightboxIndex] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [isMobile, setIsMobile] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    // Mobile detection
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const checkMobile = ()=>setIsMobile(window.innerWidth < 640);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return ()=>window.removeEventListener("resize", checkMobile);
+    }, []);
+    // Lightbox navigation
+    const handleNavigate = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])((direction)=>{
+        setLightboxIndex((prev)=>{
+            if (direction === "prev") {
+                return Math.max(0, prev - 1);
+            }
+            return Math.min(GALERI_PHOTOS.length - 1, prev + 1);
+        });
+    }, []);
+    // Touch swipe for mobile lightbox
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        if (lightboxIndex === null || !isMobile) return;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const handleTouchStart = (e)=>{
+            touchStartX = e.changedTouches[0].screenX;
+        };
+        const handleTouchEnd = (e)=>{
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) handleNavigate("next");
+            if (touchEndX - touchStartX > 50) handleNavigate("prev");
+        };
+        document.addEventListener("touchstart", handleTouchStart);
+        document.addEventListener("touchend", handleTouchEnd);
+        return ()=>{
+            document.removeEventListener("touchstart", handleTouchStart);
+            document.removeEventListener("touchend", handleTouchEnd);
+        };
+    }, [
+        lightboxIndex,
+        isMobile,
+        handleNavigate
+    ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         id: "galeri",
-        className: "w-full pt-0 pb-32 md:pb-40 relative overflow-visible   bg-gradient-to-b from-bg-gold via-bg-warm to-bg-soft   dark:from-bg-gold dark:via-bg-warm dark:to-bg-soft   transition-colors duration-500",
+        className: "   w-full    pt-16 sm:pt-20 md:pt-24   pb-24 sm:pb-32 md:pb-40    relative overflow-hidden   bg-gradient-to-b from-bg-gold via-bg-warm to-bg-soft   dark:from-bg-gold dark:via-bg-warm dark:to-bg-soft   transition-colors duration-500   ",
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
-                className: "text-center mb-12 px-6",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].h4, {
-                        initial: {
-                            opacity: 0,
-                            y: 20
-                        },
-                        whileInView: {
-                            opacity: 1,
-                            y: 0
-                        },
-                        viewport: {
-                            once: true
-                        },
-                        className: "text-primary font-semibold mb-3 text-sm tracking-wide uppercase",
-                        children: "Dibalik Gelap Nyawang"
-                    }, void 0, false, {
-                        fileName: "[project]/src/sections/galeri.jsx",
-                        lineNumber: 123,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].h2, {
-                        initial: {
-                            opacity: 0,
-                            y: 26
-                        },
-                        whileInView: {
-                            opacity: 1,
-                            y: 0
-                        },
-                        viewport: {
-                            once: true
-                        },
-                        transition: {
-                            delay: 0.1
-                        },
-                        className: "text-3xl md:text-5xl font-bold text-text-primary dark:text-text-secondary",
-                        children: [
-                            "Cerita dari ",
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "text-primary",
-                                children: "Kehangatan"
-                            }, void 0, false, {
-                                fileName: "[project]/src/sections/galeri.jsx",
-                                lineNumber: 139,
-                                columnNumber: 23
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/sections/galeri.jsx",
-                        lineNumber: 132,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                className: "   absolute top-1/4 right-1/4   w-64 h-64 sm:w-96 sm:h-96   bg-primary/5 rounded-full blur-3xl   ",
+                animate: {
+                    y: [
+                        0,
+                        -30,
+                        0
+                    ],
+                    x: [
+                        0,
+                        30,
+                        0
+                    ]
+                },
+                transition: {
+                    duration: 12,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                },
+                "aria-hidden": "true"
+            }, void 0, false, {
                 fileName: "[project]/src/sections/galeri.jsx",
-                lineNumber: 122,
+                lineNumber: 580,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "grid grid-cols-2 md:grid-cols-3 gap-4 px-6 md:px-16",
-                children: GALERI_PHOTOS.map((item, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(GalleryCard, {
-                        item: item,
-                        index: i,
-                        onClick: ()=>setLightbox(item)
-                    }, i, false, {
-                        fileName: "[project]/src/sections/galeri.jsx",
-                        lineNumber: 146,
-                        columnNumber: 11
-                    }, this))
-            }, void 0, false, {
-                fileName: "[project]/src/sections/galeri.jsx",
-                lineNumber: 144,
-                columnNumber: 7
-            }, this),
-            lightbox && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
-                initial: {
-                    opacity: 0
-                },
-                animate: {
-                    opacity: 1
-                },
-                exit: {
-                    opacity: 0
-                },
-                onClick: ()=>setLightbox(null),
-                className: "fixed inset-0 z-50 bg-black/90 backdrop-blur-sm    flex items-center justify-center p-4",
+                className: "relative z-10",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        onClick: ()=>setLightbox(null),
-                        className: "absolute top-5 right-5 text-white",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
-                            size: 32
-                        }, void 0, false, {
-                            fileName: "[project]/src/sections/galeri.jsx",
-                            lineNumber: 169,
-                            columnNumber: 13
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "[project]/src/sections/galeri.jsx",
-                        lineNumber: 165,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                        src: lightbox.src,
-                        alt: lightbox.text,
-                        className: "max-w-full max-h-full object-contain rounded-xl"
-                    }, void 0, false, {
-                        fileName: "[project]/src/sections/galeri.jsx",
-                        lineNumber: 172,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute bottom-10 text-center text-white text-sm opacity-90 px-4",
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].header, {
+                        initial: "hidden",
+                        whileInView: "show",
+                        viewport: {
+                            once: true,
+                            amount: 0.5
+                        },
+                        variants: ANIMATION_CONFIG.STAGGER,
+                        className: "text-center mb-10 sm:mb-12 md:mb-16 px-4 sm:px-6",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "font-medium mb-1",
-                                children: lightbox.text
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].p, {
+                                variants: ANIMATION_CONFIG.CARD,
+                                className: "   text-primary dark:text-accent   font-semibold mb-2 sm:mb-3   text-xs sm:text-sm    tracking-wider uppercase   ",
+                                children: "Dibalik Gelap Nyawang"
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/galeri.jsx",
-                                lineNumber: 180,
-                                columnNumber: 13
+                                lineNumber: 603,
+                                columnNumber: 11
                             }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-xs opacity-80",
-                                children: lightbox.location
-                            }, void 0, false, {
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].h2, {
+                                variants: ANIMATION_CONFIG.CARD,
+                                className: "   text-3xl sm:text-4xl md:text-5xl    font-extrabold    text-text-primary dark:text-text-secondary   leading-tight   ",
+                                children: [
+                                    "Cerita dari",
+                                    " ",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "text-primary dark:text-accent",
+                                        children: "Kehangatan"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/sections/galeri.jsx",
+                                        lineNumber: 625,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
                                 fileName: "[project]/src/sections/galeri.jsx",
-                                lineNumber: 181,
-                                columnNumber: 13
+                                lineNumber: 615,
+                                columnNumber: 11
                             }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-xs opacity-60 mt-1",
-                                children: lightbox.tags.join("  ")
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].p, {
+                                variants: ANIMATION_CONFIG.CARD,
+                                className: "   mt-3 sm:mt-4    text-sm sm:text-base md:text-lg   text-text-muted dark:text-text-secondary/80   max-w-2xl mx-auto   ",
+                                children: "Setiap sudut punya cerita. Dari selfie rame-rame sampai senyum penjual yang tulus."
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/galeri.jsx",
-                                lineNumber: 182,
-                                columnNumber: 13
+                                lineNumber: 630,
+                                columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/sections/galeri.jsx",
-                        lineNumber: 179,
-                        columnNumber: 11
+                        lineNumber: 596,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                        variants: ANIMATION_CONFIG.STAGGER,
+                        initial: "hidden",
+                        whileInView: "show",
+                        viewport: {
+                            once: true,
+                            amount: 0.1
+                        },
+                        className: "   grid    grid-cols-2    md:grid-cols-3    lg:grid-cols-4   gap-3 sm:gap-4 md:gap-6   px-4 sm:px-6 md:px-10 lg:px-16   max-w-[1400px] mx-auto   ",
+                        children: GALERI_PHOTOS.map((item, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(GalleryCard, {
+                                item: item,
+                                index: i,
+                                onClick: ()=>setLightboxIndex(i),
+                                isMobile: isMobile
+                            }, i, false, {
+                                fileName: "[project]/src/sections/galeri.jsx",
+                                lineNumber: 661,
+                                columnNumber: 13
+                            }, this))
+                    }, void 0, false, {
+                        fileName: "[project]/src/sections/galeri.jsx",
+                        lineNumber: 645,
+                        columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/sections/galeri.jsx",
-                lineNumber: 157,
+                lineNumber: 594,
+                columnNumber: 7
+            }, this),
+            lightboxIndex !== null && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(Lightbox, {
+                photos: GALERI_PHOTOS,
+                currentIndex: lightboxIndex,
+                onClose: ()=>setLightboxIndex(null),
+                onNavigate: handleNavigate
+            }, void 0, false, {
+                fileName: "[project]/src/sections/galeri.jsx",
+                lineNumber: 674,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute bottom-0 left-0 w-full h-24 md:h-32   bg-gradient-to-b from-bg-soft via-bg-warm to-bg-gold   dark:from-bg-soft dark:via-bg-warm dark:to-bg-gold   pointer-events-none"
             }, void 0, false, {
                 fileName: "[project]/src/sections/galeri.jsx",
-                lineNumber: 188,
+                lineNumber: 683,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/sections/galeri.jsx",
-        lineNumber: 114,
+        lineNumber: 567,
         columnNumber: 5
     }, this);
 }
@@ -3976,6 +4802,7 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/map-pin.js [app-ssr] (ecmascript) <export default as MapPin>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Navigation$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/navigation.js [app-ssr] (ecmascript) <export default as Navigation>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$share$2d$2$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Share2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/share-2.js [app-ssr] (ecmascript) <export default as Share2>");
@@ -4007,8 +4834,14 @@ const GN_COORDS = {
 function Lokasi() {
     const [loaded, setLoaded] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [userDistance, setUserDistance] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    // 🔔 Toast state
+    const [toast, setToast] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const showToast = (msg)=>{
+        setToast(msg);
+        setTimeout(()=>setToast(null), 3000);
+    };
     /* ================================
-     GET USER LOCATION (Optional)
+     GET USER LOCATION
      ================================ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition((pos)=>{
@@ -4032,22 +4865,22 @@ function Lokasi() {
                 url: MAPS_DIRECT_URL
             });
         } else {
-            alert("Share tidak didukung di perangkat ini.");
+            showToast("Share tidak didukung di perangkat ini.");
         }
     };
     const saveLocation = ()=>{
         navigator.clipboard.writeText(MAPS_DIRECT_URL);
-        alert("Lokasi disimpan ke clipboard!");
+        showToast("✓ Lokasi disimpan ke clipboard!");
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         id: "lokasi",
         className: "   w-full    pt-10 md:pt-12    pb-20 md:pb-28    px-6 md:px-10   relative overflow-hidden   bg-gradient-to-b    from-bg-soft via-bg-warm to-bg-gold   dark:from-bg-soft dark:via-bg-warm dark:to-bg-gold   ",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "   absolute top-0 left-0 w-full h-20 md:h-24   bg-gradient-to-b from-bg-gold via-bg-warm to-bg-soft   dark:from-bg-gold dark:via-bg-warm dark:to-bg-soft   pointer-events-none   z-0   "
+                className: "   absolute top-0 left-0 w-full h-20 md:h-24   bg-gradient-to-b from-bg-soft via-bg-warm/80 to-transparent   dark:from-bg-soft dark:via-bg-warm/80 dark:to-transparent   pointer-events-none z-0   "
             }, void 0, false, {
                 fileName: "[project]/src/sections/lokasi.jsx",
-                lineNumber: 94,
+                lineNumber: 101,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
@@ -4069,7 +4902,7 @@ function Lokasi() {
                         children: "Lokasi Kami"
                     }, void 0, false, {
                         fileName: "[project]/src/sections/lokasi.jsx",
-                        lineNumber: 106,
+                        lineNumber: 114,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].h2, {
@@ -4095,13 +4928,13 @@ function Lokasi() {
                                 children: "Gelap Nyawang"
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/lokasi.jsx",
-                                lineNumber: 125,
+                                lineNumber: 133,
                                 columnNumber: 20
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/sections/lokasi.jsx",
-                        lineNumber: 115,
+                        lineNumber: 123,
                         columnNumber: 9
                     }, this),
                     userDistance && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4113,13 +4946,13 @@ function Lokasi() {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/sections/lokasi.jsx",
-                        lineNumber: 130,
+                        lineNumber: 137,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/sections/lokasi.jsx",
-                lineNumber: 105,
+                lineNumber: 113,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -4147,12 +4980,12 @@ function Lokasi() {
                             "aria-label": "Loading map"
                         }, void 0, false, {
                             fileName: "[project]/src/sections/lokasi.jsx",
-                            lineNumber: 162,
+                            lineNumber: 171,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/sections/lokasi.jsx",
-                        lineNumber: 154,
+                        lineNumber: 163,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("iframe", {
@@ -4169,13 +5002,13 @@ function Lokasi() {
                         allowFullScreen: true
                     }, void 0, false, {
                         fileName: "[project]/src/sections/lokasi.jsx",
-                        lineNumber: 170,
+                        lineNumber: 179,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/sections/lokasi.jsx",
-                lineNumber: 137,
+                lineNumber: 146,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -4206,14 +5039,14 @@ function Lokasi() {
                                 size: 18
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/lokasi.jsx",
-                                lineNumber: 204,
+                                lineNumber: 215,
                                 columnNumber: 11
                             }, this),
                             "Petunjuk Arah"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/sections/lokasi.jsx",
-                        lineNumber: 191,
+                        lineNumber: 202,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4224,14 +5057,14 @@ function Lokasi() {
                                 size: 18
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/lokasi.jsx",
-                                lineNumber: 220,
+                                lineNumber: 231,
                                 columnNumber: 11
                             }, this),
                             "Bagikan Lokasi"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/sections/lokasi.jsx",
-                        lineNumber: 208,
+                        lineNumber: 219,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4242,20 +5075,20 @@ function Lokasi() {
                                 size: 18
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/lokasi.jsx",
-                                lineNumber: 236,
+                                lineNumber: 247,
                                 columnNumber: 11
                             }, this),
                             "Simpan"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/sections/lokasi.jsx",
-                        lineNumber: 224,
+                        lineNumber: 235,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/sections/lokasi.jsx",
-                lineNumber: 184,
+                lineNumber: 195,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4268,7 +5101,7 @@ function Lokasi() {
                                 size: 26
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/lokasi.jsx",
-                                lineNumber: 244,
+                                lineNumber: 257,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4276,7 +5109,7 @@ function Lokasi() {
                                 children: "Lokasi"
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/lokasi.jsx",
-                                lineNumber: 245,
+                                lineNumber: 258,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4284,13 +5117,13 @@ function Lokasi() {
                                 children: "Dekat Gerbang Belakang ITB"
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/lokasi.jsx",
-                                lineNumber: 248,
+                                lineNumber: 261,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/sections/lokasi.jsx",
-                        lineNumber: 243,
+                        lineNumber: 256,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4300,7 +5133,7 @@ function Lokasi() {
                                 size: 26
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/lokasi.jsx",
-                                lineNumber: 254,
+                                lineNumber: 267,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4308,7 +5141,7 @@ function Lokasi() {
                                 children: "Jam Operasional"
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/lokasi.jsx",
-                                lineNumber: 255,
+                                lineNumber: 268,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4316,13 +5149,13 @@ function Lokasi() {
                                 children: "06:00 – 01:00"
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/lokasi.jsx",
-                                lineNumber: 258,
+                                lineNumber: 271,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/sections/lokasi.jsx",
-                        lineNumber: 253,
+                        lineNumber: 266,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4332,7 +5165,7 @@ function Lokasi() {
                                 size: 26
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/lokasi.jsx",
-                                lineNumber: 264,
+                                lineNumber: 277,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4340,7 +5173,7 @@ function Lokasi() {
                                 children: "Akses"
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/lokasi.jsx",
-                                lineNumber: 265,
+                                lineNumber: 278,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4348,32 +5181,57 @@ function Lokasi() {
                                 children: "Parkir Motor Tersedia"
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/lokasi.jsx",
-                                lineNumber: 268,
+                                lineNumber: 281,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/sections/lokasi.jsx",
-                        lineNumber: 263,
+                        lineNumber: 276,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/sections/lokasi.jsx",
-                lineNumber: 242,
+                lineNumber: 255,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "   absolute bottom-0 left-0 w-full    h-24 md:h-32   bg-gradient-to-b    from-transparent via-bg-warm/50 to-bg-gold    "
             }, void 0, false, {
                 fileName: "[project]/src/sections/lokasi.jsx",
-                lineNumber: 275,
+                lineNumber: 288,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
+                children: toast && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                    initial: {
+                        opacity: 0,
+                        y: -20
+                    },
+                    animate: {
+                        opacity: 1,
+                        y: 0
+                    },
+                    exit: {
+                        opacity: 0
+                    },
+                    className: "   fixed top-20 left-1/2 -translate-x-1/2 z-50   bg-green-500 text-white   px-6 py-3 rounded-full shadow-lg   text-sm font-medium   ",
+                    children: toast
+                }, void 0, false, {
+                    fileName: "[project]/src/sections/lokasi.jsx",
+                    lineNumber: 300,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/sections/lokasi.jsx",
+                lineNumber: 298,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/sections/lokasi.jsx",
-        lineNumber: 80,
+        lineNumber: 87,
         columnNumber: 5
     }, this);
 }
@@ -4410,10 +5268,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$mo
             duration: 0.8
         },
         className: `
+      hidden lg:block                 /* ✅ FIX: Hide di mobile/tablet */
       absolute 
       ${side === "left" ? "-left-[285px]" : "-right-[300px]"} 
-      w-[600px] md:w-[680px] lg:w-[760px]
+      w-[680px] lg:w-[760px]
       object-contain pointer-events-none
+      opacity-80                      /* 🔥 lebih soft */
     `,
         "aria-hidden": "true"
     }, void 0, false, {
@@ -4440,14 +5300,14 @@ function BannerDirektori() {
                 transition: {
                     duration: 0.8
                 },
-                className: "   relative z-10    bg-primary text-white    rounded-2xl p-10 md:p-16    overflow-hidden    min-h-[500px]    flex items-center justify-center   ",
+                className: "   relative z-10    bg-primary text-white    rounded-2xl p-10 md:p-16    overflow-hidden       /* ✅ FIX: tinggi mobile dikurangi */   min-h-[400px] md:min-h-[500px]      flex items-center justify-center   ",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(DecorativeImage, {
                         src: "/assets/banner/left.png",
                         side: "left"
                     }, void 0, false, {
                         fileName: "[project]/src/sections/banner.jsx",
-                        lineNumber: 50,
+                        lineNumber: 55,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(DecorativeImage, {
@@ -4455,7 +5315,7 @@ function BannerDirektori() {
                         side: "right"
                     }, void 0, false, {
                         fileName: "[project]/src/sections/banner.jsx",
-                        lineNumber: 51,
+                        lineNumber: 56,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4480,7 +5340,7 @@ function BannerDirektori() {
                                 children: "🔥 10+ UMKM baru ditambahkan minggu ini!"
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/banner.jsx",
-                                lineNumber: 57,
+                                lineNumber: 62,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].h2, {
@@ -4503,7 +5363,7 @@ function BannerDirektori() {
                                     "Nikmati Rekomendasi Kuliner",
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                         fileName: "[project]/src/sections/banner.jsx",
-                                        lineNumber: 80,
+                                        lineNumber: 85,
                                         columnNumber: 13
                                     }, this),
                                     "di ",
@@ -4512,13 +5372,13 @@ function BannerDirektori() {
                                         children: "Gelap Nyawang"
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/banner.jsx",
-                                        lineNumber: 81,
+                                        lineNumber: 86,
                                         columnNumber: 16
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/sections/banner.jsx",
-                                lineNumber: 72,
+                                lineNumber: 77,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].p, {
@@ -4541,7 +5401,7 @@ function BannerDirektori() {
                                 children: "Cari tempat makan yang pas, lihat detail UMKM, dan temukan suasana khas Gelap Nyawang yang nggak bakal lu temuin di tempat lain."
                             }, void 0, false, {
                                 fileName: "[project]/src/sections/banner.jsx",
-                                lineNumber: 85,
+                                lineNumber: 90,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4559,7 +5419,7 @@ function BannerDirektori() {
                                         children: "Lihat Direktori"
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/banner.jsx",
-                                        lineNumber: 102,
+                                        lineNumber: 108,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].a, {
@@ -4571,28 +5431,28 @@ function BannerDirektori() {
                                             scale: 0.96
                                         },
                                         className: "   inline-block bg-white/20 text-white    font-semibold text-base md:text-lg    px-8 py-3 rounded-full    backdrop-blur-sm   hover:bg-white/30 transition-colors   ",
-                                        children: "Lihat Rekomendasi"
+                                        children: "Lihat Top 5 Pilihan   "
                                     }, void 0, false, {
                                         fileName: "[project]/src/sections/banner.jsx",
-                                        lineNumber: 116,
+                                        lineNumber: 123,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/sections/banner.jsx",
-                                lineNumber: 101,
+                                lineNumber: 106,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/sections/banner.jsx",
-                        lineNumber: 54,
+                        lineNumber: 59,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/sections/banner.jsx",
-                lineNumber: 35,
+                lineNumber: 37,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4600,13 +5460,13 @@ function BannerDirektori() {
                 "aria-hidden": "true"
             }, void 0, false, {
                 fileName: "[project]/src/sections/banner.jsx",
-                lineNumber: 135,
+                lineNumber: 142,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/sections/banner.jsx",
-        lineNumber: 28,
+        lineNumber: 30,
         columnNumber: 5
     }, this);
 }
@@ -4620,7 +5480,9 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/chevron-down.js [app-ssr] (ecmascript) <export default as ChevronDown>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/chevron-down.js [app-ssr] (ecmascript) <export default as ChevronDown>"); // 🔥 Tambah Phone icon
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$phone$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Phone$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/phone.js [app-ssr] (ecmascript) <export default as Phone>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 "use client";
 ;
@@ -4646,7 +5508,9 @@ const FADE_UP = {
         }
     }
 };
-const NAV_LINKS = [
+/* ==========================================================
+   FIX B — Social links now include external:true flag
+========================================================== */ const NAV_LINKS = [
     {
         name: "Beranda",
         link: "#"
@@ -4659,48 +5523,56 @@ const NAV_LINKS = [
 const SOCIAL_LINKS = [
     {
         name: "Instagram",
-        link: "https://www.instagram.com/gelapnyawang.culinary/"
+        link: "https://www.instagram.com/gelapnyawang.culinary/",
+        external: true
     },
     {
         name: "Facebook",
-        link: "https://www.facebook.com"
+        link: "https://www.facebook.com",
+        external: true
     },
     {
         name: "Tiktok",
-        link: "https://www.tiktok.com"
+        link: "https://www.tiktok.com",
+        external: true
     }
 ];
-// 🔧 REVIEW FIX #1: Abstraction komponen link
-const LinkSection = ({ title, links, ariaLabel })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
+/* ==========================================================
+   FIX B — LinkSection now adds rel noopener when external
+========================================================== */ const LinkSection = ({ title, links, ariaLabel })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
         "aria-label": ariaLabel,
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+            title && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                 className: "font-bold mb-3",
                 children: title
             }, void 0, false, {
                 fileName: "[project]/src/components/footer.jsx",
-                lineNumber: 30,
-                columnNumber: 5
+                lineNumber: 35,
+                columnNumber: 15
             }, ("TURBOPACK compile-time value", void 0)),
             links.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                         href: item.link,
                         className: "hover:underline",
+                        ...item.external && {
+                            target: "_blank",
+                            rel: "noopener noreferrer"
+                        },
                         children: item.name
                     }, void 0, false, {
                         fileName: "[project]/src/components/footer.jsx",
-                        lineNumber: 33,
+                        lineNumber: 38,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 }, item.name, false, {
                     fileName: "[project]/src/components/footer.jsx",
-                    lineNumber: 32,
+                    lineNumber: 37,
                     columnNumber: 7
                 }, ("TURBOPACK compile-time value", void 0)))
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/footer.jsx",
-        lineNumber: 29,
+        lineNumber: 34,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 const scrollToTop = ()=>window.scrollTo({
@@ -4709,6 +5581,16 @@ const scrollToTop = ()=>window.scrollTo({
     });
 function Footer() {
     const [expanded, setExpanded] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    /* ==========================================================
+     FIX C — Scroll to top visibility logic
+  =========================================================== */ const [showScrollTop, setShowScrollTop] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const handleScroll = ()=>{
+            setShowScrollTop(window.scrollY > 500);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return ()=>window.removeEventListener("scroll", handleScroll);
+    }, []);
     const toggle = (name)=>setExpanded(expanded === name ? null : name);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
@@ -4720,7 +5602,7 @@ function Footer() {
                         "aria-hidden": "true"
                     }, void 0, false, {
                         fileName: "[project]/src/components/footer.jsx",
-                        lineNumber: 52,
+                        lineNumber: 76,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -4742,7 +5624,7 @@ function Footer() {
                                         className: "w-28 md:w-36"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/footer.jsx",
-                                        lineNumber: 66,
+                                        lineNumber: 90,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4752,12 +5634,12 @@ function Footer() {
                                             children: "Gelap Nyawang Culinary, spot kuliner favorit mahasiswa ITB. Dari warkop sederhana sampai kafe ber-wifi, semua hadir buat nemenin ngobrol, nugas, atau sekadar nyari suasana tenang."
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/footer.jsx",
-                                            lineNumber: 69,
+                                            lineNumber: 93,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/footer.jsx",
-                                        lineNumber: 68,
+                                        lineNumber: 92,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -4766,20 +5648,20 @@ function Footer() {
                                         className: "w-32 md:w-40"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/footer.jsx",
-                                        lineNumber: 76,
+                                        lineNumber: 100,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/footer.jsx",
-                                lineNumber: 65,
+                                lineNumber: 89,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
                                 className: "border-white/30 mb-12"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/footer.jsx",
-                                lineNumber: 79,
+                                lineNumber: 103,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4796,13 +5678,13 @@ function Footer() {
                                                         className: `transition-transform ${expanded === "lokasi" ? "rotate-180" : ""}`
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/footer.jsx",
-                                                        lineNumber: 96,
+                                                        lineNumber: 115,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/footer.jsx",
-                                                lineNumber: 91,
+                                                lineNumber: 110,
                                                 columnNumber: 15
                                             }, this),
                                             expanded === "lokasi" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4811,20 +5693,20 @@ function Footer() {
                                                     "Jl. Gelap Nyawang, Lb. Siliwangi,",
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                                         fileName: "[project]/src/components/footer.jsx",
-                                                        lineNumber: 104,
+                                                        lineNumber: 119,
                                                         columnNumber: 52
                                                     }, this),
                                                     "Kota Bandung, Jawa Barat"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/footer.jsx",
-                                                lineNumber: 103,
+                                                lineNumber: 118,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/footer.jsx",
-                                        lineNumber: 90,
+                                        lineNumber: 109,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4838,13 +5720,13 @@ function Footer() {
                                                         className: `transition-transform ${expanded === "jam" ? "rotate-180" : ""}`
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/footer.jsx",
-                                                        lineNumber: 117,
+                                                        lineNumber: 132,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/footer.jsx",
-                                                lineNumber: 112,
+                                                lineNumber: 127,
                                                 columnNumber: 15
                                             }, this),
                                             expanded === "jam" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4852,13 +5734,13 @@ function Footer() {
                                                 children: "06.00 - 01.00"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/footer.jsx",
-                                                lineNumber: 124,
+                                                lineNumber: 135,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/footer.jsx",
-                                        lineNumber: 111,
+                                        lineNumber: 126,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4872,13 +5754,13 @@ function Footer() {
                                                         className: `transition-transform ${expanded === "nav" ? "rotate-180" : ""}`
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/footer.jsx",
-                                                        lineNumber: 135,
+                                                        lineNumber: 146,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/footer.jsx",
-                                                lineNumber: 130,
+                                                lineNumber: 141,
                                                 columnNumber: 15
                                             }, this),
                                             expanded === "nav" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4889,18 +5771,18 @@ function Footer() {
                                                     ariaLabel: "Footer navigation mobile"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/footer.jsx",
-                                                    lineNumber: 143,
+                                                    lineNumber: 150,
                                                     columnNumber: 19
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/footer.jsx",
-                                                lineNumber: 142,
+                                                lineNumber: 149,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/footer.jsx",
-                                        lineNumber: 129,
+                                        lineNumber: 140,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4914,13 +5796,13 @@ function Footer() {
                                                         className: `transition-transform ${expanded === "sosmed" ? "rotate-180" : ""}`
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/footer.jsx",
-                                                        lineNumber: 159,
+                                                        lineNumber: 162,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/footer.jsx",
-                                                lineNumber: 154,
+                                                lineNumber: 157,
                                                 columnNumber: 15
                                             }, this),
                                             expanded === "sosmed" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4931,18 +5813,18 @@ function Footer() {
                                                     ariaLabel: "Social media mobile"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/footer.jsx",
-                                                    lineNumber: 167,
+                                                    lineNumber: 166,
                                                     columnNumber: 19
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/footer.jsx",
-                                                lineNumber: 166,
+                                                lineNumber: 165,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/footer.jsx",
-                                        lineNumber: 153,
+                                        lineNumber: 156,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4956,42 +5838,52 @@ function Footer() {
                                                         className: `transition-transform ${expanded === "kontak" ? "rotate-180" : ""}`
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/footer.jsx",
-                                                        lineNumber: 183,
+                                                        lineNumber: 178,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/footer.jsx",
-                                                lineNumber: 178,
+                                                lineNumber: 173,
                                                 columnNumber: 15
                                             }, this),
                                             expanded === "kontak" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                className: "mt-2",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                    href: "https://wa.me/6289656054453",
-                                                    className: "hover:underline",
-                                                    target: "_blank",
-                                                    children: "Whatsapp"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/components/footer.jsx",
-                                                    lineNumber: 191,
-                                                    columnNumber: 19
-                                                }, this)
-                                            }, void 0, false, {
+                                                className: "mt-2 flex items-center gap-2",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$phone$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Phone$3e$__["Phone"], {
+                                                        size: 16
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/components/footer.jsx",
+                                                        lineNumber: 183,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                        href: "https://wa.me/6289656054453",
+                                                        target: "_blank",
+                                                        rel: "noopener noreferrer",
+                                                        className: "hover:underline",
+                                                        children: "+62 896-5605-4453"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/components/footer.jsx",
+                                                        lineNumber: 184,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "[project]/src/components/footer.jsx",
-                                                lineNumber: 190,
+                                                lineNumber: 181,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/footer.jsx",
-                                        lineNumber: 177,
+                                        lineNumber: 172,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/footer.jsx",
-                                lineNumber: 88,
+                                lineNumber: 106,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5004,7 +5896,7 @@ function Footer() {
                                                 children: "Lokasi"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/footer.jsx",
-                                                lineNumber: 208,
+                                                lineNumber: 201,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("address", {
@@ -5013,20 +5905,20 @@ function Footer() {
                                                     "Jl. Gelap Nyawang, Lb. Siliwangi,",
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                                         fileName: "[project]/src/components/footer.jsx",
-                                                        lineNumber: 210,
+                                                        lineNumber: 203,
                                                         columnNumber: 50
                                                     }, this),
                                                     "Kota Bandung, Jawa Barat"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/footer.jsx",
-                                                lineNumber: 209,
+                                                lineNumber: 202,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/footer.jsx",
-                                        lineNumber: 207,
+                                        lineNumber: 200,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5036,20 +5928,20 @@ function Footer() {
                                                 children: "Jam Buka"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/footer.jsx",
-                                                lineNumber: 216,
+                                                lineNumber: 209,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                 children: "06.00 - 01.00"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/footer.jsx",
-                                                lineNumber: 217,
+                                                lineNumber: 210,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/footer.jsx",
-                                        lineNumber: 215,
+                                        lineNumber: 208,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(LinkSection, {
@@ -5058,7 +5950,7 @@ function Footer() {
                                         ariaLabel: "Footer navigation"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/footer.jsx",
-                                        lineNumber: 220,
+                                        lineNumber: 213,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(LinkSection, {
@@ -5067,7 +5959,7 @@ function Footer() {
                                         ariaLabel: "Social media"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/footer.jsx",
-                                        lineNumber: 221,
+                                        lineNumber: 214,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5077,42 +5969,53 @@ function Footer() {
                                                 children: "Kontak"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/footer.jsx",
-                                                lineNumber: 224,
+                                                lineNumber: 218,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                    href: "https://wa.me/6289656054453",
-                                                    target: "_blank",
-                                                    className: "hover:underline",
-                                                    children: "Whatsapp"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/components/footer.jsx",
-                                                    lineNumber: 226,
-                                                    columnNumber: 17
-                                                }, this)
-                                            }, void 0, false, {
+                                                className: "flex items-center gap-2",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$phone$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Phone$3e$__["Phone"], {
+                                                        size: 16
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/components/footer.jsx",
+                                                        lineNumber: 220,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                        href: "https://wa.me/6289656054453",
+                                                        target: "_blank",
+                                                        rel: "noopener noreferrer",
+                                                        className: "hover:underline",
+                                                        children: "+62 896-5605-4453"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/components/footer.jsx",
+                                                        lineNumber: 221,
+                                                        columnNumber: 17
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "[project]/src/components/footer.jsx",
-                                                lineNumber: 225,
+                                                lineNumber: 219,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/footer.jsx",
-                                        lineNumber: 223,
+                                        lineNumber: 217,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/footer.jsx",
-                                lineNumber: 206,
+                                lineNumber: 198,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
                                 className: "border-white/30 mb-8"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/footer.jsx",
-                                lineNumber: 237,
+                                lineNumber: 233,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5120,13 +6023,13 @@ function Footer() {
                                 children: "© 2025 Gelap Nyawang • Website untuk MIA 2025"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/footer.jsx",
-                                lineNumber: 239,
+                                lineNumber: 235,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/footer.jsx",
-                        lineNumber: 57,
+                        lineNumber: 81,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -5146,29 +6049,47 @@ function Footer() {
                         "aria-hidden": "true"
                     }, void 0, false, {
                         fileName: "[project]/src/components/footer.jsx",
-                        lineNumber: 244,
+                        lineNumber: 240,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/footer.jsx",
-                lineNumber: 51,
+                lineNumber: 75,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
-                onClick: scrollToTop,
-                whileHover: {
-                    scale: 1.1
-                },
-                whileTap: {
-                    scale: 0.95
-                },
-                className: "   fixed bottom-6 right-6 z-40    bg-white/25 backdrop-blur-md hover:bg-white/40    text-white p-3 rounded-full shadow-lg    transition-all duration-300   ",
-                "aria-label": "Scroll to top",
-                children: "↑"
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
+                children: showScrollTop && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
+                    initial: {
+                        opacity: 0,
+                        scale: 0.8
+                    },
+                    animate: {
+                        opacity: 1,
+                        scale: 1
+                    },
+                    exit: {
+                        opacity: 0,
+                        scale: 0.8
+                    },
+                    onClick: scrollToTop,
+                    whileHover: {
+                        scale: 1.1
+                    },
+                    whileTap: {
+                        scale: 0.95
+                    },
+                    className: "   fixed bottom-6 right-6 z-40    bg-white/25 backdrop-blur-md hover:bg-white/40    text-white p-3 rounded-full shadow-lg    transition-all duration-300   ",
+                    "aria-label": "Scroll to top",
+                    children: "↑"
+                }, void 0, false, {
+                    fileName: "[project]/src/components/footer.jsx",
+                    lineNumber: 253,
+                    columnNumber: 11
+                }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/footer.jsx",
-                lineNumber: 253,
+                lineNumber: 251,
                 columnNumber: 7
             }, this)
         ]

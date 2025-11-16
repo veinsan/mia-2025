@@ -1,1 +1,11 @@
-{"version":4,"routes":{"/direktori/blackromantic":{},"/direktori/bwj":{},"/direktori/stallone":{},"/direktori/cola":{},"/direktori/besthal":{},"/direktori/datuak":{},"/direktori/miesan":{},"/direktori/warmindo":{},"/direktori/serbasepuluh":{},"/direktori/angkringan":{},"/direktori/dapurlaut":{},"/direktori/komawa":{},"/direktori/koboi":{},"/direktori/doamande":{},"/direktori/kebab":{},"/direktori/prancis":{},"/direktori/nasgor":{},"/direktori/thaitea":{},"/direktori/asmad":{},"/direktori/sindang":{},"/direktori/bakmi":{},"/direktori/kios":{},"/direktori/mocktail":{},"/direktori/ica":{},"/direktori/garden":{},"/direktori/nuesara":{},"/direktori/cacto":{},"/direktori/elvindo":{},"/direktori/sembilan":{},"/direktori/kita":{}},"dynamicRoutes":{"/direktori/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/direktori/[slug]","routeRegex":"^\\/direktori\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"54d80e31e21b4c9df48b1d7d3a620d14","previewModeSigningKey":"63dcc88f79aaa335b7b85c4c907e6142d59162a7c621df3221831f4608f723f8","previewModeEncryptionKey":"0a195a527bc0aa65f5d521a173a293632daa1945add9efc467f71b32d240a250"}}
+{
+  "version": 4,
+  "routes": {},
+  "dynamicRoutes": {},
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "10910bcc13ba1805fe44f1e72010586c",
+    "previewModeSigningKey": "7b6abfbbec730710a89f02c0b446a557b5aaff3a548f09af6a75bcce5d90885f",
+    "previewModeEncryptionKey": "47a03348d3fbcad0f0801ad04f2d6bc4ebee4e48326e427e734d459f9e92eb71"
+  }
+}
