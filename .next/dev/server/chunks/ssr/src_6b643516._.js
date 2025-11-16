@@ -1374,8 +1374,15 @@ const UMKM_DATA = [
         slug: "blackromantic",
         name: "Black Romantic",
         category: "resto",
-        img: "/assets/resto/blackromantic.webp",
-        short: "Ayam bakar lezat harga mahasiswa",
+        img: "/assets/galeri/blackromantic/1.jpg",
+        gallery: [
+            "/assets/galeri/blackromantic/1.jpg",
+            "/assets/galeri/blackromantic/2.jpg",
+            "/assets/galeri/blackromantic/3.jpg",
+            "/assets/galeri/blackromantic/4.jpg",
+            "/assets/galeri/blackromantic/5.jpg"
+        ],
+        short: "Tempat makan hits dengan menu lezat",
         rating: 4.5,
         rangeHarga: "Rp 1-25.000",
         alamat: "Jl. Gelap Nyawang No.2, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
@@ -3189,7 +3196,7 @@ function BannerDirektori() {
                         transition: {
                             duration: 0.8
                         },
-                        className: "   absolute -left-[100px] bottom-0    w-[460px] md:w-[500px] lg:w-[540px]    object-contain pointer-events-none   ",
+                        className: "   absolute -left-[285px]   w-[600px] md:w-[680px] lg:w-[760px]   object-contain pointer-events-none   ",
                         "aria-hidden": "true"
                     }, void 0, false, {
                         fileName: "[project]/src/sections/banner.jsx",
@@ -3213,7 +3220,7 @@ function BannerDirektori() {
                         transition: {
                             duration: 0.8
                         },
-                        className: "   absolute -right-[100px] bottom-0    w-[460px] md:w-[500px] lg:w-[540px]    object-contain pointer-events-none   ",
+                        className: "   absolute -right-[300px]   w-[600px] md:w-[680px] lg:w-[760px]   object-contain pointer-events-none   ",
                         "aria-hidden": "true"
                     }, void 0, false, {
                         fileName: "[project]/src/sections/banner.jsx",

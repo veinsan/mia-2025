@@ -46,8 +46,8 @@ export default function BannerDirektori() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="
-            absolute -left-[100px] bottom-0 
-            w-[460px] md:w-[500px] lg:w-[540px] 
+            absolute -left-[285px]
+            w-[600px] md:w-[680px] lg:w-[760px]
             object-contain pointer-events-none
           "
           aria-hidden="true"
@@ -65,8 +65,8 @@ export default function BannerDirektori() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="
-            absolute -right-[100px] bottom-0 
-            w-[460px] md:w-[500px] lg:w-[540px] 
+            absolute -right-[300px]
+            w-[600px] md:w-[680px] lg:w-[760px]
             object-contain pointer-events-none
           "
           aria-hidden="true"

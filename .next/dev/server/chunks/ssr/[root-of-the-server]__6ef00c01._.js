@@ -388,8 +388,15 @@ const UMKM_DATA = [
         slug: "blackromantic",
         name: "Black Romantic",
         category: "resto",
-        img: "/assets/resto/blackromantic.webp",
-        short: "Ayam bakar lezat harga mahasiswa",
+        img: "/assets/galeri/blackromantic/1.jpg",
+        gallery: [
+            "/assets/galeri/blackromantic/1.jpg",
+            "/assets/galeri/blackromantic/2.jpg",
+            "/assets/galeri/blackromantic/3.jpg",
+            "/assets/galeri/blackromantic/4.jpg",
+            "/assets/galeri/blackromantic/5.jpg"
+        ],
+        short: "Tempat makan hits dengan menu lezat",
         rating: 4.5,
         rangeHarga: "Rp 1-25.000",
         alamat: "Jl. Gelap Nyawang No.2, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
