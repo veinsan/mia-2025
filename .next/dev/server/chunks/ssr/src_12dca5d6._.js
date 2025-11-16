@@ -1429,7 +1429,6 @@ function FooterDirektori() {
 "[project]/src/app/direktori/page.jsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// UPDATED FILE WITH SCROLL COMPONENTS + CATEGORY SECTIONS
 __turbopack_context__.s([
     "default",
     ()=>DirektoriPage
@@ -1451,9 +1450,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$umkmData$2e$j
 ;
 ;
 ;
-/* =============================
+/* ===========================================
    MOTION VARIANTS
-============================= */ const heroContainer = {
+=========================================== */ const heroContainer = {
     hidden: {},
     visible: {
         transition: {
@@ -1492,8 +1491,8 @@ const gridContainer = {
     hidden: {},
     visible: {
         transition: {
-            staggerChildren: 0.08,
-            delayChildren: 0.08
+            staggerChildren: 0.06,
+            delayChildren: 0.1
         }
     }
 };
@@ -1516,174 +1515,176 @@ const cardVariant = {
         }
     }
 };
-/* =============================
+/* ===========================================
    CARD COMPONENT
-============================= */ function UMKMCard({ item }) {
+=========================================== */ function UMKMCard({ item }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
         href: `/direktori/${item.slug || ""}`,
         className: "block",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].article, {
             variants: cardVariant,
-            initial: "hidden",
-            animate: "visible",
-            className: "group relative rounded-[14px] overflow-hidden bg-[var(--bg-base)] shadow-[0_6px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_14px_40px_rgba(238,118,13,0.12)] transition-all duration-300 will-change-transform",
+            className: "group relative rounded-2xl overflow-hidden bg-bg-base dark:bg-bg-soft shadow-md hover:shadow-xl transition-all duration-300 will-change-transform",
             whileHover: {
                 y: -6
             },
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "w-full h-44 md:h-48 lg:h-40 bg-[var(--bg-soft)] overflow-hidden",
+                    className: "w-full h-44 md:h-48 bg-bg-soft overflow-hidden",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                         src: item.img,
                         alt: item.name,
                         className: "w-full h-full object-cover transition-transform duration-700 group-hover:scale-105",
-                        draggable: "false"
+                        draggable: "false",
+                        loading: "lazy"
                     }, void 0, false, {
                         fileName: "[project]/src/app/direktori/page.jsx",
-                        lineNumber: 39,
+                        lineNumber: 59,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/direktori/page.jsx",
-                    lineNumber: 38,
+                    lineNumber: 58,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "p-4",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                            className: "text-base md:text-lg font-semibold text-[var(--text-secondary)] line-clamp-1 group-hover:text-primary",
+                            className: "text-base md:text-lg font-semibold text-text-secondary line-clamp-1 group-hover:text-primary transition-colors",
                             children: item.name
                         }, void 0, false, {
                             fileName: "[project]/src/app/direktori/page.jsx",
-                            lineNumber: 43,
+                            lineNumber: 69,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-sm text-[var(--text-muted)] mt-1 line-clamp-2",
+                            className: "text-sm text-text-muted mt-1 line-clamp-2",
                             children: item.short
                         }, void 0, false, {
                             fileName: "[project]/src/app/direktori/page.jsx",
-                            lineNumber: 44,
+                            lineNumber: 72,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/direktori/page.jsx",
-                    lineNumber: 42,
+                    lineNumber: 68,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/direktori/page.jsx",
-            lineNumber: 31,
+            lineNumber: 53,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/direktori/page.jsx",
-        lineNumber: 30,
+        lineNumber: 52,
         columnNumber: 5
     }, this);
 }
-/* =============================
-   HORIZONTAL SCROLL WRAPPER
-============================= */ function ScrollRow({ children, scrollRef }) {
+/* ===========================================
+   HORIZONTAL SCROLL ROW (FIXED WIDTH)
+=========================================== */ function ScrollRow({ children, scrollRef }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "relative w-full",
+        className: "relative w-full overflow-hidden",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             ref: scrollRef,
-            onScroll: (e)=>{
-                const el = e.target;
-                const maxScroll = el.scrollWidth - el.clientWidth;
-                // biar reactive juga tanpa delay
-                if (scrollRef._update) scrollRef._update(el.scrollLeft, maxScroll);
+            className: "flex gap-6 overflow-x-auto no-scrollbar scroll-smooth py-2",
+            style: {
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
+                scrollSnapType: "x mandatory"
             },
-            className: "flex gap-5 overflow-x-auto no-scrollbar scroll-smooth py-2 px-1",
             children: children
         }, void 0, false, {
             fileName: "[project]/src/app/direktori/page.jsx",
-            lineNumber: 57,
+            lineNumber: 85,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/direktori/page.jsx",
-        lineNumber: 56,
+        lineNumber: 84,
         columnNumber: 5
     }, this);
 }
-/* =============================
-   NEXT / PREV BUTTONS
-============================= */ function ScrollButtons({ scrollRef, itemCount }) {
+/* ===========================================
+   SCROLL BUTTONS (FIXED CALCULATION)
+=========================================== */ function ScrollButtons({ scrollRef, itemCount }) {
     const [atStart, setAtStart] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
     const [atEnd, setAtEnd] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
-    // Jika item < 5, tidak perlu tombol sama sekali
-    if (itemCount <= 4) return null;
+    // Jika item <= 5, tidak perlu button
+    if (itemCount <= 5) return null;
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         if (!scrollRef.current) return;
         const el = scrollRef.current;
-        const max = el.scrollWidth - el.clientWidth;
-        // fungsi update posisi
         const update = ()=>{
+            const max = el.scrollWidth - el.clientWidth;
             setAtStart(el.scrollLeft <= 5);
             setAtEnd(el.scrollLeft >= max - 5);
         };
-        // simpan ke ref
-        scrollRef.current._update = update;
-        // listener scroll
-        el.addEventListener("scroll", update);
+        el.addEventListener("scroll", update, {
+            passive: true
+        });
+        // Initial check
         update();
         return ()=>el.removeEventListener("scroll", update);
     }, [
-        scrollRef
+        scrollRef,
+        itemCount
     ]);
     const scroll = (dir)=>{
         if (!scrollRef.current) return;
+        // FIXED: Scroll exactly 5 cards (270px * 5 + 24px gaps * 4 = 1446px)
+        // But we do smaller increments for smoother UX: 1 card at a time
+        const scrollAmount = 270 + 24; // card width + gap
         scrollRef.current.scrollBy({
-            left: dir === "right" ? 340 : -340,
+            left: dir === "right" ? scrollAmount * 5 : -scrollAmount * 5,
             behavior: "smooth"
         });
-        setTimeout(()=>{
-            scrollRef.current?._update?.();
-        }, 280);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             !atStart && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                 onClick: ()=>scroll("left"),
-                className: "hidden md:flex absolute left-0 top-1/2 -translate-y-1/2   w-12 h-12 rounded-full bg-white dark:bg-[var(--bg-soft)]   shadow-[0_6px_20px_rgba(0,0,0,0.12)]   hover:shadow-[0_10px_28px_rgba(228,93,24,0.25)]   transition-all items-center justify-center   text-[#C13F14] dark:text-[#EC760D]",
+                className: "hidden lg:flex absolute left-2 top-1/2 -translate-y-1/2   w-12 h-12 rounded-full bg-white dark:bg-bg-soft   shadow-lg hover:shadow-xl   transition-all items-center justify-center   text-primary z-10",
+                "aria-label": "Scroll left",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                     className: "text-xl",
                     children: "❮"
                 }, void 0, false, {
                     fileName: "[project]/src/app/direktori/page.jsx",
-                    lineNumber: 131,
+                    lineNumber: 154,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/direktori/page.jsx",
-                lineNumber: 122,
+                lineNumber: 145,
                 columnNumber: 9
             }, this),
             !atEnd && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                 onClick: ()=>scroll("right"),
-                className: "hidden md:flex absolute right-0 top-1/2 -translate-y-1/2   w-12 h-12 rounded-full bg-white dark:bg-[var(--bg-soft)]   shadow-[0_6px_20px_rgba(0,0,0,0.12)]   hover:shadow-[0_10px_28px_rgba(228,93,24,0.25)]   transition-all items-center justify-center   text-[#C13F14] dark:text-[#EC760D]",
+                className: "hidden lg:flex absolute right-2 top-1/2 -translate-y-1/2   w-12 h-12 rounded-full bg-white dark:bg-bg-soft   shadow-lg hover:shadow-xl   transition-all items-center justify-center   text-primary z-10",
+                "aria-label": "Scroll right",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                     className: "text-xl",
                     children: "❯"
                 }, void 0, false, {
                     fileName: "[project]/src/app/direktori/page.jsx",
-                    lineNumber: 145,
+                    lineNumber: 168,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/direktori/page.jsx",
-                lineNumber: 136,
+                lineNumber: 159,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true);
 }
-function SmallCard({ item }) {
+/* ===========================================
+   SMALL CARD (FIXED WIDTH - NO CUTTING)
+=========================================== */ function SmallCard({ item }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
         href: `/direktori/${item.slug}`,
         className: "block",
@@ -1691,110 +1692,120 @@ function SmallCard({ item }) {
             whileHover: {
                 y: -6
             },
-            className: "relative h-[170px] rounded-xl overflow-hidden shadow-md transition-all",
+            className: "relative h-[170px]    w-[160px] sm:w-[220px] lg:w-[260px]   flex-shrink-0 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                     src: item.img,
-                    className: "w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    alt: item.name,
+                    className: "w-full h-full object-cover transition-transform duration-500 hover:scale-105",
+                    loading: "lazy"
                 }, void 0, false, {
                     fileName: "[project]/src/app/direktori/page.jsx",
-                    lineNumber: 158,
+                    lineNumber: 187,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
                 }, void 0, false, {
                     fileName: "[project]/src/app/direktori/page.jsx",
-                    lineNumber: 163,
+                    lineNumber: 194,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "absolute bottom-3 left-3",
+                    className: "absolute bottom-3 left-3 right-3",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-white font-semibold text-lg drop-shadow",
+                        className: "text-white font-semibold text-sm sm:text-base drop-shadow line-clamp-1",
                         children: item.name
                     }, void 0, false, {
                         fileName: "[project]/src/app/direktori/page.jsx",
-                        lineNumber: 166,
+                        lineNumber: 197,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/direktori/page.jsx",
-                    lineNumber: 165,
+                    lineNumber: 196,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/direktori/page.jsx",
-            lineNumber: 154,
+            lineNumber: 181,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/direktori/page.jsx",
-        lineNumber: 153,
+        lineNumber: 180,
         columnNumber: 5
     }, this);
 }
-/* ==========================================================
-   CATEGORY SECTIONS
-========================================================== */ function CategorySection({ title, subtitle, items }) {
+/* ===========================================
+   CATEGORY SECTION (Horizontal Scroll)
+=========================================== */ function CategorySection({ title, subtitle, items }) {
     const scrollRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].section, {
+        initial: {
+            opacity: 0,
+            y: 20
+        },
+        whileInView: {
+            opacity: 1,
+            y: 0
+        },
+        viewport: {
+            once: true,
+            amount: 0.2
+        },
+        transition: {
+            duration: 0.6
+        },
         className: "px-[5%] md:px-[7%] lg:px-[9%] mt-14",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex items-center justify-between mb-3",
+                className: "flex items-center justify-between mb-4",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                            className: "text-2xl md:text-3xl font-bold text-[var(--text-secondary)]",
+                            className: "text-2xl md:text-3xl font-bold text-text-secondary",
                             children: title
                         }, void 0, false, {
                             fileName: "[project]/src/app/direktori/page.jsx",
-                            lineNumber: 185,
+                            lineNumber: 222,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-[var(--text-muted)] text-sm mt-1",
+                            className: "text-text-muted text-sm mt-1",
                             children: subtitle
                         }, void 0, false, {
                             fileName: "[project]/src/app/direktori/page.jsx",
-                            lineNumber: 188,
+                            lineNumber: 223,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/direktori/page.jsx",
-                    lineNumber: 184,
+                    lineNumber: 221,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/direktori/page.jsx",
-                lineNumber: 183,
+                lineNumber: 220,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "relative mt-4",
+                className: "relative",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ScrollRow, {
                         scrollRef: scrollRef,
-                        children: items.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "min-w-[270px]",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(SmallCard, {
-                                    item: item
-                                }, void 0, false, {
-                                    fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 196,
-                                    columnNumber: 15
-                                }, this)
+                        children: items.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(SmallCard, {
+                                item: item
                             }, item.id, false, {
                                 fileName: "[project]/src/app/direktori/page.jsx",
-                                lineNumber: 195,
+                                lineNumber: 230,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/app/direktori/page.jsx",
-                        lineNumber: 193,
+                        lineNumber: 228,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ScrollButtons, {
@@ -1802,26 +1813,26 @@ function SmallCard({ item }) {
                         itemCount: items.length
                     }, void 0, false, {
                         fileName: "[project]/src/app/direktori/page.jsx",
-                        lineNumber: 201,
+                        lineNumber: 234,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/direktori/page.jsx",
-                lineNumber: 192,
+                lineNumber: 227,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/direktori/page.jsx",
-        lineNumber: 182,
+        lineNumber: 213,
         columnNumber: 5
     }, this);
 }
 function DirektoriPage() {
     const [query, setQuery] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [activeCat, setActiveCat] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("all");
-    const [visibleCount, setVisibleCount] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(6);
+    // Filter logic
     const filtered = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>{
         const q = query.trim().toLowerCase();
         return __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$umkmData$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["UMKM_DATA"].filter((u)=>{
@@ -1833,18 +1844,26 @@ function DirektoriPage() {
         query,
         activeCat
     ]);
-    const trending = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$umkmData$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["UMKM_DATA"].slice(0, 4);
-    const mainGrid = filtered.slice(0, visibleCount);
+    const isFiltering = query.trim() !== "" || activeCat !== "all";
+    const trending = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$umkmData$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["UMKM_DATA"].slice(0, 3);
+    // Category data
+    const restoItems = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$umkmData$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["UMKM_DATA"].filter((item)=>item.category === "resto").slice(0, 8);
+    const cafeItems = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$umkmData$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["UMKM_DATA"].filter((item)=>item.category === "cafe").slice(0, 8);
+    const cemilanItems = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$umkmData$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["UMKM_DATA"].filter((item)=>item.category === "cemilan").slice(0, 8);
+    const minumanItems = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$umkmData$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["UMKM_DATA"].filter((item)=>item.category === "minuman").slice(0, 8);
+    const lainItems = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$umkmData$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["UMKM_DATA"].filter((item)=>item.category === "lain").slice(0, 8);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
         className: "bg-transparent transition-theme",
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$navDirektori$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$navDirektori$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                onCategoryClick: (cat)=>setActiveCat(cat)
+            }, void 0, false, {
                 fileName: "[project]/src/app/direktori/page.jsx",
-                lineNumber: 229,
+                lineNumber: 273,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "w-full bg-[var(--bg-gold)] min-h-screen pb-16",
+                className: "w-full bg-bg-gold dark:bg-bg-gold min-h-screen pb-16",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].section, {
                         id: "top-direktori",
@@ -1854,7 +1873,7 @@ function DirektoriPage() {
                         className: "w-full pt-0 pb-0",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
                             variants: heroItem,
-                            className: "w-full mx-auto min-h-[420px] rounded-b-[40px] px-6 pt-24 pb-16 flex flex-col items-center justify-start overflow-hidden transition-theme bg-gradient-to-b from-[#FCBB65] to-[#E45D18] dark:from-[var(--bg-warm)] dark:to-[var(--bg-base)]",
+                            className: "w-full mx-auto min-h-[420px] rounded-b-[40px] px-6 pt-24 pb-16 flex flex-col items-center justify-start overflow-hidden transition-theme bg-gradient-to-b from-[#FCBB65] to-[#E45D18] dark:from-bg-warm dark:to-bg-base",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "max-w-3xl text-center mt-4",
@@ -1865,7 +1884,7 @@ function DirektoriPage() {
                                                 "Cari Tempat Makan Favoritmu",
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                                    lineNumber: 238,
+                                                    lineNumber: 291,
                                                     columnNumber: 17
                                                 }, this),
                                                 " di ",
@@ -1874,13 +1893,13 @@ function DirektoriPage() {
                                                     children: "Gelap Nyawang"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                                    lineNumber: 238,
+                                                    lineNumber: 291,
                                                     columnNumber: 27
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                            lineNumber: 236,
+                                            lineNumber: 289,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1888,13 +1907,13 @@ function DirektoriPage() {
                                             children: "Mulai dari ayam bakar, warmindo, sampai kopi buat nugas. Semua ada di satu tempat."
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                            lineNumber: 240,
+                                            lineNumber: 293,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 235,
+                                    lineNumber: 288,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1905,24 +1924,24 @@ function DirektoriPage() {
                                             size: 24
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                            lineNumber: 244,
+                                            lineNumber: 300,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                             type: "search",
                                             value: query,
                                             onChange: (e)=>setQuery(e.target.value),
-                                            placeholder: "Cari resto… misal: “Black Romantic”, “BWJ”…",
-                                            className: "w-full py-4 pl-14 pr-6 rounded-full bg-white/85 dark:bg-[var(--bg-soft)] border border-white/60 dark:border-[var(--border-default)] text-[#2B1B0F] dark:text-[#FFF8F0] shadow-[0_4px_18px_rgba(0,0,0,0.08)] dark:shadow-[0_4px_18px_rgba(0,0,0,0.35)] focus:shadow-[0_6px_26px_rgba(226,115,10,0.25)] outline-none transition-all backdrop-blur-sm"
+                                            placeholder: 'Cari resto… misal: "Black Romantic", "BWJ"…',
+                                            className: "w-full py-4 pl-14 pr-6 rounded-full bg-white/85 dark:bg-bg-soft border border-white/60 dark:border-border-default text-[#2B1B0F] dark:text-[#FFF8F0] shadow-lg focus:shadow-xl outline-none transition-all backdrop-blur-sm"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                            lineNumber: 245,
+                                            lineNumber: 304,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 243,
+                                    lineNumber: 299,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1930,150 +1949,387 @@ function DirektoriPage() {
                                     className: "mt-10 flex flex-wrap md:flex-nowrap justify-center gap-4 w-full max-w-4xl",
                                     children: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$umkmData$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CATEGORIES"].map((cat)=>{
                                         const active = cat.id === activeCat;
-                                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].button, {
+                                            variants: heroItem,
                                             onClick: ()=>setActiveCat(cat.id),
-                                            className: `flex flex-col items-center gap-2 px-5 py-4 rounded-2xl min-w-[95px] bg-white/75 dark:bg-[var(--bg-soft)] border dark:border-[var(--border-default)] transition-all ${active ? "border-[#EB7610] text-[#EB7610] dark:border-[#EC760D] dark:text-[#EC760D]" : "text-[#2B1B0F] dark:text-[#FFF8F0]"}`,
+                                            className: `flex flex-col items-center gap-2 px-5 py-4 rounded-2xl min-w-[95px] 
+                      bg-white/75 dark:bg-bg-soft border transition-all
+                      ${active ? "border-[#EB7610] dark:border-[#EC760D] shadow-lg scale-105" : "border-white/40 dark:border-border-default hover:shadow-md hover:scale-102"}`,
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     className: "text-2xl",
                                                     children: cat.icon
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                                    lineNumber: 253,
+                                                    lineNumber: 333,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "text-sm font-medium",
+                                                    className: `text-sm font-medium transition-colors ${active ? "text-[#EB7610] dark:text-[#EC760D]" : "text-[#2B1B0F] dark:text-[#FFF8F0]"}`,
                                                     children: cat.label
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                                    lineNumber: 254,
+                                                    lineNumber: 334,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, cat.id, true, {
                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                            lineNumber: 252,
+                                            lineNumber: 321,
                                             columnNumber: 19
                                         }, this);
                                     })
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 248,
+                                    lineNumber: 314,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/direktori/page.jsx",
-                            lineNumber: 234,
+                            lineNumber: 284,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/direktori/page.jsx",
-                        lineNumber: 233,
+                        lineNumber: 277,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CategorySection, {
-                        title: "Resto Pilihan",
-                        subtitle: "Makan enak tanpa ribet. Dari ayam bakar sampai warmindo favorit mahasiswa.",
-                        items: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$umkmData$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["UMKM_DATA"].filter((item)=>item.category === "resto").slice(0, 8)
-                    }, void 0, false, {
+                    isFiltering ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].section, {
+                        initial: {
+                            opacity: 0
+                        },
+                        animate: {
+                            opacity: 1
+                        },
+                        transition: {
+                            duration: 0.4
+                        },
+                        className: "px-[5%] md:px-[7%] lg:px-[9%] mt-14",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mb-6",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                        className: "text-2xl md:text-3xl font-bold text-text-secondary",
+                                        children: "Hasil Pencarian"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/direktori/page.jsx",
+                                        lineNumber: 360,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-text-muted text-sm mt-1",
+                                        children: [
+                                            filtered.length,
+                                            " tempat ditemukan"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/direktori/page.jsx",
+                                        lineNumber: 363,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/direktori/page.jsx",
+                                lineNumber: 359,
+                                columnNumber: 13
+                            }, this),
+                            filtered.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                                variants: gridContainer,
+                                initial: "hidden",
+                                animate: "visible",
+                                className: "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5",
+                                children: filtered.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(UMKMCard, {
+                                        item: item
+                                    }, item.id, false, {
+                                        fileName: "[project]/src/app/direktori/page.jsx",
+                                        lineNumber: 377,
+                                        columnNumber: 19
+                                    }, this))
+                            }, `grid-${activeCat}-${query}-${filtered.length}`, false, {
+                                fileName: "[project]/src/app/direktori/page.jsx",
+                                lineNumber: 369,
+                                columnNumber: 15
+                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "text-center py-20",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-xl text-text-muted",
+                                        children: "Tidak ada hasil ditemukan"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/direktori/page.jsx",
+                                        lineNumber: 382,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>{
+                                            setQuery("");
+                                            setActiveCat("all");
+                                        },
+                                        className: "mt-4 px-6 py-2 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors",
+                                        children: "Reset Filter"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/direktori/page.jsx",
+                                        lineNumber: 383,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/direktori/page.jsx",
+                                lineNumber: 381,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, `filter-${activeCat}-${query}`, true, {
                         fileName: "[project]/src/app/direktori/page.jsx",
-                        lineNumber: 266,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CategorySection, {
-                        title: "Kafe Nyaman",
-                        subtitle: "Tempat ideal buat nugas, nongkrong, atau sekadar cari suasana tenang.",
-                        items: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$umkmData$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["UMKM_DATA"].filter((item)=>item.category === "cafe").slice(0, 8)
-                    }, void 0, false, {
+                        lineNumber: 352,
+                        columnNumber: 11
+                    }, this) : /* DEFAULT STATE: Show Category Sections */ /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                        initial: {
+                            opacity: 0
+                        },
+                        animate: {
+                            opacity: 1
+                        },
+                        transition: {
+                            duration: 0.4
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CategorySection, {
+                                title: "Resto Pilihan",
+                                subtitle: "Makan enak tanpa ribet. Dari ayam bakar sampai warmindo favorit mahasiswa.",
+                                items: restoItems
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/direktori/page.jsx",
+                                lineNumber: 403,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CategorySection, {
+                                title: "Kafe Nyaman",
+                                subtitle: "Tempat ideal buat nugas, nongkrong, atau sekadar cari suasana tenang.",
+                                items: cafeItems
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/direktori/page.jsx",
+                                lineNumber: 409,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CategorySection, {
+                                title: "Cemilan Enak",
+                                subtitle: "Pilihan ringan buat ganjel lapar sambil nunggu kelas berikutnya.",
+                                items: cemilanItems
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/direktori/page.jsx",
+                                lineNumber: 415,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CategorySection, {
+                                title: "Minuman Segar",
+                                subtitle: "Thai tea, kopi, mocktail—temeni hari panjang di kampus.",
+                                items: minumanItems
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/direktori/page.jsx",
+                                lineNumber: 421,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CategorySection, {
+                                title: "Layanan Lain",
+                                subtitle: "Pilihan tempat yang mendukung kebutuhan mahasiswa di sekitar kampus.",
+                                items: lainItems
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/direktori/page.jsx",
+                                lineNumber: 427,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, "category-sections", true, {
                         fileName: "[project]/src/app/direktori/page.jsx",
-                        lineNumber: 268,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CategorySection, {
-                        title: "Cemilan Enak",
-                        subtitle: "Pilihan ringan buat ganjel lapar sambil nunggu kelas berikutnya.",
-                        items: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$umkmData$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["UMKM_DATA"].filter((item)=>item.category === "cemilan").slice(0, 8)
-                    }, void 0, false, {
-                        fileName: "[project]/src/app/direktori/page.jsx",
-                        lineNumber: 270,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CategorySection, {
-                        title: "Minuman Segar",
-                        subtitle: "Thai tea, kopi, mocktail—temeni hari panjang di kampus.",
-                        items: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$umkmData$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["UMKM_DATA"].filter((item)=>item.category === "minuman").slice(0, 8)
-                    }, void 0, false, {
-                        fileName: "[project]/src/app/direktori/page.jsx",
-                        lineNumber: 272,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CategorySection, {
-                        title: "Layanan Lain",
-                        subtitle: "Pilihan tempat yang mendukung kebutuhan mahasiswa di sekitar kampus.",
-                        items: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$umkmData$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["UMKM_DATA"].filter((item)=>item.category === "lain").slice(0, 8)
-                    }, void 0, false, {
-                        fileName: "[project]/src/app/direktori/page.jsx",
-                        lineNumber: 274,
-                        columnNumber: 9
+                        lineNumber: 397,
+                        columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].section, {
-                        initial: "visible",
-                        variants: heroContainer,
-                        className: "px-[5%] md:px-[7%] lg:px-[9%] mt-10",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
-                            variants: heroItem,
-                            className: "bg-[var(--bg-base)] rounded-2xl p-8 md:p-12 shadow-[0_12px_40px_rgba(0,0,0,0.06)]",
+                        id: "trending",
+                        initial: {
+                            opacity: 0,
+                            y: 20
+                        },
+                        whileInView: {
+                            opacity: 1,
+                            y: 0
+                        },
+                        viewport: {
+                            once: true,
+                            amount: 0.2
+                        },
+                        transition: {
+                            duration: 0.6
+                        },
+                        className: "px-[5%] md:px-[7%] lg:px-[9%] mt-20 scroll-mt-24",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "bg-white dark:bg-bg-soft rounded-3xl p-10 shadow-xl flex flex-col lg:flex-row gap-10",
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                    className: "text-2xl md:text-3xl font-semibold text-[var(--text-secondary)] mb-6",
-                                    children: "Trending di Gelap Nyawang"
-                                }, void 0, false, {
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex-1 max-w-lg",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                            className: "text-3xl md:text-4xl font-bold text-text-secondary mb-4",
+                                            children: [
+                                                "Trending di",
+                                                " ",
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "bg-gradient-to-r from-[#EC760D] to-[#FCBB65] bg-clip-text text-transparent",
+                                                    children: "Gelap Nyawang"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/direktori/page.jsx",
+                                                    lineNumber: 448,
+                                                    columnNumber: 17
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/direktori/page.jsx",
+                                            lineNumber: 446,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-text-muted text-base leading-relaxed",
+                                            children: "Tempat makan yang lagi sering dibicarakan. Tiga pilihan paling populer minggu ini."
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/direktori/page.jsx",
+                                            lineNumber: 453,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 282,
+                                    lineNumber: 445,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6",
-                                    children: trending.map((t)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(UMKMCard, {
-                                            item: t
-                                        }, t.id, false, {
+                                    className: "flex-[2] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6",
+                                    children: trending.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
+                                            initial: {
+                                                opacity: 0,
+                                                y: 20
+                                            },
+                                            whileInView: {
+                                                opacity: 1,
+                                                y: 0
+                                            },
+                                            viewport: {
+                                                once: true
+                                            },
+                                            transition: {
+                                                duration: 0.45,
+                                                delay: index * 0.1
+                                            },
+                                            className: "group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-[220px]   ",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "absolute inset-0",
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                                        src: item.img,
+                                                        className: "w-full h-full object-cover transition-transform duration-500 group-hover:scale-110",
+                                                        alt: item.name,
+                                                        loading: "lazy"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/direktori/page.jsx",
+                                                        lineNumber: 470,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/direktori/page.jsx",
+                                                    lineNumber: 469,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/direktori/page.jsx",
+                                                    lineNumber: 478,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "absolute bottom-4 left-4 right-4",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                            className: "text-lg font-semibold text-white drop-shadow mb-1",
+                                                            children: item.name
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/direktori/page.jsx",
+                                                            lineNumber: 481,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "text-white/90 text-sm opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-20 transition-all duration-300 line-clamp-2",
+                                                            children: item.short
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/direktori/page.jsx",
+                                                            lineNumber: 485,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/direktori/page.jsx",
+                                                    lineNumber: 480,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                                    href: `/direktori/${item.slug}`,
+                                                    className: "absolute inset-0",
+                                                    "aria-label": `View ${item.name}`,
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "sr-only",
+                                                        children: [
+                                                            "View ",
+                                                            item.name
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/direktori/page.jsx",
+                                                        lineNumber: 495,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/direktori/page.jsx",
+                                                    lineNumber: 490,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, item.id, true, {
                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                            lineNumber: 285,
+                                            lineNumber: 460,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 283,
+                                    lineNumber: 458,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/direktori/page.jsx",
-                            lineNumber: 281,
+                            lineNumber: 444,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/direktori/page.jsx",
-                        lineNumber: 280,
+                        lineNumber: 436,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/direktori/page.jsx",
-                lineNumber: 231,
+                lineNumber: 275,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$footerDirektori$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/app/direktori/page.jsx",
-                lineNumber: 292,
+                lineNumber: 504,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/direktori/page.jsx",
-        lineNumber: 228,
+        lineNumber: 272,
         columnNumber: 5
     }, this);
 }

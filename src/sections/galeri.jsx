@@ -114,7 +114,7 @@ export default function Galeri() {
           transition={{ delay: 0.1 }}
           className="text-3xl md:text-5xl font-bold text-text-primary dark:text-text-secondary"
         >
-          Cerita dari <span className="text-primary">Dapur Kami</span>
+          Cerita dari <span className="text-primary">Kehangatan</span>
         </motion.h2>
       </header>
 

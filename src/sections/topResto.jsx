@@ -193,7 +193,7 @@ export default function TopResto() {
                 className="text-primary inline-block"
                 animate={TEXT_GLOW}
               >
-                Paijo
+                Kami
               </motion.span>
             </h2>
 

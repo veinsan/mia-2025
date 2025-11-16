@@ -1,58 +1,89 @@
-[00:00:01.153] Server  LOG      ✓ Ready in 756ms
-[00:00:05.799] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:08.507] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:12.984] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:56.762] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:19.370] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:26.770] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:28.782] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:02:44.059] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:23:34.392] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:23:42.265] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:23:52.200] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:24:03.821] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:26:00.055] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:26:50.526] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:27:56.342] Server  LOG      ✓ Compiled in 130ms
-[00:28:03.239] Server  LOG      ✓ Compiled in 103ms
-[00:28:04.747] Server  LOG      ✓ Compiled in 91ms
-[00:28:09.513] Server  LOG      ✓ Compiled in 90ms
-[00:28:17.108] Server  LOG      ✓ Compiled in 135ms
-[00:28:57.922] Server  LOG      ✓ Compiled in 111ms
-[00:28:59.773] Server  LOG      ✓ Compiled in 107ms
-[00:29:04.362] Server  LOG      ✓ Compiled in 77ms
-[00:29:13.900] Server  LOG      ✓ Compiled in 63ms
-[00:29:15.011] Server  LOG      ✓ Compiled in 63ms
-[00:29:49.255] Server  LOG      ✓ Compiled in 107ms
-[00:30:06.194] Server  LOG      ✓ Compiled in 92ms
-[00:30:09.087] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:30:19.986] Server  LOG      ✓ Compiled in 159ms
-[00:30:23.112] Server  LOG      ✓ Compiled in 73ms
-[00:30:31.862] Server  LOG      ✓ Compiled in 139ms
-[00:30:46.156] Server  LOG      ✓ Compiled in 105ms
-[00:30:52.358] Server  LOG      ✓ Compiled in 67ms
-[00:30:58.738] Server  LOG      ✓ Compiled in 83ms
-[00:31:03.475] Server  LOG      ✓ Compiled in 99ms
-[00:31:05.571] Server  LOG      ✓ Compiled in 76ms
-[00:31:09.219] Server  LOG      ✓ Compiled in 84ms
-[00:31:12.209] Server  LOG      ✓ Compiled in 90ms
-[00:31:14.195] Server  LOG      ✓ Compiled in 142ms
-[00:31:16.011] Server  LOG      ✓ Compiled in 87ms
-[00:31:20.007] Server  LOG      ✓ Compiled in 97ms
-[00:31:25.164] Server  LOG      ✓ Compiled in 82ms
-[00:31:28.126] Server  LOG      ✓ Compiled in 108ms
-[00:31:31.392] Server  LOG      ✓ Compiled in 85ms
-[00:31:34.085] Server  LOG      ✓ Compiled in 109ms
-[00:31:38.027] Server  LOG      ✓ Compiled in 75ms
-[00:31:42.425] Server  LOG      ✓ Compiled in 127ms
-[00:31:46.812] Server  LOG      ✓ Compiled in 112ms
-[00:31:49.370] Server  LOG      ✓ Compiled in 89ms
-[00:31:51.949] Server  LOG      ✓ Compiled in 104ms
-[00:31:54.378] Server  LOG      ✓ Compiled in 84ms
-[00:31:57.501] Server  LOG      ✓ Compiled in 100ms
-[00:32:08.763] Server  LOG      ✓ Compiled in 109ms
-[00:32:10.150] Server  LOG      ✓ Compiled in 107ms
-[00:32:14.665] Server  LOG      ✓ Compiled in 65ms
-[00:32:21.279] Server  LOG      ✓ Compiled in 120ms
-[00:32:25.781] Server  LOG      ✓ Compiled in 89ms
-[00:32:28.368] Server  LOG      ✓ Compiled in 96ms
+[00:00:01.610] Server  LOG      ✓ Ready in 1049ms
+[00:00:08.397] Server  LOG      ○ Compiling /direktori ...
+[00:00:09.316] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:16.110] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:57.869] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:18.407] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:33.869] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:37.897] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:55.313] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:28.866] Server  LOG      ✓ Compiled in 151ms
+[00:09:29.671] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:37.914] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:10:05.019] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:10:19.555] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:11:24.199] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:12:39.861] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:12:53.797] Browser ERROR   uncaughtError: TypeError: onCategoryClick is not a function
+[00:13:01.164] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:13:38.376] Server  LOG      ✓ Compiled in 202ms
+[00:13:38.666] Browser ERROR   ./src/app/direktori/page.jsx:510:5
+Parsing ecmascript source code failed
+  508 |
+  509 |
+> 510 | nih bodoh, liat code ini
+      |     ^^^^^
+
+Expected ';', '}' or <eof>
+
+Import traces:
+  Client Component Browser:
+    ./src/app/direktori/page.jsx [Client Component Browser]
+    ./src/app/direktori/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/direktori/page.jsx [Client Component SSR]
+    ./src/app/direktori/page.jsx [Server Component]
+[00:13:38.757] Browser ERROR   ./src/app/direktori/page.jsx:510:5
+Parsing ecmascript source code failed
+  508 |
+  509 |
+> 510 | nih bodoh, liat code ini
+      |     ^^^^^
+
+Expected ';', '}' or <eof>
+
+Import traces:
+  Client Component Browser:
+    ./src/app/direktori/page.jsx [Client Component Browser]
+    ./src/app/direktori/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/direktori/page.jsx [Client Component SSR]
+    ./src/app/direktori/page.jsx [Server Component]
+[00:13:38.757] Browser ERROR   ./src/app/direktori/page.jsx:510:5
+Parsing ecmascript source code failed
+  508 |
+  509 |
+> 510 | nih bodoh, liat code ini
+      |     ^^^^^
+
+Expected ';', '}' or <eof>
+
+Import traces:
+  Client Component Browser:
+    ./src/app/direktori/page.jsx [Client Component Browser]
+    ./src/app/direktori/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/direktori/page.jsx [Client Component SSR]
+    ./src/app/direktori/page.jsx [Server Component]
+[00:13:44.437] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:13:45.071] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:13:52.147] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:14:28.468] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:15:29.727] Server  LOG      ✓ Compiled in 139ms
+[00:15:36.429] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:15:54.138] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:16:04.491] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:16:19.507] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:16:43.857] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:17:43.394] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:18.741] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:23.693] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:43.397] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:46.529] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:56.001] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:11.849] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:21:06.104] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:21:35.900] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
