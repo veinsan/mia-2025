@@ -1,59 +1,45 @@
-/* ------------------------------------------------------------
-   GOOGLE FONTS — font utama project
------------------------------------------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
 
-/* Tailwind layers */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* CSS VARIABLES */
 
-/* ------------------------------------------------------------
-   CSS VARIABLES (Light Mode)
-   Warna berbasis token supaya mudah dikontrol & sinkron dengan Tailwind
------------------------------------------------------------- */
 :root {
-  /* Background palette */
+  /* Light Mode Colors */
   --bg-base: #FFFFFF;
   --bg-soft: #FFF8F0;
   --bg-warm: #FFEDD9;
   --bg-gold: #FEE6C8;
-
-  /* Text palette */
+  
   --text-primary: #1A0A03;
   --text-secondary: #4A1E0E;
   --text-muted: #8B4513;
-
-  /* Border */
+  
   --border-light: #F5E5D3;
   --border-default: #E8D4BE;
 }
 
-/* ------------------------------------------------------------
-   DARK MODE VARIABLES 
-   Aktif saat class ".dark" ada di <html> (via next-themes)
------------------------------------------------------------- */
+/* Dark Mode Colors */
 .dark {
   --bg-base: #0A0503;
   --bg-soft: #1A1210;
   --bg-warm: #2A1F1A;
   --bg-gold: #3A2F28;
-
+  
   --text-primary: #FFF8F0;
   --text-secondary: #FFE5CC;
   --text-muted: #D4B896;
-
+  
   --border-light: #2A1F1A;
   --border-default: #3A2F28;
 }
 
+/* BASE STYLES */
 
-/* ------------------------------------------------------------
-   BASE RESETS & SCAFFOLDING
------------------------------------------------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -61,45 +47,36 @@
 }
 
 html {
-  scroll-behavior: smooth;            /* Smooth scroll antar section */
+  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: 'Poppins', sans-serif; /* Default font project */
-  transition: background-color 0.3s ease,
-              color 0.3s ease;        /* Smooth theme switching */
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* UTILITY CLASSES */
 
-/* ------------------------------------------------------------
-   UTILITIES LAYER — custom utility classes
------------------------------------------------------------- */
 @layer utilities {
-
-  /* Helper untuk transisi theme-aware */
   .transition-theme {
-    transition: background-color 0.3s ease,
-                color 0.3s ease,
+    transition: background-color 0.3s ease, 
+                color 0.3s ease, 
                 border-color 0.3s ease;
   }
-
-  /* Hide scrollbar (untuk carousel, marquee, dll.) */
+  
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+  
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
 }
 
-
-/* ------------------------------------------------------------
-   SVG / MARQUEE ANIMATION
-   Digunakan di banner berjalan (Banner.svg)
------------------------------------------------------------- */
+/* ANIMASI SVG */
 @keyframes marquee-right {
   0% { transform: translateX(-50%); }
   100% { transform: translateX(0%); }
@@ -117,12 +94,10 @@ body {
   }
 }
 
+/* SELECTION & LINKS */
 
-/* ------------------------------------------------------------
-   TEXT SELECTION & LINK DEFAULT STYLE
------------------------------------------------------------- */
 ::selection {
-  background: #E57621; /* warna brand */
+  background: #E57621;
   color: white;
 }
 
@@ -131,11 +106,8 @@ a {
   text-decoration: none;
 }
 
+/* ACCESSIBILITY */
 
-/* ------------------------------------------------------------
-   ACCESSIBILITY — reduce motion mode
-   Semua animasi dipersingkat drastis demi kenyamanan pengguna sensitif
------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
