@@ -2,11 +2,7 @@ module.exports = [
 "[project]/src/app/layout.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/* ------------------------------------------------------------
-   GLOBAL STYLES & THEME PROVIDER
-   - globals.css: berisi variable warna, utilities, dan base styling
-   - next-themes: mengatur light/dark mode dengan class switching
------------------------------------------------------------- */ __turbopack_context__.s([
+__turbopack_context__.s([
     "default",
     ()=>RootLayout,
     "metadata",
@@ -61,17 +57,17 @@ function RootLayout({ children }) {
                 children: children
             }, void 0, false, {
                 fileName: "[project]/src/app/layout.js",
-                lineNumber: 59,
+                lineNumber: 33,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/app/layout.js",
-            lineNumber: 54,
+            lineNumber: 29,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/layout.js",
-        lineNumber: 53,
+        lineNumber: 28,
         columnNumber: 5
     }, this);
 }

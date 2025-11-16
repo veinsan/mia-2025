@@ -922,8 +922,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 /* ------------------------------------------------------------
-   Animation configuration untuk transition dan efek UI.
-   Disusun supaya mudah disesuaikan dari satu tempat.
+   Animation configuration
 ------------------------------------------------------------ */ const MOTION_CONFIG = {
     navContainer: {
         duration: 0.4,
@@ -947,12 +946,10 @@ var _s = __turbopack_context__.k.signature();
     }
 };
 /* ------------------------------------------------------------
-   Helper styling untuk tombol mode gelap/terang.
-   Menghindari repetisi class utility.
+   Helper styling
 ------------------------------------------------------------ */ const getNavButtonStyles = (darkMode)=>`rounded-full w-[48px] h-[48px] transition-all duration-300 flex items-center justify-center ${darkMode ? "bg-bg-soft text-white" : "bg-bg-base text-text-primary"}`;
 /* ------------------------------------------------------------
-   Toggle icon (Sun/Moon) dengan animasi rotasi.
-   Dipisah agar lebih modular dan mudah dibaca.
+   IconToggle
 ------------------------------------------------------------ */ const IconToggle = ({ darkMode, rotation, onToggle })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].button, {
         onClick: onToggle,
         className: getNavButtonStyles(darkMode),
@@ -982,34 +979,33 @@ var _s = __turbopack_context__.k.signature();
                     size: 20
                 }, void 0, false, {
                     fileName: "[project]/src/components/navDirektori.jsx",
-                    lineNumber: 50,
+                    lineNumber: 47,
                     columnNumber: 21
                 }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$moon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Moon$3e$__["Moon"], {
                     size: 20
                 }, void 0, false, {
                     fileName: "[project]/src/components/navDirektori.jsx",
-                    lineNumber: 50,
+                    lineNumber: 47,
                     columnNumber: 41
                 }, ("TURBOPACK compile-time value", void 0))
             }, darkMode ? "sun" : "moon", false, {
                 fileName: "[project]/src/components/navDirektori.jsx",
-                lineNumber: 43,
+                lineNumber: 40,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/src/components/navDirektori.jsx",
-            lineNumber: 42,
+            lineNumber: 39,
             columnNumber: 5
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/components/navDirektori.jsx",
-        lineNumber: 34,
+        lineNumber: 31,
         columnNumber: 3
     }, ("TURBOPACK compile-time value", void 0));
 _c = IconToggle;
 /* ------------------------------------------------------------
-   Drawer menu khusus mobile.
-   Berisi link navigasi dan kategori untuk filter UMKM.
+   Mobile Drawer
 ------------------------------------------------------------ */ function MobileDrawer({ open, onClose, navLinks, darkMode, onCategoryClick }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
         children: open && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1040,7 +1036,6 @@ _c = IconToggle;
                 transition: MOTION_CONFIG.drawer,
                 className: "w-[80%] sm:w-[400px] bg-bg-base dark:bg-bg-soft text-text-primary h-full shadow-2xl p-6",
                 onClick: (e)=>e.stopPropagation(),
-                "aria-label": "Mobile navigation",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex items-center justify-between mb-6",
@@ -1048,7 +1043,6 @@ _c = IconToggle;
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                                 href: "/",
                                 onClick: onClose,
-                                "aria-label": "Go to home",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                                     src: darkMode ? "/assets/logo.png" : "/assets/black.png",
                                     alt: "Gelap Nyawang Logo",
@@ -1056,34 +1050,33 @@ _c = IconToggle;
                                     draggable: "false"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/navDirektori.jsx",
-                                    lineNumber: 85,
+                                    lineNumber: 78,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                lineNumber: 84,
+                                lineNumber: 77,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 onClick: onClose,
                                 className: "p-2 rounded-lg hover:bg-bg-soft transition-colors",
-                                "aria-label": "Close menu",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
                                     size: 22
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/navDirektori.jsx",
-                                    lineNumber: 98,
+                                    lineNumber: 90,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                lineNumber: 93,
+                                lineNumber: 86,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/navDirektori.jsx",
-                        lineNumber: 83,
+                        lineNumber: 76,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
@@ -1096,14 +1089,14 @@ _c = IconToggle;
                                     children: l.label
                                 }, l.id, false, {
                                     fileName: "[project]/src/components/navDirektori.jsx",
-                                    lineNumber: 105,
+                                    lineNumber: 96,
                                     columnNumber: 17
                                 }, this)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
                                 className: "my-4 border-border-light dark:border-border-default"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                lineNumber: 115,
+                                lineNumber: 106,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1113,7 +1106,7 @@ _c = IconToggle;
                                         children: "Kategori"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/navDirektori.jsx",
-                                        lineNumber: 119,
+                                        lineNumber: 109,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1123,60 +1116,61 @@ _c = IconToggle;
                                                     onCategoryClick(c.id);
                                                     onClose();
                                                 },
-                                                className: "py-3 px-3 rounded-lg text-sm bg-bg-soft hover:bg-primary/10 hover:text-primary transition-colors text-left flex items-center gap-2",
+                                                className: "py-3 px-3 rounded-lg text-sm bg-bg-soft    hover:bg-primary/10 hover:text-primary    transition-colors text-left flex items-center gap-2   min-h-[60px]",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         className: "text-base",
                                                         children: c.icon
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/navDirektori.jsx",
-                                                        lineNumber: 131,
+                                                        lineNumber: 125,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "leading-tight",
                                                         children: c.label
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/navDirektori.jsx",
-                                                        lineNumber: 132,
+                                                        lineNumber: 126,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, c.id, true, {
                                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                                lineNumber: 123,
+                                                lineNumber: 114,
                                                 columnNumber: 21
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/navDirektori.jsx",
-                                        lineNumber: 121,
+                                        lineNumber: 112,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                lineNumber: 118,
+                                lineNumber: 108,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/navDirektori.jsx",
-                        lineNumber: 103,
+                        lineNumber: 94,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/navDirektori.jsx",
-                lineNumber: 73,
+                lineNumber: 68,
                 columnNumber: 11
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/components/navDirektori.jsx",
-            lineNumber: 64,
+            lineNumber: 60,
             columnNumber: 9
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/navDirektori.jsx",
-        lineNumber: 62,
+        lineNumber: 58,
         columnNumber: 5
     }, this);
 }
@@ -1192,7 +1186,7 @@ function NavDirektori({ onCategoryClick }) {
     const [catOpen, setCatOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const catButtonRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const catMenuRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
-    /* Link navigasi utama */ const navLinks = [
+    const navLinks = [
         {
             id: "home",
             label: "Beranda",
@@ -1209,9 +1203,29 @@ function NavDirektori({ onCategoryClick }) {
             href: "#trending"
         }
     ];
-    /* ------------------------------------------------------------
-     State scroll: aktifkan background blur saat navbar dilewati
-  ------------------------------------------------------------ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "NavDirektori.useEffect": ()=>{
+            const trendingEl = document.getElementById("trending");
+            const listEl = document.getElementById("top-direktori");
+            function handleScroll() {
+                const scrollY = window.scrollY + 200; // kasih offset biar smooth
+                if (trendingEl && scrollY >= trendingEl.offsetTop) {
+                    setActive("trending");
+                } else if (listEl && scrollY >= listEl.offsetTop) {
+                    setActive("list");
+                } else {
+                    setActive("home");
+                }
+            }
+            window.addEventListener("scroll", handleScroll, {
+                passive: true
+            });
+            return ({
+                "NavDirektori.useEffect": ()=>window.removeEventListener("scroll", handleScroll)
+            })["NavDirektori.useEffect"];
+        }
+    }["NavDirektori.useEffect"], []);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "NavDirektori.useEffect": ()=>{
             const handleScroll = {
                 "NavDirektori.useEffect.handleScroll": ()=>setScrolled(window.scrollY > 32)
@@ -1224,16 +1238,14 @@ function NavDirektori({ onCategoryClick }) {
             })["NavDirektori.useEffect"];
         }
     }["NavDirektori.useEffect"], []);
-    /* Sync state dark mode dengan <html> */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "NavDirektori.useEffect": ()=>{
             document.documentElement.classList.toggle("dark", darkMode);
         }
     }["NavDirektori.useEffect"], [
         darkMode
     ]);
-    /* ------------------------------------------------------------
-     Handler klik luar untuk menutup dropdown kategori
-  ------------------------------------------------------------ */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "NavDirektori.useEffect": ()=>{
             function onDocClick(e) {
                 if (!catOpen) return;
@@ -1255,9 +1267,7 @@ function NavDirektori({ onCategoryClick }) {
     }["NavDirektori.useEffect"], [
         catOpen
     ]);
-    /* ------------------------------------------------------------
-     Toggle dark mode dengan animasi rotasi icon
-  ------------------------------------------------------------ */ const handleToggleMode = ()=>{
+    const handleToggleMode = ()=>{
         if (iconChanging) return;
         setIconChanging(true);
         setRotation((r)=>r + 360);
@@ -1266,7 +1276,7 @@ function NavDirektori({ onCategoryClick }) {
             setIconChanging(false);
         }, 500);
     };
-    /* Background dinamis navbar sesuai scroll + mode */ const backgroundColor = scrolled ? darkMode ? "rgba(10,10,10,0.75)" : "rgba(255,255,255,0.75)" : "rgba(0,0,0,0)";
+    const backgroundColor = scrolled ? darkMode ? "rgba(10,10,10,0.75)" : "rgba(255,255,255,0.75)" : "rgba(0,0,0,0)";
     const blurLevel = scrolled ? 14 : 0;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
         className: "fixed top-0 left-0 w-full z-50",
@@ -1284,7 +1294,6 @@ function NavDirektori({ onCategoryClick }) {
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                         href: "/",
                         className: "flex items-center select-none",
-                        "aria-label": "Kembali ke beranda",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                             src: darkMode ? "/assets/logo.png" : "/assets/black.png",
                             alt: "Gelap Nyawang Logo",
@@ -1292,18 +1301,17 @@ function NavDirektori({ onCategoryClick }) {
                             draggable: "false"
                         }, void 0, false, {
                             fileName: "[project]/src/components/navDirektori.jsx",
-                            lineNumber: 253,
+                            lineNumber: 246,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/navDirektori.jsx",
-                        lineNumber: 252,
+                        lineNumber: 245,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
                         className: "hidden md:flex items-center gap-8 font-medium",
                         role: "navigation",
-                        "aria-label": "Main navigation",
                         children: [
                             navLinks.map((link)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "relative",
@@ -1318,18 +1326,18 @@ function NavDirektori({ onCategoryClick }) {
                                                 className: `absolute left-0 right-0 bottom-[-6px] h-[2px] rounded-full ${active === link.id ? "bg-primary" : "bg-primary/0 group-hover:bg-primary/80 transition-all duration-300"}`
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                                lineNumber: 277,
+                                                lineNumber: 268,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/navDirektori.jsx",
-                                        lineNumber: 269,
+                                        lineNumber: 260,
                                         columnNumber: 15
                                     }, this)
                                 }, link.id, false, {
                                     fileName: "[project]/src/components/navDirektori.jsx",
-                                    lineNumber: 268,
+                                    lineNumber: 259,
                                     columnNumber: 13
                                 }, this)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1338,8 +1346,6 @@ function NavDirektori({ onCategoryClick }) {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         ref: catButtonRef,
                                         onClick: ()=>setCatOpen((s)=>!s),
-                                        "aria-haspopup": "menu",
-                                        "aria-expanded": catOpen,
                                         className: `flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${darkMode ? "text-white" : "text-text-primary"} hover:text-primary`,
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1347,7 +1353,7 @@ function NavDirektori({ onCategoryClick }) {
                                                 children: "Kategori"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                                lineNumber: 300,
+                                                lineNumber: 288,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
@@ -1355,13 +1361,13 @@ function NavDirektori({ onCategoryClick }) {
                                                 className: `transform transition-transform ${catOpen ? "rotate-180" : ""}`
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                                lineNumber: 301,
+                                                lineNumber: 289,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/navDirektori.jsx",
-                                        lineNumber: 291,
+                                        lineNumber: 281,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -1384,8 +1390,7 @@ function NavDirektori({ onCategoryClick }) {
                                             },
                                             transition: MOTION_CONFIG.dropdown,
                                             role: "menu",
-                                            "aria-label": "Kategori menu",
-                                            className: "absolute right-0 mt-2 w-[220px] bg-bg-base dark:bg-bg-warm rounded-2xl shadow-xl ring-1 ring-black/6 p-3 z-40",
+                                            className: "absolute right-0 mt-2 w-[240px] bg-bg-base dark:bg-bg-warm rounded-2xl shadow-xl ring-1 ring-black/6 p-3 z-40",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
                                                 className: "flex flex-col gap-1",
                                                 children: [
@@ -1395,7 +1400,6 @@ function NavDirektori({ onCategoryClick }) {
                                                                     onCategoryClick(c.id);
                                                                     setCatOpen(false);
                                                                 },
-                                                                role: "menuitem",
                                                                 className: "w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm hover:bg-primary/10 transition-colors text-left",
                                                                 children: [
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1403,7 +1407,7 @@ function NavDirektori({ onCategoryClick }) {
                                                                         children: c.icon
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/navDirektori.jsx",
-                                                                        lineNumber: 331,
+                                                                        lineNumber: 319,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1411,18 +1415,18 @@ function NavDirektori({ onCategoryClick }) {
                                                                         children: c.label
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/navDirektori.jsx",
-                                                                        lineNumber: 332,
+                                                                        lineNumber: 320,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                                                lineNumber: 323,
+                                                                lineNumber: 312,
                                                                 columnNumber: 25
                                                             }, this)
                                                         }, c.id, false, {
                                                             fileName: "[project]/src/components/navDirektori.jsx",
-                                                            lineNumber: 322,
+                                                            lineNumber: 311,
                                                             columnNumber: 23
                                                         }, this)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -1431,45 +1435,44 @@ function NavDirektori({ onCategoryClick }) {
                                                                 onCategoryClick("all");
                                                                 setCatOpen(false);
                                                             },
-                                                            role: "menuitem",
                                                             className: "w-full block mt-1 px-3 py-2 rounded-lg text-sm text-text-muted hover:bg-bg-soft transition-colors text-left",
                                                             children: "Lihat Semua"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/navDirektori.jsx",
-                                                            lineNumber: 341,
+                                                            lineNumber: 328,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/navDirektori.jsx",
-                                                        lineNumber: 340,
+                                                        lineNumber: 327,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                                lineNumber: 320,
+                                                lineNumber: 309,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/navDirektori.jsx",
-                                            lineNumber: 310,
+                                            lineNumber: 299,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/navDirektori.jsx",
-                                        lineNumber: 308,
+                                        lineNumber: 297,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                lineNumber: 290,
+                                lineNumber: 280,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/navDirektori.jsx",
-                        lineNumber: 262,
+                        lineNumber: 254,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1481,36 +1484,35 @@ function NavDirektori({ onCategoryClick }) {
                                 onToggle: handleToggleMode
                             }, void 0, false, {
                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                lineNumber: 361,
+                                lineNumber: 346,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 className: "md:hidden p-2 rounded-full hover:bg-white/10 transition-colors",
                                 onClick: ()=>setDrawerOpen(true),
-                                "aria-label": "Open navigation menu",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$menu$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Menu$3e$__["Menu"], {
                                     size: 22,
                                     className: darkMode ? "text-white" : "text-text-primary"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/navDirektori.jsx",
-                                    lineNumber: 368,
+                                    lineNumber: 352,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/navDirektori.jsx",
-                                lineNumber: 363,
+                                lineNumber: 348,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/navDirektori.jsx",
-                        lineNumber: 360,
+                        lineNumber: 345,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/navDirektori.jsx",
-                lineNumber: 241,
+                lineNumber: 235,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MobileDrawer, {
@@ -1521,17 +1523,17 @@ function NavDirektori({ onCategoryClick }) {
                 onCategoryClick: onCategoryClick
             }, void 0, false, {
                 fileName: "[project]/src/components/navDirektori.jsx",
-                lineNumber: 374,
+                lineNumber: 357,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/navDirektori.jsx",
-        lineNumber: 239,
+        lineNumber: 234,
         columnNumber: 5
     }, this);
 }
-_s(NavDirektori, "YS4qjXLVNyXa5saS8wEVwsm8iAo=");
+_s(NavDirektori, "reg6vkvxyINaz5douG7lwrvZcdo=");
 _c2 = NavDirektori;
 var _c, _c1, _c2;
 __turbopack_context__.k.register(_c, "IconToggle");
