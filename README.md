@@ -1,29 +1,34 @@
 <div align="center">
-  <img src="assets/ganyangbanner.png" alt="Banner">
+  <img src="assets/ganyangbanner.png" alt="Deskripsi gambar">
 </div>
 
-# Gelap Nyawang – Tempat Makan Setelah Semua Kesibukan Kuliah Anak ITB
-
-**Gelap Nyawang** adalah kawasan kuliner legendaris di sekitar Institut Teknologi Bandung (ITB) yang menjadi pusat kehidupan malam mahasiswa. Dari tempat makan sederhana sampai kafe modern, semua hadir dalam satu jalan penuh cita rasa dan cerita.
-
-Website ini dibuat untuk memperkenalkan dan memperkuat eksistensi digital para pelaku UMKM di kawasan Gelap Nyawang. Dengan desain yang hangat, interaktif, dan mobile-first, pengguna dapat menjelajahi tempat makan favorit dengan mudah, lengkap dengan kategori, galeri, dan deskripsi unik tiap usaha.
-
-Dengan semangat *“Dari Mahasiswa, Untuk Mahasiswa”*, proyek ini menghadirkan pengalaman menjelajah kuliner lokal yang tidak hanya informatif, tapi juga emosional.
+# Ganyang Lapar di Gelap Nyawang
+Ganyang Lapar di Gelap Nyawang adalah website yang berupa platform direktori UMKM yang membantu mahasiswa dan masyarakat menemukan tempat makan, kafe, dan layanan sekitar kawasan Gelap Nyawang. Dengan tampilan yang intuitif, pencarian cepat, kategori lengkap, serta galeri visual, platform ini mempermudah pengguna menemukan lokasi terbaik sesuai kebutuhan mereka.
 
 <a name="readme-top"></a>
 
 <!-- PROJECT LOGO -->
 <div align="center">
-  <img src="public/assets/logo.png" alt="Logo" width="260">
+  <img src="public/assets/logo.png" alt="Logo Gelap Nyawang" width="300">
   <p><strong>Jelajahi Rasa, Nikmati Suasana</strong></p>
+</div>
+
+<div align="center">
+  <h3>Made by:</h3>
+  <p><strong>Riantama Putra</strong> – Web Developer & Project Integrator</p>
+  <p><strong>Aldyto Rafif Abhinaya</strong> – Detail Page & Konten</p>
+  <p><strong>Muhammad Ghiffary Alfathan</strong> – Direktori Page & Data</p>
+  <br />
+  <a href="https://github.com/veinsan/GelapNyawang"><strong>Explore the docs »</strong></a>
+  <br /><br />
 </div>
 
 ---
 
 ### 🎯 Tujuan & Manfaat
 
-Proyek ini bertujuan untuk mendigitalisasi potensi UMKM di kawasan Gelap Nyawang agar lebih mudah ditemukan oleh mahasiswa, warga sekitar, dan wisatawan.  
-Selain menjadi direktori kuliner interaktif, website ini juga berfungsi sebagai wadah promosi gratis yang membantu pelaku usaha lokal meningkatkan visibilitas di dunia digital.
+Proyek ini dibuat untuk membantu UMKM di kawasan Gelap Nyawang agar lebih mudah ditemukan oleh mahasiswa, warga sekitar, dan wisatawan.  
+Selain menjadi direktori kuliner interaktif, website ini juga menjadi media promosi gratis yang membantu usaha lokal meningkatkan visibilitas di dunia digital.
 
 ---
 
@@ -31,117 +36,129 @@ Selain menjadi direktori kuliner interaktif, website ini juga berfungsi sebagai 
 
 <div align="center">
 
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![Framer Motion](https://img.shields.io/badge/Framer_Motion-E87524?style=for-the-badge&logo=framer&logoColor=white)
-![Lucide React](https://img.shields.io/badge/Lucide_Icons-181717?style=for-the-badge&logo=lucide&logoColor=white)
-![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-black?style=for-the-badge&logo=vercel)
+![Lucide Icons](https://img.shields.io/badge/Lucide_Icons-181717?style=for-the-badge&logo=lucide&logoColor=white)
+![Vercel](https://img.shields.io/badge/Hosted_on-Vercel-black?style=for-the-badge&logo=vercel)
 
 </div>
 
+<br>
+
 | Teknologi | Deskripsi | Peran dalam Project |
-|-----------|------------|--------------------|
-| **Next.js 14** | Framework React modern | Routing halaman, modularisasi, dan SEO bawaan |
-| **Tailwind CSS** | Utility-first CSS framework | Styling cepat, responsif, dan konsisten |
-| **Framer Motion** | Library animasi React | Transisi smooth untuk elemen scroll dan hover |
-| **Lucide React** | Ikon ringan modern | Ikon pada navbar, tombol, dan dark mode toggle |
-| **Intersection Observer** | Native browser API | Deteksi elemen on-screen untuk animasi dinamis |
+|-----------|-----------|---------------------|
+| **Next.js 14** | Framework React modern | Routing, modularisasi halaman, optimasi performa & SEO |
+| **Tailwind CSS** | Utility-first CSS | Styling responsif, cepat, dan konsisten |
+| **Framer Motion** | Library animasi | Transisi smooth, scroll, parallax & hover |
+| **Lucide React** | Set ikon ringan | Ikon navigasi, tombol, dan dark mode toggle |
+| **Intersection Observer** | Browser API | Deteksi elemen saat on-screen untuk animasi |
 
 ---
 
 ### 🚀 Fitur Teknologi
 
-- 🎨 **Dark & Light Mode** – Mode tema dengan animasi rotasi ikon interaktif  
-- 🧭 **Scroll Transition Navbar** – Efek transparan dan blur menyesuaikan posisi halaman  
-- 🔍 **Live Search & Filter** – Pencarian real-time dan filter kategori (makanan, minuman, cemilan)  
-- ✨ **Framer Animation** – Animasi halus di tiap section dan card  
-- 📱 **Mobile First Design** – Tampilan responsif di semua ukuran layar  
-- 🗺️ **Interactive Directory** – Halaman daftar UMKM dengan kategori, trending, dan navigasi ke detail page  
-- 📸 **Banner & Footer Animatif** – Elemen visual dengan transisi warna dan efek glowing khas suasana malam Gelap Nyawang  
+- **Responsive Design** – Optimal dari mobile sampai desktop  
+- **Dark/Light Mode** – Transisi tema dengan animasi ikon  
+- **Live Search & Filter** – Cari UMKM secara real-time  
+- **Komponen Modular** – Struktur jelas & mudah dikembangkan  
+- **Framer Motion Effects** – Hero animation, fade-up, parallax, marquee testimoni  
+- **Interactive Directory** – Kategori, trending, galeri, dan detail UMKM  
+- **SEO Optimized** – Memanfaatkan struktur bawaan Next.js  
 
 ---
 
 ## ⭐ Fitur Unggulan
 
-- 🍜 **Trending Kuliner** – Rekomendasi tempat populer berdasarkan data UMKM lokal  
-- 🔎 **Search Real-Time** – Fitur pencarian cepat dengan keyword nama atau deskripsi  
-- 📂 **Filter Berdasarkan Kategori** – Pilih jenis kuliner: Makanan, Minuman, atau Cemilan  
-- 🧑‍🍳 **Halaman Detail UMKM (Coming Soon)** – Setiap kartu akan terhubung ke halaman detail usaha  
-- 🌙 **Dark Mode Interaktif** – Transisi lembut dengan rotasi ikon matahari dan bulan  
-- 🏙️ **Visual Suasana Lokal** – Menggabungkan foto suasana malam Gelap Nyawang dengan tone hangat khas Bandung  
+- 🍜 **Trending UMKM** – Menampilkan tempat makan yang paling sering dicari  
+- 🔎 **Pencarian Cepat** – Langsung muncul hasilnya tanpa reload  
+- 📂 **Filter Kategori** – Pilih makanan, minuman, atau cemilan  
+- 🗺️ **Detail UMKM** – Foto, rating, harga, deskripsi, dan Google Maps  
+- 📸 **Galeri** – Foto suasana Gelap Nyawang  
+- 🌙 **Dark Mode** – Transisi tema yang halus dan nyaman dilihat  
 
 ---
 
 ## 🧩 Struktur Halaman
 
 1. **Halaman Utama (`/`)**
-   - Hero Section  
+   - Hero  
    - Tentang  
-   - Rekomendasi & Testimoni  
-   - Galeri & Lokasi  
-   - Footer  
+   - Trending  
+   - Testimoni  
+   - Galeri  
+   - Lokasi  
 
 2. **Halaman Direktori (`/direktori`)**
-   - Search & Filter  
-   - Trending UMKM  
-   - Grid Daftar UMKM  
-   - Banner CTA & Footer  
+   - Pencarian  
+   - Filter kategori  
+   - Grid UMKM  
 
-3. **Halaman Detail UMKM (`/direktori/[slug]`)**
-   - Informasi lengkap (nama, alamat, deskripsi, galeri, hidangan rekomendasi, map embed)
+3. **Halaman Detail (`/direktori/[slug]`)**
+   - Header foto  
+   - Rating, harga, kategori  
+   - Galeri  
+   - Informasi lengkap  
+   - Google Maps 
 
 ---
-## 📦 Instalasi & Cara Menjalankan
 
-1. **Clone repository ini**
-   ```bash
-   git clone https://github.com/veinsan/GelapNyawang.git
-   ```
+## 📦 Instalasi
+
+1. **Clone repository**
+    ```bash
+    git clone https://github.com/veinsan/GelapNyawang.git
+    ```
 
 2. **Masuk ke direktori project**
-   ```bash
-   cd gelap-nyawang
-   ```
+    ```bash
+    cd gelap-nyawang
+    ```
 
 3. **Install dependencies**
-   ```bash
-   npm install
-   ```
+    ```bash
+    npm install
+    ```
 
-4. **Jalankan di localhost**
-   ```bash
-   npm run dev
-   ```
+4. **Jalankan development server**
+    ```bash
+    npm run dev
+    ```
 
 5. **Buka di browser**
-   ```bash
-   http://localhost:3000
-   ```
+    ```bash
+    http://localhost:3000
+    ```
 
 ---
-### 👥 Tim & Kontribusi
 
-| Nama | Peran | Tugas Utama |
-|------|--------|-------------|
-| **Riantama Putra** | Web Developer & Integrator | Bertanggung jawab penuh atas pengembangan website, mencakup struktur Next.js, implementasi Tailwind, animasi Framer Motion, interaktivitas, dark mode, dan seluruh integrasi komponen. |
-| **Aldyto Rafif Abhinaya** |  |  |
-| **Muhammad Ghiffary Alfathan** |  |  |
+## Cara Menjalankan
+
+Website berjalan di atas Next.js. Cukup jalankan:
+
+```bash
+npm run dev
+```
+Website akan terbuka di localhost:3000.
+
+
+---
+
+## 👥 Kontribusi Kelompok
+
+| Nama | Peran | Kontribusi |
+|------|-------|------------|
+| **Riantama Putra** | Web Developer & Integrator | Mengerjakan seluruh **main page** dari awal sampai akhir (hero, banner, tentang, rekomendasi, galeri, testimoni, lokasi, footer). Membuat dan menyusun **data UMKM**, membangun **halaman direktori**, serta mengarahkan alur pengerjaan proyek secara keseluruhan. |
+| **Aldyto Rafif Abhinaya** | Riset, Detail Page & Konten | Membuat **detail page versi pertama**, membuat **thumbnail karya**, serta membantu memasukkan data UMKM ke dalam `umkmData.js`. |
+| **Muhammad Ghiffary Alfathan** | Direktori Page, Detail Page & Data | Membantu mengerjakan **halaman direktori**, merapikan dan menyelesaikan **detail page**, serta membantu memasukkan data UMKM ke dalam `umkmData.js`. |
+
 
 ---
 
 ### 🌐 Live Demo
 
-🔗 [gelap-nyawang.vercel.app](https://gelap-nyawang.vercel.app)
+🔗 **https://gelap-nyawang.vercel.app**
 
 ---
 
-## 🧠 Konsep Desain
-
-Warna, bentuk, dan tekstur dalam website ini terinspirasi dari suasana malam Gelap Nyawang (lampu jalan temaram, papan kedai berwarna oranye hangat, dan aroma kopi dari warkop mahasiswa.)
-Tujuan desainnya bukan hanya menampilkan data, tapi **menghidupkan atmosfer lokal Bandung** ke dalam bentuk digital.
-
----
-
-## 📍 Lokasi Asli
-
-> **Jl. Gelap Nyawang, Lebak Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132**  
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
