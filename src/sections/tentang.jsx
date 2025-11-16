@@ -76,21 +76,21 @@ const CARDS_DATA = [
     title: "Rasa Autentik",
     desc: "Cita rasa rumahan Bandung yang hangat dan bikin kangen.",
     stat: "4.8/5 dari 500+ pengunjung",
-    img: "/assets/about/t1.jpg",
+    img: "/assets/tentang/t1.jpg",
   },
   {
     id: "lokal",
     title: "Dari Komunitas Lokal",
     desc: "Kuliner yang tumbuh dari komunitas Gelap Nyawang sendiri.",
     stat: "20+ UMKM terlibat",
-    img: "/assets/about/t2.jpg",
+    img: "/assets/tentang/t2.jpg",
   },
   {
     id: "cepat",
     title: "Cepat & Nyaman",
     desc: "Tempat singgah yang pas buat makan cepat atau rehat sebentar.",
     stat: "Rata-rata servis < 7 menit",
-    img: "/assets/about/t3.jpg",
+    img: "/assets/tentang/t3.jpg",
   },
 ];
 
