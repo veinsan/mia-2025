@@ -41,13 +41,11 @@ const __TURBOPACK__default__export__ = (0, __TURBOPACK__imported__module__$5b$pr
     throw new Error("Attempted to call the default export of [project]/src/app/direktori/[slug]/page.jsx from the server, but it's on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.");
 }, "[project]/src/app/direktori/[slug]/page.jsx", "default");
 }),
-"[project]/src/app/direktori/[slug]/page.jsx [app-rsc] (ecmascript)", ((__turbopack_context__) => {
-"use strict";
+"[project]/src/app/direktori/[slug]/page.jsx [app-rsc] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$direktori$2f5b$slug$5d2f$page$2e$jsx__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__$3c$module__evaluation$3e$__ = __turbopack_context__.i("[project]/src/app/direktori/[slug]/page.jsx [app-rsc] (client reference proxy) <module evaluation>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$direktori$2f5b$slug$5d2f$page$2e$jsx__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__ = __turbopack_context__.i("[project]/src/app/direktori/[slug]/page.jsx [app-rsc] (client reference proxy)");
-;
-__turbopack_context__.n(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$direktori$2f5b$slug$5d2f$page$2e$jsx__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__);
+const e = new Error("Could not parse module '[project]/src/app/direktori/[slug]/page.jsx'\n\nUnexpected token. Did you mean `{'>'}` or `&gt;`?");
+e.code = 'MODULE_UNPARSABLE';
+throw e;
 }),
 "[project]/src/app/direktori/[slug]/page.jsx [app-rsc] (ecmascript, Next.js Server Component)", ((__turbopack_context__) => {
 

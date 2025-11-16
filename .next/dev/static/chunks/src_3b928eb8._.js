@@ -2828,138 +2828,250 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$mo
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$search$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Search$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/search.js [app-client] (ecmascript) <export default as Search>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$info$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Info$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/info.js [app-client] (ecmascript) <export default as Info>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/map-pin.js [app-client] (ecmascript) <export default as MapPin>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/circle-check.js [app-client] (ecmascript) <export default as CheckCircle2>");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
 ;
 ;
 ;
-const FADE_UP = {
-    hidden: {
-        opacity: 0,
-        y: 30
+/* =========================================================
+   ANIMATION CONFIG - Optimized untuk smooth 60fps
+   ========================================================= */ const ANIMATION_CONFIG = {
+    FADE_UP: {
+        hidden: {
+            opacity: 0,
+            y: 30
+        },
+        show: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6,
+                ease: [
+                    0.22,
+                    1,
+                    0.36,
+                    1
+                ]
+            }
+        }
     },
-    show: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.6,
-            ease: [
-                0.22,
-                1,
-                0.36,
-                1
-            ]
+    STAGGER: {
+        hidden: {
+            opacity: 0
+        },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.12,
+                delayChildren: 0.1
+            }
+        }
+    },
+    STEP_ITEM: {
+        hidden: {
+            opacity: 0,
+            x: -20
+        },
+        show: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 0.5,
+                ease: [
+                    0.25,
+                    0.46,
+                    0.45,
+                    0.94
+                ]
+            }
+        }
+    },
+    CHECKMARK: {
+        hidden: {
+            scale: 0,
+            opacity: 0
+        },
+        show: {
+            scale: 1,
+            opacity: 1,
+            transition: {
+                type: "spring",
+                stiffness: 300,
+                damping: 20
+            }
         }
     }
 };
-const STAGGER = {
-    hidden: {},
-    show: {
-        transition: {
-            staggerChildren: 0.15
-        }
-    }
-};
-/*
-  Per reviewer:
-  - Steps harus lebih informatif
-  - Ada icon
-  - Ada “tip”
-*/ const STEPS = [
+/* =========================================================
+   STEPS DATA - Enhanced with better copy
+   ========================================================= */ const STEPS = [
     {
         number: 1,
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$search$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Search$3e$__["Search"],
         title: "Jelajahi Rekomendasi",
-        subtitle: "Filter by budget atau suasana",
-        tip: "Gunakan search bar untuk cari makanan spesifik"
+        subtitle: "Filter budget & suasana",
+        tip: "💡 Pakai search bar cari makanan spesifik",
+        color: "bg-orange-500"
     },
     {
         number: 2,
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$info$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Info$3e$__["Info"],
         title: "Lihat Detail UMKM",
-        subtitle: "Cek menu, harga, dan review",
-        tip: "Scroll sampai bawah untuk lihat jam buka & lokasi"
+        subtitle: "Cek menu, harga & review",
+        tip: "💡 Scroll bawah lihat jam buka & lokasi",
+        color: "bg-orange-600"
     },
     {
         number: 3,
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"],
         title: "Datang ke Lokasi",
-        subtitle: "Navigate langsung via Maps",
-        tip: "Aktifkan GPS untuk akurasi rute"
+        subtitle: "Navigate via Maps",
+        tip: "💡 Aktifkan GPS untuk rute akurat",
+        color: "bg-orange-700"
     }
 ];
-/*
-  Interactive step checker (required by reviewer)
-*/ const StepItem = ({ step, completed, toggle })=>{
+/* =========================================================
+   STEP ITEM COMPONENT - Fully Responsive
+   ========================================================= */ const StepItem = ({ step, completed, toggle, isMobile })=>{
     const Icon = step.icon;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].article, {
-        variants: FADE_UP,
+        variants: ANIMATION_CONFIG.STEP_ITEM,
         onClick: ()=>toggle(step.number),
-        className: `relative cursor-pointer transition-all ${completed ? "opacity-60" : "opacity-100"}`,
+        className: `
+        relative cursor-pointer select-none
+        transition-all duration-300
+        ${completed ? "opacity-50" : "opacity-100"}
+      `,
+        whileTap: {
+            scale: 0.98
+        },
+        "aria-label": `Step ${step.number}: ${step.title}`,
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute -left-5 sm:-left-6 top-1/2 -translate-y-1/2 z-10",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "   bg-primary text-white font-bold   w-10 h-10 sm:w-12 sm:h-12   rounded-full flex items-center justify-center   text-sm sm:text-base md:text-xl shadow-lg   ",
-                    "aria-label": `Step ${step.number}`,
-                    children: step.number
+                className: "absolute -left-3 sm:-left-4 md:-left-5 top-4 sm:top-5 md:top-6 z-10",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                    className: `
+            ${step.color} text-white font-extrabold
+            w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12
+            rounded-full flex items-center justify-center
+            text-xs sm:text-sm md:text-lg
+            shadow-lg ring-2 ring-white/20
+          `,
+                    whileHover: !isMobile ? {
+                        scale: 1.1
+                    } : {},
+                    transition: {
+                        type: "spring",
+                        stiffness: 300
+                    },
+                    children: completed ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                        variants: ANIMATION_CONFIG.CHECKMARK,
+                        initial: "hidden",
+                        animate: "show",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__["CheckCircle2"], {
+                            size: isMobile ? 16 : 20
+                        }, void 0, false, {
+                            fileName: "[project]/src/sections/caraMakan.jsx",
+                            lineNumber: 124,
+                            columnNumber: 15
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/src/sections/caraMakan.jsx",
+                        lineNumber: 119,
+                        columnNumber: 13
+                    }, ("TURBOPACK compile-time value", void 0)) : step.number
                 }, void 0, false, {
                     fileName: "[project]/src/sections/caraMakan.jsx",
-                    lineNumber: 66,
+                    lineNumber: 107,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/sections/caraMakan.jsx",
-                lineNumber: 65,
+                lineNumber: 106,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "   bg-white text-black   dark:bg-bg-base dark:text-text-secondary   pl-14 sm:pl-16 pr-6   py-4 sm:py-5 md:py-6   rounded-full shadow-xl w-full   flex items-center justify-between   flex-wrap   text-base sm:text-xl md:text-2xl   transition-colors duration-300 hover:bg-bg-soft dark:hover:bg-bg-warm   ",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                        className: "flex items-center gap-3 font-bold text-primary whitespace-nowrap mr-4 sm:mr-10",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Icon, {
-                                size: 22
-                            }, void 0, false, {
-                                fileName: "[project]/src/sections/caraMakan.jsx",
-                                lineNumber: 93,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0)),
-                            step.title
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/sections/caraMakan.jsx",
-                        lineNumber: 92,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                        className: "text-black/90 dark:text-white/80 shrink",
-                        children: step.subtitle
-                    }, void 0, false, {
-                        fileName: "[project]/src/sections/caraMakan.jsx",
-                        lineNumber: 97,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0))
-                ]
-            }, void 0, true, {
+                className: `
+          bg-white/95 dark:bg-bg-base/95 backdrop-blur-sm
+          pl-10 sm:pl-12 md:pl-16 pr-3 sm:pr-4 md:pr-6
+          py-3 sm:py-4 md:py-5
+          rounded-2xl sm:rounded-3xl shadow-xl
+          transition-all duration-300
+          hover:shadow-2xl hover:bg-white dark:hover:bg-bg-soft
+          border border-orange-100 dark:border-orange-900/20
+        `,
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "flex items-start sm:items-center gap-2 sm:gap-3 mb-1 sm:mb-0",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Icon, {
+                            className: "text-primary shrink-0 mt-0.5 sm:mt-0",
+                            size: isMobile ? 16 : 20
+                        }, void 0, false, {
+                            fileName: "[project]/src/sections/caraMakan.jsx",
+                            lineNumber: 146,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "flex-1 min-w-0",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                    className: "   font-bold text-primary   text-sm sm:text-base md:text-lg lg:text-xl   leading-tight   truncate sm:whitespace-normal   ",
+                                    children: step.title
+                                }, void 0, false, {
+                                    fileName: "[project]/src/sections/caraMakan.jsx",
+                                    lineNumber: 151,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "   text-text-secondary dark:text-white/70   text-xs sm:text-sm md:text-base   leading-snug   line-clamp-2 sm:line-clamp-1   ",
+                                    children: step.subtitle
+                                }, void 0, false, {
+                                    fileName: "[project]/src/sections/caraMakan.jsx",
+                                    lineNumber: 159,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0))
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/sections/caraMakan.jsx",
+                            lineNumber: 150,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0))
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/sections/caraMakan.jsx",
+                    lineNumber: 145,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
                 fileName: "[project]/src/sections/caraMakan.jsx",
-                lineNumber: 79,
+                lineNumber: 133,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: "pl-14 sm:pl-16 text-sm text-white mt-2",
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].p, {
+                className: "   pl-10 sm:pl-12 md:pl-16 mt-2   text-xs sm:text-sm   text-white/90 dark:text-white/80   leading-relaxed   drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]   ",
+                initial: {
+                    opacity: 0,
+                    y: -5
+                },
+                animate: {
+                    opacity: 1,
+                    y: 0
+                },
+                transition: {
+                    delay: 0.2
+                },
                 children: step.tip
             }, void 0, false, {
                 fileName: "[project]/src/sections/caraMakan.jsx",
-                lineNumber: 102,
+                lineNumber: 172,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/sections/caraMakan.jsx",
-        lineNumber: 58,
+        lineNumber: 94,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -2967,6 +3079,19 @@ _c = StepItem;
 function CaraMakan() {
     _s();
     const [completedSteps, setCompletedSteps] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [isMobile, setIsMobile] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    /* Mobile Detection */ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "CaraMakan.useEffect": ()=>{
+            const checkMobile = {
+                "CaraMakan.useEffect.checkMobile": ()=>setIsMobile(window.innerWidth < 640)
+            }["CaraMakan.useEffect.checkMobile"];
+            checkMobile();
+            window.addEventListener("resize", checkMobile);
+            return ({
+                "CaraMakan.useEffect": ()=>window.removeEventListener("resize", checkMobile)
+            })["CaraMakan.useEffect"];
+        }
+    }["CaraMakan.useEffect"], []);
     const toggleStep = (n)=>{
         setCompletedSteps((prev)=>prev.includes(n) ? prev.filter((i)=>i !== n) : [
                 ...prev,
@@ -2975,163 +3100,291 @@ function CaraMakan() {
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         id: "caraMakan",
-        className: "   w-full    bg-bg-warm    dark:bg-bg-warm   text-text-primary dark:text-text-secondary    transition-colors duration-500   ",
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "grid grid-cols-1 md:grid-cols-2 relative min-h-screen",
-            children: [
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                    initial: "hidden",
-                    whileInView: "show",
-                    viewport: {
-                        once: true,
-                        amount: 0.2
-                    },
-                    variants: FADE_UP,
-                    className: "flex flex-col justify-center px-6 sm:px-10 md:px-16 py-16 z-10",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "text-primary text-6xl sm:text-8xl md:text-9xl mb-10 md:mb-20",
-                            "aria-hidden": "true",
-                            children: "❝"
-                        }, void 0, false, {
-                            fileName: "[project]/src/sections/caraMakan.jsx",
-                            lineNumber: 139,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "   text-2xl sm:text-3xl md:text-4xl   leading-relaxed font-semibold   max-w-full sm:max-w-xl md:max-w-2xl   ",
-                            children: "Makan di Gelap Nyawang bukan cuma soal rasa. Ini soal suasana malam, obrolan, dan cerita yang berulang."
-                        }, void 0, false, {
-                            fileName: "[project]/src/sections/caraMakan.jsx",
-                            lineNumber: 146,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                            src: "/assets/black.png",
-                            alt: "Gelap Nyawang Logo",
-                            className: "w-24 sm:w-28 md:w-32 mt-12 md:mt-20 opacity-90 dark:hidden"
-                        }, void 0, false, {
-                            fileName: "[project]/src/sections/caraMakan.jsx",
-                            lineNumber: 158,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                            src: "/assets/logo.png",
-                            alt: "Gelap Nyawang Logo Dark",
-                            className: "w-24 sm:w-28 md:w-32 mt-12 md:mt-20 opacity-90 hidden dark:block"
-                        }, void 0, false, {
-                            fileName: "[project]/src/sections/caraMakan.jsx",
-                            lineNumber: 163,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/src/sections/caraMakan.jsx",
-                    lineNumber: 132,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "relative w-full aspect-[4/5] md:aspect-auto md:h-full",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                            src: "/assets/about/t1.jpg",
-                            alt: "Background",
-                            className: "absolute inset-0 w-full h-full object-cover",
-                            loading: "lazy"
-                        }, void 0, false, {
-                            fileName: "[project]/src/sections/caraMakan.jsx",
-                            lineNumber: 172,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "absolute inset-0 bg-black/45"
-                        }, void 0, false, {
-                            fileName: "[project]/src/sections/caraMakan.jsx",
-                            lineNumber: 180,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "   relative z-10 h-full w-full    flex flex-col items-center justify-center    px-4 sm:px-6 md:px-12 py-10    text-white   ",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].header, {
-                                    initial: "hidden",
-                                    whileInView: "show",
-                                    viewport: {
-                                        once: true
-                                    },
-                                    variants: FADE_UP,
-                                    className: "w-full max-w-2xl mb-8 text-left",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                            className: "text-3xl sm:text-5xl md:text-7xl font-extrabold mb-2",
-                                            children: "Cara Explore"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/sections/caraMakan.jsx",
-                                            lineNumber: 197,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "text-base sm:text-lg md:text-2xl text-white/90",
-                                            children: "Biar gak bingung, ikutin alurnya ya!"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/sections/caraMakan.jsx",
-                                            lineNumber: 200,
-                                            columnNumber: 15
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/sections/caraMakan.jsx",
-                                    lineNumber: 190,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
-                                    variants: STAGGER,
-                                    initial: "hidden",
-                                    whileInView: "show",
-                                    viewport: {
-                                        once: true,
-                                        amount: 0.2
-                                    },
-                                    className: "space-y-6 w-full max-w-2xl",
-                                    children: STEPS.map((step)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(StepItem, {
-                                            step: step,
-                                            completed: completedSteps.includes(step.number),
-                                            toggle: toggleStep
-                                        }, step.number, false, {
-                                            fileName: "[project]/src/sections/caraMakan.jsx",
-                                            lineNumber: 213,
-                                            columnNumber: 17
-                                        }, this))
-                                }, void 0, false, {
-                                    fileName: "[project]/src/sections/caraMakan.jsx",
-                                    lineNumber: 205,
-                                    columnNumber: 13
-                                }, this)
+        className: "   w-full relative overflow-hidden   bg-gradient-to-br from-bg-warm via-bg-soft to-bg-gold   dark:from-bg-warm dark:via-bg-base dark:to-bg-soft   transition-colors duration-500   ",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute inset-0 overflow-hidden pointer-events-none opacity-30",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                        animate: {
+                            y: [
+                                0,
+                                -20,
+                                0
+                            ],
+                            x: [
+                                0,
+                                10,
+                                0
                             ]
-                        }, void 0, true, {
-                            fileName: "[project]/src/sections/caraMakan.jsx",
-                            lineNumber: 182,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/src/sections/caraMakan.jsx",
-                    lineNumber: 171,
-                    columnNumber: 9
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "[project]/src/sections/caraMakan.jsx",
-            lineNumber: 129,
-            columnNumber: 7
-        }, this)
-    }, void 0, false, {
+                        },
+                        transition: {
+                            duration: 8,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        },
+                        className: "absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl"
+                    }, void 0, false, {
+                        fileName: "[project]/src/sections/caraMakan.jsx",
+                        lineNumber: 223,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                        animate: {
+                            y: [
+                                0,
+                                20,
+                                0
+                            ],
+                            x: [
+                                0,
+                                -10,
+                                0
+                            ]
+                        },
+                        transition: {
+                            duration: 9,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        },
+                        className: "absolute bottom-1/4 right-1/4 w-72 h-72 bg-accent/10 rounded-full blur-3xl"
+                    }, void 0, false, {
+                        fileName: "[project]/src/sections/caraMakan.jsx",
+                        lineNumber: 231,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/sections/caraMakan.jsx",
+                lineNumber: 222,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "   grid grid-cols-1 lg:grid-cols-2    relative    min-h-[800px] sm:min-h-[900px] lg:min-h-screen   ",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                        initial: "hidden",
+                        whileInView: "show",
+                        viewport: {
+                            once: true,
+                            amount: 0.3
+                        },
+                        variants: ANIMATION_CONFIG.FADE_UP,
+                        className: "   flex flex-col justify-center    px-6 sm:px-10 md:px-12 lg:px-16    py-12 sm:py-16 lg:py-20   relative z-10   ",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                                className: "   text-primary    text-5xl sm:text-6xl md:text-7xl lg:text-8xl   mb-6 sm:mb-8 lg:mb-10   leading-none   ",
+                                "aria-hidden": "true",
+                                animate: {
+                                    opacity: [
+                                        0.4,
+                                        0.7,
+                                        0.4
+                                    ]
+                                },
+                                transition: {
+                                    duration: 3,
+                                    repeat: Infinity
+                                },
+                                children: "❝"
+                            }, void 0, false, {
+                                fileName: "[project]/src/sections/caraMakan.jsx",
+                                lineNumber: 263,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].p, {
+                                variants: ANIMATION_CONFIG.FADE_UP,
+                                className: "   text-xl sm:text-2xl md:text-3xl lg:text-4xl   leading-relaxed sm:leading-relaxed   font-semibold   text-text-primary dark:text-text-secondary   max-w-full sm:max-w-xl lg:max-w-2xl   ",
+                                children: [
+                                    "Makan di Gelap Nyawang bukan cuma soal rasa.",
+                                    " ",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "text-primary",
+                                        children: "Ini soal suasana malam, obrolan, dan cerita yang berulang."
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/sections/caraMakan.jsx",
+                                        lineNumber: 291,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/sections/caraMakan.jsx",
+                                lineNumber: 280,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].img, {
+                                src: "/assets/black.png",
+                                alt: "Gelap Nyawang Logo",
+                                className: "   w-16 sm:w-20 md:w-24 lg:w-28   mt-8 sm:mt-10 lg:mt-16   opacity-80 dark:hidden   ",
+                                variants: ANIMATION_CONFIG.FADE_UP,
+                                loading: "lazy"
+                            }, void 0, false, {
+                                fileName: "[project]/src/sections/caraMakan.jsx",
+                                lineNumber: 297,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].img, {
+                                src: "/assets/logo.png",
+                                alt: "Gelap Nyawang Logo Dark Mode",
+                                className: "   w-16 sm:w-20 md:w-24 lg:w-28   mt-8 sm:mt-10 lg:mt-16   opacity-80 hidden dark:block   ",
+                                variants: ANIMATION_CONFIG.FADE_UP,
+                                loading: "lazy"
+                            }, void 0, false, {
+                                fileName: "[project]/src/sections/caraMakan.jsx",
+                                lineNumber: 308,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/sections/caraMakan.jsx",
+                        lineNumber: 250,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "   relative w-full    min-h-[600px] sm:min-h-[700px] lg:min-h-full   ",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                src: "/assets/about/t1.jpg",
+                                alt: "Suasana kuliner Gelap Nyawang",
+                                className: "   absolute inset-0 w-full h-full object-cover   ",
+                                loading: "lazy"
+                            }, void 0, false, {
+                                fileName: "[project]/src/sections/caraMakan.jsx",
+                                lineNumber: 329,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "   absolute inset-0    bg-gradient-to-b from-black/60 via-black/50 to-black/70   lg:bg-gradient-to-r lg:from-black/70 lg:via-black/60 lg:to-black/50   "
+                            }, void 0, false, {
+                                fileName: "[project]/src/sections/caraMakan.jsx",
+                                lineNumber: 339,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "   relative z-10 h-full w-full    flex flex-col items-center justify-center    px-4 sm:px-6 md:px-8 lg:px-12    py-10 sm:py-12 lg:py-16   text-white   ",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].header, {
+                                        initial: "hidden",
+                                        whileInView: "show",
+                                        viewport: {
+                                            once: true,
+                                            amount: 0.5
+                                        },
+                                        variants: ANIMATION_CONFIG.FADE_UP,
+                                        className: "w-full max-w-xl lg:max-w-2xl mb-6 sm:mb-8 text-center lg:text-left",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                                className: "   text-3xl sm:text-4xl md:text-5xl lg:text-6xl    font-extrabold mb-2 sm:mb-3   drop-shadow-lg   ",
+                                                children: "Cara Explore"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/sections/caraMakan.jsx",
+                                                lineNumber: 363,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "   text-sm sm:text-base md:text-lg lg:text-xl   text-white/90   drop-shadow-md   ",
+                                                children: "Biar gak bingung, ikutin alurnya ya!"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/sections/caraMakan.jsx",
+                                                lineNumber: 370,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/sections/caraMakan.jsx",
+                                        lineNumber: 356,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                                        variants: ANIMATION_CONFIG.STAGGER,
+                                        initial: "hidden",
+                                        whileInView: "show",
+                                        viewport: {
+                                            once: true,
+                                            amount: 0.2
+                                        },
+                                        className: "space-y-4 sm:space-y-5 md:space-y-6 w-full max-w-xl lg:max-w-2xl",
+                                        children: STEPS.map((step)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(StepItem, {
+                                                step: step,
+                                                completed: completedSteps.includes(step.number),
+                                                toggle: toggleStep,
+                                                isMobile: isMobile
+                                            }, step.number, false, {
+                                                fileName: "[project]/src/sections/caraMakan.jsx",
+                                                lineNumber: 388,
+                                                columnNumber: 17
+                                            }, this))
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/sections/caraMakan.jsx",
+                                        lineNumber: 380,
+                                        columnNumber: 13
+                                    }, this),
+                                    completedSteps.length === STEPS.length && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                                        initial: {
+                                            opacity: 0,
+                                            scale: 0.9,
+                                            y: 20
+                                        },
+                                        animate: {
+                                            opacity: 1,
+                                            scale: 1,
+                                            y: 0
+                                        },
+                                        transition: {
+                                            type: "spring",
+                                            stiffness: 200,
+                                            damping: 15
+                                        },
+                                        className: "   mt-6 sm:mt-8    bg-green-500/20 backdrop-blur-md   border-2 border-green-400/50   rounded-2xl px-4 sm:px-6 py-3 sm:py-4   text-center   ",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "   text-white font-semibold    text-sm sm:text-base md:text-lg   flex items-center justify-center gap-2   ",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__["CheckCircle2"], {
+                                                    size: 20,
+                                                    className: "text-green-400"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/sections/caraMakan.jsx",
+                                                    lineNumber: 421,
+                                                    columnNumber: 19
+                                                }, this),
+                                                "Siap explore Gelap Nyawang! 🎉"
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/sections/caraMakan.jsx",
+                                            lineNumber: 416,
+                                            columnNumber: 17
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/sections/caraMakan.jsx",
+                                        lineNumber: 400,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/sections/caraMakan.jsx",
+                                lineNumber: 346,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/sections/caraMakan.jsx",
+                        lineNumber: 324,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/sections/caraMakan.jsx",
+                lineNumber: 241,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "[project]/src/sections/caraMakan.jsx",
-        lineNumber: 119,
+        lineNumber: 212,
         columnNumber: 5
     }, this);
 }
-_s(CaraMakan, "8GByRiE3Bq1E4noiJelDyFF7uhE=");
+_s(CaraMakan, "f2ACmsB+Q1GNaeHD0DoCXktgPMI=");
 _c1 = CaraMakan;
 var _c, _c1;
 __turbopack_context__.k.register(_c, "StepItem");

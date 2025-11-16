@@ -41,7 +41,19 @@ const UMKM_DATA = [
         rangeHarga: "Rp 1-25.000",
         alamat: "Jl. Gelap Nyawang No.2, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "08972805004",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.5602520815351!2d107.61084726438854!3d-6.894905621259015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7fe78e41551%3A0xe4973528ca9f3a7b!2sBlack%20Romantic!5e0!3m2!1sen!2sid!4v1762228576232!5m2!1sen!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.5602520815351!2d107.61084726438854!3d-6.894905621259015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7fe78e41551%3A0xe4973528ca9f3a7b!2sBlack%20Romantic!5e0!3m2!1sen!2sid!4v1762228576232!5m2!1sen!2sid",
+        jamBuka: "08:00 - 23:00",
+        fasilitas: [
+            "WiFi",
+            "Parkir Motor",
+            "AC"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS",
+            "OVO",
+            "GoPay"
+        ]
     },
     {
         id: 2,
@@ -49,12 +61,26 @@ const UMKM_DATA = [
         name: "Kedai BWJ",
         category: "resto",
         img: "/assets/resto/bwj.webp",
+        gallery: [
+            "/assets/resto/bwj.webp",
+            "/assets/resto/bwj.webp",
+            "/assets/resto/bwj.webp"
+        ],
         short: "Menu rumahan sederhana dan murah",
         rating: 5.0,
         rangeHarga: "Rp 1-25.000",
         alamat: "Ruko Bawah, Jl. Gelap Nyawang, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40123",
         noTelp: "089601173847",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1425.6661213293146!2d107.61016129176576!3d-6.895169452449448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e75524c63b47%3A0x17a99e193aa9759b!2sKEDAI%20BWJ%20(%20BUTTERFLY%20WINGS%20JAVA%20)!5e0!3m2!1sen!2sid!4v1762404448819!5m2!1sen!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1425.6661213293146!2d107.61016129176576!3d-6.895169452449448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e75524c63b47%3A0x17a99e193aa9759b!2sKEDAI%20BWJ%20(%20BUTTERFLY%20WINGS%20JAVA%20)!5e0!3m2!1sen!2sid!4v1762404448819!5m2!1sen!2sid",
+        jamBuka: "07:00 - 22:00",
+        fasilitas: [
+            "Parkir Motor",
+            "Takeaway"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS"
+        ]
     },
     {
         id: 3,
@@ -62,12 +88,28 @@ const UMKM_DATA = [
         name: "Bebek Stallone",
         category: "resto",
         img: "/assets/resto/stallone.jpg",
+        gallery: [
+            "/assets/resto/stallone.jpg",
+            "/assets/resto/stallone.jpg",
+            "/assets/resto/stallone.jpg"
+        ],
         short: "Bebek goreng gurih favorit mahasiswa",
         rating: 4.5,
         rangeHarga: "Rp 25.000-50.000",
         alamat: "Jl. Gelap Nyawang No.12, RW.04, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "082126727277",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.481362861835!2d107.60799263849678!3d-6.895062035463128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e65a62a66d4f%3A0x58578089d8304e1c!2sBebek%20Stallone!5e0!3m2!1sen!2id!4v1762404596242!5m2!1sen!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.481362861835!2d107.60799263849678!3d-6.895062035463128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e65a62a66d4f%3A0x58578089d8304e1c!2sBebek%20Stallone!5e0!3m2!1sen!2id!4v1762404596242!5m2!1sen!2sid",
+        jamBuka: "10:00 - 22:00",
+        fasilitas: [
+            "Parkir Motor",
+            "Dine-in",
+            "Takeaway"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS",
+            "GoPay"
+        ]
     },
     {
         id: 4,
@@ -75,12 +117,26 @@ const UMKM_DATA = [
         name: "Ayam Cola Kabita HC",
         category: "resto",
         img: "/assets/resto/cola.webp",
+        gallery: [
+            "/assets/resto/cola.webp",
+            "/assets/resto/cola.webp",
+            "/assets/resto/cola.webp"
+        ],
         short: "Ayam cola unik harga terjangkau",
         rating: 4.6,
         rangeHarga: "Rp 1-25.000",
         alamat: "Ruko Bawah, Jl. Gelap Nyawang, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "081321885840",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.48178168613!2d107.60994873849678!3d-6.89496183546261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6505e6e0e8b%3A0x490332ec01160892!2sAyam%20Cola%20Kabita%20HC!5e0!3m2!1sen!2sid!4v1762404710431!5m2!1sen!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.48178168613!2d107.60994873849678!3d-6.89496183546261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6505e6e0e8b%3A0x490332ec01160892!2sAyam%20Cola%20Kabita%20HC!5e0!3m2!1sen!2sid!4v1762404710431!5m2!1sen!2sid",
+        jamBuka: "09:00 - 21:00",
+        fasilitas: [
+            "Parkir Motor",
+            "Takeaway"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS"
+        ]
     },
     {
         id: 5,
@@ -88,12 +144,28 @@ const UMKM_DATA = [
         name: "Ayam & Bebek Besthal",
         category: "resto",
         img: "/assets/resto/besthal.webp",
+        gallery: [
+            "/assets/resto/besthal.webp",
+            "/assets/resto/besthal.webp",
+            "/assets/resto/besthal.webp"
+        ],
         short: "Ayam bebek gurih porsi melimpah",
         rating: 4.9,
         rangeHarga: "Rp 1-25.000",
         alamat: "Jl. Gelap Nyawang No.4, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "081394127035",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.4820884857124!2d107.60957663849673!3d-6.89488843546219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e70e0f888deb%3A0x53442f97e61eacf!2sAyam%20%26%20Bebek%20Besthal!5e0!3m2!1sen!2sid!4v1762404848172!5m2!1sen!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.4820884857124!2d107.60957663849673!3d-6.89488843546219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e70e0f888deb%3A0x53442f97e61eacf!2sAyam%20%26%20Bebek%20Besthal!5e0!3m2!1sen!2sid!4v1762404848172!5m2!1sen!2sid",
+        jamBuka: "08:00 - 21:30",
+        fasilitas: [
+            "Parkir Motor",
+            "Dine-in",
+            "Takeaway"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS",
+            "OVO"
+        ]
     },
     {
         id: 6,
@@ -101,12 +173,27 @@ const UMKM_DATA = [
         name: "Rumah Makan Pak Datuak",
         category: "resto",
         img: "/assets/resto/datuak.webp",
+        gallery: [
+            "/assets/resto/datuak.webp",
+            "/assets/resto/datuak.webp",
+            "/assets/resto/datuak.webp"
+        ],
         short: "Masakan Padang murah dan lengkap",
         rating: 4.8,
         rangeHarga: "Rp 1-25.000",
         alamat: "4J46+385, Jl. Gelap Nyawang, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "081281731151",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.4822356146042!2d107.60958493849677!3d-6.894853235461992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e650616ac425%3A0x39984aa948901187!2sRumah%20Makan%20Pak%20Datuak!5e0!3m2!1sen!2sid!4v1762407586168!5m2!1sen!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.4822356146042!2d107.60958493849677!3d-6.894853235461992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e650616ac425%3A0x39984aa948901187!2sRumah%20Makan%20Pak%20Datuak!5e0!3m2!1sen!2sid!4v1762407586168!5m2!1sen!2sid",
+        jamBuka: "06:00 - 22:00",
+        fasilitas: [
+            "Parkir Motor",
+            "Musholla",
+            "Dine-in"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS"
+        ]
     },
     {
         id: 7,
@@ -114,12 +201,28 @@ const UMKM_DATA = [
         name: "Mie San GK",
         category: "resto",
         img: "/assets/resto/miesan.webp",
+        gallery: [
+            "/assets/resto/miesan.webp",
+            "/assets/resto/miesan.webp",
+            "/assets/resto/miesan.webp"
+        ],
         short: "Mie gurih pedas favorit mahasiswa",
         rating: 5.0,
         rangeHarga: "Rp 25.000-50.000",
         alamat: "Jl. Gelap Nyawang 12, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "082230709593",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.4817829400858!2d107.60783653849678!3d-6.894961535462591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e71243124505%3A0xa9c9c6f7d71aedf1!2sMie%20San%20GK!5e0!3m2!1sen!2sid!4v1762407928857!5m2!1sen!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.4817829400858!2d107.60783653849678!3d-6.894961535462591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e71243124505%3A0xa9c9c6f7d71aedf1!2sMie%20San%20GK!5e0!3m2!1sen!2sid!4v1762407928857!5m2!1sen!2sid",
+        jamBuka: "10:00 - 23:00",
+        fasilitas: [
+            "Parkir Motor",
+            "Dine-in",
+            "Takeaway"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS",
+            "GoPay"
+        ]
     },
     {
         id: 8,
@@ -127,12 +230,27 @@ const UMKM_DATA = [
         name: "Warmindo KSC",
         category: "resto",
         img: "/assets/resto/warmindo.webp",
+        gallery: [
+            "/assets/resto/warmindo.webp",
+            "/assets/resto/warmindo.webp",
+            "/assets/resto/warmindo.webp"
+        ],
         short: "Warmindo murah dengan menu lengkap",
         rating: 4.8,
         rangeHarga: "Rp 1-25.000",
         alamat: "Jl. Gelap Nyawang No.3, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "0895354460602",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5208.444372593425!2d107.60734413754822!3d-6.894571055037678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e71abd094ef7%3A0x8ea1fb1ef9fe9014!2sWarmindo%20KSC!5e0!3m2!1sen!2sid!4v1762408017334!5m2!1sen!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5208.444372593425!2d107.60734413754822!3d-6.894571055037678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e71abd094ef7%3A0x8ea1fb1ef9fe9014!2sWarmindo%20KSC!5e0!3m2!1sen!2sid!4v1762408017334!5m2!1sen!2sid",
+        jamBuka: "18:00 - 02:00",
+        fasilitas: [
+            "Parkir Motor",
+            "Buka Malam",
+            "Takeaway"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS"
+        ]
     },
     {
         id: 9,
@@ -140,12 +258,26 @@ const UMKM_DATA = [
         name: "Serba Sepuluh Cabang ITB Bandung",
         category: "cemilan",
         img: "/assets/resto/serbasepuluh.webp",
+        gallery: [
+            "/assets/resto/serbasepuluh.webp",
+            "/assets/resto/serbasepuluh.webp",
+            "/assets/resto/serbasepuluh.webp"
+        ],
         short: "Cemilan serba murah dekat kampus",
         rating: 4.5,
         rangeHarga: "Rp 1-25.000",
         alamat: "Jl. Gelap Nyawang No.1, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "085624091877",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.964416624359!2d107.60664257479226!3d-6.894859767471667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7b4dbdabc93%3A0xeb300b1ce3c42ae3!2sSerba%20Sepuluh%20Cabang%20ITB%20Bandung!5e0!3m2!1sen!2id!4v1762408094030!5m2!1sen!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.964416624359!2d107.60664257479226!3d-6.894859767471667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7b4dbdabc93%3A0xeb300b1ce3c42ae3!2sSerba%20Sepuluh%20Cabang%20ITB%20Bandung!5e0!3m2!1sen!2id!4v1762408094030!5m2!1sen!2sid",
+        jamBuka: "08:00 - 20:00",
+        fasilitas: [
+            "Parkir Motor",
+            "Harga Terjangkau"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS"
+        ]
     },
     {
         id: 10,
@@ -153,12 +285,26 @@ const UMKM_DATA = [
         name: "Angkringan Mas Jo",
         category: "resto",
         img: "/assets/resto/angkringan.webp",
+        gallery: [
+            "/assets/resto/angkringan.webp",
+            "/assets/resto/angkringan.webp",
+            "/assets/resto/angkringan.webp"
+        ],
         short: "Angkringan murah dengan suasana tenang",
         rating: 4.6,
         rangeHarga: "Rp 1-25.000",
         alamat: "Jl. Gelap Nyawang No.3, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "082219187723",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9636391779395!2d107.60667787479231!3d-6.894952767472645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e65a86c04d73%3A0x4c1e37cc2374e8f4!2sAngkringan%20Mas%20Jo!5e0!3m2!1sen!2id!4v1762408149763!5m2!1sen!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9636391779395!2d107.60667787479231!3d-6.894952767472645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e65a86c04d73%3A0x4c1e37cc2374e8f4!2sAngkringan%20Mas%20Jo!5e0!3m2!1sen!2id!4v1762408149763!5m2!1sen!2sid",
+        jamBuka: "17:00 - 01:00",
+        fasilitas: [
+            "Parkir Motor",
+            "Outdoor Seating",
+            "Buka Malam"
+        ],
+        metodePembayaran: [
+            "Cash"
+        ]
     },
     {
         id: 11,
@@ -166,12 +312,28 @@ const UMKM_DATA = [
         name: "Dapur Laut",
         category: "resto",
         img: "/assets/resto/dapurlaut.webp",
+        gallery: [
+            "/assets/resto/dapurlaut.webp",
+            "/assets/resto/dapurlaut.webp",
+            "/assets/resto/dapurlaut.webp"
+        ],
         short: "Seafood segar harga mahasiswa",
         rating: 4.6,
         rangeHarga: "Rp 25.000-50.000",
         alamat: "4J45+2Q7, Jl. Gelap Nyawang, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
-        noTelp: "-",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9636481016846!2d107.609416!3d-6.8949517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e65a80dd32c1%3A0x3e128d97c8a4830d!2sDapur%20Laut!5e0!3m2!1sen!2sid!4v1762265015704!5m2!1sen!2sid"
+        noTelp: "082219187723",
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9636481016846!2d107.609416!3d-6.8949517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e65a80dd32c1%3A0x3e128d97c8a4830d!2sDapur%20Laut!5e0!3m2!1sen!2sid!4v1762265015704!5m2!1sen!2sid",
+        jamBuka: "11:00 - 22:00",
+        fasilitas: [
+            "Parkir Motor",
+            "Dine-in",
+            "AC"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS",
+            "GoPay"
+        ]
     },
     {
         id: 12,
@@ -179,12 +341,30 @@ const UMKM_DATA = [
         name: "Kowawa Kedai Kopi",
         category: "cafe",
         img: "/assets/resto/komawa.webp",
+        gallery: [
+            "/assets/resto/komawa.webp",
+            "/assets/resto/komawa.webp",
+            "/assets/resto/komawa.webp"
+        ],
         short: "Kedai kopi cozy buat nugas",
         rating: 4.9,
         rangeHarga: "Rp 1-25.000",
         alamat: "Jl. Gelap Nyawang No.5, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "087825412628",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9636890641686!2d107.6094552!3d-6.8949468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7abb91e488d%3A0xd9078f02b4ca34dc!2sKowawa%20Kedai%20Kopi!5e0!3m2!1sen!2sid!4v1762265221274!5m2!1sen!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9636890641686!2d107.6094552!3d-6.8949468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7abb91e488d%3A0xd9078f02b4ca34dc!2sKowawa%20Kedai%20Kopi!5e0!3m2!1sen!2sid!4v1762265221274!5m2!1sen!2sid",
+        jamBuka: "09:00 - 23:00",
+        fasilitas: [
+            "WiFi",
+            "Colokan",
+            "AC",
+            "Outdoor Seating"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS",
+            "OVO",
+            "GoPay"
+        ]
     },
     {
         id: 13,
@@ -192,12 +372,27 @@ const UMKM_DATA = [
         name: "Kedai Koboi",
         category: "cafe",
         img: "/assets/resto/koboi.webp",
+        gallery: [
+            "/assets/resto/koboi.webp",
+            "/assets/resto/koboi.webp",
+            "/assets/resto/koboi.webp"
+        ],
         short: "Kafe santai bergaya western",
         rating: 4.5,
         rangeHarga: "Rp 1-25.000",
         alamat: "Jl. Gelap Nyawang, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "08156895549",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9631950045164!2d107.60993099999999!3d-6.8950059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6507e51f6eb%3A0xe85958d5d31ad685!2sKedai%20Koboi!5e0!3m2!1sen!2sid!4v1762265737059!5m2!1sen!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9631950045164!2d107.60993099999999!3d-6.8950059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6507e51f6eb%3A0xe85958d5d31ad685!2sKedai%20Koboi!5e0!3m2!1sen!2sid!4v1762265737059!5m2!1sen!2sid",
+        jamBuka: "10:00 - 22:00",
+        fasilitas: [
+            "WiFi",
+            "Parkir Motor",
+            "Outdoor Seating"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS"
+        ]
     },
     {
         id: 14,
@@ -205,12 +400,26 @@ const UMKM_DATA = [
         name: "Warnas Doa Mande",
         category: "resto",
         img: "/assets/resto/doamande.webp",
+        gallery: [
+            "/assets/resto/doamande.webp",
+            "/assets/resto/doamande.webp",
+            "/assets/resto/doamande.webp"
+        ],
         short: "Masakan Padang lengkap dan murah",
         rating: 4.2,
         rangeHarga: "Rp 1-25.000",
         alamat: "Jl. Gelap Nyawang, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "082113839267",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1993.1065983985452!2d107.60913518941679!3d-6.894713903293459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6507e848241%3A0x3a81ce613ee84f08!2sWarnas%20Doa%20Mande!5e0!3m2!1sen!2sid!4v1762266059119!5m2!1sen!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1993.1065983985452!2d107.60913518941679!3d-6.894713903293459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6507e848241%3A0x3a81ce613ee84f08!2sWarnas%20Doa%20Mande!5e0!3m2!1sen!2sid!4v1762266059119!5m2!1sen!2sid",
+        jamBuka: "07:00 - 21:00",
+        fasilitas: [
+            "Parkir Motor",
+            "Dine-in",
+            "Takeaway"
+        ],
+        metodePembayaran: [
+            "Cash"
+        ]
     },
     {
         id: 15,
@@ -218,12 +427,26 @@ const UMKM_DATA = [
         name: "Kebab Lebanon Abu Salman",
         category: "cemilan",
         img: "/assets/resto/kebab.webp",
+        gallery: [
+            "/assets/resto/kebab.webp",
+            "/assets/resto/kebab.webp",
+            "/assets/resto/kebab.webp"
+        ],
         short: "Kebab khas Lebanon murah enak",
         rating: 5.0,
         rangeHarga: "Rp 1-25.000",
         alamat: "Jl. Gelap Nyawang No.3, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "081224443929",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63375.42699679064!2d107.5339188486328!3d-6.894887199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e70077fa0f6b%3A0x79995d0c13249014!2sKebab%20Lebanon%20Abu%20Salman!5e0!3m2!1sen!2sid!4v1762266282163!5m2!1sen!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63375.42699679064!2d107.5339188486328!3d-6.894887199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e70077fa0f6b%3A0x79995d0c13249014!2sKebab%20Lebanon%20Abu%20Salman!5e0!3m2!1sen!2sid!4v1762266282163!5m2!1sen!2sid",
+        jamBuka: "16:00 - 23:00",
+        fasilitas: [
+            "Takeaway",
+            "Halal"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS"
+        ]
     },
     {
         id: 16,
@@ -231,12 +454,26 @@ const UMKM_DATA = [
         name: "Warnas Prancis",
         category: "resto",
         img: "/assets/resto/prancis.webp",
+        gallery: [
+            "/assets/resto/prancis.webp",
+            "/assets/resto/prancis.webp",
+            "/assets/resto/prancis.webp"
+        ],
         short: "Warung makan santai ala Prancis",
         rating: 4.7,
         rangeHarga: "Rp 1-25.000",
         alamat: "Jl. Gelap Nyawang No.3, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "081322648365",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9640853120122!2d107.61026079999999!3d-6.894899399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6507c2f92d3%3A0x9c5d4c9e4c4a58fe!2sWarnas%20Prancis!5e0!3m2!1sen!2sid!4v1762267018450!5m2!1sen!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9640853120122!2d107.61026079999999!3d-6.894899399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6507c2f92d3%3A0x9c5d4c9e4c4a58fe!2sWarnas%20Prancis!5e0!3m2!1sen!2sid!4v1762267018450!5m2!1sen!2sid",
+        jamBuka: "08:00 - 22:00",
+        fasilitas: [
+            "Parkir Motor",
+            "Dine-in"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS"
+        ]
     },
     {
         id: 17,
@@ -244,12 +481,26 @@ const UMKM_DATA = [
         name: "Nasi Goreng Baso Sedap Malam",
         category: "resto",
         img: "/assets/resto/nasgor.webp",
+        gallery: [
+            "/assets/resto/nasgor.webp",
+            "/assets/resto/nasgor.webp",
+            "/assets/resto/nasgor.webp"
+        ],
         short: "Nasi goreng malam yang legendaris",
         rating: 4.5,
         rangeHarga: "Rp 1-25.000",
         alamat: "Jl. Ganesa, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "081321738834",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9644456109677!2d107.6102896!3d-6.8948563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e650e7b58a09%3A0xeb759abb4ebb693e!2sNasi%20Goreng%20Baso%20Sedap%20Malam!5e0!3m2!1sen!2sid!4v1762268363505!5m2!1sen!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9644456109677!2d107.6102896!3d-6.8948563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e650e7b58a09%3A0xeb759abb4ebb693e!2sNasi%20Goreng%20Baso%20Sedap%20Malam!5e0!3m2!1sen!2sid!4v1762268363505!5m2!1sen!2sid",
+        jamBuka: "18:00 - 03:00",
+        fasilitas: [
+            "Parkir Motor",
+            "Buka Malam",
+            "Takeaway"
+        ],
+        metodePembayaran: [
+            "Cash"
+        ]
     },
     {
         id: 19,
@@ -257,12 +508,26 @@ const UMKM_DATA = [
         name: "Thaitea Ganesha by Babeh",
         category: "minuman",
         img: "/assets/resto/thaitea.webp",
+        gallery: [
+            "/assets/resto/thaitea.webp",
+            "/assets/resto/thaitea.webp",
+            "/assets/resto/thaitea.webp"
+        ],
         short: "Minuman thaitea manis segar",
         rating: 5.0,
         rangeHarga: "Rp 1-25.000",
         alamat: "4J46+25X Sebrang gerbang utama ITB, Jl. Ganesa No.9, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "-",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.964262535909!2d107.6105092!3d-6.8948782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7c888b08cc7%3A0x5d912f54de631ff4!2sThaitea%20Ganesha%20by%20Babeh!5e0!3m2!1sen!2sid!4v1762268660423!5m2!1sen!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.964262535909!2d107.6105092!3d-6.8948782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7c888b08cc7%3A0x5d912f54de631ff4!2sThaitea%20Ganesha%20by%20Babeh!5e0!3m2!1sen!2sid!4v1762268660423!5m2!1sen!2sid",
+        jamBuka: "09:00 - 21:00",
+        fasilitas: [
+            "Takeaway",
+            "Delivery"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS"
+        ]
     },
     {
         id: 21,
@@ -270,12 +535,29 @@ const UMKM_DATA = [
         name: "Asmad Cafe",
         category: "cafe",
         img: "/assets/resto/asmad.webp",
+        gallery: [
+            "/assets/resto/asmad.webp",
+            "/assets/resto/asmad.webp",
+            "/assets/resto/asmad.webp"
+        ],
         short: "Kafe tenang cocok untuk nugas",
         rating: 4.6,
         rangeHarga: "Rp 1-25.000",
         alamat: "Jl. Gelap Nyawang, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "082230709593",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9635051507466!2d107.6110633!3d-6.894968800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e65060a5c5d1%3A0xab20c3cc5eabbf93!2sAsmad%20Cafe!5e0!3m2!1sen!2sid!4v1762269236273!5m2!1sen!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9635051507466!2d107.6110633!3d-6.894968800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e65060a5c5d1%3A0xab20c3cc5eabbf93!2sAsmad%20Cafe!5e0!3m2!1sen!2sid!4v1762269236273!5m2!1sen!2sid",
+        jamBuka: "10:00 - 23:00",
+        fasilitas: [
+            "WiFi",
+            "Colokan",
+            "AC",
+            "Parkir Motor"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS",
+            "GoPay"
+        ]
     },
     {
         id: 22,
@@ -283,12 +565,26 @@ const UMKM_DATA = [
         name: "Warung Nasi Sindang Heula",
         category: "resto",
         img: "/assets/resto/sindang.webp",
+        gallery: [
+            "/assets/resto/sindang.webp",
+            "/assets/resto/sindang.webp",
+            "/assets/resto/sindang.webp"
+        ],
         short: "Masakan Sunda rumahan yang lengkap",
         rating: 5.0,
         rangeHarga: "Rp 1-25.000",
         alamat: "Ruko Bawah, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "082230709593",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.962797750437!2d107.61152638463513!3d-6.89505341963724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6505bc8a123%3A0x16c7b4fa1566be94!2sWarung%20Nasi%20Sindang%20Heula!5e0!3m2!1sid!2sid!4v1762273427013!5m2!1sid!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.962797750437!2d107.61152638463513!3d-6.89505341963724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6505bc8a123%3A0x16c7b4fa1566be94!2sWarung%20Nasi%20Sindang%20Heula!5e0!3m2!1sid!2sid!4v1762273427013!5m2!1sid!2sid",
+        jamBuka: "07:00 - 20:00",
+        fasilitas: [
+            "Parkir Motor",
+            "Dine-in",
+            "Takeaway"
+        ],
+        metodePembayaran: [
+            "Cash"
+        ]
     },
     {
         id: 23,
@@ -296,12 +592,27 @@ const UMKM_DATA = [
         name: "Bakmie Ganyang",
         category: "resto",
         img: "/assets/resto/bakmi.webp",
+        gallery: [
+            "/assets/resto/bakmi.webp",
+            "/assets/resto/bakmi.webp",
+            "/assets/resto/bakmi.webp"
+        ],
         short: "Bakmi gurih dengan topping melimpah",
         rating: 5.0,
         rangeHarga: "Rp 1-25.000",
         alamat: "Jl. Gelap Nyawang No.2, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "082230709593",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9636209353807!2d107.60653328500632!3d-6.89495494967616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e70027ba7413%3A0x51cbd10d12267911!2sBakmie%20Ganyang!5e0!3m2!1sid!2sid!4v1762272959794!5m2!1sid!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9636209353807!2d107.60653328500632!3d-6.89495494967616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e70027ba7413%3A0x51cbd10d12267911!2sBakmie%20Ganyang!5e0!3m2!1sid!2sid!4v1762272959794!5m2!1sid!2sid",
+        jamBuka: "10:00 - 21:00",
+        fasilitas: [
+            "Parkir Motor",
+            "Dine-in",
+            "Takeaway"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS"
+        ]
     },
     {
         id: 24,
@@ -309,12 +620,26 @@ const UMKM_DATA = [
         name: "Kios Erick",
         category: "lain",
         img: "/assets/resto/kios.webp",
+        gallery: [
+            "/assets/resto/kios.webp",
+            "/assets/resto/kios.webp",
+            "/assets/resto/kios.webp"
+        ],
         short: "Kios kebutuhan harian dekat kampus",
         rating: 4.9,
         rangeHarga: "Rp 1-25.000",
         alamat: "Jl. Ciungwanara No.12B, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "085222276222",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.964774413378!2d107.60897017590636!3d-6.894816967473554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e65057623b83%3A0xc688002f0e288887!2sKios%20Erick.!5e0!3m2!1sid!2sid!4v1762273572749!5m2!1sid!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.964774413378!2d107.60897017590636!3d-6.894816967473554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e65057623b83%3A0xc688002f0e288887!2sKios%20Erick.!5e0!3m2!1sid!2sid!4v1762273572749!5m2!1sid!2sid",
+        jamBuka: "06:00 - 22:00",
+        fasilitas: [
+            "Parkir Motor",
+            "Lengkap"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS"
+        ]
     },
     {
         id: 25,
@@ -322,12 +647,29 @@ const UMKM_DATA = [
         name: "Ganesha Mocktail",
         category: "cafe",
         img: "/assets/resto/mocktail.webp",
+        gallery: [
+            "/assets/resto/mocktail.webp",
+            "/assets/resto/mocktail.webp",
+            "/assets/resto/mocktail.webp"
+        ],
         short: "Mocktail segar dengan harga terjangkau",
         rating: 4.4,
         rangeHarga: "Rp 25.000-50.000",
         alamat: "Jl. Gelap Nyawang, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "08112326966",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.964497861024!2d107.60671458500626!3d-6.894850049675375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6505bfffee3%3A0x11cd863241db4d06!2sGanesha%20Mocktail!5e0!3m2!1sid!2sid!4v1762273804191!5m2!1sid!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.964497861024!2d107.60671458500626!3d-6.894850049675375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6505bfffee3%3A0x11cd863241db4d06!2sGanesha%20Mocktail!5e0!3m2!1sid!2sid!4v1762273804191!5m2!1sid!2sid",
+        jamBuka: "11:00 - 23:00",
+        fasilitas: [
+            "WiFi",
+            "Colokan",
+            "Instagramable"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS",
+            "GoPay",
+            "OVO"
+        ]
     },
     {
         id: 26,
@@ -335,12 +677,26 @@ const UMKM_DATA = [
         name: "Warung Ica",
         category: "resto",
         img: "/assets/resto/ica.webp",
+        gallery: [
+            "/assets/resto/ica.webp",
+            "/assets/resto/ica.webp",
+            "/assets/resto/ica.webp"
+        ],
         short: "Masakan rumahan enak dan murah",
         rating: 5.0,
         rangeHarga: "Rp 1-25.000",
         alamat: "4J46+3J4, Jl. Gelap Nyawang, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "082126133994",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9643606151076!2d107.60901877590625!3d-6.894866467474042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6505e63ad79%3A0x9d483fdc1b56b546!2sWarung%20Ica!5e0!3m2!1sid!2sid!4v1762275000632!5m2!1sid!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9643606151076!2d107.60901877590625!3d-6.894866467474042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6505e63ad79%3A0x9d483fdc1b56b546!2sWarung%20Ica!5e0!3m2!1sid!2sid!4v1762275000632!5m2!1sid!2sid",
+        jamBuka: "06:00 - 20:00",
+        fasilitas: [
+            "Parkir Motor",
+            "Dine-in",
+            "Takeaway"
+        ],
+        metodePembayaran: [
+            "Cash"
+        ]
     },
     {
         id: 27,
@@ -348,12 +704,30 @@ const UMKM_DATA = [
         name: "Garden Coffee Bandung",
         category: "cafe",
         img: "/assets/resto/garden.webp",
+        gallery: [
+            "/assets/resto/garden.webp",
+            "/assets/resto/garden.webp",
+            "/assets/resto/garden.webp"
+        ],
         short: "Kafe taman cozy penuh lampu",
         rating: 4.6,
         rangeHarga: "Rp 25.000-50.000",
         alamat: "Jl. Ciungwanara No.10 A, Dago, Kecamatan Coblong, Kota Bandung, Jawa Barat 40135",
         noTelp: "087764562458",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9618184077262!2d107.60877657590638!3d-6.895170567477188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6fc6d9b2155%3A0x9b228e028efe3e0e!2sGarden%20Coffee%20Bandung!5e0!3m2!1sid!2sid!4v1762275119974!5m2!1sid!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9618184077262!2d107.60877657590638!3d-6.895170567477188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6fc6d9b2155%3A0x9b228e028efe3e0e!2sGarden%20Coffee%20Bandung!5e0!3m2!1sid!2sid!4v1762275119974!5m2!1sid!2sid",
+        jamBuka: "10:00 - 00:00",
+        fasilitas: [
+            "WiFi",
+            "Outdoor Seating",
+            "Instagramable",
+            "Parkir Motor"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS",
+            "GoPay",
+            "OVO"
+        ]
     },
     {
         id: 28,
@@ -361,12 +735,30 @@ const UMKM_DATA = [
         name: "Nuesara Coffee & Habitual",
         category: "cafe",
         img: "/assets/resto/nuesara.webp",
+        gallery: [
+            "/assets/resto/nuesara.webp",
+            "/assets/resto/nuesara.webp",
+            "/assets/resto/nuesara.webp"
+        ],
         short: "Kopi enak dengan suasana nyaman",
         rating: 5.0,
         rangeHarga: "Rp 25.000-50.000",
         alamat: "Jl. Ciungwanara No.10A, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40135",
         noTelp: "087764562458",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9613017600295!2d107.60873667590636!3d-6.895232367477794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7432d380281%3A0x2f17fa5105c028bc!2sNuesara%20Coffee%20%26%20Habitual!5e0!3m2!1sid!2sid!4v1762275234584!5m2!1sid!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9613017600295!2d107.60873667590636!3d-6.895232367477794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7432d380281%3A0x2f17fa5105c028bc!2sNuesara%20Coffee%20%26%20Habitual!5e0!3m2!1sid!2sid!4v1762275234584!5m2!1sid!2sid",
+        jamBuka: "08:00 - 22:00",
+        fasilitas: [
+            "WiFi",
+            "Colokan",
+            "AC",
+            "Parkir Motor"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS",
+            "GoPay",
+            "OVO"
+        ]
     },
     {
         id: 29,
@@ -374,12 +766,26 @@ const UMKM_DATA = [
         name: "Two Point One El cacto",
         category: "cemilan",
         img: "/assets/resto/cacto.webp",
+        gallery: [
+            "/assets/resto/cacto.webp",
+            "/assets/resto/cacto.webp",
+            "/assets/resto/cacto.webp"
+        ],
         short: "Kebab lezat dengan cita rasa khas",
         rating: 5.0,
         rangeHarga: "Rp 1-25.000",
         alamat: "4J36+WF Lb. Siliwangi, Kota Bandung, Jawa Barat",
         noTelp: "082230709593",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9612791879376!2d107.60862977590631!3d-6.895235067477838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7bbfcfa4c0f%3A0x1680716a936ff857!2sTwo%20Point%20One%20El%20cacto!5e0!3m2!1sid!2sid!4v1762276715058!5m2!1sid!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9612791879376!2d107.60862977590631!3d-6.895235067477838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7bbfcfa4c0f%3A0x1680716a936ff857!2sTwo%20Point%20One%20El%20cacto!5e0!3m2!1sid!2sid!4v1762276715058!5m2!1sid!2sid",
+        jamBuka: "15:00 - 22:00",
+        fasilitas: [
+            "Takeaway",
+            "Halal"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS"
+        ]
     },
     {
         id: 30,
@@ -387,12 +793,28 @@ const UMKM_DATA = [
         name: "PT.ELVINDO ANUGERAH PERKASA",
         category: "lain",
         img: "/assets/resto/elvindo.webp",
+        gallery: [
+            "/assets/resto/elvindo.webp",
+            "/assets/resto/elvindo.webp",
+            "/assets/resto/elvindo.webp"
+        ],
         short: "Toko motor elektrik terpercaya",
         rating: 5.0,
         rangeHarga: "Rp 2.000.000-5.000.000",
         alamat: "Jl. Ciungwanara No.10, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "082230709593",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.961922907105!2d107.60878137590636!3d-6.895158067477038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7fc81d63f2b%3A0x675d774d951cd1e0!2sPT.ELVINDO%20ANUGERAH%20PERKASA!5e0!3m2!1sid!2sid!4v1762276934794!5m2!1sid!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.961922907105!2d107.60878137590636!3d-6.895158067477038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7fc81d63f2b%3A0x675d774d951cd1e0!2sPT.ELVINDO%20ANUGERAH%20PERKASA!5e0!3m2!1sid!2sid!4v1762276934794!5m2!1sid!2sid",
+        jamBuka: "09:00 - 18:00",
+        fasilitas: [
+            "Parkir Motor",
+            "Parkir Mobil",
+            "Garansi"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "Transfer",
+            "Kredit"
+        ]
     },
     {
         id: 31,
@@ -400,12 +822,29 @@ const UMKM_DATA = [
         name: "Angka Sembilan Coffee",
         category: "cafe",
         img: "/assets/resto/sembilan.webp",
+        gallery: [
+            "/assets/resto/sembilan.webp",
+            "/assets/resto/sembilan.webp",
+            "/assets/resto/sembilan.webp"
+        ],
         short: "Kafe nyaman dengan kopi nikmat",
         rating: 4.8,
         rangeHarga: "Rp 25.000-50.000",
         alamat: "Jl. Ciungwanara No.10, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "081264282072",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9599515990644!2d107.60881487590635!3d-6.895393867479502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7ca1067a681%3A0xcafa9caeca18b54c!2sAngka%20Sembilan%20Coffee!5e0!3m2!1sid!2sid!4v1762275644944!5m2!1sid!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9599515990644!2d107.60881487590635!3d-6.895393867479502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7ca1067a681%3A0xcafa9caeca18b54c!2sAngka%20Sembilan%20Coffee!5e0!3m2!1sid!2sid!4v1762275644944!5m2!1sid!2sid",
+        jamBuka: "09:00 - 23:00",
+        fasilitas: [
+            "WiFi",
+            "Colokan",
+            "AC",
+            "Outdoor Seating"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS",
+            "GoPay"
+        ]
     },
     {
         id: 32,
@@ -413,12 +852,27 @@ const UMKM_DATA = [
         name: "Warung Nasi Kita | Wanaki",
         category: "resto",
         img: "/assets/resto/kita.webp",
+        gallery: [
+            "/assets/resto/kita.webp",
+            "/assets/resto/kita.webp",
+            "/assets/resto/kita.webp"
+        ],
         short: "Warung prasmanan murah dan lengkap",
         rating: 5.0,
         rangeHarga: "Rp 1-25.000",
         alamat: "Jl. Ciungwanara No.10, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
         noTelp: "085703952428",
-        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.959473392092!2d107.60882847590626!3d-6.8954510674800655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7140b9b583f%3A0x40dc15c61e097cee!2sWarung%20Nasi%20Kita%20%7C%20Wanaki!5e0!3m2!1sid!2sid!4v1762275718984!5m2!1sid!2sid"
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.959473392092!2d107.60882847590626!3d-6.8954510674800655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7140b9b583f%3A0x40dc15c61e097cee!2sWarung%20Nasi%20Kita%20%7C%20Wanaki!5e0!3m2!1sid!2sid!4v1762275718984!5m2!1sid!2sid",
+        jamBuka: "06:00 - 21:00",
+        fasilitas: [
+            "Parkir Motor",
+            "Prasmanan",
+            "Dine-in"
+        ],
+        metodePembayaran: [
+            "Cash",
+            "QRIS"
+        ]
     }
 ];
 const CATEGORIES = [
@@ -567,7 +1021,11 @@ __turbopack_context__.n(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$a
 
 __turbopack_context__.s([
     "default",
-    ()=>DetailUMKM
+    ()=>DetailUMKM,
+    "generateMetadata",
+    ()=>generateMetadata,
+    "generateStaticParams",
+    ()=>generateStaticParams
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.js [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$umkmData$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/umkmData.js [app-rsc] (ecmascript)");
@@ -575,344 +1033,731 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$navDire
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$footerDirektori$2e$jsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/footerDirektori.jsx [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$direktori$2f5b$slug$5d2f$GalleryClient$2e$jsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/app/direktori/[slug]/GalleryClient.jsx [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.react-server.js [app-rsc] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$api$2f$navigation$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/next/dist/api/navigation.react-server.js [app-rsc] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$components$2f$navigation$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/components/navigation.react-server.js [app-rsc] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/map-pin.js [app-rsc] (ecmascript) <export default as MapPin>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$phone$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Phone$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/phone.js [app-rsc] (ecmascript) <export default as Phone>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clock$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Clock$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/clock.js [app-rsc] (ecmascript) <export default as Clock>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$credit$2d$card$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__CreditCard$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/credit-card.js [app-rsc] (ecmascript) <export default as CreditCard>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$navigation$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Navigation$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/navigation.js [app-rsc] (ecmascript) <export default as Navigation>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$external$2d$link$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__ExternalLink$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/external-link.js [app-rsc] (ecmascript) <export default as ExternalLink>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$star$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Star$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/star.js [app-rsc] (ecmascript) <export default as Star>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/circle-check.js [app-rsc] (ecmascript) <export default as CheckCircle2>");
 ;
 ;
 ;
 ;
 ;
 ;
-async function DetailUMKM({ params }) {
-    const { slug } = await params; // slug dari URL dynamic route
-    // Cari UMKM berdasarkan slug
+;
+;
+async function generateStaticParams() {
+    return __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$umkmData$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["UMKM_DATA"].map((umkm)=>({
+            slug: umkm.slug
+        }));
+}
+async function generateMetadata({ params }) {
+    const { slug } = await params;
     const umkm = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$umkmData$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["UMKM_DATA"].find((item)=>item.slug === slug);
-    /* --------------------------------------------------------------
-     FALLBACK: Jika slug tidak ada di UMKM_DATA
-     Tampilkan halaman error + tombol kembali ke direktori
-  -------------------------------------------------------------- */ if (!umkm) {
-        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
-            className: "min-h-screen bg-bg-soft text-text-primary transition-theme flex flex-col",
-            children: [
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$navDirektori$2e$jsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
-                    fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                    lineNumber: 26,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "flex-1 flex flex-col items-center justify-center",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                            className: "text-3xl font-bold",
-                            children: "UMKM Tidak Ditemukan"
-                        }, void 0, false, {
-                            fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                            lineNumber: 28,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                            href: "/direktori",
-                            className: "mt-4 px-6 py-3 bg-primary text-white rounded-xl shadow hover:bg-primary/80 transition",
-                            children: "Kembali ke Direktori"
-                        }, void 0, false, {
-                            fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                            lineNumber: 30,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                    lineNumber: 27,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$footerDirektori$2e$jsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
-                    fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                    lineNumber: 37,
-                    columnNumber: 9
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-            lineNumber: 25,
-            columnNumber: 7
-        }, this);
+    if (!umkm) {
+        return {
+            title: "UMKM Tidak Ditemukan | Gelap Nyawang"
+        };
     }
-    /* --------------------------------------------------------------
-     MAIN PAGE: Halaman Detail UMKM
-     Memuat hero image, galeri, info, map, dan tombol kembali
-  -------------------------------------------------------------- */ return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
-        className: "min-h-screen bg-bg-soft text-text-primary transition-theme",
+    return {
+        title: `${umkm.name} - ${umkm.short} | Gelap Nyawang`,
+        description: `${umkm.short} • Rating ${umkm.rating}/5 • ${umkm.rangeHarga} • ${umkm.alamat}`
+    };
+}
+async function DetailUMKM({ params }) {
+    const { slug } = await params;
+    const umkm = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$umkmData$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["UMKM_DATA"].find((item)=>item.slug === slug);
+    if (!umkm) {
+        (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$components$2f$navigation$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["notFound"])();
+    }
+    const gallery = umkm.gallery && umkm.gallery.length > 0 ? umkm.gallery : [
+        umkm.img,
+        umkm.img,
+        umkm.img
+    ];
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
+        className: "min-h-screen bg-bg-soft dark:bg-bg-base text-text-primary transition-theme",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$navDirektori$2e$jsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                lineNumber: 48,
+                lineNumber: 57,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "relative w-full h-[420px] md:h-[480px] overflow-hidden pt-20",
+                className: "relative w-full h-[380px] md:h-[480px] overflow-hidden",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                        src: umkm.img,
-                        alt: umkm.name,
-                        className: "w-full h-full object-cover brightness-[0.8]"
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "absolute inset-0 pt-16 md:pt-20",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                            src: umkm.img,
+                            alt: umkm.name,
+                            className: "w-full h-full object-cover brightness-75",
+                            loading: "eager"
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                            lineNumber: 62,
+                            columnNumber: 11
+                        }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                        lineNumber: 57,
+                        lineNumber: 61,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"
+                        className: "absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
                     }, void 0, false, {
                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                        lineNumber: 64,
+                        lineNumber: 70,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute bottom-8 left-6 md:left-12",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                className: "text-white text-4xl md:text-6xl font-extrabold drop-shadow-xl",
-                                children: umkm.name
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                lineNumber: 68,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-white/90 text-lg mt-2 drop-shadow",
-                                children: umkm.short
-                            }, void 0, false, {
-                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                lineNumber: 71,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
+                        className: "absolute inset-0 bg-gradient-to-r from-black/30 to-transparent"
+                    }, void 0, false, {
                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                        lineNumber: 67,
+                        lineNumber: 71,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "absolute bottom-0 left-0 right-0 px-6 md:px-12 pb-8 md:pb-12",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "max-w-7xl mx-auto",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex items-center gap-2 mb-3",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "px-3 py-1 rounded-full bg-primary/90 text-white text-xs font-semibold uppercase tracking-wide",
+                                            children: umkm.category
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                            lineNumber: 76,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex items-center gap-1 px-3 py-1 rounded-full bg-white/90",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "text-yellow-500",
+                                                    children: "⭐"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                    lineNumber: 81,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "text-sm font-bold text-gray-900",
+                                                    children: umkm.rating
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                    lineNumber: 82,
+                                                    columnNumber: 17
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                            lineNumber: 80,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                    lineNumber: 75,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                    className: "text-3xl sm:text-4xl md:text-6xl font-extrabold text-white drop-shadow-2xl mb-3 leading-tight",
+                                    children: umkm.name
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                    lineNumber: 86,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "text-white/95 text-base md:text-xl drop-shadow-lg max-w-2xl",
+                                    children: umkm.short
+                                }, void 0, false, {
+                                    fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                    lineNumber: 90,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "text-white/90 text-lg md:text-xl font-semibold mt-3",
+                                    children: [
+                                        "💰 ",
+                                        umkm.rangeHarga
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                    lineNumber: 94,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                            lineNumber: 74,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                        lineNumber: 73,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                lineNumber: 56,
+                lineNumber: 60,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "px-[5%] py-12",
+                className: "px-[5%] md:px-[7%] lg:px-[9%] py-12 max-w-7xl mx-auto",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex flex-wrap gap-3 mb-8",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "px-4 py-2 rounded-full bg-bg-base dark:bg-bg-warm shadow text-text-secondary text-sm font-medium",
-                                children: [
-                                    "⭐ ",
-                                    umkm.rating,
-                                    " / 5"
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                lineNumber: 89,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "px-4 py-2 rounded-full bg-bg-base dark:bg-bg-warm shadow text-text-secondary text-sm font-medium",
-                                children: [
-                                    "💰 ",
-                                    umkm.rangeHarga
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                lineNumber: 93,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "px-4 py-2 rounded-full bg-bg-base dark:bg-bg-warm shadow text-text-secondary text-sm font-medium capitalize",
-                                children: [
-                                    "🍽️ ",
-                                    umkm.category
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                lineNumber: 97,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                        lineNumber: 88,
-                        columnNumber: 9
-                    }, this),
-                    umkm.gallery && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "mb-14",
+                        className: "mb-12",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                className: "text-2xl font-bold text-text-secondary mb-3",
-                                children: "Galeri"
+                                className: "text-2xl md:text-3xl font-bold text-text-secondary mb-4 flex items-center gap-2",
+                                children: "📸 Galeri Foto"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                lineNumber: 108,
-                                columnNumber: 13
+                                lineNumber: 106,
+                                columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$direktori$2f5b$slug$5d2f$GalleryClient$2e$jsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                                images: umkm.gallery
+                                images: gallery,
+                                name: umkm.name
                             }, void 0, false, {
                                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
                                 lineNumber: 109,
-                                columnNumber: 13
+                                columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                        lineNumber: 107,
-                        columnNumber: 11
+                        lineNumber: 105,
+                        columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "grid md:grid-cols-2 gap-12 mb-14",
+                        className: "grid lg:grid-cols-2 gap-10 mb-12",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                        className: "text-2xl font-bold text-text-secondary mb-4",
-                                        children: "Informasi"
+                                        className: "text-2xl md:text-3xl font-bold text-text-secondary mb-6",
+                                        children: "ℹ️ Informasi Detail"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                        lineNumber: 121,
+                                        lineNumber: 117,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "space-y-3 text-text-primary text-[17px] leading-relaxed",
+                                        className: "space-y-5",
                                         children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex gap-4",
                                                 children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                        children: "Alamat:"
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {
+                                                        className: "text-primary flex-shrink-0 mt-1",
+                                                        size: 22
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                                        lineNumber: 123,
-                                                        columnNumber: 18
+                                                        lineNumber: 125,
+                                                        columnNumber: 17
                                                     }, this),
-                                                    " ",
-                                                    umkm.alamat
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                                lineNumber: 123,
-                                                columnNumber: 15
-                                            }, this),
-                                            umkm.noTelp && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                        children: "No. Telp:"
-                                                    }, void 0, false, {
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "font-semibold text-text-secondary mb-1",
+                                                                children: "Alamat"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                                lineNumber: 127,
+                                                                columnNumber: 19
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "text-text-muted",
+                                                                children: umkm.alamat
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                                lineNumber: 128,
+                                                                columnNumber: 19
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
                                                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
                                                         lineNumber: 126,
-                                                        columnNumber: 20
-                                                    }, this),
-                                                    " ",
-                                                    umkm.noTelp
+                                                        columnNumber: 17
+                                                    }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                                lineNumber: 126,
-                                                columnNumber: 17
+                                                lineNumber: 124,
+                                                columnNumber: 15
                                             }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            umkm.noTelp && umkm.noTelp !== "-" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex gap-4",
                                                 children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                        children: "Harga:"
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$phone$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Phone$3e$__["Phone"], {
+                                                        className: "text-primary flex-shrink-0 mt-1",
+                                                        size: 22
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                                        lineNumber: 129,
-                                                        columnNumber: 18
+                                                        lineNumber: 135,
+                                                        columnNumber: 19
                                                     }, this),
-                                                    " ",
-                                                    umkm.rangeHarga
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "font-semibold text-text-secondary mb-1",
+                                                                children: "No. Telepon"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                                lineNumber: 137,
+                                                                columnNumber: 21
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                                href: `tel:${umkm.noTelp}`,
+                                                                className: "text-primary hover:underline",
+                                                                children: umkm.noTelp
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                                lineNumber: 138,
+                                                                columnNumber: 21
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                        lineNumber: 136,
+                                                        columnNumber: 19
+                                                    }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                                lineNumber: 129,
+                                                lineNumber: 134,
+                                                columnNumber: 17
+                                            }, this),
+                                            umkm.jamBuka && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex gap-4",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clock$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Clock$3e$__["Clock"], {
+                                                        className: "text-primary flex-shrink-0 mt-1",
+                                                        size: 22
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                        lineNumber: 148,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "font-semibold text-text-secondary mb-1",
+                                                                children: "Jam Operasional"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                                lineNumber: 150,
+                                                                columnNumber: 21
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "text-text-muted",
+                                                                children: umkm.jamBuka
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                                lineNumber: 151,
+                                                                columnNumber: 21
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                        lineNumber: 149,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                lineNumber: 147,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex gap-4",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$credit$2d$card$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__CreditCard$3e$__["CreditCard"], {
+                                                        className: "text-primary flex-shrink-0 mt-1",
+                                                        size: 22
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                        lineNumber: 158,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "font-semibold text-text-secondary mb-1",
+                                                                children: "Range Harga"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                                lineNumber: 160,
+                                                                columnNumber: 19
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "text-text-muted",
+                                                                children: umkm.rangeHarga
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                                lineNumber: 161,
+                                                                columnNumber: 19
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                        lineNumber: 159,
+                                                        columnNumber: 17
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                lineNumber: 157,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex gap-4",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$star$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Star$3e$__["Star"], {
+                                                        className: "text-primary flex-shrink-0 mt-1",
+                                                        size: 22
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                        lineNumber: 167,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "font-semibold text-text-secondary mb-1",
+                                                                children: "Rating"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                                lineNumber: 169,
+                                                                columnNumber: 19
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "flex items-center gap-2",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "flex",
+                                                                        children: [
+                                                                            ...Array(5)
+                                                                        ].map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$star$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Star$3e$__["Star"], {
+                                                                                size: 18,
+                                                                                className: i < Math.floor(umkm.rating) ? "text-yellow-500 fill-yellow-500" : "text-gray-300"
+                                                                            }, i, false, {
+                                                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                                                lineNumber: 173,
+                                                                                columnNumber: 25
+                                                                            }, this))
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                                        lineNumber: 171,
+                                                                        columnNumber: 21
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "font-bold text-text-secondary",
+                                                                        children: [
+                                                                            umkm.rating,
+                                                                            " / 5"
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                                        lineNumber: 184,
+                                                                        columnNumber: 21
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                                lineNumber: 170,
+                                                                columnNumber: 19
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                        lineNumber: 168,
+                                                        columnNumber: 17
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                lineNumber: 166,
+                                                columnNumber: 15
+                                            }, this),
+                                            umkm.fasilitas && umkm.fasilitas.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex gap-4",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__["CheckCircle2"], {
+                                                        className: "text-primary flex-shrink-0 mt-1",
+                                                        size: 22
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                        lineNumber: 192,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "font-semibold text-text-secondary mb-2",
+                                                                children: "Fasilitas"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                                lineNumber: 194,
+                                                                columnNumber: 21
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "flex flex-wrap gap-2",
+                                                                children: umkm.fasilitas.map((f, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                        className: "px-3 py-1 bg-bg-soft dark:bg-bg-warm rounded-full text-xs font-medium text-text-secondary",
+                                                                        children: f
+                                                                    }, idx, false, {
+                                                                        fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                                        lineNumber: 197,
+                                                                        columnNumber: 25
+                                                                    }, this))
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                                lineNumber: 195,
+                                                                columnNumber: 21
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                        lineNumber: 193,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                lineNumber: 191,
+                                                columnNumber: 17
+                                            }, this),
+                                            umkm.metodePembayaran && umkm.metodePembayaran.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex gap-4",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$credit$2d$card$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__CreditCard$3e$__["CreditCard"], {
+                                                        className: "text-primary flex-shrink-0 mt-1",
+                                                        size: 22
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                        lineNumber: 209,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "font-semibold text-text-secondary mb-1",
+                                                                children: "Metode Pembayaran"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                                lineNumber: 211,
+                                                                columnNumber: 21
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "text-text-muted",
+                                                                children: umkm.metodePembayaran.join(", ")
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                                lineNumber: 212,
+                                                                columnNumber: 21
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                        lineNumber: 210,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                lineNumber: 208,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
+                                                className: "border-border-light my-6"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                lineNumber: 217,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "bg-bg-base dark:bg-bg-warm rounded-xl p-5",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-sm text-text-muted",
+                                                    children: [
+                                                        "💡 ",
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                            children: "Tips:"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                            lineNumber: 221,
+                                                            columnNumber: 22
+                                                        }, this),
+                                                        " Datang saat jam makan siang atau malam untuk suasana khas mahasiswa Gelap Nyawang. Jangan lupa coba menu andalan mereka!"
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                    lineNumber: 220,
+                                                    columnNumber: 17
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                lineNumber: 219,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                        lineNumber: 122,
+                                        lineNumber: 121,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                lineNumber: 120,
+                                lineNumber: 116,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "bg-bg-base dark:bg-bg-soft rounded-2xl shadow-xl p-4 transition-theme",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "w-full overflow-hidden rounded-xl",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("iframe", {
-                                            src: umkm.mapEmbed,
-                                            width: "100%",
-                                            height: "250",
-                                            className: "rounded-xl",
-                                            loading: "lazy",
-                                            allowFullScreen: true
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                            lineNumber: 138,
-                                            columnNumber: 15
-                                        }, this)
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                        className: "text-2xl md:text-3xl font-bold text-text-secondary mb-6",
+                                        children: "🗺️ Lokasi"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                        lineNumber: 137,
+                                        lineNumber: 230,
                                         columnNumber: 13
                                     }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                        href: umkm.mapEmbed.replace("embed?", ""),
-                                        target: "_blank",
-                                        className: "block mt-4 w-full text-center px-5 py-3 rounded-xl    bg-[#E87524] text-white font-semibold shadow hover:bg-[#F79342] transition",
-                                        children: "Buka di Google Maps"
-                                    }, void 0, false, {
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "bg-white dark:bg-bg-soft rounded-2xl shadow-xl p-5",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "w-full overflow-hidden rounded-xl mb-4",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("iframe", {
+                                                    src: umkm.mapEmbed,
+                                                    width: "100%",
+                                                    height: "320",
+                                                    className: "rounded-xl",
+                                                    loading: "lazy",
+                                                    allowFullScreen: true,
+                                                    title: `Peta lokasi ${umkm.name}`
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                    lineNumber: 237,
+                                                    columnNumber: 17
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                lineNumber: 236,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "space-y-3",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                        href: umkm.mapEmbed.replace("/embed?", "/"),
+                                                        target: "_blank",
+                                                        rel: "noopener noreferrer",
+                                                        className: "flex items-center justify-center gap-2 w-full px-5 py-3 rounded-xl bg-primary text-white font-semibold shadow-lg hover:bg-primary/90",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$external$2d$link$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__ExternalLink$3e$__["ExternalLink"], {
+                                                                size: 18
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                                lineNumber: 255,
+                                                                columnNumber: 19
+                                                            }, this),
+                                                            "Buka di Google Maps"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                        lineNumber: 249,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                        href: umkm.mapEmbed.replace("/embed?", "/dir//"),
+                                                        target: "_blank",
+                                                        rel: "noopener noreferrer",
+                                                        className: "flex items-center justify-center gap-2 w-full px-5 py-3 rounded-xl bg-blue-500 text-white font-semibold shadow-lg hover:bg-blue-600",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$navigation$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Navigation$3e$__["Navigation"], {
+                                                                size: 18
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                                lineNumber: 265,
+                                                                columnNumber: 19
+                                                            }, this),
+                                                            "Dapatkan Petunjuk Arah"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                        lineNumber: 259,
+                                                        columnNumber: 17
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                                lineNumber: 248,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                        lineNumber: 149,
+                                        lineNumber: 234,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                                lineNumber: 134,
+                                lineNumber: 229,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                        lineNumber: 117,
+                        lineNumber: 113,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                         href: "/direktori",
-                        className: "inline-block px-6 py-3 rounded-xl bg-text-secondary text-white dark:bg-primary font-semibold shadow hover:opacity-90 transition",
-                        children: "← Kembali ke Direktori"
-                    }, void 0, false, {
+                        className: "inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-text-secondary dark:bg-primary text-white font-semibold shadow-lg hover:opacity-90",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                children: "←"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/direktori/[slug]/page.jsx",
+                                lineNumber: 279,
+                                columnNumber: 11
+                            }, this),
+                            "Kembali ke Direktori"
+                        ]
+                    }, void 0, true, {
                         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                        lineNumber: 161,
+                        lineNumber: 275,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                lineNumber: 85,
+                lineNumber: 102,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$footerDirektori$2e$jsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-                lineNumber: 169,
+                lineNumber: 285,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/direktori/[slug]/page.jsx",
-        lineNumber: 47,
+        lineNumber: 56,
         columnNumber: 5
     }, this);
 }
