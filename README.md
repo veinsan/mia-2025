@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/ganyangbanner.png" alt="Deskripsi gambar">
+  <img src="public/assets/thumbnail.png" alt="Thumbnail karya">
 </div>
 
 # Ganyang Lapar di Gelap Nyawang
