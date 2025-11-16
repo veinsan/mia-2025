@@ -1,4 +1,64 @@
-[00:00:01.621] Server  LOG      ✓ Ready in 1017ms
-[00:00:04.789] Server  LOG      ○ Compiling /direktori ...
-[00:00:05.208] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:42.632] Server  LOG      ✓ Compiled in 152ms
+[00:00:01.027] Server  LOG      ✓ Ready in 684ms
+[00:00:04.033] Server  ERROR    ⨯ ./src/app/direktori/page.jsx:150:24
+Parsing ecmascript source code failed
+  148 |           </div>
+  149 |         </div>
+> 150 |       </motion.article>
+      |                        ^
+> 151 |     </Link>
+      | ^^^^^
+  152 |   );
+  153 | }
+  154 |
+
+Expected '</', got 'jsx text (
+    )'
+
+
+[00:00:05.089] Browser ERROR   uncaughtError: Error: ./src/app/direktori/page.jsx:150:24
+Parsing ecmascript source code failed
+  148 |           </div>
+  149 |         </div>
+> 150 |       </motion.article>
+      |                        ^
+> 151 |     </Link>
+      | ^^^^^
+  152 |   );
+  153 | }
+  154 |
+
+Expected '</', got 'jsx text (
+    )'
+
+
+[00:00:05.565] Browser ERROR   ./src/app/direktori/page.jsx:150:24
+Parsing ecmascript source code failed
+  148 |           </div>
+  149 |         </div>
+> 150 |       </motion.article>
+      |                        ^
+> 151 |     </Link>
+      | ^^^^^
+  152 |   );
+  153 | }
+  154 |
+
+Expected '</', got 'jsx text (
+    )'
+[00:00:05.565] Browser ERROR   ./src/app/direktori/page.jsx:150:24
+Parsing ecmascript source code failed
+  148 |           </div>
+  149 |         </div>
+> 150 |       </motion.article>
+      |                        ^
+> 151 |     </Link>
+      | ^^^^^
+  152 |   );
+  153 | }
+  154 |
+
+Expected '</', got 'jsx text (
+    )'
+[00:01:18.161] Server  LOG      ✓ Compiled in 526ms
+[00:01:19.387] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:57.065] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior

@@ -2692,6 +2692,10 @@ a {
   --tw-ring-color: #e5762166;
 }
 
+.focus\:ring-primary\/50:focus {
+  --tw-ring-color: #e5762180;
+}
+
 .focus\:ring-white\/50:focus {
   --tw-ring-color: #ffffff80;
 }

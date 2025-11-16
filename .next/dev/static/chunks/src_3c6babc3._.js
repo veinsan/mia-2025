@@ -2118,10 +2118,11 @@ const cardVariant = {
                             src: item.img,
                             alt: item.name,
                             className: `w-full h-full object-cover transition-all duration-700 
-                       ${imageLoaded ? "opacity-100" : "opacity-0"}
-                       group-hover:scale-105`,
+                      ${imageLoaded ? "opacity-100" : "opacity-0"}
+                      group-hover:scale-105`,
                             draggable: "false",
                             loading: "lazy",
+                            decoding: "async",
                             onLoad: ()=>setImageLoaded(true),
                             onError: ()=>setImageError(true)
                         }, void 0, false, {
@@ -2135,6 +2136,7 @@ const cardVariant = {
                     lineNumber: 98,
                     columnNumber: 9
                 }, this),
+                " ",
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "p-4",
                     children: [
@@ -2143,7 +2145,7 @@ const cardVariant = {
                             children: item.name
                         }, void 0, false, {
                             fileName: "[project]/src/app/direktori/page.jsx",
-                            lineNumber: 127,
+                            lineNumber: 128,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2151,7 +2153,7 @@ const cardVariant = {
                             children: item.short
                         }, void 0, false, {
                             fileName: "[project]/src/app/direktori/page.jsx",
-                            lineNumber: 132,
+                            lineNumber: 133,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2162,7 +2164,7 @@ const cardVariant = {
                                     children: item.rangeHarga
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 138,
+                                    lineNumber: 139,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2174,7 +2176,7 @@ const cardVariant = {
                                             fill: "currentColor"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                            lineNumber: 143,
+                                            lineNumber: 144,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2182,25 +2184,25 @@ const cardVariant = {
                                             children: item.rating
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                            lineNumber: 144,
+                                            lineNumber: 145,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 142,
+                                    lineNumber: 143,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/direktori/page.jsx",
-                            lineNumber: 137,
+                            lineNumber: 138,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/direktori/page.jsx",
-                    lineNumber: 126,
+                    lineNumber: 127,
                     columnNumber: 9
                 }, this)
             ]
@@ -2233,12 +2235,12 @@ _c = UMKMCard;
             children: children
         }, void 0, false, {
             fileName: "[project]/src/app/direktori/page.jsx",
-            lineNumber: 161,
+            lineNumber: 162,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/direktori/page.jsx",
-        lineNumber: 160,
+        lineNumber: 161,
         columnNumber: 5
     }, this);
 }
@@ -2303,10 +2305,6 @@ _c1 = ScrollRow;
                     opacity: 1,
                     scale: 1
                 },
-                exit: {
-                    opacity: 0,
-                    scale: 0.8
-                },
                 onClick: ()=>scroll("left"),
                 whileHover: {
                     scale: 1.1
@@ -2326,7 +2324,7 @@ _c1 = ScrollRow;
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/direktori/page.jsx",
-                lineNumber: 231,
+                lineNumber: 232,
                 columnNumber: 9
             }, this),
             !atEnd && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -2375,10 +2373,11 @@ _c2 = ScrollButtons;
    SMALL CARD WITH LOADING STATE (FIXED)
 =========================================== */ /* ===========================================
    SMALL CARD WITH LOADING STATE (FIXED)
-=========================================== */ function SmallCard({ item, priority = false }) {
+=========================================== */ function SmallCard({ item, index = 0 }) {
     _s4();
     const [imageLoaded, setImageLoaded] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [imageError, setImageError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const shouldLoadEager = index < 8;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
         href: `/direktori/${item.slug}`,
         className: "block flex-shrink-0",
@@ -2395,7 +2394,7 @@ _c2 = ScrollButtons;
                     className: "absolute inset-0 bg-gradient-to-br from-bg-soft via-bg-warm to-bg-soft animate-pulse"
                 }, void 0, false, {
                     fileName: "[project]/src/app/direktori/page.jsx",
-                    lineNumber: 296,
+                    lineNumber: 297,
                     columnNumber: 11
                 }, this),
                 imageError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2418,13 +2417,14 @@ _c2 = ScrollButtons;
                     alt: item.name,
                     className: `w-full h-full object-cover transition-all duration-500
                      ${imageLoaded ? "opacity-100 hover:scale-105" : "opacity-0"}`,
-                    loading: priority ? "eager" : "lazy",
-                    fetchPriority: priority ? "high" : "auto",
+                    loading: shouldLoadEager ? "eager" : "lazy",
+                    fetchPriority: shouldLoadEager ? "high" : "auto",
+                    decoding: "async",
                     onLoad: ()=>setImageLoaded(true),
                     onError: ()=>setImageError(true)
                 }, void 0, false, {
                     fileName: "[project]/src/app/direktori/page.jsx",
-                    lineNumber: 307,
+                    lineNumber: 306,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2454,7 +2454,7 @@ _c2 = ScrollButtons;
                                     fill: "currentColor"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 326,
+                                    lineNumber: 325,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2462,13 +2462,13 @@ _c2 = ScrollButtons;
                                     children: item.rating
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 327,
+                                    lineNumber: 326,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/direktori/page.jsx",
-                            lineNumber: 325,
+                            lineNumber: 324,
                             columnNumber: 11
                         }, this)
                     ]
@@ -2480,12 +2480,12 @@ _c2 = ScrollButtons;
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/direktori/page.jsx",
-            lineNumber: 286,
+            lineNumber: 288,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/direktori/page.jsx",
-        lineNumber: 285,
+        lineNumber: 287,
         columnNumber: 5
     }, this);
 }
@@ -2534,7 +2534,7 @@ _c3 = SmallCard;
                                 children: title
                             }, void 0, false, {
                                 fileName: "[project]/src/app/direktori/page.jsx",
-                                lineNumber: 365,
+                                lineNumber: 364,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2542,13 +2542,13 @@ _c3 = SmallCard;
                                 children: subtitle
                             }, void 0, false, {
                                 fileName: "[project]/src/app/direktori/page.jsx",
-                                lineNumber: 366,
+                                lineNumber: 365,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/direktori/page.jsx",
-                        lineNumber: 364,
+                        lineNumber: 363,
                         columnNumber: 9
                     }, this),
                     hasMore && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -2572,19 +2572,19 @@ _c3 = SmallCard;
                                 children: "→"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/direktori/page.jsx",
-                                lineNumber: 383,
+                                lineNumber: 382,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/direktori/page.jsx",
-                        lineNumber: 370,
+                        lineNumber: 369,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/direktori/page.jsx",
-                lineNumber: 363,
+                lineNumber: 362,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2594,15 +2594,15 @@ _c3 = SmallCard;
                         scrollRef: scrollRef,
                         children: displayItems.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(SmallCard, {
                                 item: item,
-                                priority: index < 6
+                                index: index
                             }, item.id, false, {
                                 fileName: "[project]/src/app/direktori/page.jsx",
-                                lineNumber: 391,
+                                lineNumber: 390,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/app/direktori/page.jsx",
-                        lineNumber: 389,
+                        lineNumber: 388,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ScrollButtons, {
@@ -2610,7 +2610,7 @@ _c3 = SmallCard;
                         itemCount: displayItems.length
                     }, void 0, false, {
                         fileName: "[project]/src/app/direktori/page.jsx",
-                        lineNumber: 399,
+                        lineNumber: 398,
                         columnNumber: 9
                     }, this),
                     isMobile && displayItems.length > 2 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2618,19 +2618,19 @@ _c3 = SmallCard;
                         children: "← Geser untuk melihat lebih banyak →"
                     }, void 0, false, {
                         fileName: "[project]/src/app/direktori/page.jsx",
-                        lineNumber: 403,
+                        lineNumber: 402,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/direktori/page.jsx",
-                lineNumber: 388,
+                lineNumber: 387,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/direktori/page.jsx",
-        lineNumber: 357,
+        lineNumber: 356,
         columnNumber: 5
     }, this);
 }
@@ -2680,7 +2680,7 @@ _c4 = CategorySection;
                 children: "🔍"
             }, void 0, false, {
                 fileName: "[project]/src/app/direktori/page.jsx",
-                lineNumber: 426,
+                lineNumber: 425,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -2688,7 +2688,7 @@ _c4 = CategorySection;
                 children: "Ups, Tidak Ada Hasil"
             }, void 0, false, {
                 fileName: "[project]/src/app/direktori/page.jsx",
-                lineNumber: 436,
+                lineNumber: 435,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2696,7 +2696,7 @@ _c4 = CategorySection;
                 children: "Coba kata kunci lain atau ubah kategori filter untuk menemukan tempat makan yang kamu cari."
             }, void 0, false, {
                 fileName: "[project]/src/app/direktori/page.jsx",
-                lineNumber: 441,
+                lineNumber: 440,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2707,7 +2707,7 @@ _c4 = CategorySection;
                         children: "Coba cari:"
                     }, void 0, false, {
                         fileName: "[project]/src/app/direktori/page.jsx",
-                        lineNumber: 448,
+                        lineNumber: 447,
                         columnNumber: 9
                     }, this),
                     suggestions.map((term)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -2722,13 +2722,13 @@ _c4 = CategorySection;
                             children: term
                         }, term, false, {
                             fileName: "[project]/src/app/direktori/page.jsx",
-                            lineNumber: 450,
+                            lineNumber: 449,
                             columnNumber: 11
                         }, this))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/direktori/page.jsx",
-                lineNumber: 447,
+                lineNumber: 446,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -2743,13 +2743,13 @@ _c4 = CategorySection;
                 children: "Reset Semua Filter"
             }, void 0, false, {
                 fileName: "[project]/src/app/direktori/page.jsx",
-                lineNumber: 465,
+                lineNumber: 464,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/direktori/page.jsx",
-        lineNumber: 419,
+        lineNumber: 418,
         columnNumber: 5
     }, this);
 }
@@ -2812,7 +2812,7 @@ function DirektoriPage() {
                 onCategoryClick: (cat)=>setActiveCat(cat)
             }, void 0, false, {
                 fileName: "[project]/src/app/direktori/page.jsx",
-                lineNumber: 530,
+                lineNumber: 529,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2837,7 +2837,7 @@ function DirektoriPage() {
                                                 "Cari Tempat Makan Favoritmu",
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                                    lineNumber: 555,
+                                                    lineNumber: 554,
                                                     columnNumber: 17
                                                 }, this),
                                                 " di ",
@@ -2846,13 +2846,13 @@ function DirektoriPage() {
                                                     children: "Gelap Nyawang"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                                    lineNumber: 555,
+                                                    lineNumber: 554,
                                                     columnNumber: 27
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                            lineNumber: 552,
+                                            lineNumber: 551,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2860,13 +2860,13 @@ function DirektoriPage() {
                                             children: "Mulai dari ayam bakar, warmindo, sampai kopi buat nugas. Semua ada di satu tempat."
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                            lineNumber: 557,
+                                            lineNumber: 556,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 551,
+                                    lineNumber: 550,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2877,7 +2877,7 @@ function DirektoriPage() {
                                             size: 24
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                            lineNumber: 564,
+                                            lineNumber: 563,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2885,12 +2885,12 @@ function DirektoriPage() {
                                             value: searchInput,
                                             onChange: (e)=>setSearchInput(e.target.value),
                                             placeholder: 'Cari resto… misal: "Black Romantic", "BWJ"…',
-                                            className: "w-full py-4 pl-14 pr-14 rounded-full    bg-white/85 dark:bg-bg-soft    border border-white/60 dark:border-border-default    text-[#2B1B0F] dark:text-[#FFF8F0]    shadow-lg focus:shadow-xl outline-none transition-all    backdrop-blur-sm placeholder:text-[#2B1B0F]/50    dark:placeholder:text-[#FFF8F0]/50",
+                                            className: "w-full py-4 pl-14 pr-14 rounded-full    bg-white/85 dark:bg-bg-soft    border border-white/60 dark:border-border-default    text-[#2B1B0F] dark:text-[#FFF8F0]    shadow-lg focus:shadow-xl outline-none    focus:ring-2 focus:ring-primary/50   // ✅ ADD THIS   transition-all    backdrop-blur-sm placeholder:text-[#2B1B0F]/50    dark:placeholder:text-[#FFF8F0]/50",
                                             "aria-label": "Search restaurants",
                                             "aria-describedby": "search-description"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                            lineNumber: 568,
+                                            lineNumber: 567,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2899,7 +2899,7 @@ function DirektoriPage() {
                                             children: "Cari berdasarkan nama atau jenis makanan"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                            lineNumber: 583,
+                                            lineNumber: 584,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -2923,23 +2923,23 @@ function DirektoriPage() {
                                                     size: 20
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                                    lineNumber: 601,
+                                                    lineNumber: 602,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/direktori/page.jsx",
-                                                lineNumber: 590,
+                                                lineNumber: 591,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                            lineNumber: 588,
+                                            lineNumber: 589,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 563,
+                                    lineNumber: 562,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -2968,7 +2968,7 @@ function DirektoriPage() {
                                                     children: cat.icon
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                                    lineNumber: 633,
+                                                    lineNumber: 634,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2976,30 +2976,30 @@ function DirektoriPage() {
                                                     children: cat.label
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                                    lineNumber: 634,
+                                                    lineNumber: 635,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, cat.id, true, {
                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                            lineNumber: 616,
+                                            lineNumber: 617,
                                             columnNumber: 19
                                         }, this);
                                     })
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 608,
+                                    lineNumber: 609,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/direktori/page.jsx",
-                            lineNumber: 543,
+                            lineNumber: 542,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/direktori/page.jsx",
-                        lineNumber: 536,
+                        lineNumber: 535,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -3027,7 +3027,7 @@ function DirektoriPage() {
                                             children: "Hasil Pencarian"
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                            lineNumber: 664,
+                                            lineNumber: 665,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3040,13 +3040,13 @@ function DirektoriPage() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                            lineNumber: 667,
+                                            lineNumber: 668,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 663,
+                                    lineNumber: 664,
                                     columnNumber: 15
                                 }, this),
                                 filtered.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -3058,25 +3058,25 @@ function DirektoriPage() {
                                             item: item
                                         }, item.id, false, {
                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                            lineNumber: 683,
+                                            lineNumber: 684,
                                             columnNumber: 21
                                         }, this))
                                 }, `grid-${activeCat}-${debouncedQuery}-${filtered.length}`, false, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 675,
+                                    lineNumber: 676,
                                     columnNumber: 17
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(EmptyState, {
                                     onReset: resetFilters,
                                     onSuggestionClick: (term)=>setSearchInput(term)
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 687,
+                                    lineNumber: 688,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, `filter-${activeCat}-${debouncedQuery}`, true, {
                             fileName: "[project]/src/app/direktori/page.jsx",
-                            lineNumber: 655,
+                            lineNumber: 656,
                             columnNumber: 13
                         }, this) : /* ===========================================
                 DEFAULT STATE: Show Category Sections
@@ -3100,7 +3100,7 @@ function DirektoriPage() {
                                     categoryId: "resto"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 704,
+                                    lineNumber: 705,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(CategorySection, {
@@ -3109,7 +3109,7 @@ function DirektoriPage() {
                                     categoryId: "cafe"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 710,
+                                    lineNumber: 711,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(CategorySection, {
@@ -3118,7 +3118,7 @@ function DirektoriPage() {
                                     categoryId: "cemilan"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 716,
+                                    lineNumber: 717,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(CategorySection, {
@@ -3127,7 +3127,7 @@ function DirektoriPage() {
                                     categoryId: "minuman"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 722,
+                                    lineNumber: 723,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(CategorySection, {
@@ -3136,18 +3136,18 @@ function DirektoriPage() {
                                     categoryId: "lain"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 728,
+                                    lineNumber: 729,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, "category-sections", true, {
                             fileName: "[project]/src/app/direktori/page.jsx",
-                            lineNumber: 697,
+                            lineNumber: 698,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/direktori/page.jsx",
-                        lineNumber: 653,
+                        lineNumber: 654,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].section, {
@@ -3184,13 +3184,13 @@ function DirektoriPage() {
                                                     children: "Gelap Nyawang"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                                    lineNumber: 754,
+                                                    lineNumber: 755,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                            lineNumber: 752,
+                                            lineNumber: 753,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3198,13 +3198,13 @@ function DirektoriPage() {
                                             children: "Tempat makan yang lagi sering dibicarakan. Tiga pilihan paling populer berdasarkan rating tertinggi."
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                            lineNumber: 760,
+                                            lineNumber: 761,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 751,
+                                    lineNumber: 752,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3236,19 +3236,19 @@ function DirektoriPage() {
                                                         loading: "lazy"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/direktori/page.jsx",
-                                                        lineNumber: 780,
+                                                        lineNumber: 781,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                                    lineNumber: 779,
+                                                    lineNumber: 780,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                                    lineNumber: 790,
+                                                    lineNumber: 791,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3263,7 +3263,7 @@ function DirektoriPage() {
                                                                     fill: "currentColor"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                                                    lineNumber: 795,
+                                                                    lineNumber: 796,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3271,13 +3271,13 @@ function DirektoriPage() {
                                                                     children: item.rating
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                                                    lineNumber: 796,
+                                                                    lineNumber: 797,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                                            lineNumber: 794,
+                                                            lineNumber: 795,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -3285,7 +3285,7 @@ function DirektoriPage() {
                                                             children: item.name
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                                            lineNumber: 799,
+                                                            lineNumber: 800,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3293,13 +3293,13 @@ function DirektoriPage() {
                                                             children: item.short
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                                            lineNumber: 803,
+                                                            lineNumber: 804,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                                    lineNumber: 793,
+                                                    lineNumber: 794,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -3314,51 +3314,51 @@ function DirektoriPage() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/app/direktori/page.jsx",
-                                                        lineNumber: 816,
+                                                        lineNumber: 817,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                                    lineNumber: 811,
+                                                    lineNumber: 812,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, item.id, true, {
                                             fileName: "[project]/src/app/direktori/page.jsx",
-                                            lineNumber: 769,
+                                            lineNumber: 770,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/direktori/page.jsx",
-                                    lineNumber: 767,
+                                    lineNumber: 768,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/direktori/page.jsx",
-                            lineNumber: 748,
+                            lineNumber: 749,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/direktori/page.jsx",
-                        lineNumber: 740,
+                        lineNumber: 741,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/direktori/page.jsx",
-                lineNumber: 532,
+                lineNumber: 531,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$footerDirektori$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                 fileName: "[project]/src/app/direktori/page.jsx",
-                lineNumber: 825,
+                lineNumber: 826,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/direktori/page.jsx",
-        lineNumber: 529,
+        lineNumber: 528,
         columnNumber: 5
     }, this);
 }

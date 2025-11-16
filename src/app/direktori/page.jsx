@@ -113,14 +113,15 @@ function UMKMCard({ item }) {
             src={item.img}
             alt={item.name}
             className={`w-full h-full object-cover transition-all duration-700 
-                       ${imageLoaded ? "opacity-100" : "opacity-0"}
-                       group-hover:scale-105`}
+                      ${imageLoaded ? "opacity-100" : "opacity-0"}
+                      group-hover:scale-105`}
             draggable="false"
             loading="lazy"
+            decoding="async"
             onLoad={() => setImageLoaded(true)}
             onError={() => setImageError(true)}
           />
-        </div>
+        </div> {/* <-- <<-- penutup div image container yang hilang */}
 
         {/* Card Content */}
         <div className="p-4">
@@ -231,15 +232,14 @@ function ScrollButtons({ scrollRef, itemCount }) {
         <motion.button
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8 }}
           onClick={() => scroll("left")}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           className="hidden lg:flex absolute left-2 top-1/2 -translate-y-1/2
-                     w-12 h-12 rounded-full bg-white dark:bg-bg-soft
-                     shadow-lg hover:shadow-xl
-                     transition-all items-center justify-center
-                     text-primary z-10 border border-primary/20"
+                    w-12 h-12 rounded-full bg-white dark:bg-bg-soft
+                    shadow-lg hover:shadow-xl
+                    transition-all items-center justify-center
+                    text-primary z-10 border border-primary/20"
           aria-label="Scroll left"
         >
           <span className="text-xl font-bold">❮</span>
@@ -277,9 +277,11 @@ function ScrollButtons({ scrollRef, itemCount }) {
 /* ===========================================
    SMALL CARD WITH LOADING STATE (FIXED)
 =========================================== */
-function SmallCard({ item, priority = false }) {
+function SmallCard({ item, index = 0 }) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
+
+  const shouldLoadEager = index < 8;
 
   return (
     <Link href={`/direktori/${item.slug}`} className="block flex-shrink-0">
@@ -291,26 +293,24 @@ function SmallCard({ item, priority = false }) {
                    shadow-md hover:shadow-xl transition-all"
         style={{ scrollSnapAlign: "start" }}
       >
-        {/* Skeleton Loader */}
         {!imageLoaded && !imageError && (
           <div className="absolute inset-0 bg-gradient-to-br from-bg-soft via-bg-warm to-bg-soft animate-pulse" />
         )}
 
-        {/* Error Fallback */}
         {imageError && (
           <div className="absolute inset-0 bg-bg-soft flex items-center justify-center">
             <span className="text-4xl opacity-30">🍽️</span>
           </div>
         )}
 
-        {/* ✅ CRITICAL: Force eager loading for ALL category section images */}
         <img
           src={item.img}
           alt={item.name}
           className={`w-full h-full object-cover transition-all duration-500
                      ${imageLoaded ? "opacity-100 hover:scale-105" : "opacity-0"}`}
-          loading={priority ? "eager" : "lazy"}
-          fetchPriority={priority ? "high" : "auto"}
+          loading={shouldLoadEager ? "eager" : "lazy"}
+          fetchPriority={shouldLoadEager ? "high" : "auto"}
+          decoding="async"
           onLoad={() => setImageLoaded(true)}
           onError={() => setImageError(true)}
         />
@@ -321,7 +321,6 @@ function SmallCard({ item, priority = false }) {
           <p className="text-white font-semibold text-sm sm:text-base drop-shadow line-clamp-1">
             {item.name}
           </p>
-          
           <div className="flex items-center gap-1 mt-1">
             <Star size={12} className="text-yellow-400" fill="currentColor" />
             <span className="text-xs text-white/90 font-medium">{item.rating}</span>
@@ -391,7 +390,7 @@ function CategorySection({ title, subtitle, categoryId, maxItems = 8 }) {
             <SmallCard 
               key={item.id} 
               item={item}
-              priority={index < 6}
+              index={index}   // ✅ PASS INDEX
             />
           ))}
         </ScrollRow>
@@ -571,12 +570,14 @@ export default function DirektoriPage() {
                 onChange={(e) => setSearchInput(e.target.value)}
                 placeholder='Cari resto… misal: "Black Romantic", "BWJ"…'
                 className="w-full py-4 pl-14 pr-14 rounded-full 
-                           bg-white/85 dark:bg-bg-soft 
-                           border border-white/60 dark:border-border-default 
-                           text-[#2B1B0F] dark:text-[#FFF8F0] 
-                           shadow-lg focus:shadow-xl outline-none transition-all 
-                           backdrop-blur-sm placeholder:text-[#2B1B0F]/50 
-                           dark:placeholder:text-[#FFF8F0]/50"
+                          bg-white/85 dark:bg-bg-soft 
+                          border border-white/60 dark:border-border-default 
+                          text-[#2B1B0F] dark:text-[#FFF8F0] 
+                          shadow-lg focus:shadow-xl outline-none 
+                          focus:ring-2 focus:ring-primary/50   // ✅ ADD THIS
+                          transition-all 
+                          backdrop-blur-sm placeholder:text-[#2B1B0F]/50 
+                          dark:placeholder:text-[#FFF8F0]/50"
                 aria-label="Search restaurants"
                 aria-describedby="search-description"
               />
